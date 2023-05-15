@@ -1,0 +1,25 @@
+body {
+	margin-top: 60px; /* because of navbar */
+    font-family: "Open Sans";
+}
+
+footer {
+	margin: 50px 0;
+}
+
+span {
+    font-size: 1.3rem;
+}
+
+.about {
+    margin: 1rem 2rem 1rem 2rem;
+    font-size: 1.2em;
+}
+
+.nav_lesser {
+    font-size: 1.3em;
+}
+
+.cv {
+    padding: 1rem 2rem 1rem 2rem;
+}
