@@ -25,6 +25,40 @@ span {
 }
 
 .publication {
-    margin: 1rem 2rem 1rem 2rem;
+    display: flex;
+}
+
+.left-award {
+    margin: 1rem 0.5rem 1rem 0.5rem;
     font-size: 1.2em;
+    width: 2%;
+}
+
+.left {
+    margin: 1rem 1rem 1rem 0.5rem;
+    font-size: 1.2em;
+    width: 95%;
+}
+
+.right {
+    margin: 1rem 2rem 1rem 1rem;
+    width: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.button {
+    background-color: transparent;
+    font-size: 1.2em;
+    box-shadow: none;
+    border: solid black 1px;
+    border-radius: 0.5em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+.button:hover {
+    background-color: lightgray;
+    transition: 0.1s;
 }

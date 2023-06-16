@@ -42,17 +42,91 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Publications</h1>
+                <div style="font-size: 1.2em;">
+                    <div style="padding-bottom: 0.2rem;">
+                        <b>C</b> for conference papers, <b>P</b> for posters, and <b>D</b> for demos.<br>
+                    </div>
+                    <div>
+                        <img alt="Icon depicting a best paper award." src="images/acm_best_paper.jpg"/> for Best Paper and <img alt="Icon depicting a honourable mention award." src="images/acm_honourable_mention.jpg"/> for Honourable Mention.
+                    </div>
+                </div>
             </div>
+            <hr>
         </div>
         <div class="row">
-            <p class="publication">
-                <b>Alexandre Nevsky</b>, Timothy Neate, Elena Simperl, Radu-Daniel Vatavu <a href="https://kclpure.kcl.ac.uk/portal/files/208202830/Accessibility_Research_in_Digital_Audiovisual_Media_What_Has_Been_Achieved_and_What_Should_Be_Done_Next.pdf" target="_blank">Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?</a> <i>In</i> ACM International Conference on Interactive Media Experiences (IMX), 2023.
-            </p>
+            <div class="publication">
+                <div class="left-award">
+                    <img alt="Icon depicting a honourable mention award." src="images/acm_honourable_mention.jpg"/>
+                </div>
+                <div class="left">
+                    <b>Alexandre Nevsky</b>, Timothy Neate, Elena Simperl, Radu-Daniel Vatavu, <a href="https://kclpure.kcl.ac.uk/portal/files/208202830/Accessibility_Research_in_Digital_Audiovisual_Media_What_Has_Been_Achieved_and_What_Should_Be_Done_Next.pdf" target="_blank">Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?</a> <i>In</i> ACM International Conference on Interactive Media Experiences (IMX), 2023. 
+                </div>
+                <div class="right">
+                    <h2>C2</h2>
+                    <button class="button" onclick="copy_citation(0)">
+                        Cite
+                    </button>
+                </div>
+            </div>
+            <hr>
+            <div class="publication">
+                <p class="left-award"></p>
+                <div class="left">
+                    <b>Alexandre Nevsky</b>, <a href="" target="_blank">Object-Based Access: Enhancing Accessibility with Data-Driven Media</a> <i>In</i> ACM International Conference on Interactive Media Experiences (IMX), 2023.
+                </div>
+                <div class="right">
+                    <h2>C1</h2>
+                    <button class="button" onclick="copy_citation(1)">
+                        Cite
+                    </button>
+                </div>
+            </div>
+            <hr>
         </div>
-        <hr>
     </div>
 
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script>
+        function copy_citation(index) {
+            navigator.clipboard.writeText(bibs[index]);
+        }
+    </script>
+    <script>
+        const bibs = [
+`@inproceedings{Nevsky2023,
+    author = {Alexandre Nevsky and Timothy Neate and Radu-Daniel Vatavu and Elena Simperl},
+    title = {Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?},
+    booktitle = {ACM International Conference on Interactive Media Experiences},
+    publisher = {Association for Computing Machinery},
+    year = {2023},
+    url = {https://doi.org/10.1145/3573381.3596159},
+    doi = {10.1145/3573381.3596159},
+    address = {New York, NY, USA},
+    pages = {1--21},
+    numpages = {21},
+    location = {Nantes, France},
+    series = {IMX '23},
+    keywords = {accessibility, systematic literature review, audiovisual, digital media, dataset}
+}`,
+`@inproceedings{Nevsky2023b,
+  author = {Alexandre Nevsky},
+  title = {Object-Based Access: Enhancing Accessibility with Data-Driven Media},
+  booktitle = {ACM International Conference on Interactive Media Experiences},
+  publisher = {Association for Computing Machinery},
+  year = {2023},
+  url = {https://doi.org/10.1145/3573381.3596500},
+  doi = {10.1145/3573381.3596500},
+  address = {New York, NY, USA},
+  pages = {1--5},
+  numpages = {5},
+  location = {Nantes, France},
+  series = {IMX '23},
+  keywords = {accessibility, personalization, audiovisual media, aphasia, object based media}
+}
+`
+        ]
+    </script>
+
     </body>
 </html>
