@@ -63,7 +63,7 @@
                 </div>
                 <div class="right">
                     <h2>C2</h2>
-                    <button class="button" onclick="copy_citation(0)">
+                    <button class="button" onclick="copy_citation(this, 0)">
                         Cite
                     </button>
                 </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="right">
                     <h2>C1</h2>
-                    <button class="button" onclick="copy_citation(1)">
+                    <button class="button" onclick="copy_citation(this, 1)">
                         Cite
                     </button>
                 </div>
@@ -88,8 +88,12 @@
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
     <script>
-        function copy_citation(index) {
+        function copy_citation(e, index) {
             navigator.clipboard.writeText(bibs[index]);
+            e.className = "buttonClicked";
+            setTimeout(() => {
+                e.className = "button"
+            }, 1000);
         }
     </script>
     <script>

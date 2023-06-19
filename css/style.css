@@ -62,3 +62,12 @@ span {
     background-color: lightgray;
     transition: 0.1s;
 }
+
+.buttonClicked {
+    background-color: rgb(175, 230, 173);
+    font-size: 1.2em;
+    box-shadow: none;
+    border: solid black 1px;
+    border-radius: 0.5em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+}
