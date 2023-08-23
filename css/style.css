@@ -1,6 +1,6 @@
 body {
 	margin-top: 60px; /* because of navbar */
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 }
 
 footer {
