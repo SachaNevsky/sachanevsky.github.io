@@ -226,6 +226,7 @@ table {
   a,
   a:visited {
     text-decoration: underline;
+    color: #ff6150;
   }
   a[href]:after {
     content: " (" attr(href) ")";

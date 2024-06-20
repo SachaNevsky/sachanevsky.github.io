@@ -44,24 +44,22 @@ span {
 
 .publication {
     display: flex;
+    flex-direction: row;
 }
 
 .left-award {
     margin: 1rem 0.5rem 1rem 0.5rem;
     font-size: 1.5em;
-    width: 2%;
+    min-width: 33px;
 }
 
 .left {
     margin: 1rem 1rem 1rem 1rem;
     font-size: 1.5em;
-    width: 100%;
 }
 
 .right {
-    /* margin: 1rem 2rem 1rem 1rem; */
     margin-left: 2rem;
-    width: 10%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -117,4 +115,27 @@ a {
 
 a:hover {
     color: #ff4935;
+}
+
+@media (max-width: 480px) {
+    ul {
+        padding: 0.2em 0 0.2em 0;
+    }
+
+    .navbar-nav > li {
+        padding: 0.3em 0 0.3em 0;
+        min-height: 40px;
+    }
+
+    .navbar-nav > li > a {
+        padding: 0.2em 0 0.2em 0;
+    }
+
+    .right {
+        margin-right: 5px;
+    }
+
+    body {
+        font-size: 1.2rem;
+    }
 }
