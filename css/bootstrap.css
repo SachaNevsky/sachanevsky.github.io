@@ -581,6 +581,7 @@ h6,
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
+  font-weight: bolder;
   /* border-bottom: 1px solid #eeeeee; */
 }
 
@@ -3581,7 +3582,7 @@ input[type="button"].btn-block {
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0 dotted;
-  border-bottom: 4px solid #000000;
+  /* border-bottom: 4px solid #000000; */
   content: "";
 }
 
@@ -4318,9 +4319,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar {
   position: relative;
-  min-height: 60px;
+  min-height: 80px;
   margin-bottom: 20px;
-  border: 1px solid transparent;
 }
 
 .navbar:before,
@@ -4477,7 +4477,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-fixed-top {
   top: 0;
-  border-width: 0 0 1px;
 }
 
 .navbar-fixed-bottom {
@@ -4534,7 +4533,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-nav {
-  margin: 7.5px -15px;
+  min-height: 80px;
+  margin-top: auto;
+  /* margin: 7.5px -15px; */
 }
 
 .navbar-nav > li > a {
@@ -4796,8 +4797,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #07274e;
-  border-color: #080808;
+  background-color: #eb484e;
+  /* border-color: #080808; */
 }
 
 .navbar-inverse .navbar-brand {
