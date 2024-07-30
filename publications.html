@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
 
-<body  style="padding-left: calc(100vw - 100%);">
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation"  style="padding-left: calc(100vw - 100%);">
+<body style="padding-left: calc(100vw - 100%);">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" style="padding-left: calc(100vw - 100%);">
         <div class="container">
             <ul class="nav navbar-nav">
                 <li><a class="navbar-brand" href="./index.html">Home</a></li>
@@ -34,7 +34,8 @@
                 <h1 class="page-header">Publications</h1>
                 <div style="font-size: 1.5em;">
                     <div style="padding-bottom: 0.75em;">
-                        <b style="font-size: 1.2em;">C</b> for conference papers, <b style="font-size: 1.2em;">P</b> for posters, and <b style="font-size: 1.2em;">D</b> for demos.<br>
+                        <b style="font-size: 1.2em;">C</b> for conference papers, <b style="font-size: 1.2em;">P</b> for
+                        posters, and <b style="font-size: 1.2em;">D</b> for demos.<br>
                     </div>
                     <div>
                         <img alt="Icon depicting a best paper award." src="images/acm_best_paper.png" /> for Best Paper
@@ -46,6 +47,26 @@
             <hr>
         </div>
         <div class="row">
+            <div class="publication">
+                <div class="left-award"></div>
+                <div class="left">
+                    <b>Alexandre Nevsky</b>, Filip Bircanin, Madeline Cruice, Stephanie Wilson, Elena Simperl, Timothy
+                    Neate <a href="https://doi.org/10.1145/3663548.3675598" target="_blank">"I Wish You Could Make the
+                        Camera Stand Still": Envisioning Media Accessibility Interventions with People with Aphasia</a>
+                    <i>In</i> ACM SIGACCESS Conference on Computers and Accessibility (ASSETS), 2024.
+                    <p style="padding-top: 1em;"><a
+                            href="./files/envisioning_media_accessibility_interventions_with_people_with_aphasia.pdf"
+                            target="_blank"><img alt="PDF Icon" src="images/pdf_icon.png" style="height: 1.5em" />
+                            PDF</a></p>
+                </div>
+                <div class="right">
+                    <h2>C4</h2>
+                    <button class="button" onclick="copy_citation(this, 3)">
+                        Cite
+                    </button>
+                </div>
+            </div>
+            <hr>
             <div class="publication">
                 <div class="left-award"></div>
                 <div class="left">
@@ -79,7 +100,7 @@
                 </div>
                 <div class="right">
                     <h2>C2</h2>
-                    <button class="button" onclick="copy_citation(this, 0)">
+                    <button class="button" onclick="copy_citation(this, 1)">
                         Cite
                     </button>
                 </div>
@@ -96,7 +117,7 @@
                 </div>
                 <div class="right">
                     <h2>C1</h2>
-                    <button class="button" onclick="copy_citation(this, 1)">
+                    <button class="button" onclick="copy_citation(this, 0)">
                         Cite
                     </button>
                 </div>
@@ -109,31 +130,8 @@
     <script src="js/bootstrap.js"></script>
     <script>
         function copy_citation(e, index) {
-            navigator.clipboard.writeText(bibs[index]);
-            e.className = "buttonClicked";
-            setTimeout(() => {
-                e.className = "button"
-            }, 1000);
-        }
-    </script>
-    <script>
-        const bibs = [
-            `@inproceedings{Nevsky2023,
-    author = {Alexandre Nevsky and Timothy Neate and Radu-Daniel Vatavu and Elena Simperl},
-    title = {Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?},
-    booktitle = {ACM International Conference on Interactive Media Experiences},
-    publisher = {Association for Computing Machinery},
-    year = {2023},
-    url = {https://doi.org/10.1145/3573381.3596159},
-    doi = {10.1145/3573381.3596159},
-    address = {New York, NY, USA},
-    pages = {1--21},
-    numpages = {21},
-    location = {Nantes, France},
-    series = {IMX '23},
-    keywords = {accessibility, systematic literature review, audiovisual, digital media, dataset}
-}`,
-            `@inproceedings{Nevsky2023b,
+            const bibs = [
+                `@inproceedings{Nevsky2023b,
     author = {Alexandre Nevsky},
     title = {Object-Based Access: Enhancing Accessibility with Data-Driven Media},
     booktitle = {ACM International Conference on Interactive Media Experiences},
@@ -148,7 +146,23 @@
     series = {IMX '23},
     keywords = {accessibility, personalization, audiovisual media, aphasia, object based media}
 }`,
-            `@inproceedings{Nevsky2024,
+                `@inproceedings{Nevsky2023,
+    author = {Alexandre Nevsky and Timothy Neate and Radu-Daniel Vatavu and Elena Simperl},
+    title = {Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?},
+    booktitle = {ACM International Conference on Interactive Media Experiences},
+    publisher = {Association for Computing Machinery},
+    year = {2023},
+    url = {https://doi.org/10.1145/3573381.3596159},
+    doi = {10.1145/3573381.3596159},
+    address = {New York, NY, USA},
+    pages = {1--21},
+    numpages = {21},
+    location = {Nantes, France},
+    series = {IMX '23},
+    keywords = {accessibility, systematic literature review, audiovisual, digital media, dataset}
+}`,
+
+                `@inproceedings{Nevsky2024,
     author = {Alexandre Nevsky and Timothy Neate and Elena Simperl and Madeline Cruice},
     title = {Lights, Camera, Access: A Closeup on Audiovisual Media Accessibility and Aphasia},
     booktitle = {Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems},
@@ -162,9 +176,30 @@
     location = {Honolulu, HI, USA},
     series = {CHI '24},
     keywords = {Accessibility, audiovisual, media, aphasia, challenges, barriers}
-}
-`
-        ]
+}`,
+                `@inproceedings{Nevsky2024b,
+    author = {Alexandre Nevsky and Filip Bircanin and Madeline Cruice and Stephanie Wilson and Elena Simperl and Timothy Neate},
+    title = {\`\`I Wish You Could Make the Camera Stand Still\`\`: Envisioning Media Accessibility Interventions with People with Aphasia},
+    booktitle = {ACM SIGACCESS Conference on Computers and Accessibility},
+    publisher = {Association for Computing Machinery},
+    year = {2024},
+    url = {https://doi.org/10.1145/3663548.3675598},
+    doi = {10.1145/3663548.3675598},
+    address = {New York, NY, USA},
+    pages = {1--17},
+    numpages = {17},
+    location = {St. John's, NL, Canada},
+    series = {ASSETS '24},
+    keywords = {Accessibility, audiovisual, media, aphasia, complex communication needs, envisioning, probes, prototype}
+}`,
+            ]
+            console.log(bibs)
+            navigator.clipboard.writeText(bibs[index]);
+            e.className = "buttonClicked";
+            setTimeout(() => {
+                e.className = "button"
+            }, 1000);
+        }
     </script>
 
 </body>
