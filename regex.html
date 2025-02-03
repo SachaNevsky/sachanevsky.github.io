@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is my person website">
+    <meta name="author" content="Alexandre Nevsky">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <title>Alexandre Nevsky</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container vertical-center">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="./index.html">Home</a></li>
+                <li><a class="nav_lesser" href="./publications.html">Publications</a></li>
+                <li><a class="nav_lesser" href="./cv.html">CV</a></li>
+                <li><a class="nav_lesser" href="./other.html">Other</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin: auto;">
+        <div class="row" style="text-align: center;">
+            <h1>PoE 2 map regex</h1>
+        </div>
+        <div class="regex_row">
+            <div class="regex_col">
+                <h3>General filter:</h3>
+                <div>
+                    <p class="regex" id="general">"([3-9].|1..)%.*rar..(?!ch)|quan|([3-9].)%.*ed.pa"</p>
+                    <button onClick="copy('general')">Copy</button>
+                </div>
+            </div>
+            <div class="regex_col">
+                <h3>High rarity and quantity:</h3>
+                <div>
+                    <p class="regex" id="rarity_quant">"([6-9].|1..)%.*ity..(?!ch)" "(1[5-9]|2.)%.*qu"</p>
+                    <button onClick="copy('rarity_quant')">Copy</button>
+                </div>
+            </div>
+        </div>
+        <div class="regex_row">
+            <div class="regex_col">
+                <h3>High waystone (400%+):</h3>
+                <div>
+                    <p class="regex" id="waystone">"ance.*([4-9]..)%"</p>
+                    <button onClick="copy('waystone')">Copy</button>
+                </div>
+            </div>
+            <div class="regex_col">
+                <h3>Rare mobs and quant:</h3>
+                <div>
+                    <p class="regex" id="rare_mobs_quant">"([3-9].)%.*are.m" "(1[5-9]|2.)%.*quan"</p>
+                    <button onClick="copy('rare_mobs_quant')">Copy</button>
+                </div>
+            </div>
+        </div>
+        <div class="regex_row">
+            <div class="regex_col">
+                <h3>Rarity and rare mobs:</h3>
+                <div>
+                    <p class="regex" id="rarity_rare_mobs">"([6-9].|1..)%.*rar..(?!ch)" "([4-9].)%.*are.m"</p>
+                    <button onClick="copy('rarity_rare_mobs')">Copy</button>
+                </div>
+            </div>
+            <div class="regex_col">
+                <h3>Rarity or rare mobs:</h3>
+                <div>
+                    <p class="regex" id="rare_mobs_or_rarity">"nc.*rar..(?!ch)" "e.1"</p>
+                    <button onClick="copy('rare_mobs_or_rarity')">Copy</button>
+                </div>
+            </div>
+        </div>
+        <div class="regex_row">
+            <div class="regex_col">
+                <h3>High pack size:</h3>
+                <div>
+                    <p class="regex" id="pack_size">"([4-9].)%.*ed.pa"</p>
+                    <button onClick="copy('pack_size')">Copy</button>
+                </div>
+            </div>
+            <div class="regex_col">
+                <h3>Rarity or rare mobs and pack size:</h3>
+                <div>
+                    <p class="regex" id="rarity_rare_mobs_pack_size">"nc.*rar..(?!ch)" "mon.*packs"</p>
+                    <button onClick="copy('rarity_rare_mobs_pack_size')">Copy</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        function copy(elementId) {
+            let text = document.getElementById(elementId).innerHTML;
+            navigator.clipboard.writeText(text);
+        }
+    </script>
+    <style>
+        .regex_row {
+            display: flex;
+            padding-bottom: 2%;
+        }
+
+        .regex_col {
+            flex: 50%;
+            text-align: center;
+        }
+
+        .regex {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: medium;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: lightgray;
+            padding: 2%;
+            border: 1px solid grey;
+            width: 90%;
+        }
+    </style>
+</body>
+
+</html>
