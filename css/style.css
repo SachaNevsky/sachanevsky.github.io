@@ -1,8 +1,14 @@
+:root {
+    --bg-sepia: rgb(245, 235, 215);
+    --alt-sepia: #eedecb;
+    --font-sepia: rgb(60, 45, 35);
+}
+
 body {
     margin-top: 80px;
     /* because of navbar */
     font-family: "Open Sans", sans-serif;
-    background-color: #f4f1d1;
+    background-color: var(--bg-sepia);
 }
 
 hr {
@@ -30,7 +36,7 @@ span {
 }
 
 .navbar-brand:hover {
-    color: #f4f1d1 !important
+    color: var(--bg-sepia) !important
 }
 
 .nav_lesser {
@@ -39,7 +45,7 @@ span {
 }
 
 .nav_lesser:hover {
-    color: #f4f1d1 !important
+    color: var(--bg-sepia) !important
 }
 
 .publication {
@@ -66,7 +72,7 @@ span {
     align-items: center;
 }
 
-.right > h2 {
+.right>h2 {
     margin-top: 10px;
 }
 
@@ -79,12 +85,12 @@ span {
     border-radius: 0.2em;
     padding: 0.2em 0.5em 0.2em 0.5em;
     background-color: #ff6150;
-    color: #f4f1d1;
+    color: var(--bg-sepia);
     font-weight: 600;
 }
 
 .button:hover {
-    background-color: #f4f1d1;
+    background-color: var(--bg-sepia);
     color: #ff6150;
     transition: 0.1s;
 }
@@ -104,7 +110,7 @@ span {
     min-height: 80px;
 }
 
-.navbar-nav > li {
+.navbar-nav>li {
     padding-top: 15px;
     padding-right: 10px;
 }
@@ -122,12 +128,12 @@ a:hover {
         padding: 0.2em 0 0.2em 0;
     }
 
-    .navbar-nav > li {
+    .navbar-nav>li {
         padding: 0.3em 0 0.3em 0;
         min-height: 40px;
     }
 
-    .navbar-nav > li > a {
+    .navbar-nav>li>a {
         padding: 0.2em 0 0.2em 0;
     }
 
