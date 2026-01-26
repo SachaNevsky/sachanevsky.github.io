@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All repos</title>
+</head>
+
+<body>
+    <h1>All repos</h1>
+    <ul id="repos"></ul>
+
+    <script>
+        const USERNAME = 'sachanevsky';
+
+        fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100`)
+            .then(response => response.json())
+            .then(repos => {
+                const pagesRepos = repos.filter(repo => repo.has_pages);
+                const reposEl = document.getElementById('repos');
+
+                pagesRepos.forEach(repo => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+
+                    const url = repo.name === `${USERNAME}.github.io`
+                        ? `https://${USERNAME}.github.io/`
+                        : `https://${USERNAME}.github.io/${repo.name}/`;
+
+                    a.href = url;
+                    a.textContent = repo.name;
+
+                    li.appendChild(a);
+                    reposEl.appendChild(li);
+                });
+            });
+    </script>
+</body>
+
+</html>
