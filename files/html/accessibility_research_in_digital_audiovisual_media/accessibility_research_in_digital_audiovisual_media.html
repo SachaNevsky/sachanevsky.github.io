@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<title>Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?</title>
+	<link rel="stylesheet" href="../papers.css">
+</head>
+
+<body>
+	<a class="skip-link" href="#content">Skip to main content</a>
+	<main id="content">
+		<article>
+			<header>
+				<h1>Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?</h1>
+				<section aria-label="Authors">
+					<h2>Authors</h2>
+					<ul>
+						<li>Alexandre Nevsky, King&rsquo;s College London, London, UK. <a href="mailto:alexandre.nevsky@kcl.ac.uk">alexandre.nevsky@kcl.ac.uk</a></li>
+						<li>Timothy Neate, King&rsquo;s College London, London, UK. <a href="mailto:timothy.neate@kcl.ac.uk">timothy.neate@kcl.ac.uk</a></li>
+						<li>Radu-Daniel Vatavu, MintViz Lab, MANSiD Center, &#350;tefan cel Mare University of Suceava, Suceava, Romania. <a href="mailto:radu.vatavu@usm.ro">radu.vatavu@usm.ro</a></li>
+						<li>Elena Simperl, King&rsquo;s College London, London, UK. <a href="mailto:elena.simperl@kcl.ac.uk">elena.simperl@kcl.ac.uk</a></li>
+					</ul>
+				</section>
+				<p>ACM International Conference on Interactive Media Experiences (IMX &rsquo;23), June 12&ndash;15, 2023, Nantes, France</p>
+				<p>DOI: <a href="https://doi.org/10.1145/3573381.3596159">https://doi.org/10.1145/3573381.3596159</a></p>
+			</header>
+			<section>
+				<h2>Abstract</h2>
+				<p>The consumption of digital audiovisual media is a mainstay of many people&rsquo;s lives. However, people with accessibility needs often have issues accessing this content. With a view to addressing this inequality, there exists a wide range of interventions that researchers have explored to bridge this accessibility gap. Despite this work, our understanding of the capability of these interventions is poor. In this paper, we address this through a systematic review of the literature, creating a dataset of and analysing <em>N</em>=181 scientific papers. We have found that certain areas have accrued a disproportionate amount of attention from the research community &ndash; for example, blind and visually impaired and d/Deaf and hard of hearing people account for 93.9% of papers (<em>N</em>=170). We describe challenges researchers have addressed, end-user communities of focus, and interventions examined. We conclude by evaluating gaps in the literature and areas that could use more focus on in the future.</p>
+			</section>
+			<section>
+				<h2>CCS Concepts</h2>
+				<p>Human-centered computing: Accessibility technologies</p>
+			</section>
+			<section>
+				<h2>Keywords</h2>
+				<ul>
+					<li>Accessibility</li>
+					<li>systematic literature review</li>
+					<li>audiovisual</li>
+					<li>digital media</li>
+					<li>dataset</li>
+				</ul>
+			</section>
+			<section class="numbered">
+				<h2>Introduction</h2>
+				<p>Audiovisual media pervades everyday life &ndash; we encounter TV broadcasts, films, and streaming content as part of our daily lived experience. The consumption of audiovisual media is a vehicle through which we engage socially, e.g. through shared viewing experience; civically, e.g. through access to news and current affairs; and culturally, e.g. through film and television series which embody human values and traditions. Access to media is, then, integral to participation in modern society, &ldquo;<em>vital to informed political knowledge</em>&rdquo; [<a href="#ref-Priestley2016">152</a>] and critical to maintaining contact with the world beyond our surroundings.</p>
+				<p>Despite its importance, audiovisual media and its enabling technologies are not always accessible. Audiovisual media itself is intrinsically complex &ndash; not only do audio and visual information present access challenges, but the inherent complexity of their combination can introduce further cognitive [<a href="#ref-Sitbon2019">189</a>] and language [<a href="#ref-Cartwright2009">31</a>] barriers. Further, while most media is currently consumed with conventional technologies, such as television [<a href="#ref-Hanzlicek2008">77</a>] and smartphones [<a href="#ref-Walczak2017">213</a>], advances have and will introduce novel ways of enjoying audiovisual media &ndash; e.g. virtual, augmented and mixed reality (VR/AR/MR) [<a href="#ref-McGill2016">115</a>, <a href="#ref-Mott2020">124</a>, <a href="#ref-Pamparu2022">144</a>]. While these technologies might afford new possibilities in terms of access, they also risk excluding users if their design is not considered with access at their core. Given the shift we currently see in the field of how audiovisual media is created and consumed, we are faced with an important moment to reflect on the accessibility work the community has done to understand how to address future challenges.</p>
+				<p>According to a review published by [<a href="#ref-Vatavu2021">200</a>] on media accessibility research at IMX/TVX found that only 4.2% of papers addressed users with disabilities. Although recent interventions for hard of hearing (DHH) people [<a href="#ref-Vinayagamoorthy2019">207</a>], blind and visually impaired (BVI) [<a href="#ref-Wang2021">220</a>], and users with intellectual and developmental disabilities (IDD) [<a href="#ref-Sitbon2019">189</a>], highlight an important avenue of research, we still see an under-representation. In this paper, we aim to extend this work and understand the current state of accessibility research in our field and set a direction for its future. To this end we have conducted a systematic literature review (SLR) focusing on accessibility interventions for digital audiovisual media, finding 181 papers spanning a 27-year period (1996&ndash;2022). Modelled on prior SLR of accessibility research [<a href="#ref-Curtis2022">45</a>, <a href="#ref-Mack2021">108</a>], we manually coded these papers focusing on the <em>accessibility challenges</em> faced by disabled communities (type of content, viewing device, viewing context, type of challenge), what <em>disabled communities</em> are included (community of focus, participant groups, use or proxies and ability-based comparison), and what <em>accessibility interventions</em> were explored (user study method and location, participatory design, contribution type, and type of intervention). By focusing on these categories, we answer the following research questions:</p>
+				<ol>
+					<li>What are the main accessibility challenges faced by people with disabilities when accessing digital audiovisual media?</li>
+					<li>Who does accessibility research in audiovisual media focus on?</li>
+					<li>What interventions are used to help support different accessibility needs?</li>
+				</ol>
+				<p>This paper has three main contributions: (1) a dataset of 181 coded papers on accessibility interventions for digital audiovisual media in line with the PRISMA 2021 guidelines [<a href="#ref-Rethlefsen2021">161</a>]; (2) an overview of research trends, analysis of areas that are over- and under-represented in the scientific literature, and identification of how this research is conducted and with what communities; (3) recommendations for future research, including areas which could use more attention and methodological aspects.</p>
+			</section>
+			<section class="numbered">
+				<h2 id="sec-method">Method</h2>
+				<p>We systematically reviewed scientific literature using the PRISMA method [<a href="#ref-Rethlefsen2021">161</a>], following additional guidelines from [<a href="#ref-Silva2016">187</a>] and [<a href="#ref-Siddaway2019">186</a>]. We first consider the scope of the SLR by defining requirements for the papers, secondly we discuss the steps involved for the creation of the dataset, and thirdly we describe the qualitative and quantitative analysis we conducted.</p>
+				<h3>Scope</h3>
+				<p>Access to novel interactive media experiences cannot be left as an afterthought. To this end, it is vital that we understand and embody inclusive design practices to accommodate for diverse accessibility needs. Prior work surfaces access challenges across the technology spectrum &ndash; from the interaction challenges for TV [<a href="#ref-Biswas2011">20</a>], to VR [<a href="#ref-Mott2020">124</a>], affecting people with visual [<a href="#ref-Walczak2017">213</a>], hearing [<a href="#ref-CostaMontenegro2015">41</a>], cognitive [<a href="#ref-Villena2014b">205</a>], and motor impairments [<a href="#ref-KearneyVolpe2019">88</a>]. While much research has been published about individual accessibility interventions, there has so far been no broad survey of the literature that gives a general understanding of what this field has explored, and the gaps that currently exist in our knowledge of accessibility challenges and interventions. Within the broader scope of accessibility in Human-Computer Interaction (HCI), [<a href="#ref-Mack2021">108</a>] have conducted a systematic review at <em>ACM CHI</em> and <em>ACM ASSETS</em>, finding that the presence of accessibility research at CHI has increased steadily, accounting for around 8% of all papers published in 2019, as well as noting a clear deficit in certain areas. There have also been more targeted reviews that examined specific communities, such as [<a href="#ref-Brul2020">25</a>] exploring scientific papers published on technologies designed for people with visual impairments, or [<a href="#ref-Bhowmick2017">19</a>] exploring patterns, themes, and active research communities addressing assistive technologies for people with visual impairments. Additionally, there have been overviews of specific accessibility interventions, such as collaborative technologies for children with special needs [<a href="#ref-Baykal2020">16</a>], or reviews of specific interactions with media technologies, such as eye tracking research among the DHH community [<a href="#ref-Agrawal2021">2</a>]. The focus of our work, however, aims at examining literature on accessibility interventions, which includes a wide range of communities and technologies. This differs with previous reviews, as the scope is focused on a subset of accessibility technologies, going into greater depth on this particularly timely and relevant topic. Therefore, to better focus this SLR and answer our research questions, we have limited our scope specifically to interventions which improve the accessibility of audiovisual media, and we have defined three requirements for our SLR:</p>
+				<ol>
+					<li><strong>Digital audiovisual media</strong> &ndash; we have limited our scope to digital audiovisual media. This requirement excludes any paper that explores issues in non-digital media, such as live performances (e.g. [<a href="#ref-Udo2010">198</a>]), and media that does not have both audio and visual components, such as radio broadcasts (e.g. [<a href="#ref-Wijnants2021">225</a>]).</li>
+					<li><strong>Accessibility interventions</strong> &ndash; the eligible paper must address an intervention or interventions that aid in making the piece of media more accessible. These include such interventions as subtitles (e.g. [<a href="#ref-Gorman2021">69</a>]), audio description (AD) (e.g. [<a href="#ref-Kobayashi2010b">91</a>]), second screen aids (e.g [<a href="#ref-Vinayagamoorthy2019">207</a>]), audio and/or video manipulation (e.g. [<a href="#ref-Costela2021a">42</a>, <a href="#ref-Shirley2015">184</a>]), or customization (e.g. [<a href="#ref-Kafle2021">85</a>]).</li>
+					<li><strong>Media content accessibility</strong> &ndash; the eligible paper must address the accessibility of a piece of content, not the platform on which the content is consumed (e.g. [<a href="#ref-Springett2017">191</a>]) or any interactions with said platform (e.g. [<a href="#ref-Pachacama2020">143</a>]).</li>
+				</ol>
+				<h3>Dataset Creation</h3>
+				<figure id="fig-1">
+					<img src="./figures/dataset_creation.png" alt="This figure shows a visual summary of the dataset creation process. It presents the steps taken, which are described in more detail below in the paper, from identification, to screening and eligibility, then snowballing, and the final included papers.">
+					<figcaption><strong>Figure 1:</strong> Flowchart summarizing the creation of our dataset.</figcaption>
+				</figure>
+				<p>We used the guidelines outlined by [<a href="#ref-Siddaway2019">186</a>] to generate our dataset of scientific papers on the topic of digital audiovisual media accessibility, which includes <em>identification</em> of papers, <em>screening</em> for potential inclusion, and determining <em>eligibility</em> for inclusion. Additionally, we conducted reference <em>snowballing</em> following guidelines by [<a href="#ref-Wohlin2014">227</a>]. Figure <a href="#fig-1">1</a> summarises the process.</p>
+				<h4>Identification</h4>
+				<p>With the goal to find literature in HCI and digital audiovisual media accessibility, we chose to conduct our search using three major electronic databases for Computer Science and HCI research: the ACM Digital Library, SCOPUS, and IEEE Xplore. These databases offer a wide range of publication venues, including CHI and ASSETS, which are the two most popular venues for accessible computing [<a href="#ref-Mack2021">108</a>]. Through an iterative approach, we chose to use generic truncated keywords, such as &ldquo;<em>access*</em>&rdquo; and &ldquo;<em>impair*</em>&rdquo;, as opposed to specific terms, such as &ldquo;<em>deaf</em>&rdquo;, as to not bias the search with our own terming. To focus the search towards audiovisual media, we also included other relevant keywords, such as &ldquo;<em>video</em>&rdquo;, &ldquo;<em>television</em>&rdquo;, and &ldquo;<em>audiovisual</em>&rdquo;. Initial searches using these keywords returned papers on areas we were not relevant, such as video games, so we excluded them in our search. While much work is being done with video game accessibility, we believe that video games belong to a different class of entertainment applications than the conventional audiovisual media we focused on in terms of consumption, user engagement, and interactivity of the content. We focused our search on the title, abstract and keywords of the papers, as testing with full-text search resulted in a large search space, including many false positives. The final search query, below, for the ACM DL returned 3,046 papers.</p>
+				<p><p><p><code>Title:((video OR tv OR television OR broadcast* OR audiovisual OR "audio visual" OR "audio-visual") AND (access* OR disab* OR impair*) AND NOT (game OR games OR videogame OR videogames OR "video game" OR "video games")) OR Abstract:((video OR tv OR television OR broadcast* OR audiovisual OR "audio visual" OR "audiovisual") AND (access* OR disab* OR impair*) AND NOT (game OR games OR videogame OR videogames OR "video game" OR "video games")) OR Keyword:((video OR tv OR television OR broadcast* OR audiovisual OR "audio visual" OR "audiovisual") AND (access* OR disab* OR impair*) AND NOT (game OR games OR videogame OR videogames OR "video game" OR "video games"))</code></p></p></p>
+				<p>Running the same query on SCOPUS and IEEE Xplore resulted in significantly more results, with over 75,000 for SCOPUS and over 17,000 for IEEE Xplore. This high number of results is likely due to using common keywords (e.g., &ldquo;<em>video</em>&rdquo;) and truncated keywords (e.g., &ldquo;<em>access*</em>&rdquo;). To deal with this large number of results, we limited the venues searched by having an author go through every venue in the database filter with over 25 papers and manually checked the 25 most relevant papers using the built in relevancy sort. A venue was excluded if less than 10% (&le; 3) of the 25 papers were deemed relevant. This resulted in the following final search query for SCOPUS, which returned 1,114 papers:</p>
+				<p><p><p><code>TITLE-ABS-KEY((video OR tv OR television OR broadcast* OR audiovisual OR "audio visual" OR "audio-visual") AND (access* OR disab* OR impair*) AND NOT (game OR games OR videogame OR videogames OR "video game" OR "video games")) AND (LIMIT-TO(EXACTSRCTITLE, "ACM International Conference Proceeding Series") OR LIMIT-TO(EXACTSRCTITLE, "Communications In Computer And Information Science") OR LIMIT-TO(EXACTSRCTITLE, "Conference On Human Factors In Computing Systems Proceedings") OR LIMIT-TO(EXACTSRCTITLE, "Procedia Computer Science") OR LIMIT-TO (EXACTSRCTITLE, "Conference on Computers and Accessibility") OR LIMIT-TO(EXACTSRCTITLE, "Interactive Experiences for TV and Online Video") OR LIMIT-TO (EXACTSRCTITLE, "Interactive Media Experiences") OR LIMIT-TO(EXACTSRCTITLE, "European Conference on Interactive TV and Video") OR LIMIT-TO(EXACTSRCTITLE, "IEEE Transactions On Multimedia") OR LIMIT-TO(EXACTSRCTITLE, "Conference On Computer-Supported Cooperative Work And Social Computing"))</code></p></p></p>
+				<p>Running a similar venue exclusion step on the IEEE Xplore database returned no relevant venues. This is likely due to accessibility research being primarily published elsewhere outside of IEEE venues, such as <em>ACM CHI</em> and <em>ACM ASSETS</em> being two of the largest venues [<a href="#ref-Mack2021">108</a>]. Therefore, we chose not use IEEE Xplore for the dataset creation. The two queries were ran on 02/09/2022 and returned a total of 4,160 papers ranging from 1925&ndash;2022.</p>
+				<h4 id="sec-screening-and-eligibility">Screening and Eligibility</h4>
+				<p>To remove all papers that were not within our scope, we followed the PRISMA 2021 guidelines [<a href="#ref-Rethlefsen2021">161</a>] and created four eligibility criteria (EC1&ndash;EC4):</p>
+				<ol>
+					<li><strong>Availability of text</strong> &ndash; the full text of the paper must be available in English.</li>
+					<li><strong>Peer reviewed research</strong> &ndash; the paper must be a piece of peer reviewed research, which includes conference papers, journal articles, posters, etc.</li>
+					<li><strong>Digital audiovisual media</strong> &ndash; the paper must focus on digital audiovisual media.</li>
+					<li><strong>Accessibility intervention</strong> &ndash; the paper has to explore an intervention to increase the accessibility of the content.</li>
+				</ol>
+				<p>We continued with a screening step, starting by removing 554 (13.3%, 554/4610) duplicate papers. We then considered the remaining papers and excluded papers based on the eligibility criteria EC1&ndash;EC4 (see Table <a href="#tab-1">1</a>). We initially checked titles and abstracts to quickly remove any irrelevant papers, erring on the side of caution when unsure to not remove a relevant paper. Following this, the full text of the papers was read to determine eligibility. A spreadsheet was created in which each paper was labelled as relevant or irrelevant, with irrelevant papers also including the EC that excluded it. For example, the high number of papers excluded by EC4 were due to not being about accessibility in general, with a high number of more technical topics including video processing [<a href="#ref-Parthasarathy1999">157</a>] or video transcoding [<a href="#ref-Li2016">104</a>]. There were also papers that explored some aspect of accessibility and audiovisual media, but did not investigate the use of interventions to make the content more accessible, instead using the content in a medical context [<a href="#ref-Brandt2002">22</a>] or exploring some aspect of disability [<a href="#ref-Roger2019">165</a>]. While many of these papers could have been excluded by EC3 or EC4, the high number of technical papers that had nothing to do with accessibility made it easier to initially filter and exclude by EC4. After completing the screening and eligibility check, <em>N</em>=87 papers were deemed relevant.</p>
+				<h4>Snowballing</h4>
+				<p>Following the screening and eligibility review, we conducted a snowballing step as outlined by [<a href="#ref-Wohlin2014">227</a>], which identified a total of <em>N</em>=94 new papers. We performed four iterations of forward and backward snowballing until no new candidate papers were identified. Each iteration followed the same screening and eligibility verification as mentioned in Subsection <a href="#sec-screening-and-eligibility">2.2.2</a>, with backwards snowballing initially relying on paper title, authors, and publication venues. We used Google Scholar for the forward snowballing. In cases where the information present on Google Scholar was insufficient for making a decision, the full text of the citing paper was studied. A total of 54 papers were identified through forward snowballing and 40 papers were identified through backwards snowballing. This puts the final total number of papers in our dataset to 181, with 87 (48.1%, 87/181) identified through the identification and screening steps, and 94 (51.9%, 94/181) through snowballing, which is in line with the expected proportion of papers obtained through snowballing [<a href="#ref-Greenhalgh2005">71</a>].</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-1-caption" tabindex="0">
+					<table id="tab-1">
+						<caption id="tab-1-caption"><strong>Table 1:</strong> The number of candidate papers excluded because of duplicates and by the Eligibility Criteria, as well as the number of resulting relevant papers.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Eligibility Criteria</th>
+								<th scope="col">Number of papers</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Duplicate papers</td>
+								<td>554 (13.3%)</td>
+							</tr>
+							<tr>
+								<td>EC1 - <em>Availability of text</em></td>
+								<td>14 (0.3%)</td>
+							</tr>
+							<tr>
+								<td>EC2 - <em>Peer reviewed research</em></td>
+								<td>148 (3.6%)</td>
+							</tr>
+							<tr>
+								<td>EC3 - <em>Digital audiovisual media</em></td>
+								<td>371 (8.9%)</td>
+							</tr>
+							<tr>
+								<td>EC4 - <em>Accessibility intervention</em></td>
+								<td>2,986 (71.8%)</td>
+							</tr>
+							<tr>
+								<td>Total relevant papers</td>
+								<td>87 (2.1%)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table-wrap" role="region" aria-labelledby="tab-2-caption" tabindex="0">
+					<table id="tab-2">
+						<caption id="tab-2-caption"><strong>Table 2:</strong> The final codebook and the calculated pairwise agreement, Fleiss&rsquo; Kappa IRR, and IRR interpretation level for each category. The IRR for each category sub-code was calculated and averaged.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Category</th>
+								<th scope="col">Codes</th>
+								<th scope="col">Multiple codes</th>
+								<th scope="col">Pairwise agreement</th>
+								<th scope="col">IRR</th>
+								<th scope="col">Level</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Type of content</td>
+								<td>TV broadcast; on-demand video; web video; live video; other</td>
+								<td>Yes</td>
+								<td>72.2%</td>
+								<td>0.477</td>
+								<td>Moderate</td>
+							</tr>
+							<tr>
+								<td>Viewing device</td>
+								<td>Television; desktop; smartphone; tablet; big screen; other</td>
+								<td>Yes</td>
+								<td>88.9%</td>
+								<td>0.911</td>
+								<td>Almost perfect</td>
+							</tr>
+							<tr>
+								<td>Viewing context</td>
+								<td>General viewing; education; commercial; other</td>
+								<td>Yes</td>
+								<td>94.4%</td>
+								<td>0.660</td>
+								<td>Substantial</td>
+							</tr>
+							<tr>
+								<td>Type of challenge</td>
+								<td>Viewing video; hearing audio; reading subtitles; understanding speech; following narrative; image clarity; on-screen clutter; other</td>
+								<td>Yes</td>
+								<td>72.2%</td>
+								<td>0.493</td>
+								<td>Moderate</td>
+							</tr>
+							<tr>
+								<td>Community of focus</td>
+								<td>BVI; DHH; motor/physical impairment; autism; IDD; other cognitive impairment; older adults; general disability; other</td>
+								<td>Yes</td>
+								<td>83.3%</td>
+								<td>0.851</td>
+								<td>Almost perfect</td>
+							</tr>
+							<tr>
+								<td>Participant groups</td>
+								<td>No user study; people with disabilities; people without disabilities; older adults; specialists; caregivers</td>
+								<td>Yes</td>
+								<td>88.9%</td>
+								<td>0.781</td>
+								<td>Substantial</td>
+							</tr>
+							<tr>
+								<td>Use of proxies</td>
+								<td>Yes; no</td>
+								<td>No</td>
+								<td>94.4%</td>
+								<td>0.444</td>
+								<td>Moderate</td>
+							</tr>
+							<tr>
+								<td>Ability based comparison</td>
+								<td>Yes; no</td>
+								<td>No</td>
+								<td>94.4%</td>
+								<td>0.444</td>
+								<td>Moderate</td>
+							</tr>
+							<tr>
+								<td>User study method</td>
+								<td>Controlled experiment; survey; usability testing; interviews; case study; focus group; field study; workshop/design; other; none</td>
+								<td>Yes</td>
+								<td>66.7%</td>
+								<td>0.774</td>
+								<td>Substantial</td>
+							</tr>
+							<tr>
+								<td>User study location</td>
+								<td>No user study; near/at researcher&rsquo;s lab; participant&rsquo;s home, residence, or school; neutral location; online/remote; other</td>
+								<td>Yes</td>
+								<td>72.2%</td>
+								<td>0.775</td>
+								<td>Substantial</td>
+							</tr>
+							<tr>
+								<td>Participatory design</td>
+								<td>Yes; no</td>
+								<td>No</td>
+								<td>88.9%</td>
+								<td>0.654</td>
+								<td>Substantial</td>
+							</tr>
+							<tr>
+								<td>Contribution type</td>
+								<td>Empirical; artifact; methodological; theoretical; dataset; survey; opinion</td>
+								<td>Yes</td>
+								<td>77.8%</td>
+								<td>0.910</td>
+								<td>Almost perfect</td>
+							</tr>
+							<tr>
+								<td>Type of intervention</td>
+								<td>Subtitles; audio description; tangible device; sign language; audio or video manipulation; content personalization; customization; in-person assistance; second screen; other</td>
+								<td>Yes</td>
+								<td>77.8%</td>
+								<td>0.837</td>
+								<td>Almost perfect</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h3>Analysis</h3>
+				<p>We qualitatively coded the <em>N</em>=181 papers in our dataset and analysed paper and participant counts over the 27-year period. We also extracted and examined keywords frequencies for all papers in out dataset. The qualitative coding was performed by two authors, and a Fleiss&rsquo; Kappa inter-rater reliability (IRR) [<a href="#ref-Fleiss1973">56</a>] calculation was performed. The results of the qualitative coding were compared to results reported by [<a href="#ref-Mack2021">108</a>] on the state of the broader HCI accessibility field. We chose to compare to this paper because of its broad scope of HCI accessibility research (<em>N</em>=506 analyzed papers), as well as the robust method used to construct and code the dataset. Other reviews we could compare against tend to have more narrow scopes, such as focusing on specific communities [<a href="#ref-Brul2020">25</a>], technologies [<a href="#ref-Baykal2020">16</a>], or smaller venues [<a href="#ref-Vatavu2021">200</a>].</p>
+				<h4>Qualitative Analysis</h4>
+				<p>To analyse the dataset, we first created a codebook, which was done by three researchers. The three researchers discussed the codes over a period of time, with a sample of 10 papers being coded at each iteration to better understand how that codebook would work. It is important to note that the creation of this codebook, along with the screening of papers and any analysis we have conducted, is subject to the inherent biases of the researchers, all of whom identify as white, cisgender male and female of European background. None of the researchers involved with the development and analysis of the dataset identify as disabled, with two researchers having prior experience doing accessibility research. The codebook was generated using an iterative approach, with codes chosen to answer our research questions. The final codebook can be seen in Table <a href="#tab-2">2</a>, including 13 categories each with 2-11 sub-codes each. For most of the categories, except for the exclusive binary categories, more than one code could be applied to a paper. This causes the percentages used in Section <a href="#sec-results">3</a> to have a sum that does not equal to 100%.</p>
+				<p>Of the 13 categories, 5 were developed by the researchers and 8 were adapted from [<a href="#ref-Mack2021">108</a>]. The categories developed by the researchers aimed to understand the characteristics of current and past trends in audiovisual media accessibility interventions research. These include the context in which the media is being consumed &ndash; such as the device being used, the environment in which the viewer consumes the content, and type of content being consumed &ndash; the challenges faced by the users, and the accessibility intervention being researched. The categories adapted from [<a href="#ref-Mack2021">108</a>] were used to compare with more general accessibility research, as well as generate insights into the user study methods and what communities research is focused on. Once the codebook was finalised, two researchers coded the papers with the second researcher coding a random sample of 10% (<em>N</em>=18) of papers (see Table <a href="#tab-2">2</a>).</p>
+				<h4>Quantitative Analysis</h4>
+				<p>We programmatically analysed paper and participant counts, and keyword frequencies over the 27-year period. We calculated mean, median, IQR and SD values for the participant counts, as well as analysed them with regard to the community of focus, the participant groups, and the use of proxies and ability based comparison. For the keyword analysis, we extracted 660 unique keywords, of which 209 (31.7%, 209/660) occurred at least twice. A researcher manually went through the 209 keywords and grouped similar keywords &ndash; for example, the keywords &ldquo;<em>blind</em>&rdquo;, &ldquo;<em>blindness</em>&rdquo;, and &ldquo;<em>blind people</em>&rdquo; were all combined into a higher-order grouping &ldquo;<em>BVI</em>&rdquo;. Sixteen such groupings were created, with three of these to group British English and American English spelling of keywords (<em>e.g., &ldquo;personalisation&rdquo;</em> and <em>&ldquo;personalization&rdquo;</em>). Of the 181 papers in the dataset, 13 (7.2%, 13/181) contained no keywords.</p>
+			</section>
+			<section class="numbered">
+				<h2 id="sec-results">Results</h2>
+				<p>We present the results of our analysis in terms of <em>accessibility challenges</em> addressed, <em>communities</em> and <em>participants</em> involved, <em>research methods</em> and <em>interventions</em>. Following this, we look at trends over the 27-year period and quantitative results from the keyword analysis.</p>
+				<h3>Accessibility challenges addressed</h3>
+				<p>To understand the kinds of accessibility challenges people with disabilities face when accessing digital audiovisual media, we analyze the context in which the media is consumed that researchers focused on. These included the <em>type of content</em>, <em>viewing device</em>, and the <em>type of challenge</em> the researchers address.</p>
+				<h4>Type of content</h4>
+				<p>As shown in Table <a href="#tab-3">3</a>, research in this field is relatively balanced between TV broadcast content (32.0%, 58/181), video-on-demand (30.9%, <em>N</em>=56), and web video (24.9%, <em>N</em>=45). Only one paper focused on live video (0.6%), which looked at allowing DHH students to pause and highlight subtitles during a live video stream of educational content [<a href="#ref-Lasecki2014">100</a>]. Papers labelled as &ldquo;other&rdquo; accounted for 21.5% (<em>N</em>=39) of all papers, which for the most part included papers where the authors do not specify the type of content their research is focusing on. These also include research on content not listed, such as immersive 360<sup>&#8728;</sup> video [<a href="#ref-Brown2017">24</a>, <a href="#ref-Orero2020">140</a>, <a href="#ref-Sitbon2019">189</a>] or interactive audiovisual experiences that allow DHH and BVI users to hear colors or see sounds [<a href="#ref-Chambel2010">33</a>]. Papers with more than one code accounted for 7.7% (14/181) of all papers, mostly looking at web-based VOD platforms (42.9%, 6/14) or exploring TV accessibility features that applied to both TV broadcasts and VOD content (35.7%, 5/14).</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-3-caption" tabindex="0">
+					<table id="tab-3">
+						<caption id="tab-3-caption"><strong>Table 3:</strong> The frequency of applied codes for <em>type of content</em>, <em>viewing device</em>, and <em>viewing context</em>.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Type of content</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">This code only</th>
+								<th scope="col">Viewing device</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">This code only</th>
+								<th scope="col">Viewing context</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">This code only</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>TV broadcast</td>
+								<td>58 (32.0%)</td>
+								<td>50 (27.6%)</td>
+								<td>Television</td>
+								<td>83 (45.9%)</td>
+								<td>66 (36.5%)</td>
+								<td>General viewing</td>
+								<td>148 (81.8%)</td>
+								<td>137 (75.7%)</td>
+							</tr>
+							<tr>
+								<td>VOD</td>
+								<td>56 (30.9%)</td>
+								<td>43 (23.8%)</td>
+								<td>Computer</td>
+								<td>59 (32.6%)</td>
+								<td>48 (26.5%)</td>
+								<td>Educational</td>
+								<td>14 (7.7%)</td>
+								<td>12 (6.6%)</td>
+							</tr>
+							<tr>
+								<td>Web video</td>
+								<td>45 (24.9%)</td>
+								<td>36 (19.9%)</td>
+								<td>Smartphone</td>
+								<td>18 (9.9%)</td>
+								<td>1 (0.6%)</td>
+								<td>Commercial setting</td>
+								<td>7 (3.9%)</td>
+								<td>2 (1.1%)</td>
+							</tr>
+							<tr>
+								<td>Live video</td>
+								<td>1 (0.6%)</td>
+								<td>1 (0.6%)</td>
+								<td>Tablet</td>
+								<td>11 (6.1%)</td>
+								<td>0 (0.0%)</td>
+								<td>Other</td>
+								<td>23 (12.7%)</td>
+								<td>19 (10.5%)</td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>39 (21.5%)</td>
+								<td>37 (20.4%)</td>
+								<td>Big screen</td>
+								<td>7 (3.9%)</td>
+								<td>1 (0.6%)</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>Other</td>
+								<td>48 (26.5%)</td>
+								<td>38 (21.0%)</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Viewing device</h4>
+				<p>When it came to viewing device, almost half of papers studied television (45.9%, 83/181), followed by desktop/laptop computers (32.6%, <em>N</em>=59). A relatively smaller number of papers focused on smartphones (9.9%, <em>N</em>=18), tables (6.1%, <em>N</em>=11), and big screen viewing (3.9%, <em>N</em>=7). An additional 26.5% (<em>N</em>=48) of papers had the label &ldquo;other&rdquo;, which, again, included papers where the viewing device was not specified by the authors, such as papers that focused on development of accessibility software or algorithms [<a href="#ref-Salway2003">177</a>]. There were also papers that looked at other devices, such as research on the use of subtitles with virtual reality headsets [<a href="#ref-Hughes2019">83</a>], or the use of various haptic devices, including small tactile robots that move over a tablet [<a href="#ref-Guinness2018">73</a>].</p>
+				<p>A total of 27 papers (14.9%, 27/181) contained more than one viewing device. The codes that occurred together the most were &ldquo;smartphone&rdquo; and &ldquo;tablet&rdquo; (37.0%, 10/27), which is 55.6% (10/18) of all papers that looked at smartphones, and 90.9% (10/11) of those looking at tablets. The only paper that focused on a tablet without a smartphone device was [<a href="#ref-Guinness2018">73</a>]. Smartphones (37.0%, 10/27) and tablets (18.5%, 5/27) were also used heavily in conjunction with TV. Papers explored &ldquo;desktop&rdquo; viewing alongside with smartphones (29.6%, 8/27), tablet devices (25.9%, 7/27), and TV (18.5%, 5/27). For the most part, these papers explored some system that happen to work on multiple devices, such as a subtitling system for Arabic script that visualizes voice characteristics of the speaker [<a href="#ref-Schlippe2020">179</a>] which worked on desktop, smartphone and tablet devices. Some papers, however, did utilize smartphones or tablet devices as a second screen to make the media on the main screen more accessible in some way, such as using a smartphone to display subtitles in a cinema [<a href="#ref-CostaMontenegro2015">41</a>, <a href="#ref-GarcaCrespo2016">61</a>]. When it comes to the &ldquo;other&rdquo; label, the most common crossover was with TV (25.9%, 7/27), including a paper evaluating the use of AR sign language interpreter while watching TV by using a head-mounted displays [<a href="#ref-Vinayagamoorthy2019">207</a>], and a system that communicates the emotional state of a TV movie through environmental lighting, emotive subtitles, and mobile application [<a href="#ref-Affi2015">1</a>].</p>
+				<h4>Viewing context</h4>
+				<p>The results for viewing context of the media were somewhat one-sided, with most papers being on general viewing (81.8%, 148/181), followed by education (7.7%, <em>N</em>=14) and commercial settings (3.9%, <em>N</em>=7). This is primarily due to research focusing on making audiovisual media accessible in everyday situations, such as at the viewer&rsquo;s home [<a href="#ref-Affi2015">1</a>, <a href="#ref-GarcaCrespo2018">63</a>, <a href="#ref-McGill2020">114</a>]. Papers that focused on educational context tended to explore ways to improve or automate subtitling [<a href="#ref-Kafle2021">85</a>, <a href="#ref-Lasecki2014">100</a>]. One paper explored ways to make immersive video experiences accessible to support people with intellectual disabilities learn new skills [<a href="#ref-Sitbon2019">189</a>]. Within commercial contexts, most papers focused on creating second-screen accessibility aids to make content more accessible in cinemas, such as through adding personal subtitles [<a href="#ref-CostaMontenegro2015">41</a>] or AD [<a href="#ref-Walczak2017">213</a>] using the viewers smartphone. Papers labelled as &ldquo;other&rdquo; (12.7%, <em>N</em>=23) included research that did not explore a specific intervention, such as a general overview of subtitling practices and challenges faced by DHH YouTube content creators [<a href="#ref-Li2022">103</a>], or included a unique context, such as making security surveillance video accessible to BVI users [<a href="#ref-Campos2017">27</a>].</p>
+				<h4>Challenges addressed</h4>
+				<div class="table-wrap" role="region" aria-labelledby="tab-4-caption" tabindex="0">
+					<table id="tab-4">
+						<caption id="tab-4-caption"><strong>Table 4:</strong> The frequency of applied codes for <em>challenge addressed</em>.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Challenge addressed</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">This code only</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Viewing video</td>
+								<td>78 (43.1%)</td>
+								<td>37 (20.4%)</td>
+							</tr>
+							<tr>
+								<td>Hearing audio</td>
+								<td>22 (12.2%)</td>
+								<td>3 (1.7%)</td>
+							</tr>
+							<tr>
+								<td>Reading subtitles</td>
+								<td>77 (42.5%)</td>
+								<td>49 (27.1%)</td>
+							</tr>
+							<tr>
+								<td>Understanding speech</td>
+								<td>17 (9.4%)</td>
+								<td>6 (3.3%)</td>
+							</tr>
+							<tr>
+								<td>Following narrative</td>
+								<td>36 (19.9%)</td>
+								<td>3 (1.7%)</td>
+							</tr>
+							<tr>
+								<td>Issues with image</td>
+								<td>10 (5.5%)</td>
+								<td>2 (1.1%)</td>
+							</tr>
+							<tr>
+								<td>Screen clutter</td>
+								<td>0 (0.0%)</td>
+								<td>0 (0.0%)</td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>37 (20.4%)</td>
+								<td>8 (4.4%)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table-wrap" role="region" aria-labelledby="tab-5-caption" tabindex="0">
+					<table id="tab-5">
+						<caption id="tab-5-caption"><strong>Table 5:</strong> The frequency of applied codes for <em>community of focus</em> and <em>participant groups</em>. We also present the proportions for each category found by [<a href="#ref-Mack2021">108</a>] to compare our findings with the broader field of HCI accessibility.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Community of Focus</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">Mack et al.</th>
+								<th scope="col">This code only</th>
+								<th scope="col">Mack et al.</th>
+								<th scope="col">Participant Group</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">Mack et al.</th>
+								<th scope="col">This code only</th>
+								<th scope="col">Mack et al.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>BVI</td>
+								<td>83 (45.9%)</td>
+								<td>43.5%</td>
+								<td>70 (38.7%)</td>
+								<td>41.1%</td>
+								<td>People with disabilities</td>
+								<td>104 (81.9%)</td>
+								<td>84.7%</td>
+								<td>66 (52.0%)</td>
+								<td>44.9%</td>
+							</tr>
+							<tr>
+								<td>DHH</td>
+								<td>97 (53.6%)</td>
+								<td>11.3%</td>
+								<td>77 (42.5%)</td>
+								<td>8.5%</td>
+								<td>People without disabilities</td>
+								<td>51 (40.2%)</td>
+								<td>32.1%</td>
+								<td>20 (15.7%)</td>
+								<td>1.0%</td>
+							</tr>
+							<tr>
+								<td>Motor impairment</td>
+								<td>3 (1.7%)</td>
+								<td>14.2%</td>
+								<td>0 (0.0%)</td>
+								<td>11.7%</td>
+								<td>Older adults</td>
+								<td>7 (5.5%)</td>
+								<td>8.4%</td>
+								<td>1 (0.8%)</td>
+								<td>3.1%</td>
+							</tr>
+							<tr>
+								<td>Autism</td>
+								<td>0 (0%)</td>
+								<td>6.1%</td>
+								<td>0 (0.0%)</td>
+								<td>4.2%</td>
+								<td>Specialists</td>
+								<td>8 (6.3%)</td>
+								<td>17.0%</td>
+								<td>1 (0.8%)</td>
+								<td>1.9%</td>
+							</tr>
+							<tr>
+								<td>IDD</td>
+								<td>1 (0.6%)</td>
+								<td>2.8%</td>
+								<td>0 (0.0%)</td>
+								<td>1.6%</td>
+								<td>Caregivers</td>
+								<td>1 (0.8%)</td>
+								<td>9.4%</td>
+								<td>0 (0.0%)</td>
+								<td>0.8%</td>
+							</tr>
+							<tr>
+								<td>Other cognitive</td>
+								<td>6 (3.3%)</td>
+								<td>9.1%</td>
+								<td>0 (0.0%)</td>
+								<td>5.7%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Older adults</td>
+								<td>8 (4.4%)</td>
+								<td>8.9%</td>
+								<td>2 (1.1%)</td>
+								<td>5.7%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>General disability</td>
+								<td>16 (8.8%)</td>
+								<td>9.1%</td>
+								<td>8 (4.4%)</td>
+								<td>6.1%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>5 (2.8%)</td>
+								<td>9.1%</td>
+								<td>0 (0.0%)</td>
+								<td>4.0%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>As can be seen in Table <a href="#tab-4">4</a>, the most common challenges researchers addressed were viewing video (43.1%, 78/181) and reading subtitles (42.5%, <em>N</em>=77). This comes mostly in the form of papers implementing AD to help BVI people [<a href="#ref-Wang2021">220</a>], or ways to implement or improve subtitles [<a href="#ref-Kurzhals2020">94</a>]. Other challenges authors addressed include following narrative (19.9%, <em>N</em>=36), hearing audio (12.2%, <em>N</em>=22), and understanding speech (9.4%, <em>N</em>=17). We included a code for &ldquo;screen clutter&rdquo; as a challenges, as an initial manual look through broader media accessibility literature included this challenge, such as research on dementia-friendly TV news broadcast, which found that clutter on the screen distracted viewers [<a href="#ref-Funnell2019">59</a>]. However, no paper in our dataset focusing on accessibility interventions attempted to address this challenge. The code &ldquo;other&rdquo; accounted for 20.4% of papers (<em>N</em>=37) and included papers on increasing the understanding of emotional information [<a href="#ref-Affi2015">1</a>] and papers on facilitating BVI to consume media content in group environments with personal AD using acoustically transparent headsets [<a href="#ref-McGill2020">114</a>].</p>
+				<p>Papers could be labelled with multiple codes, with 73 papers (40.3%, 73/181) falling under this category. The most common pairing being &ldquo;viewing video&rdquo; and &ldquo;other&rdquo; (26.0%, 19/73), with multiple papers addressing both AD creation, such as through crowd-sourcing [<a href="#ref-Oliveira2016a">133</a>, <a href="#ref-Oliveira2018">135</a>], and AD presentation [<a href="#ref-Bodi2021">21</a>]. The label &ldquo;following narrative&rdquo; mostly occurred with the &ldquo;other&rdquo; labels (91.7%, 33/36), with the most common pairings being &ldquo;viewing video&rdquo; (<em>N</em>=14) and &ldquo;reading subtitles&rdquo; (<em>N</em>=12). This is primarily due to most of these papers involving using subtitles and AD interventions to help people with disabilities follow the narrative either by having visual elements described, or by having speech and other audio elements textually represented. There were also multiple papers [<a href="#ref-GarcaCrespo2016">61</a>, <a href="#ref-Konstantinidis2020">92</a>, <a href="#ref-Montagud2018">121</a>] that explored larger systems which included multiple interventions, such as applications that addressed &ldquo;viewing video&rdquo; and &ldquo;reading subtitles&rdquo; (12.3%, 9/73) by offering both AD and subtitles [<a href="#ref-GarcaCrespo2016">61</a>].</p>
+				<h3>Communities and participants involved</h3>
+				<p>The section above analyzed the different challenges faced by people with disabilities when accessing audiovisual media, here we look at the communities and participants involved in that research. This will include the <em>communities</em> the research is focusing on, <em>who participates</em> in user studies, and the <em>use of proxies</em> and <em>ability-based comparison</em> in those studies. We will be comparing our results to the broader accessibility research space, by looking at results from [<a href="#ref-Mack2021">108</a>], to get a better understanding on who research in audiovisual media accessibility focuses and what gaps exist.</p>
+				<h4>Community of focus</h4>
+				<p>When looking at the communities of focus within our dataset, see Table <a href="#tab-5">5</a>, the DHH (53.6%, 97/181) and BVI (45.9%, 83/181) communities stand out, accounting for 93.9% (170/181) of all papers. Other communities are under-represented in our dataset, with papers addressing &ldquo;general disability&rdquo; coming at a distant third (8.8%, <em>N</em>=16), such as interactions to make web video more accessible in a learning environment [<a href="#ref-Seidel2015">182</a>], a web video player designed to reduce accessibility barriers [<a href="#ref-Villena2014b">205</a>], or a system designed to create accessible and personalized immersive media experiences [<a href="#ref-Montagud2018">121</a>]. These were followed by papers aiming to help older adults (4.4%, <em>N</em>=8), people with other cognitive impairments (3.3%, <em>N</em>=6), motor impairments (1.7%, <em>N</em>=3), and IDD (0.6%, <em>N</em>=1). The label for &ldquo;autism&rdquo; did not appear in our dataset, while appearing in 6.1% of all papers within the Mack et al.&rsquo;s [<a href="#ref-Mack2021">108</a>] dataset. We also applied the code &ldquo;other&rdquo; (2.8%, <em>N</em>=5) to papers with communities of focus we did not have a label for, such as a paper on a device that would read subtitles out loud for BVI people and people with dyslexia [<a href="#ref-Nielsen2007">128</a>], or a paper that evaluated a similar system of subtitle reading for people with reading difficulties more broadly [<a href="#ref-Ljunglof2012">106</a>].</p>
+				<p>Some papers (18.2%, 33/181) considered more than one community of focus. Only the BVI (84.3%, 70/83) and DHH (79.4%, 77/97) communities were mostly included as the sole communities of focus. Half the papers focusing on general disability (8/16) and two papers focusing on older adults (2/8) had those as sole communities of focus, with all other communities of focus only appearing with some other community. Those papers that considered multiple communities focused primarily on the DHH and BVI community pairing (30.3%, 10/33), with papers evaluating systems that included interventions for both communities, such as subtitles and AD [<a href="#ref-GarcaCrespo2016">61</a>, <a href="#ref-Villena2014b">205</a>], or a paper by [<a href="#ref-Chambel2010">33</a>] that presented visual information in an auditory format and audio information in a visual format. Papers that involved more than one community tended to include the DHH community, which was paired with general disability (24.2%, 8/33), other cognitive and older adults (both 15.2%, 5/33), motor impairments (9.1%, 3/33), and the &ldquo;other&rdquo; label (6.1%, 2/33).</p>
+				<p>When comparing to community of focus findings by [<a href="#ref-Mack2021">108</a>], the DHH community is proportionally over-represented in our dataset at 53.6% vs. their 11.3%. The BVI community is also slightly over-represented, however much less so (45.9% vs. 43.5%). Other communities are all proportionally under-represented in our dataset, as can be seen in Table <a href="#tab-5">5</a>, with motor impairment having the largest difference (1.7% vs. 14.2%), followed by autism (0.0% vs. 6.1%), which did not appear a single time.</p>
+				<h4>Participant groups</h4>
+				<p>Table <a href="#tab-5">5</a> shows the frequency at which different participant groups were involved in user studies, where the percentages are calculated based on the 127 papers that ran some sort of user study (70.2%, 127/181). The majority of user studies included participants with disabilities (81.9%, 104/127), followed by people without disabilities (40.2%, <em>N</em>=51), specialists (6.3%, <em>N</em>=8), older adults (5.5%, <em>N</em>=7), and a single user study that included caregivers (0.8%, <em>N</em>=1). When it comes to papers that included more than one participant group, the most common pairing was people with and without disabilities (24.4%, <em>N</em>=31). People with disabilities and specialists followed at a distant second (4.7%, <em>N</em>=6), followed by people with disabilities and older adults occurring together in 3.9% (<em>N</em>=5) of user studies, and people without disabilities and older adults (3.1%, <em>N</em>=4). Other participant group pairings appeared either once, or did not appear in our dataset.</p>
+				<p>The paper counts are roughly in-line with the broader HCI accessibility community, with most participant groups being slightly proportionally under-represented. The most over-represented group in our dataset were people without disabilities (40.2% vs. 32.1%), and the most under-represented participant group were specialists (6.3% vs. 17.0%), caregivers (0.8% vs. 9.4%), older adults (5.5% vs. 8.4%), and people with disabilities (81.9% vs. 84.7%). When it comes to user studies with a single participant group, people with and without disabilities are slightly over-represented (52.0% vs. 44.9%, and 15.7% vs. 1.0%), while caregivers (0.0% vs. 0.8%), specialists (0.8% vs. 1.9%), and older adults (0.8% vs. 3.1%) are slightly under-represented.</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-6-caption" tabindex="0">
+					<table id="tab-6">
+						<caption id="tab-6-caption"><strong>Table 6:</strong> The frequency of applied codes for <em>study method</em> and <em>study location</em>. We also present the proportions for each category found by [<a href="#ref-Mack2021">108</a>] to compare our findings with the broader field of HCI accessibility.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Study method</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">Mack et al.</th>
+								<th scope="col">This code only</th>
+								<th scope="col">Mack et al.</th>
+								<th scope="col">Study location</th>
+								<th scope="col">Papers with code</th>
+								<th scope="col">Mack et al.</th>
+								<th scope="col">This code only</th>
+								<th scope="col">Mack et al.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Controlled experiment</td>
+								<td>51 (40.2%)</td>
+								<td>11.5%</td>
+								<td>8 (6.3%)</td>
+								<td>11.5%</td>
+								<td>Near/at research lab</td>
+								<td>29 (22.8%)</td>
+								<td>27.3%</td>
+								<td>20 (15.7%)</td>
+								<td>19.5%</td>
+							</tr>
+							<tr>
+								<td>Survey/questionnaire</td>
+								<td>96 (75.6%)</td>
+								<td>1.3%</td>
+								<td>1 (0.8%)</td>
+								<td>1.3%</td>
+								<td>Home/residence/school</td>
+								<td>12 (9.4%)</td>
+								<td>28.9%</td>
+								<td>7 (5.5%)</td>
+								<td>17.8%</td>
+							</tr>
+							<tr>
+								<td>Usability testing</td>
+								<td>73 (57.5%)</td>
+								<td>41.7%</td>
+								<td>5 (3.9%)</td>
+								<td>9.6%</td>
+								<td>Neutral location</td>
+								<td>6 (4.7%)</td>
+								<td>6.7%</td>
+								<td>1 (0.8%)</td>
+								<td>3.1%</td>
+							</tr>
+							<tr>
+								<td>Interviews</td>
+								<td>48 (37.8%)</td>
+								<td>42.1%</td>
+								<td>1 (0.8%)</td>
+								<td>5.7%</td>
+								<td>Online/remote</td>
+								<td>21 (16.5%)</td>
+								<td>20.5%</td>
+								<td>16 (12.6%)</td>
+								<td>10.1%</td>
+							</tr>
+							<tr>
+								<td>Focus groups</td>
+								<td>13 (10.2%)</td>
+								<td>5.9%</td>
+								<td>2 (1.6%)</td>
+								<td>0.8%</td>
+								<td>Other</td>
+								<td>73 (57.5%)</td>
+								<td>41.1%</td>
+								<td>71 (55.9%)</td>
+								<td>28.1%</td>
+							</tr>
+							<tr>
+								<td>Case study</td>
+								<td>0 (0.0%)</td>
+								<td>4.0%</td>
+								<td>0 (0.0%)</td>
+								<td>0.2%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Field study</td>
+								<td>0 (0.0%)</td>
+								<td>17.8%</td>
+								<td>0 (0.0%)</td>
+								<td>4.6%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Workshop/design</td>
+								<td>15 (11.8%)</td>
+								<td>18.4%</td>
+								<td>0 (0.0%)</td>
+								<td>3.1%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>0 (0.0%)</td>
+								<td>16.1%</td>
+								<td>0 (0.0%)</td>
+								<td>0.8%</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Proxies and ability-based comparison</h4>
+				<p>Proxies were used in 10.2% (13/127) of all papers that included a user study, which is slightly higher than in the broader HCI accessibility community (10.2% vs. 8.0%). For the most part, proxies were used as stand-ins for the community of focus when giving feedback on a system or device prototype [<a href="#ref-Affi2015">1</a>, <a href="#ref-McGill2020">114</a>, <a href="#ref-Villena2014b">205</a>], with convenience sampling being a common reason. We also identified that 9.4% (<em>N</em>=12) of user studies compared participants with and without disabilities, which is slightly lower than the [<a href="#ref-Mack2021">108</a>] dataset (9.4% vs. 13.6%). Participants without reported disabilities were sometimes used to represent the control against which performance, preferences, or needs of the participants with disabilities were compared [<a href="#ref-Fels2006">53</a>]. Some user studies also ran cross task performance, where participants with and without disabilities were placed in separate groups [<a href="#ref-Gulliver2003">75</a>].</p>
+				<h3>Research methods for accessibility in audiovisual media</h3>
+				<p>We explore research methods used and how studies are conducted, looking at study methods, the location user studies took place in, use of participatory design (PD), and we report study sample sizes.</p>
+				<h4>User study methods</h4>
+				<p>As can be seen in Table <a href="#tab-6">6</a>, the majority of user studies conducted used questionnaires (75.6%, 96/127) and usability testing (57.5%, <em>N</em>=73). Additionally, a relatively large numbers of studies employed controlled experiments (40.2%, <em>N</em>=51) and interviews (37.8%, <em>N</em>=48), with workshops and design sessions (11.8%, <em>N</em>=15) and focus groups (10.2%, <em>N</em>=13) being relatively less common. We included labels for case studies and field work in our codebook, however, our dataset does not include any papers that used these research study methods.</p>
+				<p>Of the 127 papers in our dataset that had a user study, 110 (86.6%) used more than one study method. The most common grouping of study methods was usability testing and questionnaire (21.3%, <em>N</em>=27), with 12.6% of papers running these two methods as well as also including interviews (<em>N</em>=16). Following closely were studies that ran controlled experiment and questionnaire (19.7%, <em>N</em>=25), with 7 more papers additionally running interviews (5.5%). Furthermore, the next most common study method was running a controlled experiment with no other methods (6.3%, <em>N</em>=8), which accounts for 47.1% (8/17) of all papers with a single user study method. All other combinations of methods appeared in fewer than 5% of papers.</p>
+				<h4>User study locations</h4>
+				<p>For the most part, we find that authors do not specify the location of their research, with 56.7% (72/127) of papers that report a user study being labelled &ldquo;other&rdquo;, which is mostly due to authors being unclear about the user study location. For example, [<a href="#ref-Aydin2020a">13</a>] mention recruiting BVI participants, screening the participants through a short phone interview, the monetary compensation the participants received, the laptop the usability testing took place on, and the procedure to run the study. The authors do not, however, ever explicitly mention where the study is taking place. Among papers that do mention the location the study took place in, 23.6% (<em>N</em>=30) took place near or at the authors research lab, such as [<a href="#ref-Kurzhals2017">93</a>] who, in their abstract, state they ran a &ldquo;laboratory study&rdquo;. The second most common location was &ldquo;online or remote&rdquo; (16.5%, <em>N</em>=21), followed by at home, residence or school (9.4%, <em>N</em>=12), and neutral location (4.7%, <em>N</em>=6). Additionally, 12 papers (9.4%) ran studies in more than one location, with 5 papers having user studies ran both at a research lab and online (3.9%), and 4 in neutral locations and online (3.1%). When compared to the broader HCI accessibility community, the &ldquo;other&rdquo; label is quite a bit more common (57.5% vs. 41.1%). All other user study locations are under-represented, with &ldquo;home, residence or school&rdquo; having the largest gap (9.4% vs. 28.9%), followed by &ldquo;online or remote&rdquo; (16.5% vs. 20.5%), &ldquo;near or at a research lab&rdquo; (22.8% vs. 27.3%), and &ldquo;neutral&rdquo; location (4.7% vs. 6.7%).</p>
+				<h4>Participatory design</h4>
+				<p>Participatory design (PD) allows users of accessibility technology to be involved in the research process and directly interact with the proposed intervention, through helping understand challenges people with disabilities face [<a href="#ref-Sitbon2019">189</a>] or taking part in the design process [<a href="#ref-Villena2014b">205</a>]. Within our dataset, 22 (17.3%) user studies papers adopted PD methods, which is higher than the [<a href="#ref-Mack2021">108</a>] dataset (17.3% vs. 10.3%). User study papers that involved caregivers (<em>N</em>=1), specialists (<em>N</em>=6), and older people (<em>N</em>=4) tended to use PD methods more often than not. PD always included either people with disabilities (81.8%, 18/22), older adults (9.1%, 2/22), or both (9.1%, 2/22). User studies involving people with IDD (<em>N</em>=1), motor impairments (<em>N</em>=2), and other cognitive impairments (<em>N</em>=3) tended to use PD methods more often in their studies than other communities. Research focusing on BVI (<em>N</em>=11) and DHH (<em>N</em>=9) participants, as well as papers on general disability (<em>N</em>=2), rarely used PD.</p>
+				<h4>Sample sizes</h4>
+				<div class="table-wrap" role="region" aria-labelledby="tab-7-caption" tabindex="0">
+					<table id="tab-7">
+						<caption id="tab-7-caption"><strong>Table 7:</strong> User study participant count for the 124 papers that clearly reported a user study and a sample size (3 user study papers did not report sample sizes), broken down by <em>community of focus</em> and <em>participant group</em>.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Group</th>
+								<th scope="col">N</th>
+								<th scope="col">Median</th>
+								<th scope="col">Mean</th>
+								<th scope="col">IQR</th>
+								<th scope="col">Range</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Overall</td>
+								<td>124</td>
+								<td>30.0</td>
+								<td>52.0</td>
+								<td>34.3</td>
+								<td>2-602</td>
+							</tr>
+							<tr>
+								<td>BVI</td>
+								<td>58</td>
+								<td>20.0</td>
+								<td>46.4</td>
+								<td>27.8</td>
+								<td>2-602</td>
+							</tr>
+							<tr>
+								<td>DHH</td>
+								<td>66</td>
+								<td>34.0</td>
+								<td>59.8</td>
+								<td>35.8</td>
+								<td>9-314</td>
+							</tr>
+							<tr>
+								<td>Motor</td>
+								<td>3</td>
+								<td>25.0</td>
+								<td>25.0</td>
+								<td>5.0</td>
+								<td>20-30</td>
+							</tr>
+							<tr>
+								<td>IDD</td>
+								<td>1</td>
+								<td>18.0</td>
+								<td>18.0</td>
+								<td>0.0</td>
+								<td>18-18</td>
+							</tr>
+							<tr>
+								<td>Other cognitive</td>
+								<td>5</td>
+								<td>25.0</td>
+								<td>62.4</td>
+								<td>10.0</td>
+								<td>18-219</td>
+							</tr>
+							<tr>
+								<td>Older adults</td>
+								<td>6</td>
+								<td>39.0</td>
+								<td>64.7</td>
+								<td>11.8</td>
+								<td>16-219</td>
+							</tr>
+							<tr>
+								<td>General disability</td>
+								<td>4</td>
+								<td>17.5</td>
+								<td>43.0</td>
+								<td>34.5</td>
+								<td>4-133</td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>2</td>
+								<td>115.5</td>
+								<td>115.5</td>
+								<td>103.5</td>
+								<td>12-219</td>
+							</tr>
+							<tr>
+								<td>People w/ disabilities</td>
+								<td>102</td>
+								<td>30.0</td>
+								<td>48.9</td>
+								<td>37.0</td>
+								<td>2-602</td>
+							</tr>
+							<tr>
+								<td>People w/o disabilities</td>
+								<td>50</td>
+								<td>34.0</td>
+								<td>73.8</td>
+								<td>34.5</td>
+								<td>12-602</td>
+							</tr>
+							<tr>
+								<td>Older adults</td>
+								<td>7</td>
+								<td>30.0</td>
+								<td>30.4</td>
+								<td>17.0</td>
+								<td>16-45</td>
+							</tr>
+							<tr>
+								<td>Specialists</td>
+								<td>8</td>
+								<td>25.5</td>
+								<td>35.8</td>
+								<td>27.5</td>
+								<td>4-133</td>
+							</tr>
+							<tr>
+								<td>Caregivers</td>
+								<td>1</td>
+								<td>18.0</td>
+								<td>18.0</td>
+								<td>0.0</td>
+								<td>18-18</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>We analyzed user study sample sizes in the 124 user study papers that clearly reported a sample size, which can be seen in Table <a href="#tab-7">7</a>. For instance, [<a href="#ref-Konstantinidis2020">92</a>] report running a user study, as well as reporting some user results, but do not report the total number of participants. Therefore, this paper is excluded from our analysis. Overall, the median number of participants in a user study was 30 (<em>M</em>=52.0, IQR=34.3, SD=73.5), which is higher than the median sample size (18) in the broader HCI accessibility community [<a href="#ref-Mack2021">108</a>]. User studies that included either people with disabilities or older adults have a slightly higher median of 29.5 (Mean=47.7, IQR=39.0, SD=68.5). The median number of participants ranges from 18 (IDD) to 115.5 (Other). When it comes to participant groups, the median number of participants ranged from 18 (Caregivers) to 34 (People without disabilities). Note that there was a small number of user study papers for most communities of focus and participant groups, with only papers on the BVI (58) and DHH (66) communities, as well as user studies involving people with (102) and without (50) disabilities having double digit paper counts. These low paper counts make analyzing the sample sizes for the other communities of focus and participant group more challenging, since we cannot state much with certainty these sample sizes are truly representative.</p>
+				<h3>Accessibility interventions</h3>
+				<p>So far, we analyzed the challenges faced by people with disabilities, the communities and participants involved in research, and the research methods used to explore these challenges. Here, we outline the different interventions authors have researched and how these contribute to HCI literature.</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-8-caption" tabindex="0">
+					<table id="tab-8">
+						<caption id="tab-8-caption"><strong>Table 8:</strong> The frequency of applied codes for <em>type of intervention</em>.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Type of intervention</th>
+								<th scope="col">Papers with codes</th>
+								<th scope="col">This code only</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Subtitles</td>
+								<td>87 (48.1%)</td>
+								<td>48 (26.5%)</td>
+							</tr>
+							<tr>
+								<td>Audio description</td>
+								<td>60 (33.1%)</td>
+								<td>35 (19.3%)</td>
+							</tr>
+							<tr>
+								<td>Tangible device</td>
+								<td>11 (6.1%)</td>
+								<td>1 (0.6%)</td>
+							</tr>
+							<tr>
+								<td>Sign language</td>
+								<td>9 (5.0%)</td>
+								<td>2 (1.1%)</td>
+							</tr>
+							<tr>
+								<td>Audio/video manipulation</td>
+								<td>25 (13.8%)</td>
+								<td>9 (5.0%)</td>
+							</tr>
+							<tr>
+								<td>Content personalization</td>
+								<td>2 (1.1%)</td>
+								<td>0 (0.0%)</td>
+							</tr>
+							<tr>
+								<td>Customization</td>
+								<td>25 (13.8%)</td>
+								<td>0 (0.0%)</td>
+							</tr>
+							<tr>
+								<td>In person assistance</td>
+								<td>0 (0.0%)</td>
+								<td>0 (0.0%)</td>
+							</tr>
+							<tr>
+								<td>Second display</td>
+								<td>14 (7.7%)</td>
+								<td>1 (0.6%)</td>
+							</tr>
+							<tr>
+								<td>Voice commands</td>
+								<td>0 (0.0%)</td>
+								<td>0 (0.0%)</td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>63 (34.8%)</td>
+								<td>11 (6.1%)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<figure id="fig-2">
+					<img src="./figures/sankey.png" alt="On the left side of the Sankey diagram there are communities of focus, linking to the interventions used on the right. The largest communities are the DHH, BVI and general disabilities, while the most common interventions are subtitles, AD, and other. DHH mostly links to subtitles, other, customization, second display, and audio/video manipulation. BVI mostly links to audio description, other, and audio/video manipulation. General disability mostly links to subtitles and other. All other links have fewer than 10 communities of focus to papers frequency.">
+					<figcaption><strong>Figure 2:</strong> Sankey diagram representing the <em>type of intervention</em> explored different <em>community of focus</em>.</figcaption>
+				</figure>
+				<p>As can be seen in Table <a href="#tab-8">8</a>, the most explored accessibility interventions were subtitles (48.1%, <em>N</em>=87) and AD (33.1%, <em>N</em>=60), which accounted for 77.3% (130/181) of all papers in the dataset. Breaking down the interventions used based on the community of focus, we find that 82.5% (<em>N</em>=80) of papers addressing the DHH community involved the use of subtitles, and 67.5% (<em>N</em>=56) of BVI papers using AD. Subtitles were also heavily used in research that focused on general disability (<em>N</em>=12), other cognitive impairments (<em>N</em>=4), motor impairments (<em>N</em>=2), and older adults (<em>N</em>=4). On the other hand, AD was mostly confined to BVI research, with only 4 papers exploring its use outside the BVI community. Figure <a href="#fig-2">2</a> shows how different interventions were used with different communities of focus. Other popular interventions were audio and/or video manipulation (13.8%, <em>N</em>=25), such as a paper exploring the use of zoom magnification to help people with central vision loss [<a href="#ref-Costela2021b">43</a>], and customization (23.8%, <em>N</em>=25), such as a system allowing the viewer to customize aspects of ASL interpreting [<a href="#ref-Kushalnagar2017">96</a>]. Second displays (7.7%, <em>N</em>=14), tangible devices (6.1%, <em>N</em>=11), sign language interpreters (5.0%, <em>N</em>=9), or content personalization (1.1%, <em>N</em>=2) were not widely explored. Papers were labelled as &ldquo;other&rdquo; (<em>N</em>=63) if the authors explored an intervention that we had not listed, such as allowing the user to interact with a video to bookmark sections to go back in case they had issues understanding the content [<a href="#ref-Villena2014b">205</a>]. We find that 40.9% (<em>N</em>=74) papers explored more than one intervention, with the most common combinations were the use of AD and subtitles with the &ldquo;other&rdquo; label. For example, [<a href="#ref-Matousek2010">111</a>] explored a system that uses subtitles to generate highly intelligible text-to-speech dubbing of content for DHH people, so that speech is easier to distinguish from other sounds. Other pairing of interventions mostly (77.0%, 57/74) saw the use of subtitles and/or AD with some other interventions. Looking at research contribution types, as outlined by [<a href="#ref-Wobbrock2016">226</a>], most of the papers in our dataset fall into artifact (56.4%, <em>N</em>=102), empirical (44.8%, <em>N</em>=81), and theoretical (30.9%, <em>N</em>=56) contributions.</p>
+				<h3>Trends and keywords</h3>
+				<figure id="fig-3">
+					<img src="./figures/paper_count.png" alt="A line graph showing the number of papers published increasing in every 5 year time period, starting in 1996 up to 2022. The first time period is 1996 to 2002, then 2003 to 2007, 2008 to 2012, 2013 to 2017, and 2018 to 2022. The paper counts for each of those periods are 7, 15, 34, 56, and 69. A trend line is added with an R squared value of 0.9812.">
+					<figcaption><strong>Figure 3:</strong> Number of papers on audiovisual media accessibility published over time, showing the number of papers increases with time. The R<sup>2</sup> statistic represents the trend between the number of papers published and time period.</figcaption>
+				</figure>
+				<p>Our analysis of qualitative coding in the previous sections looked at the overall state of research. Here, we are going to look at the evolution of accessibility research over the 27-year period, analysing how communities of focus, challenges and interventions, and user studies have shifted over time. In order to smooth out year-on-year changes and generate a more general idea of trends, we binned papers into five time periods: 1996&ndash;2002, 2003&ndash;2007, 2008&ndash;2012, 2013&ndash;2017, and 2018&ndash;2022. It is also important to note that this research was conducted prior to the end of 2022, so papers published at the end of the year, as well as papers published earlier but had not yet have the chance to be cited, would not appear in our dataset, which could limit the occurrence of more novel interventions. As can be seen in Figure <a href="#fig-3">3</a>, the number of papers published on accessibility interventions increases steadily over time, with 7 papers published between 1996 and 2002, and 69 papers published between 2018 and 2022. We also report programmatic analysis of keyword trends.</p>
+				<h4>Community of focus</h4>
+				<p>As one would expect by looking at the overall community of focus data, the DHH and BVI communities make up the majority of the focus in papers published in each time period, appearing in more than 90% of papers for each time period. We also find that research on interventions for &ldquo;general disability&rdquo; starts showing up in the 2008 to 2012 period, somewhat replacing the &ldquo;other&rdquo; label which sees a steady decline from 1996 to 2007 (from 14.3% to 2.9%). Other communities of focus do not show any significant trends, appearing in some time periods but not others, such as research on interventions for older adults not appearing in the 2003 to 2008 and the 2018 to 2022 periods, while having modest showings in the 1996 to 2002 (14.3%), 2008 to 2012 (8.8%), and 2013 to 2018 (7.1%) periods.</p>
+				<p>When it comes to participants involved in user studies, we see people with and without disabilities make up much of the participation, with a combined presence in at least 81.4% of all user study papers published in all period. The dip in relative participation for people with and without disabilities in 2013 to 2017 co-insides with the relative increase of older adults (10.2%) and specialists (8.5%) participation.</p>
+				<h4>Challenges and interventions</h4>
+				<p>When it comes to challenges addressed, we see two major foci &ndash; viewing video and reading subtitles &ndash; combine to account for more than half of papers, generally increasing with time from 57.1% in the first period to 91.3% in the most recent. Other challenges also get addressed at a relatively constant rate, with relatively high presence between 1996 and 2007, and again between 2013 and 2017. Interestingly, in the 5-year period between 2013 to 2017, we see a significant increase in the raw number of papers published that address challenges of hearing audio (from 5 in all previous periods to 13 papers in this period), following narratives (from 12 to 13 papers), understanding speech (from 5 to 8 papers), and &ldquo;other&rdquo; challenges (from 7 to 16 papers) compared to the prior 17 years. This explains the relative decrease in prevalence of viewing video and reading subtitles, more so than those challenges seeing a decrease in interest.</p>
+				<p>The accessibility interventions researched have a similar pattern to previous categories, with the two major topics of focus being subtitles and AD. The prevalence of these, however, generally decreases with time, from 77.8% to 46.5%, in favour of other interventions. Interventions labelled as &ldquo;other&rdquo;, for instance, sees an initial increase followed by a decrease. While no other intervention accounts for a substantial portion of the paper count, there is a general increase in the number of interventions being researched, with second displays and sign language interpretation seeing more focus recently, with 10.1% and 7.2% in the most recent period respectively.</p>
+				<figure id="fig-4">
+					<img src="./figures/over_time.png" alt="This figure shows four stacked area charts, representing the relative number of papers that address some category for each time period. The top left chart shows community of focus, where DHH and BVI communities are dominant throughout. The top right chart shows the type of device studied, where TV gradually declines over time in favour of desktops from 2003 to 2017, and the sudden increase of smartphones and tablets starting in the 2013 to 2017 period. The bottom left shows challenges addressed over time, where viewing video and reading subtitles are the largest areas, however, see a slight decline after the 2008 to 2012 period, but no other challenge really stands out as. Finally, the bottom right shows the type of intervention over time, in which subtitles, audio description and &amp;ldquo;other&amp;rdquo; take up most of the space in all periods, with a slight increase in other interventions in the 2013 to 2022 periods.">
+					<figcaption><strong>Figure 4:</strong> Proportion of papers published over time that addressed, from top left to bottom right, <em>community of focus</em>, <em>type of device</em>, <em>type of challenges</em>, and <em>type of intervention</em>.</figcaption>
+				</figure>
+				<h4>User studies</h4>
+				<p>User studies are common in each time period, dipping slightly in the 2003 to 2007 period before gradually increasing, as can be seen in Table <a href="#fig-4">4</a>. The distribution of user study methods is constant, with questionnaires, usability testing, controlled experiments, and interviews generally being the most common methods throughout. We see a small number of papers that run workshops or design sessions, as well as the appearance of focus groups starting in the 2008 to 2012 period.</p>
+				<p>The location of these user studies, for the most part, are labelled as &ldquo;other&rdquo; due to the unclear nature of location reporting by authors. Excluding those, we are left with 55 user study papers that have explicitly stated the location of their user study. Among this, albeit small, sample, we can see an interesting pattern. The proportion of user studies that take place at neutral locations and homes, residences and schools decrease over time, being somewhat replaced by online and remote user studies, especially in the most recent time period (65.4%). Looking at year on year data, we can see that there is a significant increase in online and remote user studies, with 4 such studies occurring prior to 2020 and 17 after. This is more than likely due to the COVID-19 pandemic forcing researchers to run their studies remotely. Device distribution sees a steady decrease in focus on TV from 85.7% to 37.7% with time, being steadily replaced initially by desktops, followed by the emergence of smartphones and tablets starting in the 2013 to 2017 period. Devices labelled as &ldquo;other&rdquo;, which includes papers where no device was explicitly mentioned, are also relatively common over the time periods.</p>
+				<h4>Keywords</h4>
+				<p>The frequency at which keywords were used in our dataset tends to match the qualitative coded data we manually collected from the papers. The only communities of focus in the 10 most common keywords were the BVI (64) and DHH (28) communities, the only interventions being subtitles (73) and AD (67). We also see the gradual decline in research focusing on TV (from 13.3% to 6.3%) and film (from 5.1% to 0.6%) over time. Research focusing on AD rises quickly, becoming the most frequently used keyword in the 2008 to 2012 period (12.1%), before falling in popularity (6.5% in the most recent period), while subtitles saw steady use in most periods, up to 11.3% in 2018 to 2022. We also see the appearance of artificial intelligence (AI) and machine learning (ML) as a technology in the 2013 to 2017 period and increasing significantly in the next (0.3% and 3.9%), such as AI and ML systems to automate existing interventions [<a href="#ref-Wang2021">220</a>, <a href="#ref-Yuksel2020">231</a>]. In contrast, the web and online keywords see a rise to 6.1% in the 2008 to 2012 period, before steadily decreasing to 1.5% more recently. The use of the &ldquo;accessibility&rdquo; keyword sees a steady increase year-on-year, from 2.6% in 2003 to 2007 and increasing to 11.0%, which aligns with findings by [<a href="#ref-Mack2021">108</a>] suggesting accessibility as a field of research is growing.</p>
+			</section>
+			<section class="numbered">
+				<h2>Discussion</h2>
+				<p>Our SLR regarding research on accessibility interventions for audiovisual media has described the current state of the field and presented areas that have received disproportionate attention when compared to the HCI accessibility field more broadly. We will now examine our findings to answer our research questions on what challenges are faced by people with disabilities when accessing audiovisual media and what interventions researchers have focused on to help support these requirements, as well as who this research focuses on. Furthermore, we will highlight areas of potential future improvement, proposing directions for future researchers.</p>
+				<h3>Challenges faced by people with disabilities when accessing digital audiovisual media</h3>
+				<p>To answer RQ1, on the main accessibility challenges faced by people with disabilities when accessing digital audiovisual media, we examined the accessibility challenges researchers addressed in their papers, including the type of content, viewing device, and viewing context. Through our analysis, we observed that research tends to focus on more traditional areas of audiovisual media consumption, for instance looking mostly at general viewing context (81.8%), with the device usually being TV (45.9%) or desktop (32.6%), and a preference for TV broadcasts (32.0%) and video on demand (30.9%). These include work by [<a href="#ref-Thorn1996">195</a>] on subtitle presentation rate and [<a href="#ref-Wolffsohn2007">229</a>] on the use of real-time edge detection and image enhancement on TV broadcasts. While it makes sense to improve the accessibility of more common media consumption patterns, this has left some major gaps that future research should acknowledge and try to fill. For instance, relatively few papers that explore issues such as &ldquo;following narrative&rdquo;, &ldquo;hearing audio&rdquo;, and &ldquo;understanding speech&rdquo;, with most of these papers using subtitles to address the challenge. We see that alternative methods that leverage novel technologies exist, such as the use of object based audio technologies [<a href="#ref-Shirley2017">183</a>, <a href="#ref-Ward2019">221</a>], however, these accessibility challenges should get more attention with a greater variety of interventions. Moreover, with an increased interest in novel media consumption patterns such as immersive AR and VR content, the variety of accessibility challenges explored should reflect these shifts.</p>
+				<p>We also see that research on mobile devices, such as second screen subtitles using a mobile device [<a href="#ref-Montagud2020a">120</a>], has received relatively less attention. The use of mobile devices has, in recent years, seen a significant increase in popularity [<a href="#ref-Domingues2020">46</a>, <a href="#ref-Rigby2016">162</a>], greater than what we see in our dataset (see Figure <a href="#fig-4">4</a>). Moreover, current research primarily focuses on applying <em>existing</em> accessibility interventions to mobile devices [<a href="#ref-CostaMontenegro2015">41</a>, <a href="#ref-Konstantinidis2020">92</a>, <a href="#ref-RodriguezAlsina2012">167</a>]. This leaves a significant accessibility gap for viewing patterns for people with disabilities, especially when it comes to novel types of content, such as short form social media content such as TikTok [<a href="#ref-Wang2019">219</a>]. We, therefore, call for researchers to explore the specific accessibility challenges of accessing media on mobile devices, both as the main viewing device and as a second screen, in order to make this popular viewing pattern accessible to people with disabilities. Another area that has not been much explored is live streaming video content, which has also seen a significant increase in viewership in the past couple years [<a href="#ref-Hamilton2014">76</a>, <a href="#ref-Wohn2020">228</a>]. The real time aspect of this type for content could allow for interesting new accessibility interventions, such as exploring the use of real time caption highlighting and pausing of live streamed content to help DHH students follow along [<a href="#ref-Lasecki2014">100</a>]. Similar techniques that use the real time aspect of live streaming could be leveraged by future researchers to improve accessibility of this type of content.</p>
+				<h3>Communities of focus for accessibility research in audiovisual media</h3>
+				<p>When examining our results to respond to RQ2, on who accessibility research focus on, we find that an overwhelming majority of papers focus on the DHH and BVI communities. Considering we are looking at <em>audio</em> and <em>visual</em> media, interventions addressing communities that have hearing or visual impairments are well represented. This has left other communities significantly under-represented within our dataset, such as autism (0.0%), IDD (0.6%), and other cognitive impairments (3.3%). The challenges these communities face when accessing audiovisual media differ from the DHH and BVI communities and require different approaches to improving access [<a href="#ref-Ringland2019">163</a>], and therefore should receive more standalone attention when exploring accessibility interventions. Older adults were also under-represented, along with disability communities we had not explicitly labelled, such as aphasia or dementia, both being disabilities that occur more often in older adults and likely to become more prominent with an aging population [<a href="#ref-Neate2020">126</a>, <a href="#ref-Unbehaun2020">199</a>]. Language impairments such as aphasia require more specialized accessibility interventions, as common interventions (e.g., subtitles) are unlikely to help fully bridge the accessibility gap [<a href="#ref-Grellmann2018">72</a>, <a href="#ref-Rmen2008">173</a>]. The under-representation of these communities and their prevalence within the broader accessibility HCI research community suggest that this is an area of potential growth in the future.</p>
+				<p>As [<a href="#ref-Bannon2018">15</a>] suggest, there is a tendency to use PD as &ldquo;<em>simply the involvement of any stakeholder</em>&rdquo; in user studies. A high number of papers in our dataset that fall under this category of PD, in which participants with disabilities are involved in a limited context, often a single small feedback session. PD allows researchers to better understand participants needs and helps design interventions that are more adapted to the people who ultimately use said intervention [<a href="#ref-Mocanu2021">117</a>]. For instance, using PD to iterate through designs, which initially can be done using paper-based prototypes, allows the final design to align with users needs and expectations [<a href="#ref-KearneyVolpe2019">88</a>, <a href="#ref-Vy2009">210</a>]. We, therefore, encourage future user studies to involve people with disabilities more directly, as well as encourage researchers to involve specialists and caregivers more often, as both these participant groups have the possibility to present insights or aid participants with disabilities [<a href="#ref-Carrington2014">29</a>].</p>
+				<h3>Interventions for addressing accessibility in audiovisual media</h3>
+				<p>In answering RQ3, on what interventions are used to help support different accessibility needs, we examined user study methods used and accessibility interventions explored. When it comes to the types of interventions explored, subtitles (48.1%) and AD (33.1%) are the most common interventions. This was somewhat expected, as these two interventions are the default method to make audiovisual media accessible to DHH and BVI people, with these two communities being so well represented in our dataset. We understand, therefore, the inherent importance and benefits of working to better understand or improve these interventions. However, similarly to mostly focusing on the DHH and BVI communities, this leaves much potential research under-explored. With the rapid evolution of technology, including the advancement of immersive media, many new techniques and areas of research can be explored in the context of accessibility interventions. Importantly, new technologies and conceptualisations of how we can render audiovisual media allow us to explore highly-customised, unique accessibility interventions which can fit individual needs.</p>
+				<p>For instance, Object-Based Media (OBM), which allows every individual to receive their own&lsquo;version of a piece of digital content by breaking it up into its constituent parts and rendering it their end, has the potential for profound implications for access [<a href="#ref-OFCOM2021">80</a>]. However, presently, OBM has so far mostly been leveraged to implement pre-existing accessibility interventions such as subtitles and audio descriptions (e.g. [<a href="#ref-Montagud2020b">122</a>]). Only limited work explores highly-configurable digital content for accessibility &ndash; for instance, [<a href="#ref-Ward2018">222</a>] who explore using OBM to adapt audio channels such as incidental sound to support deaf or hard-of-hearing individuals. Further, we have seen ML techniques and AI being used in more recent papers to improve or automate the creation of subtitles [<a href="#ref-Martn2021">109</a>] and ADs [<a href="#ref-Wang2021">220</a>, <a href="#ref-Yuksel2020">231</a>]. With the vast possibilities these new technologies offer, we suggest researchers explore their possibilities in improving the accessibility of audiovisual media, focusing on interventions other than subtitles and AD. An example of this could be to use ML and AI techniques to transform some aspect of the content to allow for customization or personalization to match the viewers accessibility needs, or the use of recent advanced in AI text-to-image generation.</p>
+				<h3>Limitations</h3>
+				<p>We identify several limitations with this SLR, as with all systematic reviews. Our dataset does not cover all research on accessibility interventions for audiovisual media. This is despite us following PRISMA guidelines [<a href="#ref-Rethlefsen2021">161</a>], along with additional guidelines from [<a href="#ref-Silva2016">187</a>] and [<a href="#ref-Siddaway2019">186</a>], as well as a snowballing procedure outlined by [<a href="#ref-Wohlin2014">227</a>]. As described in Section <a href="#sec-method">2</a>, we initially used three databases (ACM DL, SCOUPS, IEEE Xplore) for our search, before dropping IEEE Xplore after it returned too many false positive results. There are, however, other databases that we did not include (e.g., SAGE Journals, Elsevier, Springer, Routledge, etc.) which likely would have returned papers relevant to our scope. Moreover, the search query and identification method used may have limited the papers we found, especially with our SCOPUS search query, which limited the venues searched to reduce the exploding search space and high number of false positive results. While the snowballing step did return papers from different sources, such as Springer and Elsevier, this introduced new challenges in cleaning the data up [<a href="#ref-Bhowmick2017">19</a>]. The creation of the codebook and manual coding of our dataset introduced personal biases, which we tried to limit through having a second researcher go through 10% of the papers, discussing major disagreements, and calculating an IRR. Additionally, we experienced variable language when applying community of focus labels similarly to [<a href="#ref-Brul2020">25</a>], where terms such as &ldquo;blind&rdquo;, &ldquo;visually impaired&rdquo;, &ldquo;low vision&rdquo; and others were used. Similar challenges exist with other communities, especially when it comes to neurodiversity and cognitive and/or learning disabilities [<a href="#ref-Mack2021">108</a>]. There is also an issue when it comes to the shift of terms over time, with the meaning of terms describing communities, technologies, or study methods changing over the 27-year period, something that we did not explore. Our comparison of the dataset we produced against that produced by [<a href="#ref-Mack2021">108</a>] is also limited in that their systematic review focused on CHI and ASSETS only.</p>
+			</section>
+			<section class="numbered">
+				<h2>Conclusion</h2>
+				<p>We analysed research on accessibility interventions for audiovisual media over a 27-year period, the implications of that research, and made suggestions to researchers on what future research should focus on. Through this work, we provide insights into the accessibility challenges researchers have addressed, the communities and participants involved in research, and the interventions that have been explored. For example, we saw that a significant amount of research focused on the DHH and BVI communities and highlighting a serious under representation of IDD, autism, and other cognitive impairments as communities of focus. Therefore, we encourage future research to consider the following recommendations:</p>
+				<ul>
+					<li>With the rise of novel technologies to consume media, we recommend researchers to investigate new accessibility interventions more suited to the viewing context and device, rather than exploring the use of existing interventions originally designed for different contexts (e.g., subtitles and audio description).</li>
+					<li>We call for a wider range of communities of focus to be involved in research, as different disabled communities can have their own challenges and may require accessibility interventions that take these into account.</li>
+					<li>We echo the call by [<a href="#ref-Mack2021">108</a>] and others to involve people with disabilities in research. More so than simply running controlled experiments or usability testing of prototypes, we should explore more participatory design techniques involving various stakeholders that reflects the potential inaccessibility of certain user study methods.</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Acknowledgements</h2>
+				<p>This work was funded in part by an EPSRC DTP studentship. R.-D. Vatavu acknowledges support from CNCS/CCCDI-UEFISCDI, project no. PN-III-P4-ID-PCE-2020-0434 (PCE29/2021).</p>
+			</section>
+			<section>
+				<h2>Author Statement</h2>
+				<p>AN led this work with guidance from TN and ES. AN, TN, and R-DV conceptualised the work. AN created the dataset and manually coded it, with TN coding a 10% sample. AN wrote the paper, with guidance and feedback from TN, R-DV, and ES.</p>
+				<p>*</p>
+			</section>
+			<section id="references">
+				<h2>References</h2>
+				<ol>
+					<li id="ref-Affi2015">Diana Affi, Jo&euml;l Dumoulin, Marco Bertini, Elena Mugellini, Omar Abou Khaled, and Alberto Del Bimbo. 2015. SensiTV: Smart EmotioNal System for Impaired People&rsquo;s TV. In <em>Proceedings of the ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;15). Association for Computing Machinery, New York, NY, USA, 125&ndash;130. <a href="https://doi.org/10.1145/2745197.2755512">https://doi.org/10.1145/2745197.2755512</a></li>
+					<li id="ref-Agrawal2021">Chanchal Agrawal and Roshan L Peiris. 2021. I See What You&rsquo;re Saying: A Literature Review of Eye Tracking Research in Communication of Deaf or Hard of Hearing Users. In <em>The 23rd International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM, New York, NY, USA, 1&ndash;13. <a href="https://doi.org/10.1145/3441852.3471209">https://doi.org/10.1145/3441852.3471209</a></li>
+					<li id="ref-Akahori2016">Wataru Akahori, Tatsunori Hirai, Shunya Kawamura, and Shigeo Morishima. 2016. Region-of-Interest-Based Subtitle Placement Using Eye-Tracking Data of Multiple Viewers. In <em>Proceedings of the ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;16). Association for Computing Machinery, New York, NY, USA, 123&ndash;128. <a href="https://doi.org/10.1145/2932206.2933558">https://doi.org/10.1145/2932206.2933558</a></li>
+					<li id="ref-b">Akher Al Amin, Joseph Mendis, Raja Kushalnagar, Christian Vogler, Sooyeon Lee, and Matt Huenerfauth. 2022. Deaf and Hard of Hearing Viewers&rsquo; Preference for Speaker Identifier Type in Live TV Programming. In <em>Universal Access in Human-Computer Interaction. Novel Design Approaches and Technologies</em>. Springer International Publishing, Cham, 200&ndash;211. <a href="https://doi.org/10.1007/978-3-031-05028-2_13">https://doi.org/10.1007/978-3-031-05028-2_13</a></li>
+					<li id="ref-Amin2021b">Akhter Al Amin, Abraham Glasser, Raja Kushalnagar, Christian Vogler, and Matt Huenerfauth. 2021. Preferences of Deaf or Hard of Hearing Users for Live-TV Caption Appearance. In <em>Universal Access in Human-Computer Interaction. Access to Media, Learning and Assistive Environments</em>. Springer International Publishing, Cham, 189&ndash;201. <a href="https://doi.org/10.1007/978-3-030-78095-1_15">https://doi.org/10.1007/978-3-030-78095-1_15</a></li>
+					<li id="ref-Amin2021a">Akhter Al Amin, Saad Hassan, and Matt Huenerfauth. 2021. Caption-Occlusion Severity Judgments across Live-Television Genres from Deaf and Hard-of-Hearing Viewers. In <em>Proceedings of the 18th International Web for All Conference</em> (W4A &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 26, 12 pages. <a href="https://doi.org/10.1145/3430263.3452429">https://doi.org/10.1145/3430263.3452429</a></li>
+					<li id="ref-Amin2021c">Akhter Al Amin, Saad Hassan, and Matt Huenerfauth. 2021. Effect of Occlusion on Deaf and Hard of Hearing Users&rsquo; Perception of Captioned Video Quality. In <em>Universal Access in Human-Computer Interaction. Access to Media, Learning and Assistive Environments</em>. Springer International Publishing, Cham, 202&ndash;220.</li>
+					<li id="ref-Amin2022a">Akhter Al Amin, Saad Hassan, Sooyeon Lee, and Matt Huenerfauth. 2022. Watch It, Don&rsquo;t Imagine It: Creating a Better Caption-Occlusion Metric by Collecting More Ecologically Valid Judgments from DHH Viewers. In <em>Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;22). Association for Computing Machinery, New York, NY, USA, Article 459, 14 pages. <a href="https://doi.org/10.1145/3491102.3517681">https://doi.org/10.1145/3491102.3517681</a></li>
+					<li id="ref-Ando2000">A. Ando, T. Imai, A. Kobayashi, H. Isono, and K. Nakabayashi. 2000. Real-time transcription system for simultaneous subtitling of Japanese broadcast news programs. <em>IEEE Transactions on Broadcasting</em> 46, 3 (2000), 189&ndash;196. <a href="https://doi.org/10.1109/11.892155">https://doi.org/10.1109/11.892155</a></li>
+					<li id="ref-deAraujo2014">Tiago Maritan U. de Ara&uacute;jo, Felipe L.S. Ferreira, Danilo A.N.S. Silva, Leonardo D. Oliveira, Eduardo L. Falc&atilde;o, Leonardo A. Domingues, Vandhuy F. Martins, Igor A.C. Portela, Yurika S. N&oacute;brega, Hozana R.G. Lima, Guido L. Souza Filho, Tatiana A. Tavares, and Alexandre N. Duarte. 2014. An approach to generate and embed sign language video tracks into multimedia contents. <em>Information Sciences</em> 281 (2014), 762&ndash;780. <a href="https://doi.org/10.1016/j.ins.2014.04.008">https://doi.org/10.1016/j.ins.2014.04.008</a></li>
+					<li id="ref-Armstrong2016">Mike Armstrong, Andy Brown, Michael Crabb, Chris J. Hughes, Rhianne Jones, and James Sandford. 2016. Understanding the Diverse Needs of Subtitle Users in a Rapidly Evolving Media Landscape. <em>SMPTE Motion Imaging Journal</em> 125, 9 (2016), 33&ndash;41. <a href="https://doi.org/10.5594/JMI.2016.2614919">https://doi.org/10.5594/JMI.2016.2614919</a></li>
+					<li id="ref-Aydin2020b">Ali Selman Aydin, Shirin Feiz, Vikas Ashok, and I V Ramakrishnan. 2020. A Saliency-Driven Video Magnifier for People with Low Vision. In <em>Proceedings of the 17th International Web for All Conference</em> (W4A &rsquo;20). Association for Computing Machinery, New York, NY, USA, Article 6, 2 pages. <a href="https://doi.org/10.1145/3371300.3383356">https://doi.org/10.1145/3371300.3383356</a></li>
+					<li id="ref-Aydin2020a">Ali Selman Aydin, Shirin Feiz, Vikas Ashok, and IV Ramakrishnan. 2020. Towards Making Videos Accessible for Low Vision Screen Magnifier Users. In <em>Proceedings of the 25th International Conference on Intelligent User Interfaces</em> (IUI &rsquo;20). Association for Computing Machinery, New York, NY, USA, 10&ndash;21. <a href="https://doi.org/10.1145/3377325.3377494">https://doi.org/10.1145/3377325.3377494</a></li>
+					<li id="ref-Aydin2021">Ali Selman Aydin, Yu-Jung Ko, Utku Uckun, IV Ramakrishnan, and Vikas Ashok. 2021. Non-Visual Accessibility Assessment of Videos. In <em>Proceedings of the 30th ACM International Conference on Information and Knowledge Management</em> (CIKM &rsquo;21). Association for Computing Machinery, New York, NY, USA, 58&ndash;67. <a href="https://doi.org/10.1145/3459637.3482457">https://doi.org/10.1145/3459637.3482457</a></li>
+					<li id="ref-Bannon2018">Liam Bannon, Jeffrey Bardzell, and Susanne B&oslash;dker. 2018. Reimagining participatory design. <em>Interactions</em> 26, 1 (Dec. 2018), 26&ndash;32. <a href="https://doi.org/10.1145/3292015">https://doi.org/10.1145/3292015</a></li>
+					<li id="ref-Baykal2020">G&ouml;k&ccedil;e Elif Baykal, Maarten Van Mechelen, and Eva Eriksson. 2020. Collaborative Technologies for Children with Special Needs. In <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1&ndash;13. <a href="https://doi.org/10.1145/3313831.3376291">https://doi.org/10.1145/3313831.3376291</a></li>
+					<li id="ref-Berke2019">Larwan Berke, Khaled Albusays, Matthew Seita, and Matt Huenerfauth. 2019. Preferred Appearance of Captions Generated by Automatic Speech Recognition for Deaf and Hard-of-Hearing Viewers. In <em>Extended Abstracts of the 2019 CHI Conference on Human Factors in Computing Systems</em> (CHI EA &rsquo;19). Association for Computing Machinery, New York, NY, USA, 1&ndash;6. <a href="https://doi.org/10.1145/3290607.3312921">https://doi.org/10.1145/3290607.3312921</a></li>
+					<li id="ref-Berke2020">Larwan Berke, Matthew Seita, and Matt Huenerfauth. 2020. Deaf and Hard-of-Hearing Users&rsquo; Prioritization of Genres of Online Video Content Requiring Accurate Captions. In <em>Proceedings of the 17th International Web for All Conference</em> (W4A &rsquo;20). Association for Computing Machinery, New York, NY, USA, Article 3, 12 pages. <a href="https://doi.org/10.1145/3371300.3383337">https://doi.org/10.1145/3371300.3383337</a></li>
+					<li id="ref-Bhowmick2017">Alexy Bhowmick and Shyamanta M. Hazarika. 2017. An insight into assistive technology for the visually impaired and blind people: state-of-the-art and future trends. <em>Journal on Multimodal User Interfaces</em> 11, 2 (Jan. 2017), 149&ndash;172. <a href="https://doi.org/10.1007/s12193-016-0235-6">https://doi.org/10.1007/s12193-016-0235-6</a></li>
+					<li id="ref-Biswas2011">Pradipta Biswas, Pat Langdon, Carlos Duarte, and Jos&eacute; Coelho. 2011. Multimodal adaptation through simulation for digital TV interface. In <em>Proceedings of the 9th European Conference on Interactive TV and Video</em>. ACM, New York, NY, USA, 231&ndash;234. <a href="https://doi.org/10.1145/2000119.2000167">https://doi.org/10.1145/2000119.2000167</a></li>
+					<li id="ref-Bodi2021">Aditya Bodi, Pooyan Fazli, Shasta Ihorn, Yue-Ting Siu, Andrew T Scott, Lothar Narins, Yash Kant, Abhishek Das, and Ilmi Yoon. 2021. Automated Video Description for Blind and Low Vision Users. In <em>Extended Abstracts of the 2021 CHI Conference on Human Factors in Computing Systems</em> (CHI EA &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 230, 7 pages. <a href="https://doi.org/10.1145/3411763.3451810">https://doi.org/10.1145/3411763.3451810</a></li>
+					<li id="ref-Brandt2002">Eva Brandt, Erling Bj&ouml;rgvinsson, Per-Anders Hillgren, Viktor Bergqvist, and Marcus Emilson. 2002. PDA&rsquo;s, Barcodes and Video-Films for Continuous Learning at an Intensive Care Unit. In <em>Proceedings of the Second Nordic Conference on Human-Computer Interaction</em> (NordiCHI &rsquo;02). Association for Computing Machinery, New York, NY, USA, 293&#8211;294. <a href="https://doi.org/10.1145/572020.572070">https://doi.org/10.1145/572020.572070</a></li>
+					<li id="ref-Brown2015">Andy Brown, Rhia Jones, Mike Crabb, James Sandford, Matthew Brooks, Mike Armstrong, and Caroline Jay. 2015. Dynamic Subtitles: The User Experience. In <em>Proceedings of the ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;15). Association for Computing Machinery, New York, NY, USA, 103&ndash;112. <a href="https://doi.org/10.1145/2745197.2745204">https://doi.org/10.1145/2745197.2745204</a></li>
+					<li id="ref-Brown2017">Andy Brown, Jayson Turner, Jake Patterson, Anastasia Schmitz, Mike Armstrong, and Maxine Glancy. 2017. Subtitles in 360-Degree Video. In <em>Adjunct Publication of the 2017 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;17 Adjunct). Association for Computing Machinery, New York, NY, USA, 3&ndash;8. <a href="https://doi.org/10.1145/3084289.3089915">https://doi.org/10.1145/3084289.3089915</a></li>
+					<li id="ref-Brul2020">Emeline Brul&eacute;, Brianna J. Tomlinson, Oussama Metatla, Christophe Jouffrais, and Marcos Serrano. 2020. Review of Quantitative Empirical Evaluations of Technology for People with Visual Impairments. In <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1&ndash;14. <a href="https://doi.org/10.1145/3313831.3376749">https://doi.org/10.1145/3313831.3376749</a></li>
+					<li id="ref-Burnham2008">Denis Burnham, Greg Leigh, William Noble, Caroline Jones, Michael Tyler, Leonid Grebennikov, and Alex Varley. 2008. Parameters in Television Captioning for Deaf and Hard-of-Hearing Adults: Effects of Caption Rate Versus Text Reduction on Comprehension. <em>The Journal of Deaf Studies and Deaf Education</em> 13, 3 (2008), 391&ndash;404. <a href="https://doi.org/10.1093/deafed/enn003">https://doi.org/10.1093/deafed/enn003</a></li>
+					<li id="ref-Campos2017">Virginia Pinto Campos, Luiz Marcos G. Goncalves, and Tiago Maritan U. de Araujo. 2017. Applying audio description for context understanding of surveillance videos by people with visual impairments. In <em>2017 14th IEEE International Conference on Advanced Video and Signal Based Surveillance (AVSS)</em>. IEEE, New York, NY, USA, 1&ndash;5. <a href="https://doi.org/10.1109/avss.2017.8078530">https://doi.org/10.1109/avss.2017.8078530</a></li>
+					<li id="ref-Caro2016">Marina Ramos Caro. 2016. Testing audio narration: the emotional impact of language in audio description. <em>Perspectives</em> 24, 4 (March 2016), 606&ndash;634. <a href="https://doi.org/10.1080/0907676x.2015.1120760">https://doi.org/10.1080/0907676x.2015.1120760</a></li>
+					<li id="ref-Carrington2014">Patrick Carrington, Amy Hurst, and Shaun K. Kane. 2014. Wearables and chairables. In <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 3103&#8211;-3112. <a href="https://doi.org/10.1145/2556288.2557237">https://doi.org/10.1145/2556288.2557237</a></li>
+					<li id="ref-Carroll2005">Johnny Carroll and Kevin McLaughlin. 2005. Closed Captioning in Distance Education. <em>J. Comput. Sci. Coll.</em> 20, 4 (April 2005), 183&ndash;189.</li>
+					<li id="ref-Cartwright2009">Jade Cartwright and Kym A. E. Elliott. 2009. Promoting strategic television viewing in the context of progressive language impairment. <em>Aphasiology</em> 23, 2 (2009), 266&ndash;285. <a href="https://doi.org/10.1080/02687030801942932">https://doi.org/10.1080/02687030801942932</a></li>
+					<li id="ref-Carvalho2021">Daniel Carvalho, Telmo Silva, and Jorge Abreu. 2021. TV Remote Control and Older Adults: A Systematic Literature Review. In <em>Communications in Computer and Information Science</em>. Springer International Publishing, Cham, 119&ndash;133. <a href="https://doi.org/10.1007/978-3-030-81996-5_9">https://doi.org/10.1007/978-3-030-81996-5_9</a></li>
+					<li id="ref-Chambel2010">Teresa Chambel, S&eacute;rgio Neves, Celso Sousa, and Rafael Francisco. 2010. Synesthetic Video: Hearing Colors, Seeing Sounds. In <em>Proceedings of the 14th International Academic MindTrek Conference: Envisioning Future Media Environments</em> (MindTrek &rsquo;10). Association for Computing Machinery, New York, NY, USA, 130&ndash;133. <a href="https://doi.org/10.1145/1930488.1930515">https://doi.org/10.1145/1930488.1930515</a></li>
+					<li id="ref-Champin2010">Pierre-Antoine Champin, Beno&icirc;t Encelle, Nicholas W. D. Evans, Magali O.-Beldame, Yannick Pri&eacute;, and Rapha&euml;l Troncy. 2010. Towards Collaborative Annotation for Video Accessibility. In <em>Proceedings of the 2010 International Cross Disciplinary Conference on Web Accessibility (W4A)</em> (W4A &rsquo;10). Association for Computing Machinery, New York, NY, USA, Article 17, 4 pages. <a href="https://doi.org/10.1145/1805986.1806010">https://doi.org/10.1145/1805986.1806010</a></li>
+					<li id="ref-Chapdelaine2010">Claude Chapdelaine. 2010. In-Situ Study of Blind Individuals Listening to Audio-Visual Contents. In <em>Proceedings of the 12th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;10). Association for Computing Machinery, New York, NY, USA, 59&ndash;66. <a href="https://doi.org/10.1145/1878803.1878816">https://doi.org/10.1145/1878803.1878816</a></li>
+					<li id="ref-Chapdelaine2012">Claude Chapdelaine. 2012. Specialized DVD Player to Render Audio Description and Its Usability Performance. In <em>Proceedings of the 14th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;12). Association for Computing Machinery, New York, NY, USA, 203&ndash;204. <a href="https://doi.org/10.1145/2384916.2384954">https://doi.org/10.1145/2384916.2384954</a></li>
+					<li id="ref-Chapdelaine2009">Claude Chapdelaine and Langis Gagnon. 2009. Accessible Videodescription On-Demand. In <em>Proceedings of the 11th International ACM SIGACCESS Conference on Computers and Accessibility</em> (Assets &rsquo;09). Association for Computing Machinery, New York, NY, USA, 221&ndash;222. <a href="https://doi.org/10.1145/1639642.1639685">https://doi.org/10.1145/1639642.1639685</a></li>
+					<li id="ref-Climent2021">Mario Montagud Climent, Olga Soler-Vilageliu, Isaac Fraile Vila, and Sergi Fernandez Langa. 2021. VR360 Subtitling: Requirements, Technology and User Experience. <em>IEEE Access</em> 9 (2021), 2819&ndash;2838. <a href="https://doi.org/10.1109/access.2020.3047377">https://doi.org/10.1109/access.2020.3047377</a></li>
+					<li id="ref-Costa2019">Daniel Costa and Carlos Duarte. 2019. Personalized and Accessible TV Interaction for People with Visual Impairments. In <em>Proceedings of the 16th International Web for All Conference</em> (W4A &rsquo;19). Association for Computing Machinery, New York, NY, USA, Article 24, 4 pages. <a href="https://doi.org/10.1145/3315002.3317566">https://doi.org/10.1145/3315002.3317566</a></li>
+					<li id="ref-Costa2018">Rostand Costa, Tiago Maritan, Renan Soares, Vinicius Ver&iacute;ssimo, Suanny Vieira, Alexandre Santos, Manuella Aschoff, and Guido Lemos. 2018. An Open and Extensible Platform for Machine Translation of Spoken Languages into Sign Languages. In <em>Applications and Usability of Interactive Television</em>. Springer International Publishing, Cham, 161&ndash;176.</li>
+					<li id="ref-CostaMontenegro2015">Enrique Costa-Montenegro, F&aacute;tima M. Garc&iacute;a-Doval, Jonathan Juncal-Mart&iacute;nez, and Bel&eacute;n Barrag&aacute;ns-Mart&iacute;nez. 2015. SubTitleMe, subtitles in cinemas in mobile devices. <em>Universal Access in the Information Society</em> 15, 3 (June 2015), 461&ndash;472. <a href="https://doi.org/10.1007/s10209-015-0420-5">https://doi.org/10.1007/s10209-015-0420-5</a></li>
+					<li id="ref-Costela2021a">Francisco M Costela, Stephanie M Reeves, and Russell L Woods. 2021. An implementation of Bubble Magnification did not improve the video comprehension of individuals with central vision loss. <em>Ophthalmic and Physiological Optics</em> 41, 4 (March 2021), 842&ndash;852. <a href="https://doi.org/10.1111/opo.12797">https://doi.org/10.1111/opo.12797</a></li>
+					<li id="ref-Costela2021b">Francisco M. Costela, Stephanie M. Reeves, and Russell L. Woods. 2021. The Effect of Zoom Magnification and Large Display on Video Comprehension in Individuals With Central Vision Loss. <em>Translational Vision Science and Technology</em> 10, 8 (July 2021), 30. <a href="https://doi.org/10.1167/tvst.10.8.30">https://doi.org/10.1167/tvst.10.8.30</a></li>
+					<li id="ref-Crabb2015">Michael Crabb, Rhianne Jones, Mike Armstrong, and Chris J. Hughes. 2015. Online News Videos: The UX of Subtitle Position. In <em>Proceedings of the 17th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;15). Association for Computing Machinery, New York, NY, USA, 215&ndash;222. <a href="https://doi.org/10.1145/2700648.2809866">https://doi.org/10.1145/2700648.2809866</a></li>
+					<li id="ref-Curtis2022">Humphrey Curtis, Timothy Neate, and Carlota Vazquez Gonzalez. 2022. State of the Art in AAC: A Systematic Review and Taxonomy. In <em>The 24th International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM, New York, NY, USA, 1&ndash;22. <a href="https://doi.org/10.1145/3517428.3544810">https://doi.org/10.1145/3517428.3544810</a></li>
+					<li id="ref-Domingues2020">Patricio Domingues, Ruben Nogueira, Jos&eacute; Carlos Francisco, and Miguel Frade. 2020. Post-mortem digital forensic artifacts of TikTok Android App. In <em>Proceedings of the 15th International Conference on Availability, Reliability and Security</em>. ACM, New York, NY, USA, 1&ndash;8. <a href="https://doi.org/10.1145/3407023.3409203">https://doi.org/10.1145/3407023.3409203</a></li>
+					<li id="ref-Dumoulin2015">Jo&euml;l Dumoulin, Diana Affi, Elena Mugellini, Omar Abou Khaled, Marco Bertini, and Alberto Del Bimbo. 2015. Movie&rsquo;s Affect Communication Using Multisensory Modalities. In <em>Proceedings of the 23rd ACM International Conference on Multimedia</em> (MM &rsquo;15). Association for Computing Machinery, New York, NY, USA, 739&ndash;740. <a href="https://doi.org/10.1145/2733373.2807965">https://doi.org/10.1145/2733373.2807965</a></li>
+					<li id="ref-Encelle2013">Beno&icirc;t Encelle, Magali Ollagnier Beldame, and Yannick Pri&eacute;. 2013. Towards the Usage of Pauses in Audio-Described Videos. In <em>Proceedings of the 10th International Cross-Disciplinary Conference on Web Accessibility</em> (W4A &rsquo;13). Association for Computing Machinery, New York, NY, USA, Article 31, 4 pages. <a href="https://doi.org/10.1145/2461121.2461130">https://doi.org/10.1145/2461121.2461130</a></li>
+					<li id="ref-Encelle2011a">Beno&icirc;t Encelle, Pierre-Antoine Champin, Yannick Pri&eacute;, and Olivier Aubert. 2011. Models for Video Enrichment. In <em>Proceedings of the 11th ACM Symposium on Document Engineering</em> (DocEng &rsquo;11). Association for Computing Machinery, New York, NY, USA, 85&ndash;88. <a href="https://doi.org/10.1145/2034691.2034710">https://doi.org/10.1145/2034691.2034710</a></li>
+					<li id="ref-Encelle2011b">Beno&icirc;t Encelle, Magali Ollagnier-Beldame, St&eacute;phanie Pouchot, and Yannick Pri&eacute;. 2011. Annotation-Based Video Enrichment for Blind People: A Pilot Study on the Use of Earcons and Speech Synthesis. In <em>The Proceedings of the 13th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;11). Association for Computing Machinery, New York, NY, USA, 123&ndash;130. <a href="https://doi.org/10.1145/2049536.2049560">https://doi.org/10.1145/2049536.2049560</a></li>
+					<li id="ref-Garcia2009">Jose Enrique Garcia, Alfonso Ortega, Eduardo Lleida, Tomas Lozano, Emiliano Bernues, and Daniel Sanchez. 2009. Audio and text synchronization for TV news subtitling based on Automatic Speech Recognition. In <em>2009 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting</em>. IEEE, New York, NY, USA, 1&ndash;6. <a href="https://doi.org/10.1109/ISBMSB.2009.5133758">https://doi.org/10.1109/ISBMSB.2009.5133758</a></li>
+					<li id="ref-Federico2012">Maria Federico and Marco Furini. 2012. Enhancing Learning Accessibility through Fully Automatic Captioning. In <em>Proceedings of the International Cross-Disciplinary Conference on Web Accessibility</em> (W4A &rsquo;12). Association for Computing Machinery, New York, NY, USA, Article 40, 4 pages. <a href="https://doi.org/10.1145/2207016.2207053">https://doi.org/10.1145/2207016.2207053</a></li>
+					<li id="ref-Fels2006">Deborah I. Fels, John Patrick Udo, Jonas E. Diamond, and Jeremy I. Diamond. 2006. A Comparison of Alternative Narrative Approaches to Video Description for Animated Comedy. <em>Journal of Visual Impairment and Blindness</em> 100, 5 (May 2006), 295&ndash;305. <a href="https://doi.org/10.1177/0145482x0610000507">https://doi.org/10.1177/0145482x0610000507</a></li>
+					<li id="ref-Filho2021">Itamar Rocha Filho, Felipe Honorato, J. Wallace Lucena, J. Pedro Teixeira, and Tiago Maritan. 2021. An Approach for Automatic Description of Characters for Blind People. In <em>Proceedings of the Brazilian Symposium on Multimedia and the Web</em> (WebMedia &rsquo;21). Association for Computing Machinery, New York, NY, USA, 53&ndash;56. <a href="https://doi.org/10.1145/3470482.3479617">https://doi.org/10.1145/3470482.3479617</a></li>
+					<li id="ref-Firdus2012">Shadiqin Firdus, Wan Fatimah Wan Ahmad, and Josefina Barnachea Janier. 2012. Development of Audio Video Describer using narration to visualize movie film for blind and visually impaired children. In <em>2012 International Conference on Computer and Information Science (ICCIS)</em>. IEEE, New York, NY, USA, 1068&ndash;1072. <a href="https://doi.org/10.1109/iccisci.2012.6297184">https://doi.org/10.1109/iccisci.2012.6297184</a></li>
+					<li id="ref-Fleiss1973">Joseph L. Fleiss and Jacob Cohen. 1973. The Equivalence of Weighted Kappa and the Intraclass Correlation Coefficient as Measures of Reliability. <em>Educational and Psychological Measurement</em> 33, 3 (Oct. 1973), 613&ndash;619. <a href="https://doi.org/10.1177/001316447303300309">https://doi.org/10.1177/001316447303300309</a></li>
+					<li id="ref-Fryer2013b">Louise Fryer and Jonathan Freeman. 2013. Cinematic language and the description of film: keeping AD users in the frame. <em>Perspectives</em> 21, 3 (Sept. 2013), 412&ndash;426. <a href="https://doi.org/10.1080/0907676x.2012.693108">https://doi.org/10.1080/0907676x.2012.693108</a></li>
+					<li id="ref-Fryer2013a">Louise Fryer and Jonathan Freeman. 2013. Visual Impairment and Presence: Measuring the Effect of Audio Description. In <em>Proceedings of the 2013 Inputs-Outputs Conference: An Interdisciplinary Conference on Engagement in HCI and Performance</em> (Inputs-Outputs &rsquo;13). Association for Computing Machinery, New York, NY, USA, Article 4, 5 pages. <a href="https://doi.org/10.1145/2557595.2557599">https://doi.org/10.1145/2557595.2557599</a></li>
+					<li id="ref-Funnell2019">Liam Funnell, Isabel Garriock, Ben Shirley, and Tracey Williamson. 2019. Dementia-friendly design of television news broadcasts. <em>Journal of Enabling Technologies</em> 13, 3 (Sept. 2019), 137&ndash;149. <a href="https://doi.org/10.1108/jet-02-2018-0009">https://doi.org/10.1108/jet-02-2018-0009</a></li>
+					<li id="ref-Gagnon2010">L. Gagnon, C. Chapdelaine, D. Byrns, S. Foucher, M. H&eacute;ritier, and V. Gupta. 2010. A computer-vision-assisted system for Videodescription scripting. In <em>2010 IEEE Computer Society Conference on Computer Vision and Pattern Recognition - Workshops</em>. IEEE, New York, NY, USA, 41&ndash;48. <a href="https://doi.org/10.1109/CVPRW.2010.5543575">https://doi.org/10.1109/CVPRW.2010.5543575</a></li>
+					<li id="ref-GarcaCrespo2016">&Aacute;ngel Garc&iacute;a-Crespo, Jos&eacute; Luis L&oacute;pez-Cuadrado, and Israel Gonz&aacute;lez-Carrasco. 2016. Accesibility on VoD Platforms via Mobile Devices. In <em>Communications in Computer and Information Science</em>. Springer International Publishing, Cham, 149&ndash;160. <a href="https://doi.org/10.1007/978-3-319-38907-3_12">https://doi.org/10.1007/978-3-319-38907-3_12</a></li>
+					<li id="ref-GarciaCrespo2016">Angel Garcia-Crespo, Jose Luis Lopez-Cuadrado, and Israel Gonzalez-Carrasco. 2016. Accesibility on VoD Platforms via Mobile Devices. In <em>Applications and Usability of Interactive TV</em>. Springer International Publishing, Cham, 149&ndash;160.</li>
+					<li id="ref-GarcaCrespo2018">Angel Garc&iacute;a-Crespo, Mariuxi Montes-Chunga, Carlos Alberto Matheus-Chacin, and Ines Garcia-Encabo. 2018. Increasing the autonomy of deafblind individuals through direct access to content broadcasted on digital terrestrial television. <em>Assistive Technology</em> 32, 5 (Dec. 2018), 268&ndash;276. <a href="https://doi.org/10.1080/10400435.2018.1543219">https://doi.org/10.1080/10400435.2018.1543219</a></li>
+					<li id="ref-GarciaCrespo2020">Angel Garc&iacute;a-Crespo, Mariuxi Montes-Chunga, Carlos Alberto Matheus-Chacin, and Ines Garcia-Encabo. 2020. Increasing the autonomy of deafblind individuals through direct access to content broadcasted on digital terrestrial television. <em>Assistive Technology</em> 32, 5 (2020), 268&ndash;276. <a href="https://doi.org/10.1080/10400435.2018.1543219">https://doi.org/10.1080/10400435.2018.1543219</a></li>
+					<li id="ref-Gaw2006">D. Gaw, D. Morris, and K. Salisbury. 2006. Haptically Annotated Movies: Reaching Out and Touching the Silver Screen. In <em>2006 14th Symposium on Haptic Interfaces for Virtual Environment and Teleoperator Systems</em>. IEEE, New York, NY, USA, 287&ndash;288. <a href="https://doi.org/10.1109/haptic.2006.1627106">https://doi.org/10.1109/haptic.2006.1627106</a></li>
+					<li id="ref-BernerMoron2018">Olivia Gerber-Mor&oacute;n, Agnieszka Szarkowska, and Bencie Woll. 2018. The impact of text segmentation on subtitle reading. <em>Journal of Eye Movement Research</em> 11, 4 (June 2018), 1&ndash;18. <a href="https://doi.org/10.16910/11.4.2">https://doi.org/10.16910/11.4.2</a></li>
+					<li id="ref-Goncu2021">Cagatay Goncu and Daniel J. Finnegan. 2021. &lsquo;Did You See That!?&rsquo; Enhancing the Experience of Sports Media Broadcast for Blind People. In <em>Human-Computer Interaction &ndash; INTERACT 2021</em>. Springer International Publishing, Cham, 396&ndash;417.</li>
+					<li id="ref-GonzalezCarrasco2019">I. Gonzalez-Carrasco, L. Puente, B. Ruiz-Mezcua, and J. L. Lopez-Cuadrado. 2019. Sub-Sync: Automatic Synchronization of Subtitles in the Broadcasting of True Live programs in Spanish. <em>IEEE Access</em> 7 (2019), 60968&ndash;60983. <a href="https://doi.org/10.1109/access.2019.2915581">https://doi.org/10.1109/access.2019.2915581</a></li>
+					<li id="ref-Gorman2021">Benjamin M. Gorman, Michael Crabb, and Michael Armstrong. 2021. Adaptive Subtitles: Preferences and Trade-Offs in Real-Time Media Adaption. In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 733, 11 pages. <a href="https://doi.org/10.1145/3411764.3445509">https://doi.org/10.1145/3411764.3445509</a></li>
+					<li id="ref-Gower2018">Michael Gower, Brent Shiver, Charu Pandhi, and Shari Trewin. 2018. Leveraging Pauses to Improve Video Captions. In <em>Proceedings of the 20th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;18). Association for Computing Machinery, New York, NY, USA, 414&ndash;416. <a href="https://doi.org/10.1145/3234695.3241023">https://doi.org/10.1145/3234695.3241023</a></li>
+					<li id="ref-Greenhalgh2005">Trisha Greenhalgh and Richard Peacock. 2005. Effectiveness and efficiency of search methods in systematic reviews of complex evidence: audit of primary sources. <em>BMJ</em> 331, 7524 (Oct. 2005), 1064&ndash;1065. <a href="https://doi.org/10.1136/bmj.38636.593461.68">https://doi.org/10.1136/bmj.38636.593461.68</a></li>
+					<li id="ref-Grellmann2018">Brian Grellmann, Timothy Neate, Abi Roper, Stephanie Wilson, and Jane Marshall. 2018. Investigating Mobile Accessibility Guidance for People with Aphasia. In <em>Proceedings of the 20th International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM, New York, NY, USA, 410&ndash;413. <a href="https://doi.org/10.1145/3234695.3241011">https://doi.org/10.1145/3234695.3241011</a></li>
+					<li id="ref-Guinness2018">Darren Guinness, Annika Muehlbradt, Daniel Szafir, and Shaun K. Kane. 2018. The Haptic Video Player: Using Mobile Robots to Create Tangible Video Annotations. In <em>Proceedings of the 2018 ACM International Conference on Interactive Surfaces and Spaces</em> (ISS &rsquo;18). Association for Computing Machinery, New York, NY, USA, 203&ndash;211. <a href="https://doi.org/10.1145/3279778.3279805">https://doi.org/10.1145/3279778.3279805</a></li>
+					<li id="ref-Gulliver2002">S.R. Gulliver and G. Ghinea. 2002. Impact of captions on deaf and hearing perception of multimedia video clips. In <em>Proceedings. IEEE International Conference on Multimedia and Expo</em>. IEEE, New York, NY, USA, 753&ndash;756. <a href="https://doi.org/10.1109/icme.2002.1035891">https://doi.org/10.1109/icme.2002.1035891</a></li>
+					<li id="ref-Gulliver2003">S.R. Gulliver and G. Ghinea. 2003. How level and type of deafness affect user perception of multimedia video clips. <em>Universal Access in the Information Society</em> 2, 4 (Nov. 2003), 374&ndash;386. <a href="https://doi.org/10.1007/s10209-003-0067-5">https://doi.org/10.1007/s10209-003-0067-5</a></li>
+					<li id="ref-Hamilton2014">William A. Hamilton, Oliver Garretson, and Andruid Kerne. 2014. Streaming on twitch. In <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1315&#8211;-1324. <a href="https://doi.org/10.1145/2556288.2557048">https://doi.org/10.1145/2556288.2557048</a></li>
+					<li id="ref-Hanzlicek2008">Zdenek Hanzlicek, Jindrich Matousek, and Daniel Tihelka. 2008. Towards automatic audio track generation for Czech TV broadcasting: Initial experiments with subtitles-to-speech synthesis. In <em>2008 9th International Conference on Signal Processing</em>. IEEE, New York, NY, USA, 2721&ndash;2724. <a href="https://doi.org/10.1109/icosp.2008.4697710">https://doi.org/10.1109/icosp.2008.4697710</a></li>
+					<li id="ref-Hong2010">Richang Hong, Meng Wang, Mengdi Xu, Shuicheng Yan, and Tat-Seng Chua. 2010. Dynamic Captioning: Video Accessibility Enhancement for Hearing Impairment. In <em>Proceedings of the 18th ACM International Conference on Multimedia</em> (MM &rsquo;10). Association for Computing Machinery, New York, NY, USA, 421&ndash;430. <a href="https://doi.org/10.1145/1873951.1874013">https://doi.org/10.1145/1873951.1874013</a></li>
+					<li id="ref-Hong2011">Richang Hong, Meng Wang, Xiao-Tong Yuan, Mengdi Xu, Jianguo Jiang, Shuicheng Yan, and Tat-Seng Chua. 2011. Video Accessibility Enhancement for Hearing-Impaired Users. <em>ACM Trans. Multimedia Comput. Commun. Appl.</em> 7S, 1 (Nov. 2011), Article 24, 19 pages. <a href="https://doi.org/10.1145/2037676.2037681">https://doi.org/10.1145/2037676.2037681</a></li>
+					<li id="ref-OFCOM2021">Elfed Howells and David Jackson. 2021. <em><a href="https://www.ofcom.org.uk/research-and-data/technology/general/object-based-media">Object-Based Media Report</a></em>.</li>
+					<li id="ref-Hu2015">Yongtao Hu, Jan Kautz, Yizhou Yu, and Wenping Wang. 2015. Speaker-Following Video Subtitles. <em>ACM Trans. Multimedia Comput. Commun. Appl.</em> 11, 2 (Jan. 2015), Article 32, 17 pages. <a href="https://doi.org/10.1145/2632111">https://doi.org/10.1145/2632111</a></li>
+					<li id="ref-Huang2017">Yun Huang, Yifeng Huang, Na Xue, and Jeffrey P. Bigham. 2017. Leveraging Complementary Contributions of Different Workers for Efficient Crowdsourcing of Video Captions. In <em>Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;17). Association for Computing Machinery, New York, NY, USA, 4617&ndash;4626. <a href="https://doi.org/10.1145/3025453.3026032">https://doi.org/10.1145/3025453.3026032</a></li>
+					<li id="ref-Hughes2019">Chris Hughes, Mario Montagud Climent, and Peter tho Pesch. 2019. Disruptive Approaches for Subtitling in Immersive Environments. In <em>Proceedings of the 2019 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;19). Association for Computing Machinery, New York, NY, USA, 216&ndash;229. <a href="https://doi.org/10.1145/3317697.3325123">https://doi.org/10.1145/3317697.3325123</a></li>
+					<li id="ref-Hughes2015">Chris J. Hughes, Mike Armstrong, Rhianne Jones, and Michael Crabb. 2015. Responsive Design for Personalised Subtitles. In <em>Proceedings of the 12th International Web for All Conference</em> (W4A &rsquo;15). Association for Computing Machinery, New York, NY, USA, Article 8, 4 pages. <a href="https://doi.org/10.1145/2745555.2746650">https://doi.org/10.1145/2745555.2746650</a></li>
+					<li id="ref-Kafle2021">Sushant Kafle, Becca Dingman, and Matt Huenerfauth. 2021. Deaf and Hard-of-Hearing Users Evaluating Designs for Highlighting Key Words in Educational Lecture Videos. <em>ACM Trans. Access. Comput.</em> 14, 4 (Oct. 2021), Article 20, 24 pages. <a href="https://doi.org/10.1145/3470651">https://doi.org/10.1145/3470651</a></li>
+					<li id="ref-Kafle2017">Sushant Kafle and Matt Huenerfauth. 2017. Evaluating the Usability of Automatically Generated Captions for People Who Are Deaf or Hard of Hearing. In <em>Proceedings of the 19th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;17). Association for Computing Machinery, New York, NY, USA, 165&ndash;174. <a href="https://doi.org/10.1145/3132525.3132542">https://doi.org/10.1145/3132525.3132542</a></li>
+					<li id="ref-Kafle2019">Sushant Kafle, Peter Yeung, and Matt Huenerfauth. 2019. Evaluating the Benefit of Highlighting Key Words in Captions for People Who Are Deaf or Hard of Hearing. In <em>Proceedings of the 21st International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;19). Association for Computing Machinery, New York, NY, USA, 43&ndash;55. <a href="https://doi.org/10.1145/3308561.3353781">https://doi.org/10.1145/3308561.3353781</a></li>
+					<li id="ref-KearneyVolpe2019">Claire Kearney-Volpe, Shannon Holloway, and Amy Hurst. 2019. Entertainment for All: Understanding Media Streaming Accessibility. In <em>Extended Abstracts of the 2019 CHI Conference on Human Factors in Computing Systems</em> (CHI EA &rsquo;19). Association for Computing Machinery, New York, NY, USA, 1&ndash;6. <a href="https://doi.org/10.1145/3290607.3312882">https://doi.org/10.1145/3290607.3312882</a></li>
+					<li id="ref-Kobayashi2009">Masatomo Kobayashi, Kentarou Fukuda, Hironobu Takagi, and Chieko Asakawa. 2009. Providing Synthesized Audio Description for Online Videos. In <em>Proceedings of the 11th International ACM SIGACCESS Conference on Computers and Accessibility</em> (Assets &rsquo;09). Association for Computing Machinery, New York, NY, USA, 249&ndash;250. <a href="https://doi.org/10.1145/1639642.1639699">https://doi.org/10.1145/1639642.1639699</a></li>
+					<li id="ref-Kobayashi2010a">Masatomo Kobayashi, Tohru Nagano, Kentarou Fukuda, and Hironobu Takagi. 2010. Describing Online Videos with Text-to-Speech Narration. In <em>Proceedings of the 2010 International Cross Disciplinary Conference on Web Accessibility (W4A)</em> (W4A &rsquo;10). Association for Computing Machinery, New York, NY, USA, Article 29, 2 pages. <a href="https://doi.org/10.1145/1805986.1806025">https://doi.org/10.1145/1805986.1806025</a></li>
+					<li id="ref-Kobayashi2010b">Masatomo Kobayashi, Trisha O&rsquo;Connell, Bryan Gould, Hironobu Takagi, and Chieko Asakawa. 2010. Are Synthesized Video Descriptions Acceptable? In <em>Proceedings of the 12th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;10). Association for Computing Machinery, New York, NY, USA, 163&ndash;170. <a href="https://doi.org/10.1145/1878803.1878833">https://doi.org/10.1145/1878803.1878833</a></li>
+					<li id="ref-Konstantinidis2020">Dimitrios Konstantinidis, Kosmas Dimitropoulos, Kiriakos Stefanidis, Thanassis Kalvourtzis, Salim Gannoum, Nikolaos Kaklanis, Konstantinos Votis, Petros Daras, Sara Rovira-Esteva, Pilar Orero, Silvia Uribe, Francisco Moreno, Alvaro Llorente, Pablo Calleja, Maria Poveda-Villal&oacute;n, Pasquale Andriani, Giuseppe Vitolo, Giuseppa Caruso, Nicolamaria Manes, Fabrizio Giacomelli, Jordi Fabregat, Francesc Mas, Jordi Mata, Stavros Skourtis, Chrysostomos Bourlis, Giuliano Frittelli, Emilio Ferreiro Lago, and Federico Alvarez. 2020. Developing Accessibility Multimedia Services: The Case of EasyTV. In <em>Proceedings of the 13th ACM International Conference on PErvasive Technologies Related to Assistive Environments</em> (PETRA &rsquo;20). Association for Computing Machinery, New York, NY, USA, Article 38, 8 pages. <a href="https://doi.org/10.1145/3389189.3397973">https://doi.org/10.1145/3389189.3397973</a></li>
+					<li id="ref-Kurzhals2017">Kuno Kurzhals, Emine Cetinkaya, Yongtao Hu, Wenping Wang, and Daniel Weiskopf. 2017. Close to the Action: Eye-Tracking Evaluation of Speaker-Following Subtitles. In <em>Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;17). Association for Computing Machinery, New York, NY, USA, 6559&ndash;6568. <a href="https://doi.org/10.1145/3025453.3025772">https://doi.org/10.1145/3025453.3025772</a></li>
+					<li id="ref-Kurzhals2020">Kuno Kurzhals, Fabian G&ouml;bel, Katrin Angerbauer, Michael Sedlmair, and Martin Raubal. 2020. A View on the Viewer: Gaze-Adaptive Captions for Videos. In <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;20). Association for Computing Machinery, New York, NY, USA, 1&ndash;12. <a href="https://doi.org/10.1145/3313831.3376266">https://doi.org/10.1145/3313831.3376266</a></li>
+					<li id="ref-10.1007/978-3-319-94277-3_35">Raja Kushalnagar and Kesavan Kushalnagar. 2018. SubtitleFormatter: Making Subtitles Easier to Read for Deaf and Hard of Hearing Viewers on Personal Devices. In <em>Computers Helping People with Special Needs</em>. Springer International Publishing, Cham, 211&ndash;219.</li>
+					<li id="ref-Kushalnagar2017">Raja Kushalnagar, Matthew Seita, and Abraham Glasser. 2017. Closed ASL Interpreting for Online Videos. In <em>Proceedings of the 14th International Web for All Conference</em>. ACM, New York, NY, USA, 1&ndash;4. <a href="https://doi.org/10.1145/3058555.3058578">https://doi.org/10.1145/3058555.3058578</a></li>
+					<li id="ref-Kushalnagar2014a">Raja S. Kushalnagar, Gary W. Behm, Joseph S. Stanislow, and Vasu Gupta. 2014. Enhancing Caption Accessibility through Simultaneous Multimodal Information: Visual-Tactile Captions. In <em>Proceedings of the 16th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;14). Association for Computing Machinery, New York, NY, USA, 185&ndash;192. <a href="https://doi.org/10.1145/2661334.2661381">https://doi.org/10.1145/2661334.2661381</a></li>
+					<li id="ref-Kushalnagar2013">Raja S. Kushalnagar, Walter S. Lasecki, and Jeffrey P. Bigham. 2013. Captions versus Transcripts for Online Video Content. In <em>Proceedings of the 10th International Cross-Disciplinary Conference on Web Accessibility</em> (W4A &rsquo;13). Association for Computing Machinery, New York, NY, USA, Article 32, 4 pages. <a href="https://doi.org/10.1145/2461121.2461142">https://doi.org/10.1145/2461121.2461142</a></li>
+					<li id="ref-Kushalnagar2014b">Raja S. Kushalnagar, John J. Rivera, Warrance Yu, and Daniel S. Steed. 2014. AVD-LV: An Accessible Player for Captioned STEM Videos. In <em>Proceedings of the 16th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;14). Association for Computing Machinery, New York, NY, USA, 287&ndash;288. <a href="https://doi.org/10.1145/2661334.2661353">https://doi.org/10.1145/2661334.2661353</a></li>
+					<li id="ref-Lasecki2014">Walter S. Lasecki, Raja Kushalnagar, and Jeffrey P. Bigham. 2014. Helping Students Keep up with Real-Time Captions by Pausing and Highlighting. In <em>Proceedings of the 11th Web for All Conference</em> (W4A &rsquo;14). Association for Computing Machinery, New York, NY, USA, Article 39, 8 pages. <a href="https://doi.org/10.1145/2596695.2596701">https://doi.org/10.1145/2596695.2596701</a></li>
+					<li id="ref-Lee2007">Daniel G. Lee, Deborah I. Fels, and John Patrick Udo. 2007. Emotive Captioning. <em>Comput. Entertain.</em> 5, 2 (April 2007), Article 11, 15 pages. <a href="https://doi.org/10.1145/1279540.1279551">https://doi.org/10.1145/1279540.1279551</a></li>
+					<li id="ref-Lee2021">Hae-Na Lee and Vikas Ashok. 2021. Towards Enhancing Blind Users&rsquo; Interaction Experience with Online Videos via Motion Gestures. In <em>Proceedings of the 32nd ACM Conference on Hypertext and Social Media</em> (HT &rsquo;21). Association for Computing Machinery, New York, NY, USA, 231&ndash;236. <a href="https://doi.org/10.1145/3465336.3475116">https://doi.org/10.1145/3465336.3475116</a></li>
+					<li id="ref-Li2022">Franklin Mingzhe Li, Cheng Lu, Zhicong Lu, Patrick Carrington, and Khai N. Truong. 2022. An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments. <em>Proceedings of the ACM on Human-Computer Interaction</em> 6, CSCW1 (March 2022), 1&ndash;26. <a href="https://doi.org/10.1145/3512922">https://doi.org/10.1145/3512922</a></li>
+					<li id="ref-Li2016">Xiangbo Li, Mohsen Amini Salehi, and Magdy Bayoumi. 2016. High Performance On-demand Video Transcoding Using Cloud Services. In <em>2016 16th IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid)</em>. IEEE Computer Society, New York, NY, USA, 600&ndash;603. <a href="https://doi.org/10.1109/CCGrid.2016.50">https://doi.org/10.1109/CCGrid.2016.50</a></li>
+					<li id="ref-Liu2021">Xingyu Liu, Patrick Carrington, Xiang &rsquo;Anthony&rsquo; Chen, and Amy Pavel. 2021. What Makes Videos Accessible to Blind and Visually Impaired People? In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 272, 14 pages. <a href="https://doi.org/10.1145/3411764.3445233">https://doi.org/10.1145/3411764.3445233</a></li>
+					<li id="ref-Ljunglof2012">Peter Ljunglof, Sandra Derbring, and Maria Olsson. 2012. A Free and Open-Source Tool That Reads Movie Subtitles Aloud. In <em>Proceedings of the Third Workshop on Speech and Language Processing for Assistive Technologies</em> (SLPAT &rsquo;12). Association for Computational Linguistics, USA, 1&ndash;4.</li>
+					<li id="ref-Lopez2021">Mariana Lopez, Gavin Kearney, and Krisztian Hofstadter. 2021. Enhancing Audio Description: Inclusive Cinematic Experiences Through Sound Design. <em>Journal of Audiovisual Translation</em> 4, 1 (Oct. 2021), 157&ndash;182. <a href="https://doi.org/10.47476/jat.v4i1.2021.154">https://doi.org/10.47476/jat.v4i1.2021.154</a></li>
+					<li id="ref-Mack2021">Kelly Mack, Emma McDonnell, Dhruv Jain, Lucy Lu Wang, Jon E. Froehlich, and Leah Findlater. 2021. What Do We Mean by &ldquo;Accessibility Research&rdquo;? In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1&ndash;18. <a href="https://doi.org/10.1145/3411764.3445412">https://doi.org/10.1145/3411764.3445412</a></li>
+					<li id="ref-Martn2021">Alejandro Mart&iacute;n, Israel Gonz&aacute;lez-Carrasco, Victor Rodriguez-Fernandez, M&oacute;nica Souto-Rico, David Camacho, and Bel&eacute;n Ruiz-Mezcua. 2021. Deep-Sync: A novel deep learning-based tool for semantic-aware subtitling synchronisation. <em>Neural Computing and Applications</em> 33, 1 (Feb. 2021), 1&ndash;15. <a href="https://doi.org/10.1007/s00521-021-05751-y">https://doi.org/10.1007/s00521-021-05751-y</a></li>
+					<li id="ref-Matamala2014">Anna Matamala and Aline Remael. 2014. Audio-description reloaded: An analysis of visual scenes in 2012 and Hero. <em>Translation Studies</em> 8, 1 (Aug. 2014), 63&ndash;81. <a href="https://doi.org/10.1080/14781700.2014.943678">https://doi.org/10.1080/14781700.2014.943678</a></li>
+					<li id="ref-Matousek2010">Jindrich Matousek, Zdenek Hanzlicek, Daniel Tihelka, and Martin Mener. 2010. Automatic dubbing of TV programmes for the hearing impaired. In <em>IEEE 10th INTERNATIONAL CONFERENCE ON SIGNAL PROCESSING PROCEEDINGS</em>. IEEE, New York, NY, USA, 589&ndash;592. <a href="https://doi.org/10.1109/icosp.2010.5655861">https://doi.org/10.1109/icosp.2010.5655861</a></li>
+					<li id="ref-Matthews2005">Tara Matthews, Janette Fong, and Jennifer Mankoff. 2005. Visualizing Non-Speech Sounds for the Deaf. In <em>Proceedings of the 7th International ACM SIGACCESS Conference on Computers and Accessibility</em> (Assets &rsquo;05). Association for Computing Machinery, New York, NY, USA, 52&ndash;59. <a href="https://doi.org/10.1145/1090785.1090797">https://doi.org/10.1145/1090785.1090797</a></li>
+					<li id="ref-McDaniel2013">Troy McDaniel, Lakshmie Narayan Viswanathan, and Sethuraman Panchanathan. 2013. An evaluation of haptic descriptions for audio described films for individuals who are blind. In <em>2013 IEEE International Conference on Multimedia and Expo (ICME)</em>. IEEE, New York, NY, USA, 1&ndash;6. <a href="https://doi.org/10.1109/ICME.2013.6607554">https://doi.org/10.1109/ICME.2013.6607554</a></li>
+					<li id="ref-McGill2020">Mark McGill, Florian Mathis, Mohamed Khamis, and Julie Williamson. 2020. Augmenting TV Viewing Using Acoustically Transparent Auditory Headsets. In <em>ACM International Conference on Interactive Media Experiences</em> (IMX &rsquo;20). Association for Computing Machinery, New York, NY, USA, 34&ndash;44. <a href="https://doi.org/10.1145/3391614.3393650">https://doi.org/10.1145/3391614.3393650</a></li>
+					<li id="ref-McGill2016">Mark McGill, John H. Williamson, and Stephen Brewster. 2016. Examining The Role of Smart TVs and VR HMDs in Synchronous At-a-Distance Media Consumption. <em>ACM Transactions on Computer-Human Interaction</em> 23, 5 (Nov. 2016), 1&ndash;57. <a href="https://doi.org/10.1145/2983530">https://doi.org/10.1145/2983530</a></li>
+					<li id="ref-Meliones2020">Apostolos Meliones and Stavros Maidonis. 2020. DAL&Iacute;. In <em>Proceedings of the 13th ACM International Conference on PErvasive Technologies Related to Assistive Environments</em>. ACM, New York, NY, USA, 1&ndash;9. <a href="https://doi.org/10.1145/3389189.3397972">https://doi.org/10.1145/3389189.3397972</a></li>
+					<li id="ref-Mocanu2021">Bogdan Mocanu and Ruxandra Tapu. 2021. Automatic Subtitle Placement Through Active Speaker Identification in Multimedia Documents. In <em>2021 International Conference on e-Health and Bioengineering (EHB)</em>. IEEE, New York, NY, USA, 1&ndash;4. <a href="https://doi.org/10.1109/ehb52898.2021.9657604">https://doi.org/10.1109/ehb52898.2021.9657604</a></li>
+					<li id="ref-Mocanu2019">Bogdan Mocanu, Ruxandra Tapu, and Titus Zaharia. 2019. Enhancing the Accessibility of Hearing Impaired to Video Content through Fully Automatic Dynamic Captioning. In <em>2019 E-Health and Bioengineering Conference (EHB)</em>. IEEE, New York, NY, USA, 1&ndash;4. <a href="https://doi.org/10.1109/ehb47216.2019.8970038">https://doi.org/10.1109/ehb47216.2019.8970038</a></li>
+					<li id="ref-Montagud2017">Mario Montagud, Fernando Boronat, Juan Gonz&aacute;lez, and Javier Pastor. 2017. Web-Based Platform for Subtitles Customization and Synchronization in Multi-Screen Scenarios. In <em>Adjunct Publication of the 2017 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;17 Adjunct). Association for Computing Machinery, New York, NY, USA, 81&ndash;82. <a href="https://doi.org/10.1145/3084289.3089913">https://doi.org/10.1145/3084289.3089913</a></li>
+					<li id="ref-Montagud2020a">Mario Montagud, Fernando Boronat, Javier Pastor, and Dani Marfil. 2020. Web-based platform for a customizable and synchronized presentation of subtitles in single- and multi-screen scenarios. <em>Multimedia Tools and Applications</em> 79, 29-30 (May 2020), 21889&ndash;21923. <a href="https://doi.org/10.1007/s11042-020-08955-x">https://doi.org/10.1007/s11042-020-08955-x</a></li>
+					<li id="ref-Montagud2018">Mario Montagud, Issac Fraile, Juan A. Nu&ntilde;ez, and Sergi Fern&aacute;ndez. 2018. ImAc: Enabling Immersive, Accessible and Personalized Media Experiences. In <em>Proceedings of the 2018 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;18). Association for Computing Machinery, New York, NY, USA, 245&ndash;250. <a href="https://doi.org/10.1145/3210825.3213570">https://doi.org/10.1145/3210825.3213570</a></li>
+					<li id="ref-Montagud2020b">Mario Montagud, Jaume Segura-Garcia, J. Antonio De Rus, and Rafael Fayos Jord&aacute;n. 2020. Towards an Immersive and Accessible Virtual Reconstruction of Theaters from the Early Modern: Bringing Back Cultural Heritage from the Past. In <em>ACM International Conference on Interactive Media Experiences</em> (IMX &rsquo;20). Association for Computing Machinery, New York, NY, USA, 143&#8211;147. <a href="https://doi.org/10.1145/3391614.3399390">https://doi.org/10.1145/3391614.3399390</a></li>
+					<li id="ref-Montero2015">Francisco Montero, V&iacute;ctor L&oacute;pez-Jaquero, and Pascual Gonz&aacute;lez. 2015. Accessibility: An Open Issue in the Interactive Digital Television. In <em>Applications and Usability of Interactive TV</em>. Springer International Publishing, Cham, 105&ndash;119.</li>
+					<li id="ref-Mott2020">Martez Mott, John Tang, Shaun Kane, Edward Cutrell, and Meredith Ringel Morris. 2020. &ldquo;I just went into it assuming that I wouldnt be able to have the full experience&rdquo;. In <em>The 22nd International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM, New York, NY, USA, 1&ndash;13. <a href="https://doi.org/10.1145/3373625.3416998">https://doi.org/10.1145/3373625.3416998</a></li>
+					<li id="ref-Natalie2021">Rosiana Natalie, Jolene Loh, Huei Suen Tan, Joshua Tseng, Ian Luke Yi-Ren Chan, Ebrima H Jarjue, Hernisa Kacorri, and Kotaro Hara. 2021. The Efficacy of Collaborative Authoring of Video Scene Descriptions. In <em>Proceedings of the 23rd International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 17, 15 pages. <a href="https://doi.org/10.1145/3441852.3471201">https://doi.org/10.1145/3441852.3471201</a></li>
+					<li id="ref-Neate2020">Timothy Neate, Abi Roper, Stephanie Wilson, Jane Marshall, and Madeline Cruice. 2020. CreaTable Content and Tangible Interaction in Aphasia. In <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1&ndash;14. <a href="https://doi.org/10.1145/3313831.3376490">https://doi.org/10.1145/3313831.3376490</a></li>
+					<li id="ref-Nguyen2013">Tam V. Nguyen, Mengdi Xu, Guangyu Gao, Mohan Kankanhalli, Qi Tian, and Shuicheng Yan. 2013. Static Saliency vs. Dynamic Saliency: A Comparative Study. In <em>Proceedings of the 21st ACM International Conference on Multimedia</em> (MM &rsquo;13). Association for Computing Machinery, New York, NY, USA, 987&ndash;996. <a href="https://doi.org/10.1145/2502081.2502128">https://doi.org/10.1145/2502081.2502128</a></li>
+					<li id="ref-Nielsen2007">Simon Nielsen and Hans-Heinrich Bothe. 2007. SUBPAL: A Device for Reading Aloud Subtitles from Television and Cinema. In <em>Proceedings of the Conference and Workshop on Assistive Technologies for People with Vision and Hearing Impairments: Assistive Technology for All Ages (CVHI-2007), Granada, Spain, 28th - 31th August, 2007</em> (CEUR Workshop Proceedings). CEUR-WS.org, Leibniz, Germany, 1&ndash;7. <a href="https://ceur-ws.org/Vol-415/paper17.pdf">https://ceur-ws.org/Vol-415/paper17.pdf</a></li>
+					<li id="ref-Nunes2012">Francisco Nunes, Maureen Kerwin, and Paula Alexandra Silva. 2012. Design Recommendations for Tv User Interfaces for Older Adults: Findings from the ECAALYX Project. In <em>Proceedings of the 14th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;12). Association for Computing Machinery, New York, NY, USA, 41&ndash;48. <a href="https://doi.org/10.1145/2384916.2384924">https://doi.org/10.1145/2384916.2384924</a></li>
+					<li id="ref-OheneDjan2006">J. Ohene-Djan and R. Shipsey. 2006. E- Subtitles: Emotional Subtitles as a Technology to Assist the Deaf and Hearing-Impaired when Learning from Television and Film. In <em>Sixth IEEE International Conference on Advanced Learning Technologies (ICALT &rsquo;06)</em>. IEEE, New York, NY, USA, 464&ndash;466. <a href="https://doi.org/10.1109/icalt.2006.1652472">https://doi.org/10.1109/icalt.2006.1652472</a></li>
+					<li id="ref-Oliveira2022">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2022. Audiovisual translation models for visually impaired users of Interactive Television (iTV). <em>Procedia Computer Science</em> 196 (2022), 647&ndash;654. <a href="https://doi.org/10.1016/j.procs.2021.12.060">https://doi.org/10.1016/j.procs.2021.12.060</a></li>
+					<li id="ref-Oliveira2014">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2014. Promoting IPTV Accessibility for Visually Impaired Users: Implementation of an Adapted Service. <em>Procedia Computer Science</em> 27 (2014), 113&ndash;122. <a href="https://doi.org/10.1016/j.procs.2014.02.014">https://doi.org/10.1016/j.procs.2014.02.014</a></li>
+					<li id="ref-Oliveira2016a">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2016. Audio Description in Interactive Television (iTV): Proposal of a Collaborative and Voluntary Approach. <em>Procedia Computer Science</em> 100 (2016), 935&ndash;940. <a href="https://doi.org/10.1016/j.procs.2016.09.252">https://doi.org/10.1016/j.procs.2016.09.252</a></li>
+					<li id="ref-Oliveira2016d">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2016. Promoting interactive television (iTV) accessibility: an adapted service for users with visual impairments. <em>Universal Access in the Information Society</em> 16, 3 (July 2016), 533&ndash;544. <a href="https://doi.org/10.1007/s10209-016-0482-z">https://doi.org/10.1007/s10209-016-0482-z</a></li>
+					<li id="ref-Oliveira2018">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2018. Audio Description of Television Programs: A Voluntary Production Approach. In <em>Applications and Usability of Interactive Television</em>. Springer International Publishing, Cham, 150&ndash;160.</li>
+					<li id="ref-Oliveira2011b">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Pisco Almeida. 2011. An iTV Audio Description Service: Suggesting Requirements and Features for Visually Impaired Users. In <em>ENTERprise Information Systems</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 59&ndash;68. <a href="https://doi.org/10.1007/978-3-642-24352-3_7">https://doi.org/10.1007/978-3-642-24352-3_7</a></li>
+					<li id="ref-Oliveira2016b">Rita Oliveira, Jorge Ferraz de Abreu, Margarida Almeida, and Bernardo Cardoso. 2016. Inclusive Approaches for Audiovisual Translation Production in Interactive Television (ITV). In <em>Proceedings of the 7th International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-Exclusion</em> (DSAI 2016). Association for Computing Machinery, New York, NY, USA, 146&ndash;153. <a href="https://doi.org/10.1145/3019943.3019965">https://doi.org/10.1145/3019943.3019965</a></li>
+					<li id="ref-Oliveira2011a">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2011. An Approach to Identify Requirements for an ITV Audio Description Service. In <em>Proceedings of the 9th European Conference on Interactive TV and Video</em> (EuroITV &rsquo;11). Association for Computing Machinery, New York, NY, USA, 227&ndash;230. <a href="https://doi.org/10.1145/2000119.2000166">https://doi.org/10.1145/2000119.2000166</a></li>
+					<li id="ref-Oliveira2016c">Rita Oliveira, Telmo Silva, Jorge Ferraz de Abreu, and Margarida Almeida. 2016. Automatic Identification in Accessible ITV Services: Proposal of an IPTV Interface. In <em>Proceedings of the 7th International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-Exclusion</em> (DSAI 2016). Association for Computing Machinery, New York, NY, USA, 384&ndash;391. <a href="https://doi.org/10.1145/3019943.3019998">https://doi.org/10.1145/3019943.3019998</a></li>
+					<li id="ref-Orero2020">Pilar Orero, Marta Brescia-Zapata, and Chris Hughes. 2020. Evaluating subtitle readability in media immersive environments. In <em>9th International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-exclusion</em>. ACM, New York, NY, USA, 51&ndash;54. <a href="https://doi.org/10.1145/3439231.3440602">https://doi.org/10.1145/3439231.3440602</a></li>
+					<li id="ref-Orero2021">Pilar Orero, Marta Brescia-Zapata, and Chris Hughes. 2021. Evaluating Subtitle Readability in Media Immersive Environments. In <em>9th International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-Exclusion</em> (DSAI 2020). Association for Computing Machinery, New York, NY, USA, 51&ndash;54. <a href="https://doi.org/10.1145/3439231.3440602">https://doi.org/10.1145/3439231.3440602</a></li>
+					<li id="ref-Ouzts2013">Andrew D. Ouzts, Nicole E. Snell, Prabudh Maini, and Andrew T. Duchowski. 2013. Determining Optimal Caption Placement Using Eye Tracking. In <em>Proceedings of the 31st ACM International Conference on Design of Communication</em> (SIGDOC &rsquo;13). Association for Computing Machinery, New York, NY, USA, 189&ndash;190. <a href="https://doi.org/10.1145/2507065.2507100">https://doi.org/10.1145/2507065.2507100</a></li>
+					<li id="ref-Pachacama2020">Cristhian Pachacama and Diego Villamar&iacute;n. 2020. Implementation of a Brain Computer Interface System to Allow TV Remote Control for People with Physical Disabilities. In <em>Communications in Computer and Information Science</em>. Springer International Publishing, Cham, 119&ndash;133. <a href="https://doi.org/10.1007/978-3-030-56574-9_8">https://doi.org/10.1007/978-3-030-56574-9_8</a></li>
+					<li id="ref-Pamparu2022">Cristian Pampar&#259;u and Radu-Daniel Vatavu. 2022. The User Experience of Journeys in the Realm of Augmented Reality Television. In <em>ACM International Conference on Interactive Media Experiences</em>. ACM, New York, NY, USA, 161&#8211;-174. <a href="https://doi.org/10.1145/3505284.3529969">https://doi.org/10.1145/3505284.3529969</a></li>
+					<li id="ref-Pantula2019">Muralidhar Pantula and K. S. Kuppusamy. 2019. AuDIVA: A tool for embedding Audio Descriptions to enhance Video Accessibility for Persons with Visual Impairments. <em>Multimedia Tools and Applications</em> 78, 14 (Feb. 2019), 20005&ndash;20018. <a href="https://doi.org/10.1007/s11042-019-7363-4">https://doi.org/10.1007/s11042-019-7363-4</a></li>
+					<li id="ref-Pascual2014">Afra Pascual, Mireia Ribera, and Toni Granollers. 2014. Impact of Web Accessibility Barriers on Users with Hearing Impairment. In <em>Proceedings of the XV International Conference on Human Computer Interaction</em> (Interacci&oacute;n &rsquo;14). Association for Computing Machinery, New York, NY, USA, Article 8, 2 pages. <a href="https://doi.org/10.1145/2662253.2662261">https://doi.org/10.1145/2662253.2662261</a></li>
+					<li id="ref-Pavel2020">Amy Pavel, Gabriel Reyes, and Jeffrey P. Bigham. 2020. Rescribe: Authoring and Automatically Editing Audio Descriptions. In <em>Proceedings of the 33rd Annual ACM Symposium on User Interface Software and Technology</em> (UIST &rsquo;20). Association for Computing Machinery, New York, NY, USA, 747&ndash;759. <a href="https://doi.org/10.1145/3379337.3415864">https://doi.org/10.1145/3379337.3415864</a></li>
+					<li id="ref-Peli2005">Eli Peli. 2005. Recognition performance and perceived quality of video enhanced for the visually impaired. <em>Ophthalmic and Physiological Optics</em> 25, 6 (Nov. 2005), 543&ndash;555. <a href="https://doi.org/10.1111/j.1475-1313.2005.00340.x">https://doi.org/10.1111/j.1475-1313.2005.00340.x</a></li>
+					<li id="ref-Peng2021">Yi-Hao Peng, Jeffrey P Bigham, and Amy Pavel. 2021. Slidecho: Flexible Non-Visual Exploration of Presentation Videos. In <em>Proceedings of the 23rd International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 24, 12 pages. <a href="https://doi.org/10.1145/3441852.3471234">https://doi.org/10.1145/3441852.3471234</a></li>
+					<li id="ref-Pettitt1996">Bridget Pettitt, Katharine Sharpe, and Steven Cooper. 1996. AUDETEL: Enhancing television for visually impaired people. <em>British Journal of Visual Impairment</em> 14, 2 (May 1996), 48&ndash;52. <a href="https://doi.org/10.1177/026461969601400202">https://doi.org/10.1177/026461969601400202</a></li>
+					<li id="ref-Pfeiffer2009">Silvia Pfeiffer and Conrad Parker. 2009. Accessibility for the HTML5 &lt;Video&gt; Element. In <em>Proceedings of the 2009 International Cross-Disciplinary Conference on Web Accessibililty (W4A)</em> (W4A &rsquo;09). Association for Computing Machinery, New York, NY, USA, 98&ndash;100. <a href="https://doi.org/10.1145/1535654.1535679">https://doi.org/10.1145/1535654.1535679</a></li>
+					<li id="ref-Priestley2016">Mark Priestley, Martha Stickings, Ema Loja, Stefanos Grammenos, Anna Lawson, Lisa Waddington, and Bjarney Fridriksdottir. 2016. The political participation of disabled people in Europe: Rights, accessibility and activism. <em>Electoral Studies</em> 42 (June 2016), 1&ndash;9. <a href="https://doi.org/10.1016/j.electstud.2016.01.009">https://doi.org/10.1016/j.electstud.2016.01.009</a></li>
+					<li id="ref-Rajendran2013">Dhevi J. Rajendran, Andrew T. Duchowski, Pilar Orero, Juan Mart&iacute;nez, and Pablo Romero-Fresco. 2013. Effects of text chunking on subtitling: A quantitative and qualitative examination. <em>Perspectives</em> 21, 1 (March 2013), 5&ndash;21. <a href="https://doi.org/10.1080/0907676x.2012.722651">https://doi.org/10.1080/0907676x.2012.722651</a></li>
+					<li id="ref-Ramis2015">Silvia Ramis, Francisco J. Perales, Cristina Manresa-Yee, and Antoni Bibiloni. 2015. Usability Study of Gestures to Control a Smart-TV. In <em>Communications in Computer and Information Science</em>. Springer International Publishing, Cham, 135&ndash;146. <a href="https://doi.org/10.1007/978-3-319-22656-9_10">https://doi.org/10.1007/978-3-319-22656-9_10</a></li>
+					<li id="ref-Ramos2015">Marina Ramos. 2015. The emotional experience of films: does Audio Description make a difference? <em>The Translator</em> 21, 1 (Jan. 2015), 68&ndash;94. <a href="https://doi.org/10.1080/13556509.2014.994853">https://doi.org/10.1080/13556509.2014.994853</a></li>
+					<li id="ref-Rander2010">Anni Rander and Peter Olaf Looms. 2010. The Accessibility of Television News with Live Subtitling on Digital Television. In <em>Proceedings of the 8th European Conference on Interactive TV and Video</em> (EuroITV &rsquo;10). Association for Computing Machinery, New York, NY, USA, 155&ndash;160. <a href="https://doi.org/10.1145/1809777.1809809">https://doi.org/10.1145/1809777.1809809</a></li>
+					<li id="ref-Parthasarathy1999">Parthasarathy Ranganathan, Sarita Adve, and Norman P. Jouppi. 1999. Performance of Image and Video Processing with General-Purpose Processors and Media ISA Extensions. In <em>Proceedings of the 26th Annual International Symposium on Computer Architecture</em> (ISCA &rsquo;99). IEEE Computer Society, USA, 124&#8211;135. <a href="https://doi.org/10.1145/300979.300990">https://doi.org/10.1145/300979.300990</a></li>
+					<li id="ref-Rashid2006">Raisa Rashid, Jonathan Aitken, and Deborah I. Fels. 2006. Expressing Emotions Using Animated Text Captions. In <em>Lecture Notes in Computer Science</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 24&ndash;31. <a href="https://doi.org/10.1007/11788713_5">https://doi.org/10.1007/11788713_5</a></li>
+					<li id="ref-Rashid2007">Raisa Rashid, Quoc Vy, Richard G. Hunt, and Deborah I. Fels. 2007. Dancing with Words. In <em>Proceedings of the 6th ACM SIGCHI Conference on Creativity and Cognition</em> (CandC &rsquo;07). Association for Computing Machinery, New York, NY, USA, 269&ndash;270. <a href="https://doi.org/10.1145/1254960.1255007">https://doi.org/10.1145/1254960.1255007</a></li>
+					<li id="ref-Reis2017">Liliana Reis, Hilma Caravau, Telmo Silva, and Pedro Almeida. 2017. Automatic Creation of TV Content to Integrate in Seniors Viewing Activities. In <em>Applications and Usability of Interactive TV</em>. Springer International Publishing, Cham, 32&ndash;46.</li>
+					<li id="ref-Rethlefsen2021">Melissa L. Rethlefsen, Shona Kirtley, Siw Waffenschmidt, Ana Patricia Ayala, David Moher, Matthew J. Page, and Jonathan B. Koffel. 2021. PRISMA-S: an extension to the PRISMA Statement for Reporting Literature Searches in Systematic Reviews. <em>Systematic Reviews</em> 10, 1 (Jan. 2021), 1&ndash;19. <a href="https://doi.org/10.1186/s13643-020-01542-z">https://doi.org/10.1186/s13643-020-01542-z</a></li>
+					<li id="ref-Rigby2016">Jacob M. Rigby, Duncan P. Brumby, Anna L. Cox, and Sandy J. J. Gould. 2016. Watching movies on netflix. In <em>Proceedings of the 18th International Conference on Human-Computer Interaction with Mobile Devices and Services Adjunct</em>. ACM, New York, NY, USA, 714&ndash;721. <a href="https://doi.org/10.1145/2957265.2961843">https://doi.org/10.1145/2957265.2961843</a></li>
+					<li id="ref-Ringland2019">Kathryn E. Ringland, Jennifer Nicholas, Rachel Kornfield, Emily G. Lattie, David C. Mohr, and Madhu Reddy. 2019. Understanding Mental Ill-health as Psychosocial Disability. In <em>The 21st International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM, New York, NY, USA, 156-&#8211;170. <a href="https://doi.org/10.1145/3308561.3353785">https://doi.org/10.1145/3308561.3353785</a></li>
+					<li id="ref-Facanha2016">Agebson Rocha Fa&ccedil;anha, Adonias Caetano de Oliveira, Marcos Vinicius de Andrade Lima, Windson Viana, and Jaime S&aacute;nchez. 2016. Audio Description of Videos for People with Visual Disabilities. In <em>Universal Access in Human-Computer Interaction. Users and Context Diversity</em>. Springer International Publishing, Cham, 505&ndash;515.</li>
+					<li id="ref-Roger2019">Sunil Rodger, Dan Jackson, John Vines, Janice McLaughlin, and Peter Wright. 2019. JourneyCam: Exploring Experiences of Accessibility and Mobility among Powered Wheelchair Users through Video and Data. In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;19). Association for Computing Machinery, New York, NY, USA, 1&#8211;15. <a href="https://doi.org/10.1145/3290605.3300860">https://doi.org/10.1145/3290605.3300860</a></li>
+					<li id="ref-Rodrigo2015">C. Rodrigo and A. Garc&iacute;a-Serrano. 2015. Social Accessibility Action to Improve Quality of OER User-generated Video-classes and Associated Resources. <em>Procedia Computer Science</em> 67 (2015), 19&ndash;27. <a href="https://doi.org/10.1016/j.procs.2015.09.245">https://doi.org/10.1016/j.procs.2015.09.245</a></li>
+					<li id="ref-RodriguezAlsina2012">Aitor Rodriguez-Alsina, Guillermo Talavera, Pilar Orero, and Jordi Carrabina. 2012. Subtitle Synchronization across Multiple Screens and Devices. <em>Sensors</em> 12, 7 (June 2012), 8710&ndash;8731. <a href="https://doi.org/10.3390/s120708710">https://doi.org/10.3390/s120708710</a></li>
+					<li id="ref-Rohrbach2017">Anna Rohrbach, Atousa Torabi, Marcus Rohrbach, Niket Tandon, Christopher Pal, Hugo Larochelle, Aaron Courville, and Bernt Schiele. 2017. Movie Description. <em>International Journal of Computer Vision</em> 123, 1 (Jan. 2017), 94&ndash;120. <a href="https://doi.org/10.1007/s11263-016-0987-1">https://doi.org/10.1007/s11263-016-0987-1</a></li>
+					<li id="ref-RomeroFresco2013">Pablo Romero-Fresco and Louise Fryer. 2013. Could Audio-Described Films Benefit from Audio Introductions? An Audience Response Study. <em>Journal of Visual Impairment and Blindness</em> 107, 4 (July 2013), 287&ndash;295. <a href="https://doi.org/10.1177/0145482x1310700405">https://doi.org/10.1177/0145482x1310700405</a></li>
+					<li id="ref-Villena2014c">Johana Maria Rosas Villena, Rudinei Goularte, and Renata Pontin de Mattos Fortes. 2014. A User Test with Accessible Video Player Looking for User Experience. In <em>Universal Access in Human-Computer Interaction. Design for All and Accessibility Practice</em>. Springer International Publishing, Cham, 623&ndash;633. <a href="https://doi.org/10.1007/978-3-319-07509-9_59">https://doi.org/10.1007/978-3-319-07509-9_59</a></li>
+					<li id="ref-Rothe2018b">Sylvia Rothe, Kim Tran, and Heinrich Hussmann. 2018. Positioning of Subtitles in Cinematic Virtual Reality. In <em>ICAT-EGVE 2018 - International Conference on Artificial Reality and Telexistence and Eurographics Symposium on Virtual Environments</em>. The Eurographics Association, Germany, 1&ndash;8. <a href="https://doi.org/10.2312/egve.20181307">https://doi.org/10.2312/egve.20181307</a></li>
+					<li id="ref-Rothe2018a">Sylvia Rothe, Kim Tran, and Heinrich Hu&szlig;mann. 2018. Dynamic Subtitles in Cinematic Virtual Reality. In <em>Proceedings of the 2018 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;18). Association for Computing Machinery, New York, NY, USA, 209&ndash;214. <a href="https://doi.org/10.1145/3210825.3213556">https://doi.org/10.1145/3210825.3213556</a></li>
+					<li id="ref-Rmen2008">Dagfinn R&oslash;men and Dag Svan&aelig;s. 2008. Evaluating web site accessibility. In <em>Proceedings of the 5th Nordic conference on Human-computer interaction: building bridges</em>. ACM, New York, NY, USA, 535&ndash;538. <a href="https://doi.org/10.1145/1463160.1463238">https://doi.org/10.1145/1463160.1463238</a></li>
+					<li id="ref-Sackl2020">Andreas Sackl, Franziska Graf, Raimund Schatz, and Manfred Tscheligi. 2020. Ensuring Accessibility: Individual Video Playback Enhancements for Low Vision Users. In <em>Proceedings of the 22nd International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;20). Association for Computing Machinery, New York, NY, USA, Article 67, 4 pages. <a href="https://doi.org/10.1145/3373625.3417997">https://doi.org/10.1145/3373625.3417997</a></li>
+					<li id="ref-Sackl2021">Andreas Sackl, Raimund Schatz, Bruno Gardlo, and Manfred Tscheligi. 2021. Enhancing Video Communication Experience for Low Vision Users. In <em>Proceedings of the 18th International Web for All Conference</em> (W4A &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 15, 5 pages. <a href="https://doi.org/10.1145/3430263.3452419">https://doi.org/10.1145/3430263.3452419</a></li>
+					<li id="ref-Sackl2019">Andreas Sackl, Raimund Schatz, Stefan Suette, and Manfred Tscheligi. 2019. From Low Vision to High Quality: Video QoE Enhancement for Visually Impaired Users. In <em>2019 Eleventh International Conference on Quality of Multimedia Experience (QoMEX)</em>. IEEE, New York, NY, USA, 1&ndash;6. <a href="https://doi.org/10.1109/qomex.2019.8743323">https://doi.org/10.1109/qomex.2019.8743323</a></li>
+					<li id="ref-Salway2003">Andrew Salway and Mike Graham. 2003. Extracting Information about Emotions in Films. In <em>Proceedings of the Eleventh ACM International Conference on Multimedia</em> (MULTIMEDIA &rsquo;03). Association for Computing Machinery, New York, NY, USA, 299&ndash;302. <a href="https://doi.org/10.1145/957013.957076">https://doi.org/10.1145/957013.957076</a></li>
+					<li id="ref-SarayVillamizar2011">Jos&eacute; Francisco Saray Villamizar, Beno&icirc;t Encelle, Yannick Pri&eacute;, and Pierre-Antoine Champin. 2011. An Adaptive Videos Enrichment System Based on Decision Trees for People with Sensory Disabilities. In <em>Proceedings of the International Cross-Disciplinary Conference on Web Accessibility</em> (W4A &rsquo;11). Association for Computing Machinery, New York, NY, USA, Article 7, 4 pages. <a href="https://doi.org/10.1145/1969289.1969299">https://doi.org/10.1145/1969289.1969299</a></li>
+					<li id="ref-Schlippe2020">Tim Schlippe, Shaimaa Alessai, Ghanimeh El-Taweel, Matthias W&ouml;lfel, and Wajdi Zaghouani. 2020. Visualizing Voice Characteristics with Type Design in Closed Captions for Arabic. In <em>2020 International Conference on Cyberworlds (CW)</em>. IEEE, New York, NY, USA, 196&ndash;203. <a href="https://doi.org/10.1109/CW49994.2020.00039">https://doi.org/10.1109/CW49994.2020.00039</a></li>
+					<li id="ref-Schmeidler2001">Emilie Schmeidler and Corinne Kirchner. 2001. Adding Audio Description: Does it Make a Difference? <em>Journal of Visual Impairment and Blindness</em> 95, 4 (April 2001), 197&ndash;212. <a href="https://doi.org/10.1177/0145482x0109500402">https://doi.org/10.1177/0145482x0109500402</a></li>
+					<li id="ref-Schneider2022">Remo Schneider, Tobias Ableitner, and Gottfried Zimmermann. 2022. Layered Audio Descriptions for Videos. In <em>Computers Helping People with Special Needs</em>. Springer International Publishing, Cham, 51&ndash;63. <a href="https://doi.org/10.1007/978-3-031-08645-8_7">https://doi.org/10.1007/978-3-031-08645-8_7</a></li>
+					<li id="ref-Seidel2015">Niels Seidel. 2015. Making Web Video Accessible: Interaction Design Patterns for Assistive Video Learning Environments. In <em>Proceedings of the 20th European Conference on Pattern Languages of Programs</em> (EuroPLoP &rsquo;15). Association for Computing Machinery, New York, NY, USA, Article 17, 16 pages. <a href="https://doi.org/10.1145/2855321.2855339">https://doi.org/10.1145/2855321.2855339</a></li>
+					<li id="ref-Shirley2017">Ben Shirley, Melissa Meadows, Fadi Malak, James Woodcock, and Ash Tidball. 2017. Personalized Object-Based Audio for Hearing Impaired TV Viewers. <em>Journal of the Audio Engineering Society</em> 65, 4 (April 2017), 293&ndash;303. <a href="https://doi.org/10.17743/jaes.2017.0005">https://doi.org/10.17743/jaes.2017.0005</a></li>
+					<li id="ref-Shirley2015">Ben Shirley and Rob Oldfield. 2015. Clean Audio for TV broadcast: An Object-Based Approach for Hearing-Impaired Viewers. <em>Journal of the Audio Engineering Society</em> 63, 4 (April 2015), 245&ndash;256. <a href="https://doi.org/10.17743/jaes.2015.0017">https://doi.org/10.17743/jaes.2015.0017</a></li>
+					<li id="ref-Shiver2015">Brent N. Shiver and Rosalee J. Wolfe. 2015. Evaluating Alternatives for Better Deaf Accessibility to Selected Web-Based Multimedia. In <em>Proceedings of the 17th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;15). Association for Computing Machinery, New York, NY, USA, 231&ndash;238. <a href="https://doi.org/10.1145/2700648.2809857">https://doi.org/10.1145/2700648.2809857</a></li>
+					<li id="ref-Siddaway2019">Andy P. Siddaway, Alex M. Wood, and Larry V. Hedges. 2019. How to Do a Systematic Review: A Best Practice Guide for Conducting and Reporting Narrative Reviews, Meta-Analyses, and Meta-Syntheses. <em>Annual Review of Psychology</em> 70, 1 (Jan. 2019), 747&ndash;770. <a href="https://doi.org/10.1146/annurev-psych-010418-102803">https://doi.org/10.1146/annurev-psych-010418-102803</a></li>
+					<li id="ref-Silva2016">Rodrigo L. S. Silva and Fr&acirc;ncila Weidt Neiva. 2016. <em>Systematic Literature Review in Computer Science - A Practical Guide</em>. Federal University of Juiz de Fora, Brazil. <a href="https://doi.org/10.13140/RG.2.2.35453.87524">https://doi.org/10.13140/RG.2.2.35453.87524</a></li>
+					<li id="ref-Silva2018">Telmo Silva, Hilma Caravau, Martinho Mota, Liliana Reis, and Carlos Hernandez. 2018. A Process to Design a Video Library for Senior Users of iTV. In <em>Applications and Usability of Interactive Television</em>. Springer International Publishing, Cham, 105&ndash;116. <a href="https://doi.org/10.1007/978-3-319-90170-1_8">https://doi.org/10.1007/978-3-319-90170-1_8</a></li>
+					<li id="ref-Sitbon2019">Laurianne Sitbon, Ross Brown, and Lauren Fell. 2019. Turning Heads: Designing Engaging Immersive Video Experiences to Support People with Intellectual Disability When Learning Everyday Living Skills. In <em>Proceedings of the 21st International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;19). Association for Computing Machinery, New York, NY, USA, 171&ndash;182. <a href="https://doi.org/10.1145/3308561.3353787">https://doi.org/10.1145/3308561.3353787</a></li>
+					<li id="ref-Snyder2005">Joel Snyder. 2005. Audio description: The visual made verbal. <em>International Congress Series</em> 1282 (2005), 935&ndash;939. <a href="https://doi.org/10.1016/j.ics.2005.05.215">https://doi.org/10.1016/j.ics.2005.05.215</a></li>
+					<li id="ref-Springett2017">Mark Springett, Richard N Griffiths, and Martin Mihajlov. 2017. Issues faced by vision-impaired users of interactive TV search facilities. In <em>Proceedings of the Australasian Computer Science Week Multiconference</em>. ACM, New York, NY, USA, 1&ndash;9. <a href="https://doi.org/10.1145/3014812.3014824">https://doi.org/10.1145/3014812.3014824</a></li>
+					<li id="ref-Springett2007">Mark V. Springett and Richard N. Griffiths. 2007. Accessibility of Interactive Television for Users with Low Vision: Learning from the Web. In <em>Interactive TV: a Shared Experience</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 76&ndash;85.</li>
+					<li id="ref-Tapu2019a">Ruxandra Tapu, Bogdan Mocanu, and Titus Zaharia. 2019. DEEP-HEAR: A Multimodal Subtitle Positioning System Dedicated to Deaf and Hearing-Impaired People. <em>IEEE Access</em> 7 (2019), 88150&ndash;88162. <a href="https://doi.org/10.1109/ACCESS.2019.2925806">https://doi.org/10.1109/ACCESS.2019.2925806</a></li>
+					<li id="ref-Tapu2019b">Ruxandra Tapu, Bogdan Mocanu, and Titus Zaharia. 2019. Dynamic Subtitles: A Multimodal Video Accessibility Enhancement Dedicated to Deaf and Hearing Impaired Users. In <em>2019 IEEE/CVF International Conference on Computer Vision Workshop (ICCVW)</em>. IEEE, New York, NY, USA, 2558&ndash;2566. <a href="https://doi.org/10.1109/ICCVW.2019.00313">https://doi.org/10.1109/ICCVW.2019.00313</a></li>
+					<li id="ref-Thorn1996">Frank Thorn and Sondra Thorn. 1996. Television Captions for Hearing-Impaired People: A Study of Key Factors that Affect Reading Performance. <em>Human Factors: The Journal of the Human Factors and Ergonomics Society</em> 38, 3 (Sept. 1996), 452&ndash;463. <a href="https://doi.org/10.1518/001872096778702006">https://doi.org/10.1518/001872096778702006</a></li>
+					<li id="ref-TorCarroggio2020">Irene Tor-Carroggio and Sara Rovira-Esteva. 2020. Watching TV Through Your Ears. <em>Journal of Audiovisual Translation</em> 3, 1 (Oct. 2020), 1&ndash;25. <a href="https://doi.org/10.47476/jat.v2i1.2020.105">https://doi.org/10.47476/jat.v2i1.2020.105</a></li>
+					<li id="ref-Tyler2009">Michael D. Tyler, Caroline Jones, Leonid Grebennikov, Greg Leigh, William Noble, and Denis Burnham. 2009. Effect of Caption Rate on the Comprehension of Educational Television Programmes by Deaf School Students. <em>Deafness and Education International</em> 11, 3 (Sept. 2009), 152&ndash;162. <a href="https://doi.org/10.1179/146431509790559606">https://doi.org/10.1179/146431509790559606</a></li>
+					<li id="ref-Udo2010">J.P. Udo, B. Acevedo, and D.I. Fels. 2010. Horatio audio-describes Shakespeare&rsquo;s Hamlet. <em>British Journal of Visual Impairment</em> 28, 2 (May 2010), 139&ndash;156. <a href="https://doi.org/10.1177/0264619609359753">https://doi.org/10.1177/0264619609359753</a></li>
+					<li id="ref-Unbehaun2020">David Unbehaun, Konstantin Aal, Daryoush Daniel Vaziri, Peter David Tolmie, Rainer Wieching, David Randall, and Volker Wulf. 2020. Social technology appropriation in dementia: Investigating the role of caregivers in engaging people with dementia with a videogame-based training system. In <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1&ndash;15. <a href="https://doi.org/10.1145/3313831.3376648">https://doi.org/10.1145/3313831.3376648</a></li>
+					<li id="ref-Vatavu2021">Radu-Daniel Vatavu. 2021. Accessibility of Interactive Television and Media Experiences: Users with Disabilities Have Been Little Voiced at IMX and TVX. In <em>ACM International Conference on Interactive Media Experiences</em> (IMX &rsquo;21). Association for Computing Machinery, New York, NY, USA, 218&ndash;222. <a href="https://doi.org/10.1145/3452918.3465485">https://doi.org/10.1145/3452918.3465485</a></li>
+					<li id="ref-Verboom2002">Maarten Verboom, David Crombie, Evelien Dijk, and Mildred Theunisz. 2002. Spoken Subtitles: Making Subtitled TV Programmes Accessible. In <em>Computers Helping People with Special Needs</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 295&ndash;302.</li>
+					<li id="ref-Vieira2020">Alex de Souza Vieira, &Aacute;lan L&iacute;vio V. Guedes, Daniel de Sousa Moraes, Lucas Ribeiro Madeira, S&eacute;rgio Colcher, and Carlos de S. Soares Neto. 2020. ListeningTV: Accessible Video using Interactive Audio Descriptions. In <em>Anais Estendidos do XXVI Simp&oacute;sio Brasileiro de Sistemas Multim&iacute;dia e Web (WebMedia 2020)</em>. Sociedade Brasileira de Computa&ccedil;&atilde;o - SBC, Brazil, 71&ndash;74. <a href="https://doi.org/10.5753/webmedia_estendido.2020.13065">https://doi.org/10.5753/webmedia_estendido.2020.13065</a></li>
+					<li id="ref-Vilaro2012">Anna Vilaro, Aitor Rodriguez-Alsina, Pilar Orero, and Jordi Carrabina. 2012. Evaluation of Emerging Audio Description Systems for Broadcast TV. In <em>Ambient Assisted Living and Home Care</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 270&ndash;277. <a href="https://doi.org/10.1007/978-3-642-35395-6_37">https://doi.org/10.1007/978-3-642-35395-6_37</a></li>
+					<li id="ref-Villena2014a">Johana M. Rosas Villena, Bruno C. Ramos, Renata P.M. Fortes, and Rudinei Goularte. 2014. An Accessible Video Player for Older People: Issues from a User Test. <em>Procedia Computer Science</em> 27 (2014), 168&ndash;175. <a href="https://doi.org/10.1016/j.procs.2014.02.020">https://doi.org/10.1016/j.procs.2014.02.020</a></li>
+					<li id="ref-Villena2014b">Johana Mar&iacute;a Rosas Villena, Bruno Costa Ramos, Renata Pontin M. Fortes, and Rudinei Goularte. 2014. Web Videos - Concerns About Accessibility based on User Centered Design. <em>Procedia Computer Science</em> 27 (2014), 481&ndash;490. <a href="https://doi.org/10.1016/j.procs.2014.02.052">https://doi.org/10.1016/j.procs.2014.02.052</a></li>
+					<li id="ref-Vinayagamoorthy2018">Vinoba Vinayagamoorthy, Maxine Glancy, Paul Debenham, Alastair Bruce, Christoph Ziegler, and Richard Sch&auml;ffer. 2018. Personalising the TV Experience with Augmented Reality Technology: Synchronised Sign Language Interpretation. In <em>Proceedings of the 2018 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;18). Association for Computing Machinery, New York, NY, USA, 179&ndash;184. <a href="https://doi.org/10.1145/3210825.3213562">https://doi.org/10.1145/3210825.3213562</a></li>
+					<li id="ref-Vinayagamoorthy2019">Vinoba Vinayagamoorthy, Maxine Glancy, Christoph Ziegler, and Richard Sch&auml;ffer. 2019. Personalising the TV Experience Using Augmented Reality: An Exploratory Study on Delivering Synchronised Sign Language Interpretation. In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;19). Association for Computing Machinery, New York, NY, USA, 1&ndash;12. <a href="https://doi.org/10.1145/3290605.3300762">https://doi.org/10.1145/3290605.3300762</a></li>
+					<li id="ref-Viswanathan2011">Lakshmie Narayan Viswanathan, Troy McDaniel, and Sethuraman Panchanathan. 2011. Audio-Haptic Description in Movies. In <em>HCI International 2011 &ndash; Posters&rsquo; Extended Abstracts</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 414&ndash;418.</li>
+					<li id="ref-Vlachogiannis2008">Evangelos Vlachogiannis, Damianos Gavalas, Christos Anagnostopoulos, and George E. Tsekouras. 2008. Towards ITV Accessibility: The MPEG-21 Case. In <em>Proceedings of the 1st International Conference on PErvasive Technologies Related to Assistive Environments</em> (PETRA &rsquo;08). Association for Computing Machinery, New York, NY, USA, Article 33, 6 pages. <a href="https://doi.org/10.1145/1389586.1389626">https://doi.org/10.1145/1389586.1389626</a></li>
+					<li id="ref-Vy2009">Quoc V. Vy and Deborah I. Fels. 2009. Using Avatars for Improving Speaker Identification in Captioning. In <em>Human-Computer Interaction &ndash; INTERACT 2009</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 916&ndash;919. <a href="https://doi.org/10.1007/978-3-642-03658-3_110">https://doi.org/10.1007/978-3-642-03658-3_110</a></li>
+					<li id="ref-Vy2010">Quoc V. Vy and Deborah I. Fels. 2010. Using Placement and Name for Speaker Identification in Captioning. In <em>Lecture Notes in Computer Science</em>. Springer Berlin Heidelberg, Berlin, Heidelberg, 247&ndash;254. <a href="https://doi.org/10.1007/978-3-642-14097-6_40">https://doi.org/10.1007/978-3-642-14097-6_40</a></li>
+					<li id="ref-Wakao1998">Takahiro Wakao, Terumasa Ehara, Eiji Sawamura, Ichiro Maruyama, and Katsuhiko Shirai. 1998. Project for Production of Closed-Caption TV Programs for the Hearing Impaired. In <em>Proceedings of the 36th Annual Meeting of the Association for Computational Linguistics and 17th International Conference on Computational Linguistics - Volume 2</em> (ACL &rsquo;98/COLING &rsquo;98). Association for Computational Linguistics, USA, 1340&ndash;1344. <a href="https://doi.org/10.3115/980691.980787">https://doi.org/10.3115/980691.980787</a></li>
+					<li id="ref-Walczak2017">Agnieszka Walczak. 2017. Audio description on smartphones: making cinema accessible for visually impaired audiences. <em>Universal Access in the Information Society</em> 17, 4 (Aug. 2017), 833&ndash;840. <a href="https://doi.org/10.1007/s10209-017-0568-2">https://doi.org/10.1007/s10209-017-0568-2</a></li>
+					<li id="ref-Walczak2017b">Agnieszka Walczak. 2017. <em>Measuring immersion in audio description with Polish blind and visually impaired audiences</em>. EUT Edizioni Universit&agrave; di Trieste. <a href="https://doi.org/10.13137/2421-6763/17350">https://doi.org/10.13137/2421-6763/17350</a></li>
+					<li id="ref-Walczak2017a">Agnieszka Walczak and Louise Fryer. 2017. Creative description: The impact of audio description style on presence in visually impaired audiences. <em>British Journal of Visual Impairment</em> 35, 1 (2017), 6&ndash;17. <a href="https://doi.org/10.1177/0264619616661603">https://doi.org/10.1177/0264619616661603</a></li>
+					<li id="ref-Walczak2018">Agnieszka Walczak and Louise Fryer. 2018. Vocal delivery of audio description by genre: measuring users&rsquo; presence. <em>Perspectives</em> 26, 1 (2018), 69&ndash;83. <a href="https://doi.org/10.1080/0907676X.2017.1298634">https://doi.org/10.1080/0907676X.2017.1298634</a></li>
+					<li id="ref-Waltz2021">Mitzi Waltz and Alice Schippers. 2021. Politically disabled: barriers and facilitating factors affecting people with disabilities in political life within the European Union. <em>Disabil. Soc.</em> 36, 4 (April 2021), 517&ndash;540.</li>
+					<li id="ref-Wang2017">Fangzhou Wang, Hidehisa Nagano, Kunio Kashino, and Takeo Igarashi. 2017. Visualizing Video Sounds With Sound Word Animation to Enrich User Experience. <em>IEEE Transactions on Multimedia</em> 19, 2 (2017), 418&ndash;429. <a href="https://doi.org/10.1109/TMM.2016.2613641">https://doi.org/10.1109/TMM.2016.2613641</a></li>
+					<li id="ref-Wang2019">Yu-Huan Wang, Tian-Jun Gu, and Shyang-Yuh Wang. 2019. Causes and Characteristics of Short Video Platform Internet Community Taking the TikTok Short Video Application as an Example. In <em>2019 IEEE International Conference on Consumer Electronics - Taiwan (ICCE-TW)</em>. IEEE, New York, NY, USA, 1&ndash;2. <a href="https://doi.org/10.1109/icce-tw46550.2019.8992021">https://doi.org/10.1109/icce-tw46550.2019.8992021</a></li>
+					<li id="ref-Wang2021">Yujia Wang, Wei Liang, Haikun Huang, Yongqi Zhang, Dingzeyu Li, and Lap-Fai Yu. 2021. Toward Automatic Audio Description Generation for Accessible Videos. In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 277, 12 pages. <a href="https://doi.org/10.1145/3411764.3445347">https://doi.org/10.1145/3411764.3445347</a></li>
+					<li id="ref-Ward2019">Lauren Ward and Ben Shirley. 2019. Personalization in Object-based Audio for Accessibility: A Review of Advancements for Hearing Impaired Listeners. <em>Journal of the Audio Engineering Society</em> 67, 7/8 (Aug. 2019), 584&ndash;597. <a href="https://doi.org/10.17743/jaes.2019.0021">https://doi.org/10.17743/jaes.2019.0021</a></li>
+					<li id="ref-Ward2018">Lauren Ward, Ben Shirley, and Jon Francombe. 2018. Accessible object-based audio using hierarchical narrative importance metadata. <em>Journal of the Audio Engineering Society</em> 145, 395 (2018), 1&ndash;10. <a href="https://aes.org/e-lib/browse.cfm?elib=19742">https://aes.org/e-lib/browse.cfm?elib=19742</a></li>
+					<li id="ref-Ward2017">Lauren A. Ward. 2017. Accessible Broadcast Audio Personalisation for Hard of Hearing Listeners. In <em>Adjunct Publication of the 2017 ACM International Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;17 Adjunct). Association for Computing Machinery, New York, NY, USA, 105&ndash;108. <a href="https://doi.org/10.1145/3084289.3084293">https://doi.org/10.1145/3084289.3084293</a></li>
+					<li id="ref-Wehrmeyer2014">Jennifer Wehrmeyer. 2014. Eye-tracking Deaf and hearing viewing of sign language interpreted news broadcasts. <em>Journal of Eye Movement Research</em> 7, 1 (March 2014), 1&ndash;16. <a href="https://doi.org/10.16910/jemr.7.1.3">https://doi.org/10.16910/jemr.7.1.3</a></li>
+					<li id="ref-Wijnants2021">Maarten Wijnants, Eva Geurts, Hendrik Lievens, Peter Quax, and Wim Lamotte. 2021. Stay Tuned! An Investigation of Content Substitution, the Listener as Curator and Other Innovations in Broadcast Radio. In <em>ACM International Conference on Interactive Media Experiences</em>. ACM, New York, NY, USA, 120&ndash;133. <a href="https://doi.org/10.1145/3452918.3458793">https://doi.org/10.1145/3452918.3458793</a></li>
+					<li id="ref-Wobbrock2016">Jacob O. Wobbrock and Julie A. Kientz. 2016. Research contributions in human-computer interaction. <em>Interactions</em> 23, 3 (April 2016), 38&ndash;44. <a href="https://doi.org/10.1145/2907069">https://doi.org/10.1145/2907069</a></li>
+					<li id="ref-Wohlin2014">Claes Wohlin. 2014. Guidelines for Snowballing in Systematic Literature Studies and a Replication in Software Engineering. In <em>Proceedings of the 18th International Conference on Evaluation and Assessment in Software Engineering</em> (EASE &rsquo;14). Association for Computing Machinery, New York, NY, USA, Article 38, 10 pages. <a href="https://doi.org/10.1145/2601248.2601268">https://doi.org/10.1145/2601248.2601268</a></li>
+					<li id="ref-Wohn2020">Donghee Yvette Wohn and Guo Freeman. 2020. Audience Management Practices of Live Streamers on Twitch. In <em>ACM International Conference on Interactive Media Experiences</em>. ACM, New York, NY, USA, 106&ndash;116. <a href="https://doi.org/10.1145/3391614.3393653">https://doi.org/10.1145/3391614.3393653</a></li>
+					<li id="ref-Wolffsohn2007">James S. Wolffsohn, Ditipriya Mukhopadhyay, and Martin Rubinstein. 2007. Image Enhancement of Real-Time Television to Benefit the Visually Impaired. <em>American Journal of Ophthalmology</em> 144, 3 (Sept. 2007), 436&ndash;440. <a href="https://doi.org/10.1016/j.ajo.2007.05.031">https://doi.org/10.1016/j.ajo.2007.05.031</a></li>
+					<li id="ref-Yuksel2020b">Beste F. Yuksel, Pooyan Fazli, Umang Mathur, Vaishali Bisht, Soo Jung Kim, Joshua Junhee Lee, Seung Jung Jin, Yue-Ting Siu, Joshua A. Miele, and Ilmi Yoon. 2020. Human-in-the-Loop Machine Learning to Increase Video Accessibility for Visually Impaired and Blind Users. In <em>Proceedings of the 2020 ACM Designing Interactive Systems Conference</em> (DIS &rsquo;20). Association for Computing Machinery, New York, NY, USA, 47&ndash;60. <a href="https://doi.org/10.1145/3357236.3395433">https://doi.org/10.1145/3357236.3395433</a></li>
+					<li id="ref-Yuksel2020">Beste F Yuksel, Soo Jung Kim, Seung Jung Jin, Joshua Junhee Lee, Pooyan Fazli, Umang Mathur, Vaishali Bisht, Ilmi Yoon, and Joshua A Siu, Yue-Ting and. 2020. Increasing video accessibility for visually impaired users with human-in-the-loop machine learning. In <em>Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA, 1&ndash;9. <a href="https://doi.org/10.1145/3334480.3382821">https://doi.org/10.1145/3334480.3382821</a></li>
+					<li id="ref-Yuksel2020a">Beste F. Yuksel, Soo Jung Kim, Seung Jung Jin, Joshua Junhee Lee, Pooyan Fazli, Umang Mathur, Vaishali Bisht, Ilmi Yoon, Yue-Ting Siu, and Joshua A. Miele. 2020. Increasing Video Accessibility for Visually Impaired Users with Human-in-the-Loop Machine Learning. In <em>Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems</em> (CHI EA &rsquo;20). Association for Computing Machinery, New York, NY, USA, 1&ndash;9. <a href="https://doi.org/10.1145/3334480.3382821">https://doi.org/10.1145/3334480.3382821</a></li>
+					<li id="ref-Zhu2-1019">Yongqing Zhu and Shuqiang Jiang. 2019. Attention-Based Densely Connected LSTM for Video Captioning. In <em>Proceedings of the 27th ACM International Conference on Multimedia</em> (MM &rsquo;19). Association for Computing Machinery, New York, NY, USA, 802&ndash;810. <a href="https://doi.org/10.1145/3343031.3350932">https://doi.org/10.1145/3343031.3350932</a></li>
+				</ol>
+			</section>
+		</article>
+	</main>
+</body>
+
+</html>

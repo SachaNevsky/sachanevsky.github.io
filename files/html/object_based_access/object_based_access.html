@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<title>Object-Based Access: Enhancing Accessibility with Data-Driven Media</title>
+	<link rel="stylesheet" href="../papers.css">
+</head>
+
+<body>
+	<a class="skip-link" href="#content">Skip to main content</a>
+	<main id="content">
+		<article>
+			<header>
+				<h1>Object-Based Access: Enhancing Accessibility with Data-Driven Media</h1>
+				<section aria-label="Authors">
+					<h2>Authors</h2>
+					<ul>
+						<li>Alexandre Nevsky, King&rsquo;s College London, London, UK. <a href="mailto:alexandre.nevsky@kcl.ac.uk">alexandre.nevsky@kcl.ac.uk</a></li>
+						<li>Timothy Neate, King&rsquo;s College London, London, UK. <a href="mailto:timothy.neate@kcl.ac.uk">timothy.neate@kcl.ac.uk</a></li>
+						<li>Elena Simperl, King&rsquo;s College London, London, UK. <a href="mailto:elena.simperl@kcl.ac.uk">elena.simperl@kcl.ac.uk</a></li>
+					</ul>
+				</section>
+				<p>ACM International Conference on Interactive Media Experiences (IMX &rsquo;23), June 12&ndash;15, 2023, Nantes, France</p>
+				<p>DOI: <a href="https://doi.org/10.1145/3573381.3596500">https://doi.org/10.1145/3573381.3596500</a></p>
+			</header>
+			<section>
+				<h2>Abstract</h2>
+				<p>Audiovisual media is an integral part of many people&rsquo;s everyday lives. People with accessibility needs, especially people with complex accessibility needs, however, may face challenges accessing this content. This doctoral work addresses this problem by investigating how complex accessibility needs can be met by content personalisation by leveraging data-driven methods. To this end, I will collaborate with people with aphasia, a complex language impairment, as an exemplar community of people with complex accessibility needs. To better understand the needs of people with aphasia, I will use collaborative design techniques to meet the needs of end users. This will involve them in the design, development and evaluation of systems that demonstrate the benefits of content personalisation as an accessibility intervention. This paper outlines the background and motivation to this PhD, the work that has already been completed, and current planned future work.</p>
+			</section>
+			<section>
+				<h2>CCS Concepts</h2>
+				<p>Human-centered computing: Accessibility</p>
+				<p>Human-centered computing: Accessibility systems and tools</p>
+				<p>Human-centered computing: Empirical studies in accessibility</p>
+			</section>
+			<section>
+				<h2>Keywords</h2>
+				<ul>
+					<li>Accessibility</li>
+					<li>personalization</li>
+					<li>audiovisual media</li>
+					<li>aphasia</li>
+					<li>object based media</li>
+				</ul>
+			</section>
+			<section class="numbered">
+				<h2>Introduction</h2>
+				<p>Audiovisual media content is ubiquitous in everyday life. We enjoy watching TV broadcasts, films in cinemas, streaming online content, and much more. These, however, are not always accessible to all people. There are currently 14.4 million people in the UK who have a disability, with almost half being 65-years or older [<a href="#ref-KirkWade2022">17</a>]. While there has been research focusing on making audiovisual media accessible to people with disabilities, this research has focused mostly on narrow user groups, such as people who are blind and visually impaired (BVI) or d/Deaf and hard of hearing (DHH). Existing accessibility intervention technologies that aim to help these communities have been extensively researched, such as subtitles [<a href="#ref-Gorman2021">12</a>] and audio description [<a href="#ref-Bodi2021">4</a>].</p>
+				<p>This focus, however, has left a gap in knowledge when it comes to making audiovisual media more accessible to people with complex needs, such as aphasia. For instance, due to the variable nature of complex communication impairments, symptoms and severity may vary significantly from person to person, meaning any &ldquo;<em>one size fits all</em>&rdquo; approach to audiovisual media accessibility interventions is unlikely to be successful. Furthermore, existing accessibility guidelines have a limited applicability when it comes to these communities [<a href="#ref-Grellmann2018">13</a>]. Therefore, this PhD aims to explore this knowledge gap by working with an exemplar community with complex needs, people with aphasia (PWA), and investigating ways in which audiovisual media can be made more accessible to them.</p>
+				<p>Aphasia is an acquired communication disorder that is usually caused by damage to the brain due to a stroke or head injury. PWA can find reading, writing, listening, and/or speaking challenging, with different people experiencing aphasia differently, as well as experiencing distinct levels of challenge. Aphasia <em>does not</em> affect the persons intellect. There are currently over 367,000 PWA in the UK alone, with millions more in other countries [<a href="#ref-Ellis2010">10</a>]. Moreover, this is a population that is prone to increase in the coming years due to the odds of surviving a stroke increasing [<a href="#ref-Code2015">6</a>]. The motivation of this PhD, therefore, is to address this gap in knowledge by leveraging co-design techniques and novel technologies to explore how personalisation and customisation can be used to address accessibility challenges faced by PWA when consuming audiovisual media.</p>
+				<h3>Research Questions</h3>
+				<p>The scope of this PhD work would be set by the following research questions:</p>
+				<ol>
+					<li>What are the challenges faced by PWA when accessing digital, audiovisual media and how can we explore these through co-design practices?</li>
+					<li>In what ways can personalisation be used to bridge accessibility gaps in digital, audiovisual media for PWA?</li>
+					<li>How can we leverage data-driven methods to expand accessibility interventions into novel directions through customisation and personalisation?</li>
+				</ol>
+			</section>
+			<section class="numbered">
+				<h2>Background</h2>
+				<p>The field of audiovisual media has a long history of exploring accessibility challenges, from more conventional technologies, such as TV [<a href="#ref-Hanzlicek2008">14</a>] and smartphones [<a href="#ref-Walczak2017">32</a>], to challenges with the interaction of the device [<a href="#ref-Biswas2011">3</a>]. These have focused on a wide range of communities, affecting the BVI [<a href="#ref-Walczak2017">32</a>] and DHH [<a href="#ref-CostaMontenegro2015">7</a>] communities, as well people cognitive impairments [<a href="#ref-Villena2014">31</a>] and motor impairment [<a href="#ref-KearneyVolpe2019">16</a>], among others. The inherent complexity of having a constant stream of both audio and video information presented can introduce further cognitive [<a href="#ref-Sitbon2019">28</a>] and language [<a href="#ref-Cartwright2009">5</a>] challenges. Moreover, with the advancement of technology, accessibility research has shifted towards novel types of media and devices, such as virtual reality (VR) [<a href="#ref-Mott2020">21</a>], augmented reality (AR) [<a href="#ref-Pamparu2022">23</a>], and mixed reality (MR) [<a href="#ref-McGill2016">19</a>]. With this shift in technologies focused, and the novel ways in which audiovisual media is both created and consumed, accessibility research needs to be at the core in order to not exclude users with access needs. For instance, a systematic literature review published by [<a href="#ref-Vatavu2021">30</a>] on media accessibility research published at IMX/TVX shows that only 4.2% of papers addressed the needs of users with disabilities, focusing primarily on the BVI and DHH communities.</p>
+				<p>Recent developments in broadcast technologies, especially the emergence and development of object-based media, may offer a novel research direction through allowing more dynamic content personalisation. Object-based media (OBM) is a technology in which media content is created using media blocks that hold a wide range of data and are rendered into a cohesive structure based on that data. This has the potential for the same media to be presented in unique ways for different people at play time. OBM has been used to create interactive storytelling [<a href="#ref-Ursu2020">29</a>] or a personalised cooking show, in which the viewer controls various aspects of the presentation and pacing [<a href="#ref-Cox2017">8</a>]. Moreover, the personalisation of content is something that has been used to extend accessibility capabilities [<a href="#ref-OFCOM2021">15</a>]. An example of the use of increased accessibility offered by OBM personalisation is allowing hard of hearing people to personalise the audio during content playback, adjusting audio levels of different types of audio tracks to improve speech intelligibility [<a href="#ref-Ward2019">33</a>, <a href="#ref-Ward2018">34</a>]. OBM, and the accessibility possibilities it offers, have been little explored, however, with most research focusing on established accessibility interventions [<a href="#ref-Montagud2020">20</a>].</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-1-caption" tabindex="0">
+					<table id="tab-1">
+						<caption id="tab-1-caption"><strong>Table 1:</strong> This table shows the proportion of papers in the SLR dataset that contained codes for the <em>accessibility challenge</em> explored, who the <em>community of focus</em> was, and what <em>accessibility intervention</em> was explored. For all three of these categories, papers could be coded with more than one code.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Accessibility challenge</th>
+								<th scope="col">Papers w/ code</th>
+								<th scope="col">Community of focus</th>
+								<th scope="col">Papers w/ code</th>
+								<th scope="col">Accessibility intervention</th>
+								<th scope="col">Papers w/ code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Viewing video</td>
+								<td>43.1%</td>
+								<td>BVI</td>
+								<td>45.9%</td>
+								<td>Subtitles</td>
+								<td>48.1%</td>
+							</tr>
+							<tr>
+								<td>Hearing audio</td>
+								<td>12.2%</td>
+								<td>DHH</td>
+								<td>53.6%</td>
+								<td>Audio description</td>
+								<td>33.1%</td>
+							</tr>
+							<tr>
+								<td>Reading subtitles</td>
+								<td>42.5%</td>
+								<td>Motor impairment</td>
+								<td>1.7%</td>
+								<td>Tangible device</td>
+								<td>6.1%</td>
+							</tr>
+							<tr>
+								<td>Understanding speech</td>
+								<td>9.4%</td>
+								<td>IDD</td>
+								<td>0.6%</td>
+								<td>Audio/video manipulation</td>
+								<td>13.8%</td>
+							</tr>
+							<tr>
+								<td>Following narrative</td>
+								<td>19.9%</td>
+								<td>Autism</td>
+								<td>0.0%</td>
+								<td>Sign language</td>
+								<td>5.0%</td>
+							</tr>
+							<tr>
+								<td>Issues with image</td>
+								<td>5.5%</td>
+								<td>Other cognitive</td>
+								<td>3.3%</td>
+								<td>Content personalization</td>
+								<td>1.1%</td>
+							</tr>
+							<tr>
+								<td>Screen clutter</td>
+								<td>0.0%</td>
+								<td>Older adults</td>
+								<td>4.4%</td>
+								<td>Customisation</td>
+								<td>13.8%</td>
+							</tr>
+							<tr>
+								<td>Other</td>
+								<td>20.4%</td>
+								<td>General disability</td>
+								<td>8.8%</td>
+								<td>Second display</td>
+								<td>7.7%</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>Other</td>
+								<td>2.8%</td>
+								<td>Other</td>
+								<td>34.8%</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<section class="numbered">
+				<h2>Completed Work</h2>
+				<p>At this time, the completed work aimed to highlight current and past accessibility intervention research for digital, audiovisual media. Along with this, work has been done with the aim to start answering <strong>RQ1</strong>.</p>
+				<h3>Systematic Review: Accessibility Research in Digital Audiovisual Media</h3>
+				<p>In order to ground my research into the wider accessibility field and inform the future work done in my PhD, a systematic literature review (SLR) on accessibility interventions for digital audiovisual media was conducted. The SLR aimed to understand the challenges explored in the past, highlighting existing accessibility measures, and demonstrate any shortcomings or opportunities missed by the research community. This work modelled on prior SLRs of accessibility research [<a href="#ref-Curtis2022">9</a>, <a href="#ref-Mack2021">18</a>], using the PRISMA method [<a href="#ref-Rethlefsen2021">24</a>] and following additional guidelines from [<a href="#ref-Silva2016">27</a>], [<a href="#ref-Siddaway2019">26</a>], and [<a href="#ref-Wohlin2014">36</a>]. This work was also an important contribution on its own, as there has not been any systematic review of literature focusing on accessibility interventions for digital audiovisual media. Previous SLR have examined accessibility more generally, such as [<a href="#ref-Mack2021">18</a>] examining accessibility research at the <em>CHI</em> and <em>ASSETS</em> conferences, or a review published by [<a href="#ref-Vatavu2021">30</a>] on media accessibility research at the <em>IMX</em>/<em>TVX</em> conference. Other reviews have focused on specific disabled communities, such as [<a href="#ref-Bhowmick2017">2</a>] exploring assistive technologies for people with visual impairments, or have been overviews of specific accessibility interventions, such as collaborative technologies for children with special needs [<a href="#ref-Baykal2020">1</a>].</p>
+				<p>This SLR looked at 181 papers spanning a 26-year period (1996&ndash;2022), answering question focusing on the types of accessibility challenges researched, the communities this research focused on, and the accessibility interventions explored. This was achieved through the iterative creation of a codebook and manually coding all the papers, with a second coder validating the coding and a Fleiss&rsquo; Kappa inter-rater reliability (IRR) [<a href="#ref-Fleiss1973">11</a>] calculation being performed. Through this work, we were able to answer the initial questions we had set. Most of the past researched had focused on challenges related to the viewing the visual aspect of the media and the accessibility of subtitles/closed captions, with relatively little research exploring other challenges, such as understanding speech or issues engaging with the narrative. We also see that the majority of research focuses on the BVI and the DHH communities, with significantly fewer papers exploring the challenges faced by people with intellectual and developmental disabilities (IDD), Autism, other cognitive disabilities, and older adults. We also see that people with disabilities are well represented in user studies, however other participant groups, such as specialists and caregivers, were less represented. Subtitles and audio description were by far the most common intervention methods examined. These results can be seen in Table <a href="#tab-1">1</a>.</p>
+				<h3>Survey and focus group sessions with PWA</h3>
+				<p>In order to answer <strong>RQ1</strong>, the next step of this PhD is a series of user studies with PWA, which will be achieved in two parts. First, an online survey with more general questions with the aims to gather a baseline understanding of the context in which PWA consume audiovisual media, the accessibility interventions they use, and surface level questions about accessibility challenges. The responses from this survey will inform the second user study, a set of two in-person focus group sessions with PWA and speech and language therapists (SLT). In these sessions, I will explore specific challenges faced by PWA when accessing digital, audiovisual media through a semi-structured interview question set and group discussion activities. In order to aid the discussion, both low-fidelity communication aids, such as the use of physical artefacts to facilitate communication [<a href="#ref-Roper2018">25</a>], and high-fidelity interventions, such as the use of existing accessibility interventions and simulated examples of novel intervention ideas, will be used to replicate real life media consumption patterns. Previous research shows that PWA prefer using high-fidelity prototypes in order to reduce the amount of abstraction required and prevent cognitive fatigue [<a href="#ref-Wilson2015">35</a>]. Through this exploratory work, I will be able to better understand specific challenges faced by PWA and the way in which they use existing accessibility interventions. The focus group sessions will also allow me to explore potential ideas on ways to leverage personalisation, and to get the thoughts of end users on potential novel accessibility interventions prior to creating technical prototypes. As of writing this, however, this work is ongoing, and therefore does not have results to share.</p>
+			</section>
+			<section class="numbered">
+				<h2>Planned Future Work</h2>
+				<p>Grounded in findings from the initial survey and in-person focus group session, I will start addressing <strong>RQ2</strong> and <strong>RQ3</strong>. Specifically, the proposed accessibility intervention concepts will be explored initially with experts in content creation prior to system design and prototype development.</p>
+				<h3>Exploring ideas with expert content creators</h3>
+				<p>Following the initial idea gathering phase of the PhD, in which the scope of the interventions will be explored with PWA, I will conduct workshops with experts in the field of content creation. My current tentative plan for this phase is to organise these workshops with the BBC and other content creators at Media City UK and would include content creators and members of the BBC Research and Development team. In these workshops, the intervention ideas will be discussed to understand the aspects of the media content will be modified, the feasibility of these solutions within the production pipeline, and how such a technical intervention would be designed. These discussions would go towards answering <strong>RQ2</strong> through building an understanding on how personalisation can be leveraged into an accessibility intervention. Additionally, there is a serious discussion to be had about the implications of using content personalisation as an accessibility intervention. For instance, an inherent tension exists between the artistic vision content creators may have for a specific piece of media they create and the altering of that media to accommodate people with accessibility needs. Moreover, the accessibility interventions may potentially use machine learning or artificial intelligence (ML/AI) tools, such as ChatGPT, to change the language in a piece of media to be more accessible for PWA, which could raise questions on the ownership of art.</p>
+				<h3>System design and development</h3>
+				<p>Informed by discussions with PWA and experts in the field of content creation, I will begin the design and implementation of the accessibility intervention prototypes. This will be done through an iterative co-design approach in which PWA will be involved at each stage of the process. For instance, a key aspect of such interventions is how the user can input their needs, which can be done in numerous ways, such as using abstractions (e.g., the use of personas that represent different aphasia needs [<a href="#ref-Neate2019">22</a>]) or allowing the user to control a wide range of settings. The various design ideas will be initially demonstrated with high-fidelity prototypes and explored using Wizard of Oz style implementation during workshops. High-fidelity prototyping will be done using tools such as Figma<sup id="fnref-1"><a href="#fn-1" aria-label="Footnote 1">1</a></sup> to design and explore various user stories, and StoryFormer<sup id="fnref-2"><a href="#fn-2" aria-label="Footnote 2">2</a></sup>, a BBC MakerBox<sup id="fnref-3"><a href="#fn-3" aria-label="Footnote 3">3</a></sup> tool for creating branching media content with conditional logic, to evaluate how changing various aspects of the content affects its accessibility. For the actual technical prototypes, it is currently unclear the exact format it will have, such as web-based platform, mobile or desktop application, therefore the exact technologies I will employ are not yet clear.</p>
+				<h3>System evaluation</h3>
+				<p>At this stage of the research, I will be performing evaluation of the designed systems. Similarly to the system development, the evaluation of systems created during this PhD will be done in collaboration with PWA. This will include evaluating specific aspects, such as the interaction and control of the personalisation, as well as whole system evaluations. Through initial sessions with PWA, I will collect feedback on existing accessibility interventions and identify the challenges and opportunities for implementing my novel technical solutions, as well as understand how such interactions should be modelled. After the development of early-stage prototypes, these will be introduced and explored in focus group sessions with PWA and SLT to evaluate the early design concepts, the interaction enabling personalisation and customisation, and the utility of these interventions. Following this iterative design approach, once a functioning accessibility intervention system is developed, usability testing will be conducted. It is not fully clear at this moment, however, what form this testing will take, since I do not yet know the needs of PWA, what the form of the accessibility intervention system will be, or whether it would make sense to compare this system with existing accessibility interventions. For instance, the system evaluation could take place in individual or group usability testing sessions in laboratory conditions, or it could be evaluated over a longer period of time by asking PWA to use it in their day-to-day life.</p>
+			</section>
+			<section class="numbered">
+				<h2>Contribution</h2>
+				<p>Through this PhD research, I aim to make three main contributions. The first contribution comes through the qualitative research done to investigate the accessibility challenges PWA face when consuming digital, audiovisual media. Secondly, through an exploration of content personalisation and how this can be leveraged to improve the accessibility of media for PWA, I add to existing research on accessibility of audiovisual media and demonstrate how the variability of aphasia prevents any &ldquo;<em>one size fits all</em>&rdquo; approach from being effective. Thirdly, through the design and development of technical accessibility interventions, my work will contribute insights into how such accessibility interventions can be designed, implemented, and evaluated in an inclusive manner.</p>
+			</section>
+			<section>
+				<h2>Acknowledgements</h2>
+				<p>I would like to thank my two supervisors - Dr Timothy Neate and Professor Elena Simperl - for their assistance and guidance in these initial steps of my PhD journey. This PhD is funded by an EPSRC DTP studentship.</p>
+			</section>
+			<section id="footnotes">
+				<h2>Notes</h2>
+				<ol>
+					<li id="fn-1"><a href="https://www.figma.com/">https://www.figma.com/</a> <a href="#fnref-1" aria-label="Back to text, footnote 1">Back to text</a></li>
+					<li id="fn-2"><a href="https://www.bbc.co.uk/makerbox/tools/storyformer">https://www.bbc.co.uk/makerbox/tools/storyformer</a> <a href="#fnref-2" aria-label="Back to text, footnote 2">Back to text</a></li>
+					<li id="fn-3"><a href="https://www.bbc.co.uk/makerbox/">https://www.bbc.co.uk/makerbox/</a> <a href="#fnref-3" aria-label="Back to text, footnote 3">Back to text</a></li>
+				</ol>
+			</section>
+			<section id="references">
+				<h2>References</h2>
+				<ol>
+					<li id="ref-Baykal2020">G&ouml;k&ccedil;e Elif Baykal, Maarten Van Mechelen, and Eva Eriksson. 2020. Collaborative Technologies for Children with Special Needs. In <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em>. ACM. <a href="https://doi.org/10.1145/3313831.3376291">https://doi.org/10.1145/3313831.3376291</a></li>
+					<li id="ref-Bhowmick2017">Alexy Bhowmick and Shyamanta M. Hazarika. 2017. An insight into assistive technology for the visually impaired and blind people: state-of-the-art and future trends. <em>Journal on Multimodal User Interfaces</em> 11, 2 (Jan. 2017), 149&ndash;172. <a href="https://doi.org/10.1007/s12193-016-0235-6">https://doi.org/10.1007/s12193-016-0235-6</a></li>
+					<li id="ref-Biswas2011">Pradipta Biswas, Pat Langdon, Carlos Duarte, and Jos&eacute; Coelho. 2011. Multimodal adaptation through simulation for digital TV interface. In <em>Proceedings of the 9th European Conference on Interactive TV and Video</em>. ACM. <a href="https://doi.org/10.1145/2000119.2000167">https://doi.org/10.1145/2000119.2000167</a></li>
+					<li id="ref-Bodi2021">Aditya Bodi, Pooyan Fazli, Shasta Ihorn, Yue-Ting Siu, Andrew T Scott, Lothar Narins, Yash Kant, Abhishek Das, and Ilmi Yoon. 2021. Automated Video Description for Blind and Low Vision Users. In <em>Extended Abstracts of the 2021 CHI Conference on Human Factors in Computing Systems</em>. ACM. <a href="https://doi.org/10.1145/3411763.3451810">https://doi.org/10.1145/3411763.3451810</a></li>
+					<li id="ref-Cartwright2009">Jade Cartwright and Kym A. E. Elliott. 2009. Promoting strategic television viewing in the context of progressive language impairment. <em>Aphasiology</em> (2009). <a href="https://doi.org/10.1080/02687030801942932">https://doi.org/10.1080/02687030801942932</a></li>
+					<li id="ref-Code2015">Chris Code, Ilias Papathanasiou, Silvia Rubio-Bruno, Mar&iacute;a de la Paz Cabana, Maria Marta Villanueva, Line Haaland-Johansen, Tatjana Prizl-Jakovac, Ana Leko, Nada Zemva, Ruth Patterson, Richard Berry, Elizabeth Rochon, Carol Leonard, and Amelie Robert. 2015. International patterns of the public awareness of aphasia. <em>International Journal of Language and Communication Disorders</em> 51, 3 (Nov. 2015), 276&ndash;284. <a href="https://doi.org/10.1111/1460-6984.12204">https://doi.org/10.1111/1460-6984.12204</a></li>
+					<li id="ref-CostaMontenegro2015">Enrique Costa-Montenegro, F&aacute;tima M. Garc&iacute;a-Doval, Jonathan Juncal-Mart&iacute;nez, and Bel&eacute;n Barrag&aacute;ns-Mart&iacute;nez. 2015. SubTitleMe, subtitles in cinemas in mobile devices. <em>Universal Access in the Information Society</em> 15, 3 (June 2015), 461&ndash;472. <a href="https://doi.org/10.1007/s10209-015-0420-5">https://doi.org/10.1007/s10209-015-0420-5</a></li>
+					<li id="ref-Cox2017">Jasmine Cox, Rhianne Jones, Chris Northwood, Jonathan Tutcher, and Ben Robinson. 2017. Object-Based Production. In <em>Adjunct Publication of the 2017 ACM International Conference on Interactive Experiences for TV and Online Video</em>. ACM. <a href="https://doi.org/10.1145/3084289.3089912">https://doi.org/10.1145/3084289.3089912</a></li>
+					<li id="ref-Curtis2022">Humphrey Curtis, Timothy Neate, and Carlota Vazquez Gonzalez. 2022. State of the Art in AAC: A Systematic Review and Taxonomy. In <em>The 24th International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM. <a href="https://doi.org/10.1145/3517428.3544810">https://doi.org/10.1145/3517428.3544810</a></li>
+					<li id="ref-Ellis2010">Charles Ellis, Clara Dismuke, and Kathryn K. Edwards. 2010. Longitudinal trends in aphasia in the United States. <em>NeuroRehabilitation</em> 27, 4 (Dec. 2010), 327&ndash;333. <a href="https://doi.org/10.3233/nre-2010-0616">https://doi.org/10.3233/nre-2010-0616</a></li>
+					<li id="ref-Fleiss1973">Joseph L. Fleiss and Jacob Cohen. 1973. The Equivalence of Weighted Kappa and the Intraclass Correlation Coefficient as Measures of Reliability. <em>Educational and Psychological Measurement</em> 33, 3 (Oct. 1973), 613&ndash;619. <a href="https://doi.org/10.1177/001316447303300309">https://doi.org/10.1177/001316447303300309</a></li>
+					<li id="ref-Gorman2021">Benjamin M. Gorman, Michael Crabb, and Michael Armstrong. 2021. Adaptive Subtitles: Preferences and Trade-Offs in Real-Time Media Adaption. In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em>. ACM. <a href="https://doi.org/10.1145/3411764.3445509">https://doi.org/10.1145/3411764.3445509</a></li>
+					<li id="ref-Grellmann2018">Brian Grellmann, Timothy Neate, Abi Roper, Stephanie Wilson, and Jane Marshall. 2018. Investigating Mobile Accessibility Guidance for People with Aphasia. In <em>Proceedings of the 20th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;18). Association for Computing Machinery, New York, NY, USA, 410&#8211;413. <a href="https://doi.org/10.1145/3234695.3241011">https://doi.org/10.1145/3234695.3241011</a></li>
+					<li id="ref-Hanzlicek2008">Zdenek Hanzlicek, Jindrich Matousek, and Daniel Tihelka. 2008. Towards automatic audio track generation for Czech TV broadcasting: Initial experiments with subtitles-to-speech synthesis. In <em>2008 9th International Conference on Signal Processing</em>. IEEE. <a href="https://doi.org/10.1109/icosp.2008.4697710">https://doi.org/10.1109/icosp.2008.4697710</a></li>
+					<li id="ref-OFCOM2021">Elfed Howells and David Jackson. 2021. <em><a href="https://www.ofcom.org.uk/research-and-data/technology/general/object-based-media">Object-Based Media Report</a></em>. <a href="https://www.ofcom.org.uk/research-and-data/technology/general/object-based-media">https://www.ofcom.org.uk/research-and-data/technology/general/object-based-media</a></li>
+					<li id="ref-KearneyVolpe2019">Claire Kearney-Volpe, Shannon Holloway, and Amy Hurst. 2019. Entertainment for All. In <em>Extended Abstracts of the 2019 CHI Conference on Human Factors in Computing Systems</em>. ACM. <a href="https://doi.org/10.1145/3290607.3312882">https://doi.org/10.1145/3290607.3312882</a></li>
+					<li id="ref-KirkWade2022">Esme Kirk-Wade. 2022. UK disability statistics: Prevalence and life experiences. <em>House of Commons Library</em> (July 2022). <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-9602/">https://commonslibrary.parliament.uk/research-briefings/cbp-9602/</a></li>
+					<li id="ref-Mack2021">Kelly Mack, Emma McDonnell, Dhruv Jain, Lucy Lu Wang, Jon E. Froehlich, and Leah Findlater. 2021. What Do We Mean by &ldquo;Accessibility Research&rdquo;? In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em>. ACM. <a href="https://doi.org/10.1145/3411764.3445412">https://doi.org/10.1145/3411764.3445412</a></li>
+					<li id="ref-McGill2016">Mark McGill, John H. Williamson, and Stephen Brewster. 2016. Examining The Role of Smart TVs and VR HMDs in Synchronous At-a-Distance Media Consumption. <em>ACM Transactions on Computer-Human Interaction</em> 23, 5 (Nov. 2016), 1&ndash;57. <a href="https://doi.org/10.1145/2983530">https://doi.org/10.1145/2983530</a></li>
+					<li id="ref-Montagud2020">Mario Montagud, Jaume Segura-Garcia, J. Antonio De Rus, and Rafael Fayos Jord&aacute;n. 2020. Towards an Immersive and Accessible Virtual Reconstruction of Theaters from the Early Modern. In <em>ACM International Conference on Interactive Media Experiences</em>. ACM. <a href="https://doi.org/10.1145/3391614.3399390">https://doi.org/10.1145/3391614.3399390</a></li>
+					<li id="ref-Mott2020">Martez Mott, John Tang, Shaun Kane, Edward Cutrell, and Meredith Ringel Morris. 2020. &ldquo;I just went into it assuming that I wouldnt be able to have the full experience&rdquo;. In <em>The 22nd International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM. <a href="https://doi.org/10.1145/3373625.3416998">https://doi.org/10.1145/3373625.3416998</a></li>
+					<li id="ref-Neate2019">Timothy Neate, Aikaterini Bourazeri, Abi Roper, Simone Stumpf, and Stephanie Wilson. 2019. Co-Created Personas. In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>. ACM. <a href="https://doi.org/10.1145/3290605.3300880">https://doi.org/10.1145/3290605.3300880</a></li>
+					<li id="ref-Pamparu2022">Cristian Pampar&#259;u and Radu-Daniel Vatavu. 2022. The User Experience of Journeys in the Realm of Augmented Reality Television. In <em>ACM International Conference on Interactive Media Experiences</em>. ACM. <a href="https://doi.org/10.1145/3505284.3529969">https://doi.org/10.1145/3505284.3529969</a></li>
+					<li id="ref-Rethlefsen2021">Melissa L. Rethlefsen, Shona Kirtley, Siw Waffenschmidt, Ana Patricia Ayala, David Moher, Matthew J. Page, and Jonathan B. Koffel. 2021. PRISMA-S: an extension to the PRISMA Statement for Reporting Literature Searches in Systematic Reviews. <em>Systematic Reviews</em> 10, 1 (Jan. 2021). <a href="https://doi.org/10.1186/s13643-020-01542-z">https://doi.org/10.1186/s13643-020-01542-z</a></li>
+					<li id="ref-Roper2018">Abi Roper, Ian Davey, Stephanie Wilson, Timothy Neate, Jane Marshall, and Brian Grellmann. 2018. Usability Testing - An Aphasia Perspective. In <em>Proceedings of the 20th International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM. <a href="https://doi.org/10.1145/3234695.3241481">https://doi.org/10.1145/3234695.3241481</a></li>
+					<li id="ref-Siddaway2019">Andy P. Siddaway, Alex M. Wood, and Larry V. Hedges. 2019. How to Do a Systematic Review: A Best Practice Guide for Conducting and Reporting Narrative Reviews, Meta-Analyses, and Meta-Syntheses. <em>Annual Review of Psychology</em> 70, 1 (Jan. 2019), 747&ndash;770. <a href="https://doi.org/10.1146/annurev-psych-010418-102803">https://doi.org/10.1146/annurev-psych-010418-102803</a></li>
+					<li id="ref-Silva2016">Rodrigo L. S. Silva and Fr&acirc;ncila Weidt Neiva. 2016. Systematic Literature Review in Computer Science - A Practical Guide. (2016). <a href="https://doi.org/10.13140/RG.2.2.35453.87524">https://doi.org/10.13140/RG.2.2.35453.87524</a></li>
+					<li id="ref-Sitbon2019">Laurianne Sitbon, Ross Brown, and Lauren Fell. 2019. Turning Heads: Designing Engaging Immersive Video Experiences to Support People with Intellectual Disability when Learning Everyday Living Skills. In <em>The 21st International ACM SIGACCESS Conference on Computers and Accessibility</em>. ACM. <a href="https://doi.org/10.1145/3308561.3353787">https://doi.org/10.1145/3308561.3353787</a></li>
+					<li id="ref-Ursu2020">Marian Ursu, Davy Smith, Jonathan Hook, Shauna Concannon, and John Gray. 2020. Authoring Interactive Fictional Stories in Object-Based Media (OBM). In <em>ACM International Conference on Interactive Media Experiences</em>. ACM. <a href="https://doi.org/10.1145/3391614.3393654">https://doi.org/10.1145/3391614.3393654</a></li>
+					<li id="ref-Vatavu2021">Radu-Daniel Vatavu. 2021. Accessibility of Interactive Television and Media Experiences: Users with Disabilities Have Been Little Voiced at IMX and TVX. In <em>ACM International Conference on Interactive Media Experiences</em>. ACM. <a href="https://doi.org/10.1145/3452918.3465485">https://doi.org/10.1145/3452918.3465485</a></li>
+					<li id="ref-Villena2014">Johana Mar&iacute;a Rosas Villena, Bruno Costa Ramos, Renata Pontin M. Fortes, and Rudinei Goularte. 2014. Web Videos &ndash; Concerns About Accessibility based on User Centered Design. <em>Procedia Computer Science</em> 27 (2014), 481&ndash;490. <a href="https://doi.org/10.1016/j.procs.2014.02.052">https://doi.org/10.1016/j.procs.2014.02.052</a></li>
+					<li id="ref-Walczak2017">Agnieszka Walczak. 2017. Audio description on smartphones: making cinema accessible for visually impaired audiences. <em>Universal Access in the Information Society</em> 17, 4 (Aug. 2017), 833&ndash;840. <a href="https://doi.org/10.1007/s10209-017-0568-2">https://doi.org/10.1007/s10209-017-0568-2</a></li>
+					<li id="ref-Ward2019">Lauren Ward and Ben Shirley. 2019. Personalization in Object-based Audio for Accessibility: A Review of Advancements for Hearing Impaired Listeners. <em>Journal of the Audio Engineering Society</em> 67, 7/8 (Aug. 2019), 584&ndash;597. <a href="https://doi.org/10.17743/jaes.2019.0021">https://doi.org/10.17743/jaes.2019.0021</a></li>
+					<li id="ref-Ward2018">Lauren Ward, Ben Shirley, and Jon Francombe. 2018. Accessible Object-based Audio Using Hierarchical Narrative Importance Metadata. <em>Journal of the Audio Engineering Society</em> (2018).</li>
+					<li id="ref-Wilson2015">Stephanie Wilson, Abi Roper, Jane Marshall, Julia Galliers, Niamh Devane, Tracey Booth, and Celia Woolf. 2015. Codesign for people with aphasia through tangible design languages. <em>CoDesign</em> 11, 1 (Jan. 2015), 21&ndash;34. <a href="https://doi.org/10.1080/15710882.2014.997744">https://doi.org/10.1080/15710882.2014.997744</a></li>
+					<li id="ref-Wohlin2014">Claes Wohlin. 2014. Guidelines for Snowballing in Systematic Literature Studies and a Replication in Software Engineering. In <em>Proceedings of the 18th International Conference on Evaluation and Assessment in Software Engineering</em> (EASE &rsquo;14). Association for Computing Machinery, New York, NY, USA, Article 38, 10 pages. <a href="https://doi.org/10.1145/2601248.2601268">https://doi.org/10.1145/2601248.2601268</a></li>
+				</ol>
+			</section>
+		</article>
+	</main>
+</body>
+
+</html>

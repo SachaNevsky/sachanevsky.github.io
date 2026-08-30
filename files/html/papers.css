@@ -19,6 +19,7 @@
   --link: #0b4f9c;
   --link-visited: #6a3399;
   --focus: #b8360f;
+  --highlight: #fff2c8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +33,7 @@
     --link: #8fbcff;
     --link-visited: #cfa9ff;
     --focus: #ffb27a;
+    --highlight: #ffe9a1;
   }
 }
 
@@ -341,4 +343,9 @@ article > header {
     content: " (" attr(href) ")";
     font-size: 0.85em;
   }
+}
+
+td.highlighted,
+th.highlighted {
+  background: var(--highlight);
 }
