@@ -46,7 +46,7 @@
     display: inline;
 }
 
-[data-styles="off"] .publication .left>p,
+[data-styles="off"] .publication .left>.paper-links,
 [data-styles="off"] .publication .right>.pub-id,
 [data-styles="off"] .publication .right>button {
     display: inline-block;

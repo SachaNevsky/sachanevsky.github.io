@@ -204,6 +204,13 @@ button:focus-visible {
     margin: 10px 0 10px 0;
 }
 
+.paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    padding-top: 1em;
+}
+
 .button {
     background-color: transparent;
     width: 100%;
