@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<title>Mapping Movies: A Mind-Map Approach to Aphasia-Friendly Video</title>
+	<link rel="stylesheet" href="../papers.css">
+</head>
+
+<body>
+	<a class="skip-link" href="#content">Skip to main content</a>
+	<main id="content">
+		<article>
+			<header>
+				<h1>Mapping Movies: A Mind-Map Approach to Aphasia-Friendly Video</h1>
+				<section aria-label="Authors">
+					<h2>Authors</h2>
+					<ul>
+						<li>Shayan Bali, Department of Informatics, King&rsquo;s College London, London, UK. <a href="mailto:shayan.bali@kcl.ac.uk">shayan.bali@kcl.ac.uk</a></li>
+						<li>Alexandre Nevsky, Department of Informatics, King&rsquo;s College London, London, UK. <a href="mailto:alexandre.nevsky@kcl.ac.uk">alexandre.nevsky@kcl.ac.uk</a></li>
+						<li>Filip Bircanin, Department of Informatics, King&rsquo;s College London, London, UK. <a href="mailto:filip.bircanin@kcl.ac.uk">filip.bircanin@kcl.ac.uk</a></li>
+						<li>Timothy Neate, Department of Informatics, King&rsquo;s College London, London, UK. <a href="mailto:timothy.neate@kcl.ac.uk">timothy.neate@kcl.ac.uk</a></li>
+					</ul>
+				</section>
+				<p>Extended Abstracts of the 2026 CHI Conference on Human Factors in Computing Systems (CHI EA &rsquo;26), April 13&ndash;17, 2026, Barcelona, Spain</p>
+				<p>DOI: <a href="https://doi.org/10.1145/3772363.3798702">https://doi.org/10.1145/3772363.3798702</a></p>
+			</header>
+			<section>
+				<h2>Abstract</h2>
+				<p>Access to audiovisual media is crucial due to its significant role in society. However, access to such content is not equitable for everyone, particularly for people with complex communication needs (CCNs), such as aphasia. While interventions have been introduced to improve the accessibility of audiovisual media, these are often poorly suited to individuals with CCNs. To address this gap, we developed an AI-driven prototype that generates interactive summarisation mind maps to support people with aphasia in better understanding the content. Initial expert review from two people with aphasia offers preliminary feedback on this concept, providing high-level insights on designing accessibility interventions which augment video with additional explanatory content.</p>
+			</section>
+			<section>
+				<h2>CCS Concepts</h2>
+				<p>Human-centered computing: Accessibility technologies</p>
+				<p>Human-centered computing: Empirical studies in accessibility</p>
+				<p>Human-centered computing: Accessibility systems and tools</p>
+			</section>
+			<section>
+				<h2>Keywords</h2>
+				<ul>
+					<li>accessibility</li>
+					<li>aphasia</li>
+					<li>video</li>
+					<li>mind map</li>
+					<li>visualisation</li>
+					<li>AI</li>
+				</ul>
+			</section>
+			<section class="numbered">
+				<h2>Introduction</h2>
+				<p>Audiovisual media is an integral part of people&rsquo;s lives, and is essential for accessing information and engaging with the wider world [<a href="#ref-priestley2016political">29</a>] across myriad social and civic domains [<a href="#ref-al2023exploring">1</a>, <a href="#ref-martens2015media">18</a>, <a href="#ref-pham2021effects">28</a>]. However, despite its importance, access to audiovisual media remains unequal, with many people with disabilities, including those with complex communication needs (CCNs), facing persistent barriers [<a href="#ref-nevsky2024lights">24</a>]. Consequently, the research community, together with industry, has developed accessibility supports, such as subtitles and audio descriptions (AD) which are now commonplace. Despite significant progress, many accessibility challenges persist. In particular, accessibility of audiovisual content for individuals with CCNs, often related to language or cognitive impairments, remains limited [<a href="#ref-nevsky2023accessibility">25</a>]. The language disability aphasia is one such under-represented condition. People with aphasia experience difficulties with understanding, speaking, reading, and/or writing, with the nature and severity varying between individuals [<a href="#ref-Berg2020">4</a>, <a href="#ref-Morris2017">20</a>]. These communication difficulties are manifested in the consumption of audiovisual media [<a href="#ref-nevsky2023accessibility">25</a>], yet little work has been done to explore how technology might be designed to support.</p>
+				<p>This paper investigates an exploration of how a common information presentation technique &ndash; the mind map &ndash; can support video comprehension. Mind maps, which are regularly used to aid users with comprehension difficulties, afford the clear presentation of narratives and offer flexibility to support user needs [<a href="#ref-monnelly2022intensive">19</a>, <a href="#ref-whitworth2010using">38</a>]. We present a prototype which uses emerging AI capabilities to automatically create a mind map of any video, with a view of aiding comprehension within an aphasia-friendly interface. Our contribution is twofold:</p>
+				<ol>
+					<li>The development of a mind map-based system for converting audiovisual content into interactive summarization</li>
+					<li>Initial formative feedback of VideoMind system through expert reviews with people with aphasia</li>
+				</ol>
+			</section>
+			<section class="numbered">
+				<h2>Related Work</h2>
+				<h3>Aphasia and Audiovisual Media Barriers</h3>
+				<p>Individuals with aphasia face several barriers when accessing audiovisual content, including linguistic challenges related to speech speed and complexity, limitations of subtitles, and visual overload caused by rapid or distracting visuals [<a href="#ref-nevsky2024lights">24</a>]. The vast majority of accessibility interventions are designed to support users with sensory disabilities, with wider populations significantly under-served [<a href="#ref-nevsky2023accessibility">25</a>] &ndash; including users with aphasia. While subtitles are widely used to support people who are d/Deaf or hard of hearing (DHH) [<a href="#ref-gernsbacher2015video">10</a>], and audio description can enable access for individuals who are blind or low vision (BLV) [<a href="#ref-rai2010comparative">32</a>], few approaches are designed for users with complex communication needs. In response to the lack of interventions designed with users with CCNs in mind, recent work has proposed accessibility interventions for people with aphasia, such as dynamic pacing and simplifying audiovisual content content [<a href="#ref-bircanin2025sounds">5</a>, <a href="#ref-nevsky2025each">22</a>, <a href="#ref-nevsky2024wish">23</a>].</p>
+				<h3>Mind Maps and Aphasia</h3>
+				<p>Mind maps allow for the organization of information into a simple visual form. In aphasia therapy, mind maps have been used to structure complex language tasks such as storytelling [<a href="#ref-whitworth2010using">38</a>]. Moreover, mind mapping for narrative work in the speech and language therapy field has been identified as an evidence-based intervention that contributes to improving real-life communication [<a href="#ref-monnelly2022intensive">19</a>]. In our prior work [<a href="#ref-bircanin2025sounds">5</a>], users with aphasia built on their own personal experience as regular mind mappers to envision future technologies which support access to key topics, places and people in the audio content they were having difficulties with. For instance, one participant used intricate, hand-drawn mind maps to support her understanding of the 2024 UK Conservative party leadership race. Beyond aphasia, mind mapping has also demonstrated benefits for individuals with other CCNs, including autism spectrum disorder and cognitive-communication impairments, by supporting understanding, information retention, and greater communication autonomy [<a href="#ref-Kellogg2018">15</a>, <a href="#ref-winardi2022utilization">39</a>]. Inspired by this prior work, and by the design ideas seeded by co-designers in our prior aforementioned work [<a href="#ref-bircanin2025sounds">5</a>], we explore dynamic mind map generation as a means to aid the comprehension of video.</p>
+			</section>
+			<section class="numbered">
+				<h2>The VideoMind Accessible Video Mind Mapping Tool</h2>
+				<p>We present <em>VideoMind</em> &ndash; an automatic AI-supported mind map tool, which provides an aphasia-friendly interface to support the comprehension of key concepts in videos. A <em>demonstration</em> is provided as a <em>Video Figure</em> with this paper. The <em>VideoMind</em> tool generates a mind map, organized by topic and time. To enable this, the input video is divided into coherent segments and arranged chronologically. The central node represents the overall topic, while child nodes correspond to video segments, ordered by timestamp, and include sub-nodes with additional details derived from selected features.</p>
+				<h3><em>VideoMind</em>&rsquo;s Simplification Methods</h3>
+				<p><em>VideoMind</em> uses a range of methods to extract and simplify content in a way that might support more aphasia-friendly presentation. Topic modelling is used to improve content understanding by enabling a structured breakdown, with a view to reduce cognitive load, enhance comprehension, recall and sense making for users with CCNs [<a href="#ref-gropp2016scalable">12</a>]. We also use keyword/key phrase extraction [<a href="#ref-papagiannopoulou2020review">26</a>], so that we can emphasize main ideas, with similar aims. Such methods are implemented with bullet-wise summarization, which has been shown to aid comprehension for users with CCNs [<a href="#ref-barth2016effects">3</a>, <a href="#ref-faroqi2021role">9</a>]. To extract key people, places and dates, we used Named Entity Recognition &ndash; highlighting key grounding information such as these are important for supporting users with aphasia in comprehension [<a href="#ref-pearl2017facilitating">27</a>].</p>
+				<h3><em>VideoMind</em>&rsquo;s Presentation Methods, Interface and Technical Implementation</h3>
+				<p><em>VideoMind</em> combines multiple modalities and generated materials to aid comprehension. It uses text&#8209;to&#8209;speech summaries throughout, drawing on evidence that TTS supports users with aphasia [<a href="#ref-hux2021perceptions">13</a>] and has been effective in prior aphasia&#8209;focused apps [<a href="#ref-bircanin2025sounds">5</a>, <a href="#ref-Neate2019">21</a>]. Emojis are also used as visual representations of words and concepts throughout to support an additional modality; a method which has been shown to be useful for people with aphasia with comprehension challenges [<a href="#ref-lin2024visual">17</a>] and successfully employed in accessible media technologies for people with aphasia [<a href="#ref-bircanin2025sounds">5</a>]. Similarly, to provide visual reference to the content being watched, key-frames are extracted at the specific times to link each mind map node to the relevant point in the video. To provide a textual representation, we also provide subtitles. Finally, the interface was iterated by the whole team based on prior experience of designing accessible technologies for users with aphasia, supported by aphasia-friendly guidance (e.g. [<a href="#ref-roper2018usability">33</a>, <a href="#ref-Roper2018">34</a>]), and the literature on aphasia and perception. This included reduced visual clutter [<a href="#ref-rose2011aphasia">36</a>], a stepped approach to revealing the interface [<a href="#ref-Neate2019">21</a>] and consistent use of icons and text in tandem [<a href="#ref-roper2018usability">33</a>, <a href="#ref-Roper2018">34</a>].</p>
+				<p>In terms of technical implementation, <em>VideoMind</em> is a full-stack, responsive web-based system with both front-end and back-end components. The front end is built using TypeScript, HTML, and CSS, with React.js used to create an interactive, component-based interface. The back end is implemented in Python and generates mind map content using locally deployed, publicly available AI and NLP models. The Whisper base model [<a href="#ref-radford2022whisper">31</a>] has been deployed locally for automatic speech recognition and subtitle generation. The Llama-3.1-8B-Instruct model [<a href="#ref-grattafiori2024llama3">11</a>] has been employed locally as a large language model for emoji prediction, text summarization, keyword extraction, and keyphrase extraction. A variant of Llama-3.2-1B has also been used for topic modelling. In addition, CLIP-ViT-B/32 [<a href="#ref-Radford2021LearningTV">30</a>], an image&ndash;text model, has been used for keyframe extraction based on segment summaries. Ultimately, uploaded videos are processed to generate a JSON-based mind map for visualization (see Figure <a href="#fig-1">1</a>).</p>
+				<figure id="fig-1">
+					<img src="./figures/backend_chi.jpg" alt="Diagram showing the processing done to the input video. Automatic speech recognition extracts voices, creates a transcript, which is then used in the topic modelling, paragraph summaries, keywords, audio summaries, and related emojis. The input video is also used to extract key frames, used in the chapter thumbnails. All this processing is saved in a JSON file.">
+					<figcaption><strong>Figure 1:</strong> Step-by-step back-end process of the prototype</figcaption>
+				</figure>
+				<h3><em>VideoMind</em> Interface</h3>
+				<p><em>VideoMind</em> and its views are shown in Figure <a href="#fig-2">2</a>. It consists of three views: <em>Split View</em>, <em>Video Summary</em>, and <em>Interactive Mind Map</em>. The Split view consists of three components: the <em>Video Player</em> (blue box), the <em>Video Summary</em> (yellow box), and the <em>Interactive Mind Map</em> (green box). The video player displays content and provides standard playback controls, along with adjustable generated subtitles. The next component is the <em>Interactive Mind Map</em> box. The <em>Interactive Mind Map</em> visualizes the video semantically and provides controls for resizing and resetting. It includes a central node representing the overall topic, with connected child nodes corresponding to individual segments of the audiovisual content. Each node is shown as a card displaying the segment&rsquo;s timestamp, topic, and keywords, and includes <em>Play</em> and <em>Listen</em> buttons to jump to the segment or hear its audio summary. Each child node expands into three sub-nodes: a key frame with a brief summary and highlighted entities, a set of relevant emojis, and a list of keywords or key phrases. The mind map is fully interactive and synchronised to the video playback, enabling dynamic exploration. It also includes a collapsible <em>Video Summary</em> panel that shows keywords, a short summary, and the time frame for the current segment. The Video View, consists of the Video Player (blue box), the Dynamic <em>Video Summary</em> (yellow box), and a <em>Live Transcription</em> box. The <em>Video Player</em> and summary operate in the same way as in the <em>Split View</em>. The key difference is the <em>Live Transcription</em> box, which displays real-time subtitles along with the preceding and following sentences to provide additional context; prioritizing textual and audio information over visual elements such as the mind map. Finally, the Mind Map View displays the mind map on its own at a larger scale, providing users with more space and flexibility to interact with it more easily.</p>
+				<figure id="fig-2">
+					<img src="./figures/concat_2x2.png" alt="Four images showing the prototype. (A) shows a video screen with a map on it and to the right, its mind map. The mind map has a central node with edges branching out to their nodes. The central node is &quot;British history &amp;gt; Scottish kingdom &amp;gt; Scottish wars&quot;, with node such as &quot;historical events&quot; branching off. (B) is similar, but shows the possibility of switching between screens with a slider. (C) has the video with two text boxes providing summary on the right. (D) shows a zoomed in version of the mind map.">
+					<figcaption><strong>Figure 2:</strong> Overview of the framework interface views. (A) Main landing page of the framework, showing a slider to switch between three views. (B) <em>Split View</em> with the video summary box and sub-nodes visible. (C) <em>Video Summary</em> and <em>Live Transcription</em>, alongside the video. (D) Mind Map View, showing the full-screen detailed mind map</figcaption>
+				</figure>
+			</section>
+			<section class="numbered">
+				<h2>User Study: Recruitment and Results</h2>
+				<h3>Method</h3>
+				<p>We recruited two people with aphasia who were experienced in co-designing technologies and giving feedback on research prototypes to a range of research groups for over 7 years. We prioritised depth of observation and critique over breadth, aiming to surface accessibility and interaction breakdowns through an early-stage, formative prototype study. Although both participants provided highly valuable critique grounded in extensive co-design experience, the small sample size means we treat the findings as indicative and plan broader evaluation in future work.</p>
+				<p>We conducted one-to-one sessions with each person in which we: introduced the technology; gave hands on time for them to explore its features; then allowed for a reflection. Mind maps were generated for three types of content: news, historical, and documentary, to ensure a diverse range of examples to reduce content bias. The mind maps were generated entirely by the system without human authoring. The participants were encouraged to freely interact with the system and engage with the prepared content using the mind map interface. At the end of the session, we administered a short questionnaire to capture feedback and improvement suggestions (see Appendix <a href="#sec-user-questionnaire-mind-map-summary-tool">A</a>) using it as a structured interview prompt to elicit the impressions.</p>
+				<h3>Findings</h3>
+				<p>Thematic analysis of participant feedback identified two themes defining VideoMind&rsquo;s practical affordances and the interface conditions required for those benefits in people with aphasia.</p>
+				<h4>Selective Navigation for Focused Engagement</h4>
+				<p>The VideoMind operated as a meaning-first navigation layer that let participants <strong>triage</strong> content, <strong>skip fatigue-inducing segments</strong>, and <strong>return to relevant parts</strong> without relying on trial-and-error scrubbing.</p>
+				<p>Participants used VideoMind to <strong>jump</strong> directly to valued content rather than scrubbing a timeline or scanning chapters: &ldquo;<em>jump to the best part of the news, cut the crap out and just listen to what I want</em>&rdquo; (<strong>P1</strong>). Both participants appreciated a possibility to <strong>preview</strong> structure before committing attention, using labelled segments and short summaries/keywords as a quick decision aid &ldquo;<em>quickly look at the map</em>&rdquo; (<strong>P2</strong>). <strong>Chunking viewing</strong> across time was seen as important as it enabled them to treat segments as manageable units to revisit later: &ldquo;<em>Everything&rsquo;s broken down so it is good. I can go back and see that part [now], then tomorrow I can watch the next part</em>&rdquo; (<strong>P1</strong>). This was especially valuable for news, where repetition and density were described as &ldquo;boring&rdquo; &ndash; not as a lack of interest, but as a signal of comprehension drop and overload risk. The mind map enabled content triaging (e.g. watching only new or relevant segments) rather than enduring long stretches that might become confusing or effortful.</p>
+				<h4>Managing Overload through Simplified Interfaces and Controls</h4>
+				<p>While the VideoMind increased control and context comprehension, participants emphasised that simultaneous presentation can negate these benefits; the interface must support on-demand access and reduce competing streams of attention.</p>
+				<p>Participants reported the split view could be &ldquo;<em>too much information</em>&rdquo; (<strong>P2</strong>), and &ldquo;<em>hard to focus</em>&rdquo; (<strong>P1</strong>), describing scattered attention when video and map were both visible &ldquo;<em>I&rsquo;m looking at this, this, this, this</em>&rdquo; (<strong>P2</strong>).</p>
+				<p>Their instantaneous response was to propose design adjustments that preserve control while lowering cognitive load. In the light of imagining how this would appear on large TV screen <strong>P1</strong> suggested <strong>on-demand overlay/toggle</strong> &ndash; &ldquo;<em>like a layer on top of the video when needed and otherwise stay hidden</em>&rdquo;. For example, both participants agree that pressing a button to briefly call up the map &ndash; akin to a &ldquo;picture-in-picture&rdquo; overlay would allow them to concentrate on the summary, and then disappear so they could resume watching without distraction. This preference was tied to <strong>screen size</strong> and <strong>readability</strong>. <strong>P1</strong> having a large TV at home remarked that the side-by-side view shrank the video unnecessarily: &ldquo;<em>it&rsquo;s taking up... making it [the video] go to a 32-inch [size on my 55-inch TV]. I don&rsquo;t want that</em>&rdquo;. Both participants agreed that <strong>auto-focus on the active node</strong> would help to reduce manual zooming and scrolling: &ldquo;<em>As soon as you go to that, it expands</em>&rdquo; (<strong>P2</strong>).</p>
+				<p><strong>Fast &lsquo;lookup&rsquo; interaction</strong> was deemed important. <strong>P1</strong> compared the ideal interaction to using &ldquo;<em>Shazam</em>&rdquo; &ndash; you trigger it and instantly get the info you need, then &ldquo;<em>it goes back to watching what you&rsquo;re watching</em>&rdquo;, with minimal disruption.</p>
+			</section>
+			<section class="numbered">
+				<h2>Discussion</h2>
+				<p>Our findings point to design implications for accessible video systems for people with aphasia. The first key implication suggests the main benefit is not simply &ldquo;<em>more summary</em>&rdquo;, but <strong>restricted control</strong>: an overview first way to decide what to watch, in what order, and in what dose.</p>
+				<p>Participants in our study did not passively consume videos from start to finish; instead, they adopted a strategic, non-linear viewing approach, using the mind map to navigate according to their interests and needs. This behaviour challenges the dominant <em>timeline-first</em> navigation model, where interfaces offer limited structure beyond scrubbing on a linear seek bar i.e., thumbnail previews [<a href="#ref-thumbnails">2</a>], Scrubbing Wheel [<a href="#ref-schoeffmann2015scrubbing">37</a>], RubySlippers for keyword navigation [<a href="#ref-RubySlippers">7</a>], LectureScape&rsquo;s dynamic timeline[<a href="#ref-nonlinearquasi">16</a>], and Smart Jump for personalised jump-back [<a href="#ref-zhang2017smart">40</a>], to name a few. This aligns with [<a href="#ref-bircanin2025sounds">5</a>], where people with aphasia emphasised temporal navigation aids (segmentation, hierarchical summaries) to support comprehension. We extend this by showing an interactive AI-generated mind map as an operational navigation layer that lets users &ldquo;<em>skip the junk</em>&rdquo; with minimal effort, prioritise what matters, and mitigate aphasia-related audiovisual fatigue [<a href="#ref-bullier2020new">6</a>]. Participants used the map not only to locate relevant segments but to decide whether to watch a <em>video at all</em> and to partition viewing into manageable chunks, pointing to an <em>overview-first</em> paradigm: preview narrative structure, then selectively enter segments of interest. Designing for this behaviour suggests mainstream players could incorporate summarisation previews/overlays that restructure navigation around meaning rather than continuous playback, with particular benefit for users with cognitive or language impairments.</p>
+				<p>The second key insight of our study is the importance of interface adaptability and simplicity: the VideoMind&rsquo;s value depends on <strong>adaptive disclosure</strong> and automation that keeps orientation without extra interaction cost.</p>
+				<p>While the mind map provided valuable context and control, participants made it clear that how this information is presented is critical. In fact, an overly complex or cluttered interface can negate the benefits of summarization by introducing new barriers through multi-modal cues (text, audio, visuals synchronously delivered). This insight extends prior work on aphasia-friendly design [<a href="#ref-Rose2011">35</a>], which advocates for clean layouts, large print, and minimal distractions in textual materials. We found that these principles are equally crucial in interactive, multimodal interfaces. Our participants struggled when the video and mind map were shown side by side &ndash; a design that, while logical for concurrent viewing, proved cognitively taxing. By making the summary interface on-demand (e.g. through a temporary overlay or a second-screen option), designers can let users choose when to engage with detailed information and when to focus on the primary content. Current industry integrations (i.e. Amazon&rsquo;s X-Ray) layers additional information on demand (actor bios, trivia) over the video &ndash; a mainstream proof-of-concept that viewers can access paratextual content when they choose. However, our approach goes further by focusing on cognitive accessibility: the mind map does not just add trivia, it reorganizes core content into a simpler visual-textual form. This is novel compared to existing media accessibility tools which typically do not integrate multimodal summaries directly with playback. By combining transcript keywords, images, and audio snippets, our system embodies the multimodality that prior studies have shown to aid memory and comprehension for aphasic individuals.</p>
+				<p>Finally, how we choose to represent structured information contained in the mind map is fundamentally determined by metadata design decisions. Prior work has shown that unreliable metadata (i.e. ill-defined or incomplete) can mislead systems and omit relevant context [<a href="#ref-JonesPodcastInfoAccess">14</a>], while object-based media (OBM) research demonstrates that metadata models effectively govern what personalised renditions a user can receive [<a href="#ref-Cieciura2023">8</a>]. In our setting, these choices shape which concepts are surfaced, how they are grouped and named, and what remains visible thereby directly affecting interpret ability and user&rsquo;s agency. This makes metadata not just a technical substrate but an ethical boundary condition for AI-mediated accessibility, motivating further research on transparent, contestable, and harm-aware representations for people with complex communication needs.</p>
+			</section>
+			<section class="numbered">
+				<h2>Conclusion</h2>
+				<p>Our work extends prior knowledge in several ways. First, we demonstrate the feasibility and value of an AI-driven interactive mind map for video &ndash; moving beyond the static and linear media solutions. The expert participants&rsquo; experiences reveal that people with aphasia can actively use such a tool to shape their media consumption, from skimming news to revisiting specific scenes in entertainment media. This interactive summarization challenges the status quo of accessibility features by showing that supporting understanding is not just about add-ons or linear explanations, but about re-structuring content into more digestible forms. Second, we identify new design opportunities: for instance, the &ldquo;Shazam-like&rdquo; quick info lookup suggests a direction for seamless context-aware assistance, where a viewer could speak or click to get an instant explanation of a confusing segment and then continue watching. Finally, we contribute to the broader discourse on cognitive load in media accessibility. Our study provides initial qualitative evidence that chunking information (via a mind map) can reduce overload and increase engagement for viewers with cognitive-language impairments.</p>
+			</section>
+			<section>
+				<h2>Acknowledgements</h2>
+				<p>We thank our participants for their time and expertise and Aphasia Reconnect for hosting the study. This work was funded in part by the EPSRC through the CA11y Project <a href="https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/X012395/1">(EP/X012395/1)</a>.</p>
+			</section>
+			<section>
+				<h2>Author Statement</h2>
+				<p>SB created the prototype with feedback from TN, AN and FB. TN and FB ran the user study with input from SB and AN. All authors contributed to writing the paper.</p>
+			</section>
+			<section class="appendix">
+				<h2 id="sec-user-questionnaire-mind-map-summary-tool">User Questionnaire: Mind Map Summary Tool</h2>
+				<p>This questionnaire was designed to gather qualitative and quantitative feedback on the usability, accessibility, and perceived usefulness of the proposed mind map-based summarisation tool. The questions focus on participants&rsquo; overall experience, ease of navigation, cognitive load, and the extent to which the mind map supported comprehension compared to traditional audio-visual content. Open-ended questions were included to allow participants to elaborate on their experiences and suggest potential improvements. The questionnaire was intentionally kept short and simple to ensure accessibility for users with CCNs, including individuals with language or cognitive impairments.</p>
+				<ol>
+					<li>
+						<p><strong>Overall experience</strong> <br> How did you find using the mind map summary tool?</p>
+						<ul>
+							<li>&#9633; Very easy</li>
+							<li>&#9633; Easy</li>
+							<li>&#9633; Okay</li>
+							<li>&#9633; Difficult</li>
+							<li>&#9633; Very difficult</li>
+						</ul>
+						<p><strong>Details:</strong> </p>
+						<hr>
+					</li>
+					<li>
+						<p><strong>Understanding the content</strong> <br> Did the mind map help you understand the video/audio better than usual?</p>
+						<ul>
+							<li>&#9633; Much better</li>
+							<li>&#9633; A bit better</li>
+							<li>&#9633; About the same</li>
+							<li>&#9633; Worse</li>
+							<li>&#9633; Not sure</li>
+						</ul>
+						<p><strong>Details:</strong> </p>
+						<hr>
+					</li>
+					<li>
+						<p><strong>Cognitive load / overwhelm</strong> <br> Did any part of the mind map feel overwhelming or too much at once?</p>
+						<ul>
+							<li>&#9633; No, it felt manageable</li>
+							<li>&#9633; A little overwhelming</li>
+							<li>&#9633; Very overwhelming</li>
+						</ul>
+						<p><strong>If yes, what felt too much?</strong> </p>
+						<hr>
+					</li>
+					<li>
+						<p><strong>Navigation &amp; control</strong> <br> How easy was it to move around and use the mind map (zooming, clicking, following links)?</p>
+						<ul>
+							<li>&#9633; Very easy</li>
+							<li>&#9633; Easy</li>
+							<li>&#9633; Okay</li>
+							<li>&#9633; Hard</li>
+							<li>&#9633; Very hard</li>
+						</ul>
+					</li>
+					<li>
+						<p><strong>Helpfulness of features</strong> <br> Which features helped you the most? </p>
+						<hr>
+					</li>
+					<li>
+						<p><strong>Comparison to normal viewing</strong> <br> If you had to watch or listen again, would you prefer this mind map tool or the original video/audio?</p>
+						<ul>
+							<li>&#9633; Definitely the mind map</li>
+							<li>&#9633; Probably the mind map</li>
+							<li>&#9633; No preference</li>
+							<li>&#9633; Probably original</li>
+							<li>&#9633; Definitely original</li>
+						</ul>
+						<p><strong>Details:</strong> </p>
+						<hr>
+					</li>
+					<li>
+						<p><strong>Improvements</strong> <br> What one change would make this tool better for you? </p>
+						<hr>
+					</li>
+				</ol>
+			</section>
+			<section id="references">
+				<h2>References</h2>
+				<ol>
+					<li id="ref-al2023exploring">Muzamil Hussain Al Hussaini and Juana Maria Arcelus-Ulibarrena. 2023. Exploring the Influence of Audiovisual Tools on Youth and their Social Adaptation in Elementary Education. <em>International Journal of Learning Reformation in Elementary Education</em> 2, 02 (2023), 95&ndash;103.</li>
+					<li id="ref-thumbnails">Abir Al-Hajri, Gregor Miller, Matthew Fong, and Sidney S. Fels. 2014. Visualization of personal history for video navigation. In <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;14). Association for Computing Machinery, New York, NY, USA, 1187&#8211;1196. <a href="https://doi.org/10.1145/2556288.2557106">https://doi.org/10.1145/2556288.2557106</a></li>
+					<li id="ref-barth2016effects">Amy E Barth, Sharon Vaughn, Philip Capin, Eunsoo Cho, Stephanie Stillman-Spisak, Leticia Martinez, and Heather Kincaid. 2016. Effects of a text-processing comprehension intervention on struggling middle school readers. <em>Topics in Language Disorders</em> 36, 4 (2016), 368&ndash;389.</li>
+					<li id="ref-Berg2020">Karianne Berg, Jytte Isaksen, Sarah J. Wallace, Madeline Cruice, Nina Simmons-Mackie, and Linda Worrall. 2020. Establishing consensus on a definition of aphasia: an e-Delphi study of international aphasia researchers. <em>Aphasiology</em> 36, 4 (Dec. 2020), 385&#8211;400. <a href="https://doi.org/10.1080/02687038.2020.1852003">https://doi.org/10.1080/02687038.2020.1852003</a></li>
+					<li id="ref-bircanin2025sounds">Filip Bircanin, Alexandre Nevsky, Himaya Perera, Vaasvi Agarwal, Eunyeol Song, Madeline Cruice, and Timothy Neate. 2025. Sounds Accessible: Envisioning Accessible Audio-Media Futures with People with Aphasia. In <em>Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;25). Association for Computing Machinery, New York, NY, USA, Article 277, 22 pages. <a href="https://doi.org/10.1145/3706598.3714000">https://doi.org/10.1145/3706598.3714000</a></li>
+					<li id="ref-bullier2020new">B&eacute;n&eacute;dicte Bullier, H&eacute;l&egrave;ne Cassoudesalle, Marie Villain, M&eacute;lanie Cogn&eacute;, Cl&eacute;mence Mollo, Isabelle De Gabory, Patrick Dehail, Pierre-Alain Joseph, Igor Sibon, and Bertrand Glize. 2020. New factors that affect quality of life in patients with aphasia. <em>Annals of physical and rehabilitation medicine</em> 63, 1 (2020), 33&ndash;37.</li>
+					<li id="ref-RubySlippers">Minsuk Chang, Mina Huh, and Juho Kim. 2021. RubySlippers: Supporting Content-based Voice Navigation for How-to Videos. In <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 97, 14 pages. <a href="https://doi.org/10.1145/3411764.3445131">https://doi.org/10.1145/3411764.3445131</a></li>
+					<li id="ref-Cieciura2023">Craig Cieciura, Maxine Glancy, and Philip J.B. Jackson. 2023. Producing Personalised Object-Based Audio-Visual Experiences: an Ethnographic Study. In <em>Proceedings of the 2023 ACM International Conference on Interactive Media Experiences</em> (IMX &rsquo;23). Association for Computing Machinery, New York, NY, USA, 71&ndash;82. <a href="https://doi.org/10.1145/3573381.3596156">https://doi.org/10.1145/3573381.3596156</a></li>
+					<li id="ref-faroqi2021role">Yasmeen Faroqi-Shah and Megan Gehman. 2021. The role of processing speed and cognitive control on word retrieval in aging and aphasia. <em>Journal of Speech, Language, and Hearing Research</em> 64, 3 (2021), 949&ndash;964.</li>
+					<li id="ref-gernsbacher2015video">Morton Ann Gernsbacher. 2015. Video captions benefit everyone. <em>Policy insights from the behavioral and brain sciences</em> 2, 1 (2015), 195&ndash;202.</li>
+					<li id="ref-grattafiori2024llama3">Andrea Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhishek Pandey, Aman Kadian, and others. 2024. The Llama 3 Herd of Models. <em>arXiv preprint arXiv:2407.21783</em> (2024).</li>
+					<li id="ref-gropp2016scalable">Chris Gropp, Alexander Herzog, Ilya Safro, Paul W Wilson, and Amy W Apon. 2016. <em>Scalable dynamic topic modeling with clustered latent dirichlet allocation (clda)</em>.</li>
+					<li id="ref-hux2021perceptions">Karen Hux, Sarah E Wallace, Jessica A Brown, and Kelly Knollman-Porter. 2021. Perceptions of people with aphasia about supporting reading with text-to-speech technology: A convergent mixed methods study. <em>Journal of Communication Disorders</em> 91 (2021), 106098.</li>
+					<li id="ref-JonesPodcastInfoAccess">Rosie Jones, Hamed Zamani, Markus Schedl, Ching-Wei Chen, Sravana Reddy, Ann Clifton, Jussi Karlgren, Helia Hashemi, Aasish Pappu, Zahra Nazari, Longqi Yang, Oguz Semerci, Hugues Bouchard, and Ben Carterette. 2021. Current Challenges and Future Directions in Podcast Information Access. In <em>Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval</em> (SIGIR &rsquo;21). Association for Computing Machinery, New York, NY, USA, 1554&#8211;1565. <a href="https://doi.org/10.1145/3404835.3462805">https://doi.org/10.1145/3404835.3462805</a></li>
+					<li id="ref-Kellogg2018">Phillip Kellogg and Allison Nogi. 2018. Mind Mapping: Using Visual Thinking to Improve Patient Care and Quality of Life. <em>The Journal of Humanities in Rehabilitation</em> 1, 1 (April 2018). <a href="https://doi.org/10.18737/0607212347">https://doi.org/10.18737/0607212347</a></li>
+					<li id="ref-nonlinearquasi">Juho Kim, Philip J. Guo, Carrie J. Cai, Shang-Wen (Daniel) Li, Krzysztof Z. Gajos, and Robert C. Miller. 2014. Data-driven interaction techniques for improving navigation of educational videos. In <em>Proceedings of the 27th Annual ACM Symposium on User Interface Software and Technology</em> (UIST &rsquo;14). Association for Computing Machinery, New York, NY, USA, 563&#8211;572. <a href="https://doi.org/10.1145/2642918.2647389">https://doi.org/10.1145/2642918.2647389</a></li>
+					<li id="ref-lin2024visual">Tingyi S Lin and Yue Luo. 2024. Visual-textual integration: Emoji as a supplement in health information design. <em>International Journal of Design</em> 18, 2 (2024), 37&ndash;58.</li>
+					<li id="ref-martens2015media">Hans Martens and Renee Hobbs. 2015. How media literacy supports civic engagement in a digital age. <em>Atlantic Journal of Communication</em> 23, 2 (2015), 120&ndash;137.</li>
+					<li id="ref-monnelly2022intensive">Katie Monnelly, Jane Marshall, and Madeline Cruice. 2022. Intensive Comprehensive Aphasia Programmes: a systematic scoping review and analysis using the TIDieR checklist for reporting interventions. <em>Disability and Rehabilitation</em> 44, 21 (2022), 6471&ndash;6496.</li>
+					<li id="ref-Morris2017">Reg Morris, Alicia Eccles, Brooke Ryan, and Ian I. Kneebone. 2017. Prevalence of anxiety in people with aphasia after stroke. <em>Aphasiology</em> 31, 12 (March 2017), 1410&#8211;1415. <a href="https://doi.org/10.1080/02687038.2017.1304633">https://doi.org/10.1080/02687038.2017.1304633</a></li>
+					<li id="ref-Neate2019">Timothy Neate, Abi Roper, Stephanie Wilson, and Jane Marshall. 2019. Empowering Expression for Users with Aphasia through Constrained Creativity. In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;19). Association for Computing Machinery, New York, NY, USA, 1&#8211;12. <a href="https://doi.org/10.1145/3290605.3300615">https://doi.org/10.1145/3290605.3300615</a></li>
+					<li id="ref-nevsky2025each">Alexandre Nevsky, Filip Bircanin, Madeline Cruice, Elena Simperl, and Timothy Neate. 2025. To Each Their Own: Exploring Highly Personalised Audiovisual Media Accessibility Interventions with People with Aphasia. In <em>Proceedings of the 2025 ACM Designing Interactive Systems Conference</em> (DIS &rsquo;25). Association for Computing Machinery, New York, NY, USA, 1&ndash;18. <a href="https://doi.org/10.1145/3715336.3735771">https://doi.org/10.1145/3715336.3735771</a></li>
+					<li id="ref-nevsky2024wish">Alexandre Nevsky, Filip Bircanin, Madeline Cruice, Stephanie Wilson, Elena Simperl, and Timothy Neate. 2024. &ldquo;I Wish You Could Make the Camera Stand Still&ldquo;: Envisioning Media Accessibility Interventions with People with Aphasia. In <em>ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;24). Association for Computing Machinery, New York, NY, USA, 1&ndash;17. <a href="https://doi.org/10.1145/3663548.3675598">https://doi.org/10.1145/3663548.3675598</a></li>
+					<li id="ref-nevsky2024lights">Alexandre Nevsky, Timothy Neate, Elena Simperl, and Madeline Cruice. 2024. Lights, Camera, Access: A Closeup on Audiovisual Media Accessibility and Aphasia. In <em>Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;24). Association for Computing Machinery, New York, NY, USA, 1&ndash;17. <a href="https://doi.org/10.1145/3613904.3641893">https://doi.org/10.1145/3613904.3641893</a></li>
+					<li id="ref-nevsky2023accessibility">Alexandre Nevsky, Timothy Neate, Radu-Daniel Vatavu, and Elena Simperl. 2023. Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next? In <em>ACM International Conference on Interactive Media Experiences</em> (IMX &rsquo;23). Association for Computing Machinery, New York, NY, USA, 1&ndash;21. <a href="https://doi.org/10.1145/3573381.3596159">https://doi.org/10.1145/3573381.3596159</a></li>
+					<li id="ref-papagiannopoulou2020review">Eirini Papagiannopoulou and Grigorios Tsoumakas. 2020. A review of keyphrase extraction. <em>Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery</em> 10, 2 (2020), e1339.</li>
+					<li id="ref-pearl2017facilitating">Gill Pearl and Madeline Cruice. 2017. Facilitating the involvement of people with aphasia in stroke research by developing communicatively accessible research resources. <em>Topics in Language Disorders</em> 37, 1 (2017), 67&ndash;84.</li>
+					<li id="ref-pham2021effects">Dung Thi Thuy Pham. 2021. The effects of audiovisual media on students&rsquo; listening skills. <em>International Journal of TESOL &amp; Education</em> 1, 1 (2021), 13&ndash;21.</li>
+					<li id="ref-priestley2016political">Mark Priestley, Martha Stickings, Ema Loja, Stefanos Grammenos, Anna Lawson, Lisa Waddington, and Bjarney Fridriksdottir. 2016. The political participation of disabled people in Europe: Rights, accessibility and activism. <em>Electoral Studies</em> 42 (2016), 1&ndash;9.</li>
+					<li id="ref-Radford2021LearningTV">Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, and Ilya Sutskever. 2021. Learning Transferable Visual Models From Natural Language Supervision. In <em>International Conference on Machine Learning (ICML)</em>.</li>
+					<li id="ref-radford2022whisper">Alec Radford, Jong Wook Kim, Tao Xu, Greg Brockman, Christine McLeavey, and Ilya Sutskever. 2022. <em>Robust Speech Recognition via Large-Scale Weak Supervision</em>. arXiv. <a href="https://doi.org/10.48550/ARXIV.2212.04356">https://doi.org/10.48550/ARXIV.2212.04356</a></li>
+					<li id="ref-rai2010comparative">Sonali Rai, Joan Greening, and Leen Petr&eacute;. 2010. <em>A comparative study of audio description guidelines prevalent in different countries</em>.</li>
+					<li id="ref-roper2018usability">Abi Roper, Ian Davey, Stephanie Wilson, Timothy Neate, Jane Marshall, and Brian Grellmann. 2018. Usability Testing - An Aphasia Perspective. In <em>Proceedings of the 20th International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;18). Association for Computing Machinery, New York, NY, USA, 102&#8211;106. <a href="https://doi.org/10.1145/3234695.3241481">https://doi.org/10.1145/3234695.3241481</a></li>
+					<li id="ref-Roper2018">Abi Roper, Timothy Neate, Jane Marshall, and Stephanie Wilson. 2018. <em>Designing for users with aphasia: &ldquo;Dos and don&rsquo;ts&rdquo;</em>. Available at: <a href="https://bpb-eu-w2.wpmucdn.com/blogs.city.ac.uk/dist/5/1740/files/2018/05/aphasia-tpqt60.pdf">https://bpb-eu-w2.wpmucdn.com/blogs.city.ac.uk/dist/5/1740/files/2018/05/aphasia-tpqt60.pdf</a>.</li>
+					<li id="ref-Rose2011">T. A. Rose, L.E. Worrall, L.M. Hickson, Hoffmann, and T.C. 2011. Aphasia friendly written health information: Content and design characteristics. <em>International Journal of Speech-Language Pathology</em> 13, 4 (2011), 335&ndash;347. <a href="https://doi.org/10.3109/17549507.2011.560396">https://doi.org/10.3109/17549507.2011.560396</a></li>
+					<li id="ref-rose2011aphasia">Tanya A Rose, Linda E Worrall, Louise M Hickson, and Tammy C Hoffmann. 2011. Aphasia friendly written health information: Content and design characteristics. <em>International journal of speech-language pathology</em> 13, 4 (2011), 335&ndash;347.</li>
+					<li id="ref-schoeffmann2015scrubbing">Klaus Schoeffmann and Lukas Burgstaller. 2015. Scrubbing Wheel: An Interaction Concept to Improve Video Content Navigation on Devices with Touchscreens. In <em>2015 IEEE International Symposium on Multimedia (ISM)</em>. IEEE, New York, NY, USA, 351&ndash;356. <a href="https://doi.org/10.1109/ism.2015.20">https://doi.org/10.1109/ism.2015.20</a></li>
+					<li id="ref-whitworth2010using">Anne Whitworth. 2010. Using Narrative as a Bridge: Linking Language Processing Models with Real-Life Communication. <em>Seminars in Speech and Language</em> 31, 01 (Feb. 2010), 64&ndash;75. <a href="https://doi.org/10.1055/s-0029-1244954">https://doi.org/10.1055/s-0029-1244954</a></li>
+					<li id="ref-winardi2022utilization">Andreas Winardi. 2022. The utilization of mind maps to assist a student with autism spectrum disorder. <em>PUPIL: International Journal of Teaching, Education and Learning</em> 6, 1 (March 2022), 142&ndash;158. <a href="https://doi.org/10.20319/pijtel.2022.61.142158">https://doi.org/10.20319/pijtel.2022.61.142158</a></li>
+					<li id="ref-zhang2017smart">Han Zhang, Maosong Sun, Xiaochen Wang, Zhengyang Song, Jie Tang, and Jimeng Sun. 2017. Smart Jump: Automated Navigation Suggestion for Videos in MOOCs. In <em>Proceedings of the 26th International Conference on World Wide Web Companion</em> (WWW &rsquo;17 Companion). International World Wide Web Conferences Steering Committee, Republic and Canton of Geneva, CHE, 331&#8211;339. <a href="https://doi.org/10.1145/3041021.3054166">https://doi.org/10.1145/3041021.3054166</a></li>
+				</ol>
+			</section>
+		</article>
+	</main>
+</body>
+
+</html>

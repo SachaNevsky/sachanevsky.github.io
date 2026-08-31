@@ -98,7 +98,7 @@ main {
 }
 
 article {
-  counter-reset: section;
+  counter-reset: section appendix;
 }
 
 .numbered > h2 {
@@ -107,6 +107,10 @@ article {
 
 .numbered > h3 {
   counter-reset: subsubsection;
+}
+
+.numbered > h4 {
+  counter-reset: paragraph;
 }
 
 .numbered > h2::before {
@@ -124,10 +128,48 @@ article {
   content: counter(section) "." counter(subsection) "." counter(subsubsection) "\00a0\00a0";
 }
 
+.numbered > h5::before {
+  counter-increment: paragraph;
+  content: counter(section) "." counter(subsection) "." counter(subsubsection) "." counter(paragraph) "\00a0\00a0";
+}
+
+.appendix > h2 {
+  counter-reset: subsection;
+}
+
+.appendix > h3 {
+  counter-reset: subsubsection;
+}
+
+.appendix > h4 {
+  counter-reset: paragraph;
+}
+
+.appendix > h2::before {
+  counter-increment: appendix;
+  content: counter(appendix, upper-alpha) "\00a0\00a0";
+}
+
+.appendix > h3::before {
+  counter-increment: subsection;
+  content: counter(appendix, upper-alpha) "." counter(subsection) "\00a0\00a0";
+}
+
+.appendix > h4::before {
+  counter-increment: subsubsection;
+  content: counter(appendix, upper-alpha) "." counter(subsection) "." counter(subsubsection) "\00a0\00a0";
+}
+
+.appendix > h5::before {
+  counter-increment: paragraph;
+  content: counter(appendix, upper-alpha) "." counter(subsection) "." counter(subsubsection) "." counter(paragraph) "\00a0\00a0";
+}
+
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   line-height: 1.25;
   text-wrap: balance;
   margin-block: 1.8em 0.6em;
@@ -156,6 +198,13 @@ h3 {
 h4 {
   font-size: 1em;
   font-weight: 600;
+  color: var(--ink-muted);
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: 600;
+  font-style: italic;
   color: var(--ink-muted);
 }
 
@@ -334,7 +383,8 @@ article > header {
 
   h2,
   h3,
-  h4 {
+  h4,
+  h5 {
     break-after: avoid;
   }
 
@@ -348,4 +398,12 @@ article > header {
 td.highlighted,
 th.highlighted {
   background: var(--highlight);
+}
+
+.boxed {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  background: var(--surface);
+  white-space: nowrap;
 }

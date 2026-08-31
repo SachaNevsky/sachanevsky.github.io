@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<title>A Sound Understanding &mdash; An In-Situ Deployment of an Accessible Audio-Media Player with People Living
+		with Aphasia</title>
+	<link rel="stylesheet" href="../papers.css">
+</head>
+
+<body>
+	<a class="skip-link" href="#content">Skip to main content</a>
+	<main id="content">
+		<article>
+			<header>
+				<h1>A Sound Understanding &mdash; An In-Situ Deployment of an Accessible Audio-Media Player with People
+					Living with Aphasia</h1>
+				<section aria-label="Authors">
+					<h2>Authors</h2>
+					<ul>
+						<li>Filip Bircanin, King&rsquo;s College London, London, UK. <a
+								href="mailto:filip.bircanin@kcl.ac.uk">filip.bircanin@kcl.ac.uk</a></li>
+						<li>Alexandre Nevsky, King&rsquo;s College London, London, UK. <a
+								href="mailto:alexandre.nevsky@kcl.ac.uk">alexandre.nevsky@kcl.ac.uk</a></li>
+						<li>Madeline Cruice, City St. George&rsquo;s, University of London, London, UK. <a
+								href="mailto:m.cruice@citystgeorges.ac.uk">m.cruice@citystgeorges.ac.uk</a></li>
+						<li>Ognjen Markovic, Aparteko, Belgrade, Serbia. <a
+								href="mailto:ognjen.markovic@aparteko.com">ognjen.markovic@aparteko.com</a></li>
+						<li>Timothy Neate, King&rsquo;s College London, London, UK. <a
+								href="mailto:timothy.neate@kcl.ac.uk">timothy.neate@kcl.ac.uk</a></li>
+					</ul>
+				</section>
+				<p>Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI &rsquo;26), April
+					13&ndash;17, 2026, Barcelona, Spain</p>
+				<p>DOI: <a href="https://doi.org/10.1145/3772318.3791419">https://doi.org/10.1145/3772318.3791419</a>
+				</p>
+			</header>
+			<section>
+				<h2>Abstract</h2>
+				<p>Audio media &ndash; radio, podcasts, audiobooks &ndash; structures everyday life: we keep up, wind
+					down, and share moments through long-form listening. Yet for people living with aphasia &ndash; a
+					communication disability that affects audio comprehension &ndash; unsupported audio often means
+					losing the thread and marring the experience. While accessibility advances have focused on print,
+					web, and audiovisual content, audio-only remains unconsidered; oftentimes optimised for
+					marketisation rather than sustained understanding. We report a three-week in-situ deployment of
+					Re-Connect app, an audio media player which meets the people at the moment of comprehension
+					difficulty. With ten adults living with aphasia, we show how people assemble personal repertoires of
+					small, co-present communication cues that repair in the moment and support recall. Grounded in lived
+					experience, we argue for personal, source-proximate scaffolds that help make long-form audio more
+					understandable and enjoyable.</p>
+			</section>
+			<section>
+				<h2>CCS Concepts</h2>
+				<p>Human-centered computing: Accessibility theory, concepts and paradigms</p>
+			</section>
+			<section>
+				<h2>Keywords</h2>
+				<ul>
+					<li>Accessibility</li>
+					<li>aphasia</li>
+					<li>audio</li>
+					<li>deployment</li>
+					<li>complex communication</li>
+				</ul>
+			</section>
+			<section class="numbered">
+				<h2>Introduction</h2>
+				<p>Ensuring inclusive access to audio media is essential. Alongside the growth of other audio tools,
+					formats like podcasts, audiobooks, music streaming apps, and radio dramas have become increasingly
+					popular. The audiobook industry provides a telling example: after eight consecutive years of
+					double-digit revenue growth, audiobooks became particularly important during the pandemic [<a
+						href="#ref-peaty2025series">62</a>]. 2024 OFCOM (UK Office for Communication) report [<a
+						href="#ref-OFCOMReport2024">57</a>] highlights the importance of audio media &ndash; 92% of
+					people in the UK listen to some form of audio content (e.g., radio, podcasts, or audiobooks), at
+					least once a week. Similarly, BBC media report [<a href="#ref-BBCSOUNDS">11</a>] states that in
+					<em>Q</em>3 2024 there were 4.6 million users across the mobile app, website, TV and voice activated
+					devices with a total of 226 million plays of on-demand radio and podcast content. Spotify, the
+					largest audio platform with almost 700 million active monthly users, offers 200,000+ audiobook
+					titles [<a href="#ref-SpotifyStat">74</a>]. Notably, increased listening habits also include older
+					audiences; the UK-based Entertainment Retailers Association identified the &ldquo;over 55&rdquo;
+					group as the fastest growing audience [<a href="#ref-baade2023hearing">7</a>]. However, the industry
+					coverage and the advancements are still driven mainly by the habits and interests of younger
+					audiences and neurotypical listeners. Recently, [<a href="#ref-Bircanin2025">14</a>] have brought
+					attention to accessible audio media listening raising concerns about the current
+					under-representation of disabled audio media consumers, especially a group of people living with
+					complex communication needs (CCN).
+				</p>
+				<p>Research on accessibility in audio-only media is sparse, primarily focused on auditory impairments
+					(e.g., [<a href="#ref-Ward2019">85</a>, <a href="#ref-Ward2018">86</a>]) and with a larger share of
+					accessible research on audiovisual media and focusing on sensory disabilities (see [<a
+						href="#ref-Nevsky2023">55</a>] for a review). Ongoing developments &ndash; such as
+					internet-delivered content with high potential for individualisation [<a
+						href="#ref-Armstrong2014">5</a>, <a href="#ref-Armstrong2023">6</a>] &ndash; offer opportunities
+					to bridge this gap and extend accessibility to diverse audiences. However, despite the promise of
+					these advancements, we still lack a clear understanding of how such interventions can support users
+					with CCN and address their unique challenges. This study is focused on such under-represented group
+					of audio media listeners &ndash; people living with aphasia. Aphasia is a language impairment that
+					can affect a person&rsquo;s reading, writing, speaking, and listening abilities, often resulting
+					from a stroke or other brain injury [<a href="#ref-Hilari2016">33</a>, <a
+						href="#ref-Morris2017">53</a>]. However, it is important to recognise that aphasia does not
+					impact a person&rsquo;s intelligence, ability to form opinions, or problem-solving abilities,
+					leaving certain cognitive capacities intact [<a href="#ref-Varley2005">80</a>].The nature and
+					severity of aphasia can vary from person to person, which means that individuals living with aphasia
+					may experience the same piece of audio-media in vastly different ways.</p>
+				<p>This paper advances the agenda of audio-media accessibility through an in situ study of the
+					Re-Connect app, a podcast player designed with and for people with aphasia. The app integrates
+					accessible features such as read-along highlighting, multi-level summaries, adjustable pacing,
+					chapter-based navigation, glossary look-ups, and quick &ldquo;return to sense-making&rdquo; tools.
+					Following an Research Through Design (RtD) methodology [<a href="#ref-Zimmerman2007">94</a>] we
+					report findings from a three-week field deployment with people living with aphasia, examining how
+					they appropriate combinations of these interventions in everyday listening.</p>
+				<p>Against this backdrop, we ask: How do adults living with aphasia appropriate and combine accessible
+					audio-media features in an aphasia-friendly podcast app during everyday listening, and how can these
+					appropriations inform platform-level audio accessibility design?</p>
+				<p>Our contributions are threefold: (1) an empirical account of real-world audio media use by listeners
+					with aphasia; (2) first in situ deployment of audio media accessibility features that support people
+					living with aphasia and (3) key design guidelines for platform-level audio media accessibility that
+					offers better audio content comprehension and navigation.</p>
+			</section>
+			<section class="numbered">
+				<h2 id="sec-related-work">Related Work</h2>
+				<h3>Aphasia Auditory Comprehension Difficulties</h3>
+				<p>People living with aphasia (PWA) frequently experience auditory comprehension breakdowns, often as a
+					result of speech that is too fast &ndash; lexically, syntactically, and temporally. Often, lexical
+					activation and integration are slowed, so people living with aphasia might need more time (and/or
+					better advance cues) to stabilise a word&rsquo;s meaning and bind it into the unfolding sentence [<a
+						href="#ref-baker2023effect">10</a>]. Classic cueing effects &ndash; shorter words, higher
+					imageability, semantic/phonetic support, repetition priming, and brief response delays &ndash;
+					reliably boost performance [<a href="#ref-martin2012effects">52</a>].</p>
+				<p>Many people with aphasia have trouble noticing quick changes in speech sounds, which makes it hard to
+					follow how speech flows naturally. This &lsquo;smearing&rsquo; of sounds can cause mix-ups or
+					misunderstandings, especially when cues are weak [<a href="#ref-kries2023acoustic">42</a>]. These
+					challenges get worse in noisy or busy places, such as group conversations, caf&eacute;s, or
+					transport hubs, where background noise and multiple voices compete for attention [<a
+						href="#ref-villard2019effects">81</a>]. In these real-life situations, it becomes even harder to
+					focus on the speaker, making it difficult to understand and follow the conversation. For instance,
+					eye-tracking evidence shows that a small, well-placed pause before a critical noun can lift
+					comprehension for both PWA and neurotypical controls by giving lexical activation time to
+					&ldquo;catch up&rdquo; [<a href="#ref-baker2023modulating">9</a>]. Put simply, by the time a PWA
+					recognises a word, the syntactic slot it must fill may have already scrolled past [<a
+						href="#ref-akhavan2022effect">2</a>].</p>
+				<p>Cognition &ndash; especially verbal working memory and temporal order processing &ndash; further
+					constrains what listeners can hold, integrate, and retrieve. PWA with poorer auditory comprehension
+					tend to score lower on verbal working memory and on tasks requiring detection of rapid sequences or
+					judging the order of brief tones [<a href="#ref-choinski2020working">20</a>]. Missed micro-silences
+					make clause boundaries bleed into one another where by the end of a sentence, the beginning is no
+					longer reliably in mind. In continuous media (radio, podcasts, audiobooks), this often results in a
+					characteristic drift where listeners lose track of the narrative &ndash; not due to lack of
+					interest, but because the temporal cues provided are insufficient to fully support their memory
+					needs [<a href="#ref-Bircanin2025">14</a>].</p>
+				<p>It is important to emphasise that most studies on auditory comprehension challenges in people living
+					with aphasia draw from short, laboratory-based investigations conducted in carefully controlled,
+					therapist-led environments [<a href="#ref-Fleming2020">27</a>, <a href="#ref-Wallace2022">82</a>].
+					There remains a notable gap in our understanding of how people with aphasia manage long-form
+					listening in everyday contexts &ndash; where ambient noise, divided attention, varying interest
+					levels, and fluctuating energy demands impose additional challenges [<a
+						href="#ref-doedens2020measures">24</a>, <a href="#ref-lwi2021auditory">47</a>]. Consequently,
+					real-world listening environments such as social gatherings or busy public spaces can further impair
+					comprehension and participation [<a href="#ref-doedens2022functional">25</a>]. Moreover, there is
+					still little development of personalisation strategies tailored to the individual needs of people
+					living with aphasia [<a href="#ref-Nevsky2023">55</a>]. Furthermore, previous research [<a
+						href="#ref-Bircanin2025">14</a>] highlights both pathways and opportunities to translate
+					envisioned audio media futures and broad guidelines into practical, accessible features for aphasia
+					support.</p>
+				<h3>Media Accessibility</h3>
+				<p>Screen-based media, audio-only formats, and social media are no longer just ways to communicate; they
+					actively support participation by connecting people into social networks, amplifying civic voices,
+					and carrying culture forward [<a href="#ref-Martens2015">51</a>, <a href="#ref-Newcomb1983">56</a>,
+					<a href="#ref-Wohn2011">91</a>, <a href="#ref-Zhao2021">93</a>]. In this context, accessibility is
+					not simply an optional extra but a fundamental requirement to ensure everyone can participate fairly
+					and equally.
+				</p>
+				<p>Recently, there has been notable progress in improving accessibility for audiovisual content,
+					reflected in updated broadcasting guidelines and industry practices [<a
+						href="#ref-romero2019accessible">69</a>]. Much of this progress builds on the foundation laid by
+					audiovisual translation techniques such as subtitling, dubbing, adaptations, voice-over, audio
+					description, sign interpreting, and re-speaking [<a href="#ref-Chaume2019">17</a>]. Human-Computer
+					Interaction (HCI) has largely followed suit, prioritising captioning and description technologies
+					[<a href="#ref-Kobayashi2009">40</a>, <a href="#ref-Kushalnagar2014">43</a>, <a
+						href="#ref-Oliveira2011">58</a>, <a href="#ref-Orero2020">59</a>, <a
+						href="#ref-Rander2010">65</a>]. Although [<a href="#ref-Mack2021">48</a>] note a welcome growth
+					in overall accessibility research, audiovisual HCI work still predominantly centres on hearing and
+					visual impairments and the traditional &ldquo;screen viewing&rdquo; contexts [<a
+						href="#ref-Nevsky2023">55</a>]; 93.9% of research is directed at work with hard of hearing (DDH)
+					and blind and visually impaired (BVI) communities. Meanwhile, media consumption has shifted strongly
+					toward internet-native platforms like TikTok and live streaming [<a
+						href="#ref-Domingues2020">26</a>, <a href="#ref-Hammad2023">32</a>, <a
+						href="#ref-Rigby2016">67</a>], where interactivity and customisability are standard. This shift
+					broadens the design opportunities for accessibility, yet research often remains anchored to familiar
+					television-like environments and existing accessibility supports [<a href="#ref-Nevsky2023">55</a>].
+				</p>
+				<p>Emerging AI capabilities have the potential to increase design opportunities for access
+					significantly. Deep learning and Large Language Models (LLMs) now make it feasible to generate
+					audience-aware scaffolds &ndash; e.g., simplified summaries of long or complex material [<a
+						href="#ref-Fu2024">28</a>] &ndash; and even to offer &ldquo;instant&rdquo; summaries on-the-fly
+					<sup id="fnref-1"><a href="#fn-1" aria-label="Footnote 1">1</a></sup>. These tools create an
+					opportunity to design beyond making content merely available, toward making it meaningfully
+					understandable and navigable for different users [<a href="#ref-shyr2024leveraging">71</a>]. Yet,
+					audio-only media has conspicuously lagged behind these advances [<a href="#ref-Dingman2021">22</a>].
+					In much of the literature, audio access appears either as a component inside audiovisual
+					interventions or as access to non-digital environments [<a href="#ref-Houben_2019">34</a>], rather
+					than as a primary focus for radio, podcasts, and audiobooks. Radio remains widely used [<a
+						href="#ref-Wijnants2021">89</a>]; at the same time, the category of &ldquo;sound media&rdquo;
+					itself has changed, blurring the boundaries between hearing and seeing [<a
+						href="#ref-Berry2023">13</a>].
+				</p>
+				<p>Crucially, the audience for audio accessibility must extend beyond the traditional focus on hearing
+					and vision to include people with CCN, such as those living with aphasia [<a
+						href="#ref-Bircanin2025">14</a>]. For these listeners, accessibility is as much about
+					sense-making as it is about signal quality and listening. Supports for pacing, segmentation, advance
+					organisers, and simplified comprehension cues can be as important as transcripts and captions. While
+					workshop studies and short demo evaluations are beginning to explore such supports [<a
+						href="#ref-Bircanin2025">14</a>], there is an absence of longitudinal, in situ deployments that
+					examine how accessible audio tools are actually taken up &ndash; how they fold into routines, how
+					preferences and energy budgets shape use, and how benefits persist (or fade) over weeks and months.
+				</p>
+				<p>Media accessibility is foundational to social, civic, and cultural participation [<a
+						href="#ref-Martens2015">51</a>, <a href="#ref-Newcomb1983">56</a>, <a
+						href="#ref-Wohn2011">91</a>, <a href="#ref-Zhao2021">93</a>]. The research community has built
+					powerful practices for audiovisual contexts [<a href="#ref-Chaume2019">17</a>, <a
+						href="#ref-Kobayashi2009">40</a>, <a href="#ref-Kushalnagar2014">43</a>, <a
+						href="#ref-Oliveira2011">58</a>, <a href="#ref-Orero2020">59</a>, <a
+						href="#ref-Rander2010">65</a>, <a href="#ref-romero2019accessible">69</a>], but audio-only media
+					remains under-served even as &ldquo;listening&rdquo; becomes hybrid and ubiquitous [<a
+						href="#ref-Berry2023">13</a>, <a href="#ref-Domingues2020">26</a>, <a
+						href="#ref-Hammad2023">32</a>, <a href="#ref-Nevsky2023">55</a>, <a
+						href="#ref-Rigby2016">67</a>, <a href="#ref-Wijnants2021">89</a>]. The next wave of research
+					should prioritise audio accessibility, leverage AI judiciously [<a href="#ref-Fu2024">28</a>],
+					invest in information-access companions [<a href="#ref-JonesPodcastInfoAccess">36</a>], and study
+					these interventions in situ [<a href="#ref-Bircanin2025">14</a>].</p>
+			</section>
+			<section class="numbered">
+				<h2>Methodology</h2>
+				<p>In this section, we outline the overarching Research-through-Design (RtD) methodological approach
+					that guided our project, comprising four distinct but interconnected stages. It guided our project
+					providing a flexible, reflective framework [<a href="#ref-Stappers2017">76</a>] exploring audio
+					media challenges through different scenarios. Initially, we treated ideas, sketches, GPT mock-up
+					collaborative sessions as artefacts [<a href="#ref-Gaver2012">29</a>] iterating through creative
+					refinement and casual feedback engagements with people at the charity. A piloting stage then yielded
+					critical reflections that informed adaptations. Deployment immersed the project in real-world use
+					where emergent issues shaped further iterations (i.e., deciding to create log-vignettes). In this
+					study, we primarily focus on the final stage results, both because it offers a systematic
+					presentation of overarching data and because it yielded valuable lessons for equitable access to
+					audio media. We next discuss our study design, outlining how the key features of the Re-Connect app
+					(Section <a href="#sec-the-re-connect-app">3.2.3</a>) emerged.</p>
+				<h3>Study Design</h3>
+				<figure id="fig-1">
+					<img src="./figures/timeline.pdf"
+						alt="Timeline diagram showing four study parts arranged left-to-right and separated by dashed dividers, with a blue path linking circular icons. Part 1 &amp;ndash; Pre-Deployment: iterated concepts with SLTs and a partner charity via sketches, GPT trials, and weekly discussions (icons: brain and group). Part 2 &amp;ndash; Pilot Refinement: prototype trial at the charity with fine-tuning based on feedback (icon: document with controls). Part 3 &amp;ndash; Field Deployment: three-week in situ use with logging and a mid-point check-in that added resume and visual-progress features (icon: house). Part 4 &amp;ndash; Exit Interviews: log-guided interviews to clarify user behaviour and gather final reflections (icon: speech bubbles with a question mark)">
+					<figcaption><strong>Figure 1:</strong> Four-part study timeline</figcaption>
+				</figure>
+				<p>In practice, the study unfolded in four phases.</p>
+				<h4>Pre-Deployment Design Iteration</h4>
+				<p>We devoted the four months preceding the field deployment to iteratively materialising and testing
+					ideas with the aphasia community who would ultimately become the end-users. The goal was to move
+					from abstract requirements to concrete, and discussable artefacts, using short cycles of ideation,
+					provocation, and feedback to probe what might count as accessible audio support for PWA in everyday
+					listening.</p>
+				<p>This work combined literature review research in aphasia and accessible media (e.g., prior co-design
+					insights from <em>Sounds Accessible</em> [<a href="#ref-Bircanin2025">14</a>]) and practice-led
+					exploration at our partner charity. The <em>&rsquo;Sounds Accessible&rsquo;</em> study surfaced
+					concrete directions for audio support for PWA: <em>slower and controllable pacing</em>,
+					<em>&ldquo;where you left off&rdquo; cues</em>, <em>multimodal visual scaffolds alongside
+						audio</em>, <em>graded summaries for &ldquo;just a gist&rdquo; versus more detail</em>, and
+					low-effort ways to <em>check unknown words</em> and <em>revisit key points</em>. We translated these
+					into the intervention bundle implemented in the Re-Connect app (Table <a href="#tab-2">2</a>): <span
+						class="boxed">Playback Speed Change</span> and <span class="boxed">Go to Selected Chapter</span>
+					for pacing and navigation; <span class="boxed">Live Recap</span> and <span class="boxed">Progress
+						Tracking</span> for &ldquo;catch-up&rdquo; and continuity; <span class="boxed">Read Along</span>
+					, <span class="boxed">Highlight Toggle</span> , and <span class="boxed">Story Map</span> for
+					multimodal support; and <span class="boxed">Full Summary</span> , <span class="boxed">Word
+						LookUp</span> , and <span class="boxed">Follow Up Suggestion</span> as communication-friendly
+					aids for making sense of complex content.
+				</p>
+				<p>We partnered with an aphasia charity (Aphasia Re-Connect) that runs both online and in-person drop-in
+					sessions. The charity&rsquo;s main model function as peer-befriending with conversation-led
+					activities. The first author visited the partner charity once a week (approximately 3 hours),
+					joining existing drop-in conversational sessions with PWA and SLTs. Each visit combined informal
+					conversations about current listening practices and barriers (e.g., fatigue, memory load) with
+					discussion of opportunities for situated, accessible support.</p>
+				<p>Ideas from previous work on accessible audio features (ie., [<a href="#ref-Bircanin2025">14</a>] were
+					introduced and discussed &ndash; through group-style conversations (sitting around a table) &ndash;
+					with PWA who were invited to reflect on them and suggest how they might be adapted or extended.</p>
+				<p>Ethnographic field notes were taken rather than audio or video recordings, allowing us to capture
+					feedback quickly and feed it into ongoing design work. Feedback from PWA was informal and focused on
+					general impressions of the app ideas&mdash;what seemed promising, confusing, or missing. These
+					encounters let us trial prompt strategies and evaluate outputs against aphasia-friendly conventions
+					(e.g., concrete vocabulary), including reactions to a deck of &ldquo;aphasia-friendly summary&rdquo;
+					cards developed by Master&rsquo;s students. This work directly inspired the <span class="boxed">Full
+						Summary</span> accessibility feature, implemented as AI-generated but predefined and static
+					content. Selected sketches and paper walk-throughs were shown over several weeks to elicit concrete
+					feedback&mdash;what looked usable, what felt confusing, and where additional scaffolds might
+					help&mdash;while we took notes across successive charity visits. We then iterated through the
+					proposed intervention bundle (Table <a href="#tab-2">2</a>) with four PWA who attended the drop-in
+					sessions regularly over a three-week period, refining wording, layout, and feature combinations
+					based on their comments.</p>
+				<p>During this phase, the core research team &ndash; an SLT collaborator, two design researchers, and
+					four Master&rsquo;s students&mdash;met regularly to review field notes, iterate sketches, and refine
+					GPT mock-ups (see Figure <a href="#fig-2">2</a>). We progressively converged on the bundle of
+					accessibility interventions reported in Table <a href="#tab-2">2</a>. For instance, to test
+					feasibility and tone for candidate features we iterated over multi-level summaries, word
+					explanations and glossaries, story-map scaffolds for organising narrative, and story-grammar prompts
+					[<a href="#ref-whitworth2015narnia">88</a>] to structure content. The SLT collaborator emphasised
+					the importance of macro-story organisation&mdash;that is, making the overall story arc clear (who it
+					is about, what happens first, next, and why) rather than only working at sentence level.</p>
+				<p>This pre-deployment phase functioned as a series of agile cycles: artefacts were used to stage
+					conversations, those conversations re-shaped the ideas, and this ongoing negotiation progressively
+					stabilised the design space we then brought into three-week field trial. We identified core
+					conceptual sticking points through iteration and recurring navigational pains in existing apps,
+					sharpening our design ideas.</p>
+				<figure id="fig-2">
+					<img src="./figures/maddy_pre.pdf"
+						alt="Two photos side by side. On the left, a screenshot of two of the researchers in a Zoom call, testing out a custom built GPT. On the right, a white board sketch of the system user journey.">
+					<figcaption><strong>Figure 2:</strong> Pre-Deployment phase - early sketches and GPT-testing
+					</figcaption>
+				</figure>
+				<h4>Pilot Refinement</h4>
+				<p>Building on the prior phase, we established a set of design requirements, developed a working
+					prototype, and conducted a preliminary informal trial with the same four individuals at our partner
+					charity. Our intention was not merely to engage participants abstractly but to offer a concrete
+					prototype that they could directly interact with and comment on &ndash; an approach particularly
+					important for people with aphasia, for whom language-based co-design abstraction can be challenging
+					[<a href="#ref-Wilson2015">90</a>]. The trial gathered formative feedback on accessibility features,
+					user interface aesthetics, navigation, and audio content choices. This process resulted in minor app
+					edits, including a distinct charity logo to facilitate easier navigation and the introduction of
+					cover images to aid selection of audio content. Additionally, the text summaries were simplified by
+					reducing length and refining AI-generated output to produce easy-to-follow summary snippets
+					characterised by Subject-Verb-Object sentence structures. We also discussed what Audio Book genre
+					can be added as a content. These changes aimed at improving accessibility by applying Flesch-Kincaid
+					readability principles [<a href="#ref-aleligay2008readability">3</a>], ensuring that the content
+					meets readability levels appropriate for diverse users, including those with aphasia (see Table <a
+						href="#tab-2">2</a> for final set of interventions). In this phase, we learned the importance of
+					text overload and the need for more diverse group of people to stress accessibility.</p>
+				<h4>3 Week Field Deployment</h4>
+				<p>After recruitment (for details see Section <a href="#sec-recruitment">3.2.1</a>), participants
+					underwent an intake stage consisting of brief (40 minutes) entry semi-structured interview. During
+					the interview, participants reflected on their current audio media practices and reported challenges
+					consistent with prior findings [<a href="#ref-Bircanin2025">14</a>], including sustained attention,
+					cognitive load associated with memory and comprehension, mental fatigue, stress regulation,
+					sensitivity to listening pace, and difficulties achieving episode completion. We additionally
+					discussed participants&rsquo; levels of digital literacy and their preferences regarding the devices
+					on which they would install and use the application (e.g., smartphones or tablets). Subsequently, a
+					15 minute demonstration session was conducted, in which the app&rsquo;s functionality was presented
+					screen-by-screen to each participant. During this session, participants were guided through the
+					app&rsquo;s features, and the data logging process was explained to ensure informed engagement.
+					After approximately 10 days, we ran a brief check-in to capture obstacles early and reduce
+					attrition; this led to two pragmatic edits: resume from where you left off (<em>recall</em>) and a
+					<em>visual progress bar</em> per episode (See Fig <a href="#fig-4">4</a> - &rdquo;Content
+					Selection&rdquo;), plus minor content additions requested by participants. We identified
+					person-specific patterns of use during the deployment while simultaneously exchanging
+					recommendations.
+				</p>
+				<h4>Exit Interviews with Log-Guided Vignettes</h4>
+				<p>At the conclusion of the third week, we conducted semi-structured interviews centred around the
+					app&rsquo;s core features and participants&rsquo; initial challenges, which primarily encompassed
+					comprehension, memory, mental fatigue, and focus. To structure these interviews and ground
+					discussions in concrete user experience, the research team prepared individualised daily vignettes
+					for each participant derived from their logged app use data. Each vignette consisted of a concise
+					daily summary (approximately 400 words) that captured key observations &ndash; such as repeated
+					pauses or returns to summaries (&ldquo;On the 25th, you went back and forth changing the complexity
+					level; can you tell us what happened there?&rdquo;) &ndash; and was used as a prompt to elicit
+					detailed explanations and clarifications about the participant&rsquo;s behaviour [<a
+						href="#ref-tremblay2022development">79</a>]. These vignettes and the accompanying interview
+					questions were presented in plain, accessible language tailored for people with aphasia, allowing
+					participants to see, read, and listen to the prompts. To enhance comprehension, the materials
+					incorporated simple illustrations, emojis, thumbs-up icons, and screenshots of app features,
+					ensuring multimodal accessibility [<a href="#ref-knollman2019effects">39</a>].</p>
+				<h3>Field Deployment</h3>
+				<h4 id="sec-recruitment">Recruitment</h4>
+				<p>We recruited through the same partner aphasia charity. A simple poster was displayed for two weeks;
+					enrolment followed a first-come, convenience basis until 10 participants had consented. Inclusion
+					criteria were: (1) interest in or prior experience with radio/podcast/audio listening, and (2)
+					self-reported challenges with current audio media (platforms used, interest level, nature of
+					difficulties). Three people from earlier Part 1 and Part 2 (see Figure <a href="#fig-1">1</a>)
+					sessions opted in to the deployment.</p>
+				<p>All participants were informed that in-app logs would be collected and used to support exit-interview
+					discussions (vignettes); data were pseudonymised, and interviews accommodated aphasia-friendly
+					practices [<a href="#ref-rose2012guiding">70</a>] (large print, plain language, one question per
+					screen/page, time for responses).</p>
+				<h4>Participants</h4>
+				<div class="table-wrap" role="region" aria-labelledby="tab-1-caption" tabindex="0">
+					<table id="tab-1">
+						<caption id="tab-1-caption"><strong>Table 1:</strong> List of participants in the deployment,
+							along with demographic data and communication challenges. ASR provides an index of the
+							severity of the aphasia from 0 (speech, writing and/or auditory comprehension are not
+							functional) to 4 (Although the individual feels that they have a problem with language, this
+							is barely apparent to the listener who may not detect any problem)</caption>
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Gender</th>
+								<th scope="col">Age</th>
+								<th scope="col">ASR score</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Tim</td>
+								<td>Male</td>
+								<td>66</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>Ethan</td>
+								<td>Male</td>
+								<td>63</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>Joel</td>
+								<td>Male</td>
+								<td>67</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Eliot</td>
+								<td>Male</td>
+								<td>73</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>Sophie</td>
+								<td>Female</td>
+								<td>45</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Mara</td>
+								<td>Female</td>
+								<td>82</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>Amy</td>
+								<td>Female</td>
+								<td>65</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Rose</td>
+								<td>Female</td>
+								<td>63</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Nina</td>
+								<td>Female</td>
+								<td>42</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Nick</td>
+								<td>Male</td>
+								<td>53</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>Participant sampling was purposive to span severity, age, and ethnicity; given the small, exploratory
+					nature of the study, our aim was breadth of experience rather than statistical representativeness.
+					We enrolled 10 adults with aphasia (42-82 years; M = 61.9, SD = 12.2; 5 women, 5 men), predominantly
+					English L1 (8/10), with additional languages Italian (n = 1) and Tagalog (n = 1). Stroke year ranged
+					2009-2024, with a mean of 9.5 years post-onset at the time of study. Aphasia Severity Ratings
+					(ASR)&ndash; on a 1-4 clinician scale where higher indicates greater impairment &ndash; ranged 1-3
+					in this sample (1: n = 2, 2: n = 3, 3: n = 5; none at 4). Self-reported technology experience
+					centered at 3/5 (median = 3). We received ethical approval from the King&rsquo;s College London
+					Ethics Board. Participants were recruited through Aphasia Re-Connect (weekly drop-in sessions); all
+					10 completed the in situ deployment. Materials were aphasia-friendly, co-developed with an
+					experienced SLTs and aligned with relevant guidelines. No participant used high-tech augmentative
+					alternative communication devices during study interactions; one participant&rsquo;s significant
+					other supported a remote exit interview. Each participant received &pound;100 in vouchers.</p>
+				<h4 id="sec-the-re-connect-app">The Re-Connect App</h4>
+				<p>The system developed for this study was a progressive web application that participants installed on
+					both Android and iOS devices of their choice. The application provided access to a curated audio
+					library organised into five categories: History, News and Politics, Science, Wellbeing, and
+					Audiobooks. Each category contained on average three items, with an average duration of 26.3 minutes
+					per item <sup id="fnref-2"><a href="#fn-2" aria-label="Footnote 2">2</a></sup>. All spoken-word news
+					and documentary materials were provided by the BBC R&amp;D partner broadcaster for research
+					purposes, while audiobooks were sourced from the freely available LibriVox collection <sup
+						id="fnref-3"><a href="#fn-3" aria-label="Footnote 3">3</a></sup>. The specific items in this
+					library were selected by the research team for copyright and licensing reasons, but the overall
+					categories and topics were informed by earlier work with the charity. During pre-deployment field
+					visits and the pilot trial, PWA described their preferred genres (e.g., news, history, science,
+					wellbeing, audiobooks, radio drama). We used these accounts to choose episodes from the partner
+					broadcaster&rsquo;s catalogue and from LibriVox that matched these genres, had clear sound quality,
+					and fitted our target duration. Thus, while participants did not choose exact episodes, the deployed
+					content aimed to reflect their stated interests and everyday listening practices. For every audio
+					file, a transcript was generated, forming the basis for the accessibility features described below.
+				</p>
+				<p>The design of the application minimised reliance on text input. There was no search functionality;
+					instead, content was structured into clearly defined categories to facilitate direct access. The
+					integrated audio player incorporated several accessibility features targeted at individuals with
+					communication and comprehension challenges (see Table <a href="#tab-2">2</a>). These included
+					synchronised transcripts with real-time word highlighting, playback speed adjustment, and
+					chapter-based navigation.</p>
+				<p>Beyond these core functions, the player supported user-driven, AI-assisted engagement by suggesting
+					follow-ups and supporting curiosity about preferred audio content. Participants could pause the
+					audio at any point and generate a summary of the immediately preceding segment. They could extend
+					the recap duration incrementally if desired. Suggested follow-up questions accompanied each
+					generated summary, allowing users to explore the content further by tapping a question to receive an
+					immediate answer, eliminating the need for typed input. Additional features included a
+					dictionary-style word lookup tool, which automatically saved queried terms for later review, and a
+					graphical &ldquo;story map&rdquo; visualising the narrative structure of each item. Except for
+					<em>Live Recap</em> and <em>Follow Up Suggestion</em>, all LLM-generated content in the Re-Connect
+					app (Table <a href="#tab-2">2</a>) was produced offline before the study and manually checked for
+					tone, accuracy, and aphasia-friendly language. During the deployment the app therefore acted as a
+					curated bundle of pre-generated supports rather than an open-ended conversational interface:
+					participants could turn features on and off, but could not prompt or edit the model directly.
+				</p>
+				<p>Content accessibility was further enhanced through adaptive readability and progress-tracking tools.
+					Each episode was accompanied by a summary available in multiple levels of textual complexity,
+					adjustable by the user according to Flesch-Kincaid readability scores (5th-grade band, 7th-grade
+					band and 10-12th-grade band difficulty). The system also recorded and displayed listening progress
+					for each audio item, allowing participants to resume seamlessly.</p>
+				<p>All user interactions were logged providing detailed records of engagement patterns and key
+					performance indicators (e.g., time spent per item, transcript interactions, dictionary lookups, and
+					recap requests). The application was deployed directly on participants&rsquo; personal smartphones
+					and tablets, requiring no additional equipment. Accessibility within the interface was additionally
+					supported through larger font sizes, increased word spacing, and simplified navigation structures.
+					Participants first attended a live tutorial session introducing the application, after which they
+					engaged with it independently.</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-2-caption" tabindex="0">
+					<table id="tab-2">
+						<caption id="tab-2-caption"><strong>Table 2:</strong> List of interventions</caption>
+						<thead>
+							<tr>
+								<th scope="col">Feature</th>
+								<th scope="col">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span class="boxed">Read Along</span></td>
+								<td>Displays subtitles alongside audio playback</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Highlight Toggle</span></td>
+								<td>Highlights the current word in real time</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Playback Speed Change</span></td>
+								<td>Adjustable speed to support comprehension (x0.8; x0.6; x0.4)</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Go to Selected Chapter</span></td>
+								<td>Episode Navigation &ndash; chapter segmentation. Jump to predefined sections of the
+									audio</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Live Recap</span></td>
+								<td>Live Summary &ndash; automatic recap of recent audio (30s-300s)</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Follow Up Suggestion</span></td>
+								<td>GenAI suggested (3) follow-up questions (plus answers) about the covered content
+								</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Word LookUp</span></td>
+								<td>Single-word &rsquo;simplified&rsquo; explanations (AI generated) with option to
+									&lsquo;bookmark&rsquo; words</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Story Map</span></td>
+								<td>AI generated pictorial map (main theme &ndash; illustration &ndash; + nodes
+									connecting story parts)</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Full Summary</span></td>
+								<td>Summaries with adjustable complexity (3 readability levels using Flesch-Kincaid)
+								</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Progress tracking</span></td>
+								<td>Saves playback position across sessions</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Full Summary Read Aloud</span></td>
+								<td>TTS (default Firebase Voice) for Full Summary</td>
+							</tr>
+							<tr>
+								<td><span class="boxed">Live Recap Read Aloud</span></td>
+								<td>TTS (default Firebase Voice) for Live Recap</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Data Collection and Analysis</h4>
+				<figure id="fig-3">
+					<img src="./figures/therapy_book_cover.png"
+						alt="There are two images side by side. First, shows a over page of a therapy workbook held up during a video call; faces blurred for privacy. Second shows an inside page of the therapy workbook showing an exercise list; faces blurred.">
+					<img src="./figures/therapy_book.png"
+						alt="There are two images side by side. First, shows a over page of a therapy workbook held up during a video call; faces blurred for privacy. Second shows an inside page of the therapy workbook showing an exercise list; faces blurred.">
+					<figcaption><strong>Figure 3:</strong> Cover page of a therapy book.</figcaption>
+				</figure>
+				<p>This study employed a triangulated, qualitative-led analytic strategy integrating two evidence
+					strands: (i) in-app usage logs captured during a three-week field deployment and (ii)
+					semi-structured exit interviews scaffolded by participant-specific, log-guided vignettes.
+					Qualitative materials (interviews and vignette discussions) were analysed using reflexive thematic
+					analysis [<a href="#ref-Braun2022">15</a>]. The team first familiarised themselves with the corpus
+					and conducted open coding in NVivo, generating 146 inductive codes spanning challenges and feature
+					use (e.g., summary-level adjustments, slowed-playback routines, resume/progress cues). Codes were
+					iteratively clustered into candidate themes, interrogated against disconfirming cases, and refined
+					with reference to each participant&rsquo;s log traces. Log data were reduced to participant-level
+					profiles and episode-level traces. Engagement baselines comprised sessions, active days, median
+					session length, and total minutes; feature appropriation encompassed summary-level preferences and
+					stability, slowed-speed use, pause/rewind behaviour, segmentation jumps, transcript/glossary/TTS
+					calls, recap/resume events, and progress/completion. Crucially, the analysis was qualitative-first:
+					the interview/vignette corpus provided the primary interpretive frame, while logs and descriptive
+					summaries were used to strengthen, inform, and clarify those interpretations and, where feasible, to
+					infer patterns of user behaviour that interviews alone could not fully specify (e.g., the stability
+					of preferences or the timing and sequencing of feature use). Analysis therefore prioritised
+					descriptive statistics and visual summaries of individual tendencies, examining relationships among
+					profile scenarios (feature combinations) only insofar as they deepened or qualified the qualitative
+					accounts.</p>
+			</section>
+			<section class="numbered">
+				<h2>Results</h2>
+				<p>In this section, we present findings from the three-week deployment, organised into three interlinked
+					themes. We examine how perceived &ldquo;fit&rdquo; between content, labels, and language profiles
+					shaped whether people engaged with the app in the first place. Section 4.2 then traces how listeners
+					assembled light scaffolds to keep the thread and repair breakdowns, before Section 4.3 situates
+					these repertoires in everyday life, showing how the Re-Connect app shifted from therapy-adjacent
+					practice to more authentic, self-directed listening.</p>
+				<h3 id="sec-fit-before-fix">Fit before Fix</h3>
+				<p>Engagement with the app was shaped by selective curiosity and by peoples&rsquo; sense of control,
+					effort, and risk. Audio media labels and representations that matched language profiles invited
+					listening; when they were verbose or unfamiliar, they raised uncertainty (fear of losing place,
+					disrupting flow) having a tendency to avoid audio content.</p>
+				<h4 id="sec-perceived-fit-as-gatekeeper-to-use">Perceived Fit as Gatekeeper to Use</h4>
+				<p>Users often reported that they avoided some content or use of features because of the large amounts
+					of text, such as Ethan&rsquo;s instant reaction to text-heavy pages <em>&rdquo;I do not want to
+						engage because it is too much. Just don&rsquo;t want to see it &rdquo;</em>. Rose, Sophie and
+					Nina shared a similar sentiment <em>&ldquo;slow, slow, very slow&rdquo; &ndash; Rose</em>
+					demonstrating their reading skills and a risk to abandon the context quickly; <em>&rdquo;
+						And...And...And...A lot of information&rdquo; - Nina</em>.</p>
+				<figure id="fig-4">
+					<img src="./figures/system_pic.pdf"
+						alt="Six screenshot of the system. First screenshot shows &quot;Screen 1&quot;, with a simple audio player interface with a play/pause button, a timeline, playback speed adjustments, rewind and fast forward buttons. On top, there is a transcript with a toggle word highlighting. On the bottom, there is a live summary, with the option to recap the last 30 seconds. The second screenshot shows &quot;Screen 2&quot;, with the chapter map feature. At the top there are episode chapters the user can navigate. In the middle, there is a visual story map of the chapter. At the bottom, there is an interactive character interface. The third screenshot shows the &quot;Live Summary&quot; screen. There is a timeline of the audio, the summary of what is being played, an option to recap a period of time, and suggested questions for the user. The fourth screenshot shows the &quot;Word Lookup&quot; feature. This shows a pop-up over the transcript with a word description. The fifth screenshot shows the &quot;Full Summary&quot; feature, where there is a long summary of the audio. The user can have the summary read out loud, as well as change the complexity level of the summary. The sixth screenshot shows the &quot;Content Selection&quot;, where there is a list of audio content to listen, with each item in the list showing the users playback.">
+					<figcaption><strong>Figure 4:</strong> The Re-Connect app. Clockwise &mdash; Screen 1, which is the
+						main &lsquo;play&rsquo; screen of the app, which supports comprehension with an interactive
+						transcript and live summary for recap &bull; Screen 2, which allows the user to explore deeper
+						through infographics, chapter-by-chapter browsing and by key characters &bull; Live Summary
+						(from Screen 1), which summarises content and provides suggested prompts &bull; Content
+						Selection, which allows the user to select the episode &bull; Full Summary, which allows for
+						varying levels of complexity in the content &bull; and finally Word Lookup (Screen 1), which
+						allows users to press words and get a definition.</figcaption>
+				</figure>
+				<p>On the other hand, concise, familiar labels and visibly recoverable actions (i.e., <span
+						class="boxed">Word LookUp</span> ) invited use. For instance, nine of ten participants used
+					<span class="boxed">Word LookUp</span> and reported as safe, reversible, and directly helpful
+					<em>&rdquo;no, no, no. Explain! Explain!&rdquo;- Joel</em>. During pilot and demo sessions, several
+					participants hesitated to press unfamiliar buttons due to uncertainty about recoverability.
+				</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>You look at the symbol, picture, is that how you do it?</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>I can read a simple (break) - unfinished sentence</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>I can spell simple things!</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>And I do it on my own (signs of pride)</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>Paragraphs are tricky for me!</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Hmm</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>I can read enough but not a paragraph</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>However, where there was an increased level of interest in the audio content or some perceived gain,
+					participants were willing to &lsquo;push through&rsquo; language hurdles. Nina described shopping
+					&ndash; a valued pre-stroke routine she wanted to maintain &ndash; as a case where she would
+					actively decode unknown words on another platform (i.e., sometimes simply googling unknown words).
+					Similarly, Mara explains <em>&rdquo;I look it up on Google, it said the founder of UK
+						party&rdquo;</em>. The clear payoff (getting the task done) shifted the cost-benefit: the extra
+					effort felt justified, the word-finding path was predictable and tangible, and peoples&rsquo; sense
+					of control remained intact. In these moments, purpose and sense of achievement and agency outweighed
+					cognitive economy.</p>
+				<p>Nina&rsquo;s, seemingly odd, behaviour reflects the same logic: even with a marked reluctance toward
+					unfamiliar text, <span class="boxed">Full Summary</span> accounted for (72.22%) of her interactions.
+					Sophie showed a similar pattern (see Figure <a href="#fig-5">5</a>). This was not a preference for
+					&ldquo;more text&rdquo;, but what they later described in the exit interview as a preference for
+					<strong>low-risk text</strong> - short, predictable phrasing with familiar vocabulary that reduced
+					cognitive load, minimised the likelihood of misinterpretation, and facilitated smoother navigation
+					through the content. Paired with <span class="boxed">Highlight Toggle</span> , <span
+						class="boxed">Full Summary</span> , <span class="boxed">Full Summary Read Aloud</span> and <span
+						class="boxed">Live Recap = Read Aloud</span> acted as a safe scaffold: it preserved position (no
+					fear of losing one&rsquo;s place), chunked information and let users control pace &ndash; turning
+					sometimes intimidating language <em>&rdquo;not read, not read&rdquo; - Joel</em> into a reversible,
+					low-cost probe. Practically, unfamiliar or verbose labels were skipped, while familiar, recoverable
+					text frames were embraced.
+				</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>It seems you always listen before you read the summary</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>Yeah</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>I can read it on its synchronous form</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>But I do not need to</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>I can read enough but not a paragraph</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table-wrap" role="region" aria-labelledby="tab-3-caption" tabindex="0">
+					<table id="tab-3">
+						<caption id="tab-3-caption"><strong>Table 3:</strong>Proportion of interventions used by each
+							participant as a percentage.</caption>
+						<thead>
+							<tr>
+								<th scope="col">Intervention</th>
+								<th scope="col">Amy</th>
+								<th scope="col">Eliot</th>
+								<th scope="col">Ethan</th>
+								<th scope="col">Joel</th>
+								<th scope="col">Mara</th>
+								<th scope="col">Nick</th>
+								<th scope="col">Nina</th>
+								<th scope="col">Rose</th>
+								<th scope="col">Sophie</th>
+								<th scope="col">Tim</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Full Summary</th>
+								<td>29.7</td>
+								<td>50.4</td>
+								<td>17.9</td>
+								<td>11.6</td>
+								<td>30.6</td>
+								<td>50.0</td>
+								<td>72.2</td>
+								<td>17.2</td>
+								<td>66.3</td>
+								<td>65.2</td>
+							</tr>
+							<tr>
+								<th scope="row">Highlight Toggle</th>
+								<td>12.2</td>
+								<td>11.9</td>
+								<td>66.7</td>
+								<td>26.7</td>
+								<td>10.2</td>
+								<td>25.0</td>
+								<td>1.6</td>
+								<td>15.5</td>
+								<td>12.3</td>
+								<td>8.7</td>
+							</tr>
+							<tr>
+								<th scope="row">Follow-up Suggestion</th>
+								<td>0.0</td>
+								<td>1.5</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>5.7</td>
+								<td>0.0</td>
+								<td>5.6</td>
+								<td>20.7</td>
+								<td>0.0</td>
+								<td>4.4</td>
+							</tr>
+							<tr>
+								<th scope="row">Word LookUp</th>
+								<td>9.5</td>
+								<td>7.4</td>
+								<td>0.0</td>
+								<td>36.1</td>
+								<td>6.4</td>
+								<td>5.0</td>
+								<td>1.6</td>
+								<td>3.6</td>
+								<td>1.5</td>
+								<td>4.4</td>
+							</tr>
+							<tr>
+								<th scope="row">Live Recap</th>
+								<td>14.9</td>
+								<td>5.9</td>
+								<td>0.0</td>
+								<td>2.3</td>
+								<td>9.6</td>
+								<td>0.0</td>
+								<td>4.8</td>
+								<td>5.2</td>
+								<td>1.5</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Character LookUp</th>
+								<td>6.8</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>3.5</td>
+								<td>7.6</td>
+								<td>10.0</td>
+								<td>6.4</td>
+								<td>8.1</td>
+								<td>2.2</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Key Takeaways</th>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>7.0</td>
+								<td>8.3</td>
+								<td>0.0</td>
+								<td>2.4</td>
+								<td>7.4</td>
+								<td>0.0</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Story Map</th>
+								<td>6.8</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>1.2</td>
+								<td>10.8</td>
+								<td>0.0</td>
+								<td>4.0</td>
+								<td>7.4</td>
+								<td>0.0</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Live Recap = Read Aloud</th>
+								<td>1.4</td>
+								<td>3.0</td>
+								<td>0.0</td>
+								<td>5.8</td>
+								<td>5.7</td>
+								<td>0.0</td>
+								<td>0.8</td>
+								<td>10.4</td>
+								<td>0.7</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Go to Chapter</th>
+								<td>1.4</td>
+								<td>3.0</td>
+								<td>0.0</td>
+								<td>5.8</td>
+								<td>5.7</td>
+								<td>0.0</td>
+								<td>0.8</td>
+								<td>4.2</td>
+								<td>1.1</td>
+								<td>4.4</td>
+							</tr>
+							<tr>
+								<th scope="row">Read Along Turned On</th>
+								<td>9.5</td>
+								<td>8.9</td>
+								<td>6.0</td>
+								<td>0.0</td>
+								<td>3.8</td>
+								<td>10.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Playback Speed Changed</th>
+								<td>5.4</td>
+								<td>0.0</td>
+								<td>8.3</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>6.9</td>
+								<td>4.4</td>
+							</tr>
+							<tr>
+								<th scope="row">Forward 10s</th>
+								<td>0.0</td>
+								<td>0.7</td>
+								<td>1.2</td>
+								<td>3.5</td>
+								<td>1.3</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.3</td>
+								<td>5.1</td>
+								<td>0.0</td>
+							</tr>
+							<tr>
+								<th scope="row">Rewind 10s</th>
+								<td>2.7</td>
+								<td>6.7</td>
+								<td>0.0</td>
+								<td>2.3</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.0</td>
+								<td>0.7</td>
+								<td>0.0</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Personal Relevance Makes or Breaks Use</h4>
+				<p>Recognition in the content acted as the on-ramp to attention. When an episode &ldquo;clicked&rdquo;
+					with a person&rsquo;s experiences or language capacity, the perceived payoff rose and the cost of
+					entry fell. Pieces tied to shared, lived situations (e.g., &rdquo;Hospital Food&rdquo; podcast
+					episode) were easier to start, follow, and finish <em>&rdquo;When I had my rehab in the hospital,
+						food in there was incredible &ndash; Eliot&rdquo;</em>. Similarly, Sophie attached a negative
+					valence to the &rdquo;Hospital Food&rdquo; episode rooted in her post-stroke hospital experience but
+					was curious enough to play it <em>&rdquo;I didn&rsquo;t like food&rdquo;</em>. Participants used
+					additional on-screen elements as quick cues: <span class="boxed">Characters</span> , <span
+						class="boxed">Mind Map</span> , and topical titles helped them quickly assess whether the
+					content aligned with their interests and sense of who it was &ldquo;for&rdquo;. Sophie, for
+					instance, scanned <span class="boxed">Characters</span> for Irish names to align with her cultural
+					and linguistic capacity; when that alignment was missing, she moved on. Joel&rsquo;s choice of the
+					&ldquo;British Miners&rsquo; Strike&rdquo; episode followed the same logic: the <span
+						class="boxed">Mind Map</span> cue &ldquo;1984&rdquo; and the caption &ldquo;20 pounds&rdquo;
+					triggered autobiographical recognition &ndash; <em>&rdquo;That is me &rdquo;</em> &ndash; turning a
+					potential effortful listen into a motivated one.</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>Sophie</strong></td>
+								<td>There is an Irish person there</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Oh, so there is an Irish person in the kombucha episode.</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>(Researcher shares screen: discussing <em>Unexpected History of the Body</em>)</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>(Reads out the <span class="boxed">Full Summary</span> )</td>
+							</tr>
+							<tr>
+								<td><strong>Sophie</strong></td>
+								<td>(Immediately) Is he Irish?</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>For some, recognition stabilised engagement; for others it surfaced ambivalence and loss. Sophie and
+					Nina described <span class="boxed">FSummary</span> as both bridge and mirror of language change
+					&ndash; her most-used aid that also surfaced sadness (<em>&ldquo;It&rsquo;s the [stammers] I am not
+						the same&hellip;&rdquo;</em>). Content and features that reflected post-stroke life did more
+					than attract attention &ndash; they shaped how people felt about listening. The only two
+					participants, Sophie and Nina, who were in the range (1-2 year post-stroke) had more affective
+					responses to either content or app features.</p>
+				<p>On the other hand, Mara &ndash; seven years post-stroke &ndash; gravitated towards <em>Wellbeing</em>
+					audio content category that brought back memories of her post-stroke hospital stay, and that early,
+					in-between period of coming to terms with her acquired disability.</p>
+				<p>When the topic &lsquo;fit&rsquo;, participants tolerated rough edges in accessibility; when it did
+					not, polished supports could not rescue engagement. The majority of the whole cohort (8/10)
+					requested additional book chapters (unprompted), they already listened to (only three chapters were
+					imported into the working prototype). Joel put it bluntly: <em>&ldquo;But BBC better&rdquo;</em>
+					insinuating the content abundance and audio quality. Rather than reading this as accessibility being
+					irrelevant, the pattern shows that accessibility features act as <em>enablement</em> once value is
+					established: the sheer volume of requests we received from our participants (see Figure <a
+						href="#fig-6">6</a>) during the deployment illustrates how non-desirable content can depress
+					perceived accessibility if the content requirement is not met. Crucially, accessibility still
+					mattered: in the exit interview all 10 participants rated the app&rsquo;s usefulness and pleasure as
+					"highly useful", signalling that &ndash; once content fit was present &ndash; the supports were
+					materially helpful most of the time.</p>
+				<h4 id="sec-summaries-as-adjustable-launchpads">Summaries as Adjustable Launchpads</h4>
+				<p>Across the cohort, summarisation was the dominant intervention; all <span class="boxed">Full
+						Summary</span> variants were used. Half of the participants escalated complexity (to Levels 2
+					and 3), but for different reasons. We observed two stable strategies:
+					<strong>front-loading</strong>, those participants who expand summaries before pressing
+					&lsquo;play&rsquo; to prime understanding; and <strong>back-filling</strong>, those participants who
+					return to <span class="boxed">Full Summary</span> after listening to consolidate, check details, or
+					repair gaps <em>&rdquo;When I finish I go back and read it again&rdquo; - Rose</em>; <em>&rdquo;R:
+						Were you reading the full summary after? Nina: Finishing. Yeah&rdquo;</em>. In both cases,
+					summaries worked as adjustable scaffolding &ndash; a reversible, on-demand ramp between
+					<em>&rdquo;just a gist&rdquo; (Nick)</em> and <em>&rdquo;detailed&rdquo; (Rose)</em>. If the episode
+					seemed complicated and hard to grasp from the episode title or the chapter&rsquo;s topical title the
+					participants would spend more time front-loading. For instance, on the day before the interview,
+					Nina spent 7 minutes just on <span class="boxed">Full Summary</span> feature moving between
+					complexity levels 20 times (re-reading and re-listening &ndash; ie., <span class="boxed">Read
+						Aloud</span> ) before pressing the play button. She explained simply this as her desire to
+					re-enter the world of news (referencing the &ldquo;Ignorance in Politics&rdquo; episode),
+					<em>&rdquo;practice&rdquo;</em> and get familiar with the political argumentation as she was finding
+					this challenging post-stroke. Rose used a similar pattern on what for her the difficult episode
+					themes:
+				</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>It seemed like you are changing levels a lot? You are getting more information about
+									it? (brief pause)</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Is that right?</td>
+							</tr>
+							<tr>
+								<td><strong>Rose</strong></td>
+								<td>Yep, yep, yeah</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>You like the summary?</td>
+							</tr>
+							<tr>
+								<td><strong>Rose</strong></td>
+								<td>Yeah, Yeah, Yeah!</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>Visual presentation mattered. As the first and longest block of text many encountered, the <span
+						class="boxed">Full Summary</span> drew suggestions for aphasia-friendly presentation. Even at a
+					Flesch-Kincaid 5th-grade band with simple sentence structure S-V-O, participants wanted more control
+					over formatting &ndash; e.g., a bullet-point view (<em>&ldquo;Like the actual bullet points&rdquo;
+						&ndash; Nina</em>). Others asked to extend the <span class="boxed">Highlight Toggle</span> to
+					<span class="boxed">Read Aloud</span> so that words highlight in sync with audio across all
+					complexity levels (<em>&ldquo;It would help if same as subtitles, if it is highlighted so you go
+						word by word&rdquo; &ndash; Nick</em>) and font size and emphasis <em>&rdquo;bigger and
+						bold&rdquo; &ndash; Tim</em>.
+				</p>
+				<h3 id="sec-scaffolded-sense-making">Scaffolded Sense-Making</h3>
+				<p>Participants assembled light, reversible representations to keep the thread, repair, and recall
+					&ndash; preferring features that were clustered near the audio media player source and easy to undo.
+				</p>
+				<h4 id="sec-effort-budget-and-small-incremental-wins">Effort Budget and Small Incremental Wins</h4>
+				<p>Completing an episode, grasping a hard segment, or capturing a note felt like accomplishment. Visible
+					micro-progress (progress bars, bookmarked words) were enough to motivate and rebuilt
+					self-achievement: <em>&rdquo;A tick or cross, the whatever, it doesn&rsquo;t matter&rdquo; -
+						Ethan</em>.</p>
+				<p>For instance, Eliot who initially reported a difficulty completing a podcast show or radio program as
+					<em>&rdquo;extremely difficult&rdquo;</em> praised the <span class="boxed">Visual Progress
+						Bar</span> .
+				</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>Finding it better now, because you put the bar in (refers to progress bar)</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>So, I can see how long I&rsquo;ve gone</td>
+							</tr>
+							<tr>
+								<td><strong>... R</strong></td>
+								<td>But what about remembering the actual content you were listening to?</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>Still hard. My total memory is bad</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>This was a shared sentiment among three other participants. Tim reflected on the immediate
+					post-stroke period of uncertainty and low confidence, when small &ndash; even <em>trivial</em>
+					&ndash; successes mattered: <em>&rdquo;immediately after my stroke I would, I would, have liked to
+						finish the whole episode. It would have given me a <strong>sense of achievement</strong> &ndash;
+						Nina&rdquo;</em>. At those early stages, small wins &ndash; finishing a short episode, seeing
+					the progress bar move &ndash; were especially valuable for listeners like Nina, Sophie and Amy who
+					struggled even with single words. As Mara put it reflecting on her difficult times soon after
+					stroke, <em>&rdquo;I would have got a tremendous kick out of listening to an entire short
+						episode.&rdquo;</em> These quick, visible completions converted effort into momentum and
+					effectively recharged the effort budget.</p>
+				<figure id="fig-6">
+					<img src="./figures/additional_content.png"
+						alt="A photo of an open lined notebook on a wooden desk. At the top is a handwritten list titled informally with items such as &amp;ldquo;Short Stories - Sherlock Holmes / Conan Doyle,&amp;rdquo; &amp;ldquo;Toast - Nigel Slater,&amp;rdquo; &amp;ldquo;Michael Tucci - My Life in Food,&amp;rdquo; and &amp;ldquo;Inside Science,&amp;rdquo; followed by &amp;ldquo;Jodrell Bank&amp;rdquo; and &amp;ldquo;Margaret Thatcher.&amp;rdquo; The lower half of the page is intentionally blurred. A pen and a hand holding the page are visible at the right edge.">
+					<figcaption><strong>Figure 6:</strong> Photo of handwritten notes on content to add to the app
+					</figcaption>
+				</figure>
+				<p>The smallest scaffold that changed behaviour, on most occasions, seemed to be often enough.
+					Time-synchronised read-along highlighting, over time as evidenced by Ethan made the content
+					consumable and kept attention anchored. More complex navigation like <span class="boxed">Go to
+						Selected Chapter</span> was engaged by 8/10 participants, but accounted for only 3.5% (see
+					Figure <a href="#fig-7">7</a>) of all interactions. Nina, Sophie and Rose expressed this by saying
+					that they struggled if they did not recognise the word in the title chapter and they would just skim
+					and skip <em>&ldquo;not understand the chapter, and I won&rsquo;t try&rdquo;</em>. Getting simple
+					cues right - especially at the start of listening - mattered more than piling on complexity &ndash;
+					especially when early impressions decided whether people stay or leave.</p>
+				<p>The &ldquo;Audio Books&rdquo; were the most consumed material (31%) - those participants who played
+					and completed a chapter. The &ldquo;Wellbeing&rdquo; category took second place with 28% of the
+					total share of selections. When asked why they liked the Audio Book content, participants
+					articulated three reasons. First, <strong>rhythm and prosody</strong> scaffold timing and
+					prediction, making segmentation easier: Mara -<em>&ldquo;yeah yeah so because purity has that rhythm
+						you know that&rsquo;s sort of that helps you, with you speech&rdquo;</em>. Second,
+					<strong>reduced scene complexity</strong> lowers cognitive load: Tim &ndash; <em>&ldquo;it is
+						accessible because it is just one person&rdquo;</em> narrating which removed the turn-taking
+					uncertainty and voice-switch costs <em>&ldquo;I do not mind it is American&rdquo; - Ethan</em>.
+					Third, three people in particular stated the book chapter&rsquo;s <strong>episode length</strong> as
+					a decisive factor - the <em>median</em> value of the audio book chapters - in total 3 books and 9
+					chapters for each - was 14 minutes long (IQR 10-34). All together, monologic, rhythmically regular
+					narration &ndash; with slower rate, reduced length, and clear phrasing &ndash; was experienced as
+					less effortful.
+				</p>
+				<p>However, people were still eager to take risks <em>&ldquo;I think as a person with aphasia you have
+						to take risks&rdquo; - Mara</em> and put the goal-oriented work sometimes just out of
+					frustration <em>&ldquo;I was stressed. I want to know what&rsquo;s happened&rdquo; - Sophie</em>.
+					<span class="boxed">Full Summary</span> accounted for 40% of single-feature interactions (see Figure
+					<a href="#fig-7">7</a>), followed by <span class="boxed">Highlight Toggle</span> (14.4%). Within a
+					full spectrum of summary actions specifically, <span class="boxed">Full Summary Expanded - boosting
+						complexity level</span> made up 44.2% of all summary interactions. Taken together, this points
+					to a front-loading pattern: participants&rsquo; willingness to familiarise themselves with the audio
+					content before pressing play &ndash; also echoed in exit interviews, where 8/10 said they typically
+					read the default <span class="boxed">Full Summary</span> first (with occasional skips and later
+					returns, e.g., Rose and Tim). Anticipated audio media challenges reported during the entry
+					interviews and demo sessions likely contributed to this behaviour, given. Notably, once playback
+					began, most other interventions clustered <em>at the source of listening</em> &ndash; <span
+						class="boxed">Highlight Toggle</span> , <span class="boxed">Word LookUp</span> , <span
+						class="boxed">Follow Up Suggestion</span> , <span class="boxed">Word Tapped</span> , <span
+						class="boxed">Playback Speed Change</span> , <span class="boxed">Live Recap = Read Aloud</span>
+					&ndash; indicating in-the-moment repair, greater sense of control and orientation rather than
+					prolonged browsing (see section <a href="#sec-micro-leftrightarrow-macro-sense-making">4.2.2</a>.
+				</p>
+				<figure id="fig-7">
+					<img src="./figures/pareto.png"
+						alt="Two stacked charts: (a) a Pareto chart showing event shares by intervention; (b) a stacked bar summarising summary-comprehension categories.">
+					<img src="./figures/full_summary_stacked.png"
+						alt="Two stacked charts: (a) a Pareto chart showing event shares by intervention; (b) a stacked bar summarising summary-comprehension categories.">
+					<figcaption><strong>Figure 7:</strong> Pareto share of total interventions</figcaption>
+				</figure>
+				<p>Early effort only paid off when entry costs were kept low. Needless to say, <span class="boxed">Full
+						Summary</span> was key for some and supportive for many, but it worked best as part of a
+					low-friction bundle rather than a stand-alone fix. In particular, short, simply presented episodes
+					(i.e., AudioBook Chapters) acted as warm-ups that rebuilt confidence, with visible completions
+					turning effort into momentum &ndash; <em>&ldquo;I did three short book chapters in one go!&rdquo; -
+						Tim</em>. In the exit interview, Nina and her husband pointed to current AI tools to trim
+					episodes to her attention window (max ~25 minutes) and to convert <span class="boxed">Full
+						Summary</span> into short audio teasers. In practice, front-loaded support worked best when it
+					reduced time-to-commitment and preserved place: shorter runtimes, compact previews, and in-place
+					summaries that could be sampled safely.</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Yes, we can explore how we can use AI for this</td>
+							</tr>
+							<tr>
+								<td><strong>Nina&rsquo;s husband</strong></td>
+								<td>You simply take a two hour content and reduce it to half an hour?</td>
+							</tr>
+							<tr>
+								<td><strong>Nina</strong></td>
+								<td>Yeah!</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4 id="sec-micro-leftrightarrow-macro-sense-making">Micro Leftrightarrow Macro Sense-Making</h4>
+				<p>The app offered two complementary app screens (see Figure <a href="#fig-4">4</a>). Screen 2 was
+					intentionally focused on macro-structural elements (i.e., <span class="boxed">Go to Selected
+						Chapter</span> , <span class="boxed">Characters</span> and <span class="boxed">Key
+						Takeaways</span> ) as supra-structural scaffolds.</p>
+				<p>Most interactions occurred on Screen 1; although 8 out of 10 people have visited the screen/page 2 at
+					least once, however, overall percentage use by each participant was very low in comparison to other
+					features on Screen 1.</p>
+				<p>Screen 2 often required less time once discovered (chapter navigation, skim characters, glance at key
+					takeaways), so total minutes spent here were lower (125.68 minutes, = 16.8% of total time spent
+					between the two screens).</p>
+				<p>Screen 2 was also easily skimmed/forgotten and two people during the exit interview evidenced this
+					<em>&ldquo;Uh huh yeah. I did look at it when "reading" the War of the Worlds. Have to look up at it
+						again&rdquo; - Eliot</em>; <em>&ldquo;Totally forgot about it&rdquo; - Tim</em>. With
+					progressive disclosure, participants settled quickly on effective tools largely on the app&rsquo;s
+					home screen (screen 1). The majority of interventions were concentrated in this blended
+					micro&harr;macro supported layer near the audio player stream. As Nick points out, the first screen
+					is already <em>&ldquo;straight-forward and easy to use&rdquo;</em> already judging the app just on
+					the grounds of the first screen use <strong>&ldquo;it is a good app&rdquo;</strong> similar to Joel
+					<em>&ldquo;No, no, no, no, no. It was simple&rdquo;</em>. This has already been evidenced by the
+					ubiquity of <span class="boxed">Full Summary</span> , which comprised the most frequently used
+					intervention. This was a shared sentiment between Tim, Rose and Amy. Although Screen 2 attracted
+					use, it was mostly as a glanceable wayfinding scaffold &ndash; used in short bursts.
+				</p>
+				<p>Practically, the second screen worked as a light <em>memory scaffold</em> rather than a place to
+					drive understanding &ndash; occasionality good for rehearsing the big picture, less good for staying
+					with the audio. In particular the <span class="boxed">Key Takeaways</span> and <span
+						class="boxed">Story Map</span> were seen as a tool for delayed recall and exposition to aid
+					argumentative expression i.e., <em>&ldquo;I don&rsquo;t know about Tim, but you could use it to talk
+						about it with a Trump dude&rdquo; &ndash; Eliot</em>.</p>
+				<h4>Recognition-first Wayfinding</h4>
+				<p>Participants wanted navigation <em>through</em> visuals in a recognition-first sense: format cues
+					(clean layout, clear hierarchy), scene photos that convey &ldquo;where/who/what&rdquo; at a glance,
+					and short, concrete text that can be skimmed without lexical search.</p>
+				<p>We expected multimodality (especially visual aids) to improve macro-level understanding as suggested
+					in previous work [<a href="#ref-Bircanin2025">14</a>] offered on Screen 2. In practice, only half
+					the cohort used <span class="boxed">Story Map</span> ; across the five users who did, it accounted
+					for &lt;5% of all interventions (see Figure <a href="#fig-5">5</a>). As Mara cautioned in her exit
+					interview discussing the visual representation, story maps <em>&ldquo;tend to divide
+						people&rdquo;</em> suggesting its variable success. Some used them just <em>before</em>
+					listening &ndash; although rarely &ndash; to access episodes with complicated
+					<em>&ldquo;constructions and a lot of characters&rdquo; &ndash; Mara</em>, or <em>after</em>
+					listening as a memory jog <em>&ldquo;help a lot with my memory&rdquo;</em> - Ethan). Three of ten
+					participants experienced them as genuine <em>macro-organisation of language support</em>
+					(<em>&ldquo;it describes everything&rdquo;</em> &ndash; Rose).
+				</p>
+				<p>For others, the representation did not land: <em>&ldquo;It&rsquo;s not really in my head. Yeah, I
+						have to (pause) And then I know the person&rdquo; &ndash; Sophie</em>. In the exit interview,
+					Sophie could name concrete elements on a specific map (Kombucha episode: <em>&ldquo;It says high and
+						low alcohol&rdquo;</em>) yet struggled to integrate relations into a coherent storyline. She
+					preferred person-centred visualisation while others preferred the in situ power of narration
+					<em>&ldquo;story, not pictures&rdquo; &ndash; Joel</em>, or felt other interventions already
+					delivered the understanding they needed <em>&ldquo;Just the two I used frequently&rdquo;</em>. The
+					remainder of the cohort simply did not feel a need for pictorial scaffolds offered.
+				</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Would you like a picture of something or picture of nouns and items like picture of
+									bottles and then you know all it&rsquo;s about the bottle.</td>
+							</tr>
+							<tr>
+								<td><strong>Sophie</strong></td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>You like the summary?</td>
+							</tr>
+							<tr>
+								<td><strong>Sophie</strong></td>
+								<td>Yeah, Yeah, Yeah!</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p><strong>Not anti-visual &ndash; just not the right visuals.</strong> No one rejected visualisation
+					per se. Participants valued concrete, lightweight visuals (e.g., progress bars, cover images) and
+					suggested alternatives: a scene-setting photo on the first screen; more <em>interactive</em>
+					relation views; or picture-by-picture depictions of key nouns/verbs. For users who struggled with
+					pronouns and prepositions (i.e., Amy and Sophie), <em>specificity</em> mattered: seeing the
+					<em>people</em>, <em>place</em> (room/studio), and <em>objects</em> anchored comprehension better
+					than abstract node &ndash; link graphs such as in <span class="boxed">Mind Map</span>
+					<em>&ldquo;Because I know what it is and then I, oh yeah, I can picturise a thing&rdquo; -
+						Sophie</em>. Nina and her husband suggested moving <span class="boxed">Story Map</span> &ndash;
+					and any other visualisations &ndash; onto Screen 1 to scaffold the text in place; the two-screen hop
+					made wayfinding overwhelming <em>&ldquo;putting it, placing it, on the first screen&rdquo; &ndash;
+						Nina</em>.
+				</p>
+				<p>Navigating by cover photos and plain titles &ndash; <em>with little to no typing</em> &ndash; was
+					praised across the cohort (<em>&ldquo;no search, it is difficult to type&rdquo;</em> -Nina).
+					Step-by-step screens with scene-setting photos, short text, and progressive disclosure felt
+					<em>&ldquo;easy to navigate&rdquo;</em> (Tim) and <em>&ldquo;easy logging&rdquo;</em> (Mara),
+					echoing what we saw even in demos: when wayfinding is recognition-first and co-located with the
+					audio, people living with aphasia are more likely to start, stay oriented, and finish (see section
+					<a href="#sec-perceived-fit-as-gatekeeper-to-use">4.1.1</a>). In addition, Nina said that she was
+					able to spot the Bookmark feature (Saved Word LookUp) words as it was distinct and placed at the
+					bottom of the Category screen.
+				</p>
+				<h4 id="sec-in-situ-repair-and-recall">In Situ Repair and Recall</h4>
+				<p>In the deployment stage participants referred to <em>comprehension</em> and <em>completion</em>
+					challenges as "quite difficult" during listening, with memory problems and high mental effort
+					sitting underneath those difficulties. People described <em>&ldquo;Losing the thread&rdquo; &ndash;
+						Ethan</em> and then needing to recover it before they could continue. When content load spiked
+					in terms of complexity or fast-paced speech, listeners paused, reduced demands, and re-established
+					context. The audio content was paused roughly 4 minutes on average per session. Two reliable repair
+					routines emerged. First, <strong>in-line repair</strong>: pause &rarr; intervention &rarr; resume.
+					People used <span class="boxed">Word LookUp</span> as a quick &ldquo;mental note&rdquo; and <span
+						class="boxed">Read-Along Highlight</span> to re-cue context, and short scrubs &ndash; although
+					the slider was often imprecise and fatiguing - <em>&ldquo;10, 20 seconds is good but slider
+						terrible&rdquo; - Joel</em>. For instance, Joel&rsquo;s two most used interventions ( <span
+						class="boxed">Highlight Toggle</span> and <span class="boxed">Word LookUp</span> ) show how he
+					focused on in situ repair interventions <em>&ldquo;I like the subtitles&rdquo;</em> confirmed by
+					other participants who actively reconstructed language in the midst of the speech <em>&ldquo;It
+						helps me reconstruct what the words are saying&rdquo; &ndash; Ethan</em> (referencing Read Along
+					and Highlight). Second, <strong>spaced repair</strong>: pause &rarr; short break &rarr; summary
+					revisit ( <span class="boxed">Full Summary</span> ) &rarr; resume. Many returned to the default or
+					simplified summary to reconstitute gist, then pressed play again as evidenced in Nina&rsquo;s and
+					Amy&rsquo;s case. For them, the inability to recognise even one or two words within a sentence led
+					to immediate loss of comprehension flow, requiring them to frequently pause and mentally rehearse
+					and actively reconstruct the audio content.</p>
+				<p>Another pathway we observed was <em>deferred decoding</em>: rather than forcing every word into
+					clarity, for instance, Eliot let &lsquo;understanding&rsquo; to arrive on a slower cadence. He
+					allowed pockets of not-understanding while the narrator&rsquo;s voice carried him forward; <span
+						class="boxed">Highlight Toggle</span> and <span class="boxed">Read Along</span> gradually
+					aligned gaze with cadence and did the repair. In this co-regulation of sound and text-audio as
+					guide, it was a natural fit, the single-voice prosody while listening to audio book chapters easing
+					the handover to <span class="boxed">Read Along</span> :</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>But then you&rsquo;re reading and have a sound with reading. Sound with
+									someone&rsquo;s voice</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Hmm. confusing</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>It can be probably helpful at times but it can be very confusing. As you said
+									probably at the beginning. It&rsquo;s like what the hell is</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Happening. Yeah</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>I mean I found I was listening to begin with maybe and then I&rsquo;d start
+									following the words.</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>I&rsquo;d start following the words. Not on a conscious level.</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>It was me just reading for the sake of reading. Because as you say you can hear what
+									the person is saying anyway.</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>So the words are just there.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>Unexpectedly, participants focused on the form of <span class="boxed">Read Along</span> . A moving,
+					word-by-word highlighter (cursor) beat a flat colour presentation: it chunked text cleanly, marking
+					onsets and offsets, reducing the visual muddle (<em>&ldquo;It doesn&rsquo;t do it as a yellow
+						highlight, it&rsquo;s only the colour&rdquo; - Nick</em>, comparing other platforms like
+					Spotify). Three participants contrasted colour versus highlighter, seeking clear boundaries while
+					opening up a discussion about meaningful <em>pauses</em> beyond simple speed shifts
+					(<em>&ldquo;It&rsquo;s not for me&rdquo; - Nina</em>; <em>0.8&times; felt &ldquo;too gappy&rdquo; -
+						Eliot</em>). Pace mattered but preferences diverged &ndash; from Ethan&rsquo;s
+					<em>&ldquo;I&rsquo;ve got more time to work out what they&rsquo;re saying&rdquo;</em> to Sophie
+					finding slowed audio <em>&ldquo;too slow&rdquo;</em> even though she reported severe audio
+					comprehension challenges. Only Tim offered a concrete fix: add phrase-level pauses within <span
+						class="boxed">Read Along</span> to slow rhythm and create &lsquo;natural breaks&rsquo;.
+				</p>
+				<h3>Everyday Agency - From Therapy Adjacent to Authentic Conversations</h3>
+				<h4>Stable Routines &ndash; Idiosyncratic Listening Repertoires</h4>
+				<figure id="fig-8">
+					<img src="./figures/rose_over_time.pdf"
+						alt="A line chart showing Rose&amp;rsquo;s daily use of the features &amp;rsquo;Follow Up Suggestions&amp;rsquo; and &amp;rsquo;Highlight Toggle&amp;rsquo;. The line representing Follow Up Suggestions starts at slightly under 20 percent of total daily interactions on day one, climbing slowly to just under 30 percent in days two through four, before dropping down to 15 percent on days five and six. The line representing Highlight Toggle starts slightly under 10 percent on day one, climbs to 20 percent on day two, before slowly dropping back down to 10 percent between days three and five. On day six, the use of Highlight Toggle jumps up to 30 percent of total daily interactions.">
+					<figcaption><strong>Figure 8:</strong> Two-level intervention use over time</figcaption>
+				</figure>
+				<figure id="fig-9">
+					<img src="./figures/waffle_final.png"
+						alt="Ten small-multiple waffle charts (Amy&amp;ndash;Tim) showing feature-use proportions per participant; each 10&amp;times;10 grid uses the legend&amp;rsquo;s colors, with blue (Full Summary) dominating most panels and participant-specific mixes (e.g., Joel/Tim more orange, Mara/Rose more green/red)">
+					<figcaption><strong>Figure 9:</strong> Waffle Chart. Share of total interventions per user
+					</figcaption>
+				</figure>
+				<p>The group of participants differed in terms of use patterns. We can see that some people preferred
+					either a "single" best intervention (i.e., Sophie, Tim, Nina, Tim &ndash; see Figure <a
+						href="#fig-9">9</a>) or utilised compatible two or three level repertoires used to fit their
+					goals and energy budgets (i.e., Rose see see Figure <a href="#fig-8">8</a>).</p>
+				<p>The participants picked low-cost heuristics that worked, and through situated action adapted controls
+					to the activity at hand with graduated scaffolding (small, reliable aids over heavy-handed
+					assistance). Most participants minimised control costs by leaning on a familiar routine while still
+					leaving space for exploration and curiosity (see Mara, Amy and Rose in Figure <a
+						href="#fig-9">9</a>).</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>You had your own thing, which is you pick the content, you change the speed to 0.8
+									(refers to her logs)</td>
+							</tr>
+							<tr>
+								<td><strong>Rose</strong></td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>You seem to mostly use two or three features?</td>
+							</tr>
+							<tr>
+								<td><strong>Rose</strong></td>
+								<td>Yeah.</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>It helps you to finish the episode?</td>
+							</tr>
+							<tr>
+								<td><strong>Rose</strong></td>
+								<td>Yes</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>Context mattered and this is how most people determined what intervention is best suited for the
+					context: home, park, and bus rides produced distinct use profiles confirmed in our exit interviews.
+					This progressive build-up of the idiosyncratic routine was confirmed by most people talking about
+					their own unique ways of using the app which is poignantly explained by Mara <em>&ldquo;Everyone has
+						their own aphasia&rdquo;</em>, a reminder of the importance of personalisation and the right fit
+					to listen.</p>
+				<p>Furthermore, this is demonstrated by how participants chose the listening context. Tim praised the
+					audio content quality as this simply enabled him to listen through <em>&rdquo;noisy&rdquo;</em>
+					environments recalling his effort to listen on a bus. Three participants in total listened outside
+					the context of home (Tim, Rose, and Ethan) and occasionally this flew through a transient state -
+					preparing in one setting for success in another &ndash; for example, skimming a simplified <span
+						class="boxed">Full Summary</span> or using a <span class="boxed">Story Map</span> at home as
+					evidenced by Rose, then listening later in the park with fewer aids - offloading effort to a
+					time/place where it is more convenient. The rest of the cohort found <em>Home</em> to be the safest
+					for low-demand listening. This said, the participants carefully considered a low-demand context and
+					made adaptive adjustments to how they listen <em>&ldquo;There is nobody here (referring to home),
+						and I like that&rdquo; &ndash; Sophie</em>.</p>
+				<h4>Therapy Adjacent Listening</h4>
+				<p>6 Participants repurposed the app for language work (Rose, Amy, Ethan, Sophie, Mara and Nina):
+					looping segments, pairing audio with text, stepping speed up/down, using summaries before or after
+					listening and additionally suggested features that would support their language recovery. These were
+					personal, repeated, goal-directed routines (e.g., Sophie reading along with a therapy workbook (see
+					Figure <a href="#fig-3">3</a>); Mara/Nina stockpiling words for practice). Rather than &ldquo;doing
+					therapy,&rdquo; they enacted therapy-adjacent workflows that align with language rehab and learning
+					mechanisms still eager to learn new words, practice pronunciation, and derive meaning from longer
+					sentences.</p>
+				<p>While we do not know the precise details of how Sophie used her therapy book together with her mother
+					in parallel with the app, she did mention <em>first book and then app&rdquo;</em>. The book was used
+					in conjunction with the <span class="boxed">Full Summary</span> feature, which was her most
+					frequently used intervention. Meanwhile, to increase their communicative capital, Rose and Eliot
+					utilised the <span class="boxed">Word Meaning</span> tool to look up confusing words and establish
+					connections to semantic and phonological mapping, expressing the process as <em>Yeah, repeating it,
+						practice it, practice it&rdquo; - Rose</em>. Sophie relied on effortful word-by-word parsing,
+					constructing meaning incrementally and using <span class="boxed">Read Aloud</span> for confirmation.
+				</p>
+				<p>All six participants (Amy, Rose, Nina, Sophie, Mara, and Ethan) consistently employed a methodical
+					strategy, particularly evident in their preference for the lowest complexity level (Flesch-Kincaid),
+					where simplified sentence structures &ndash; exemplified by Nina &ndash; facilitated detailed,
+					word-by-word comprehension (see section <a href="#sec-summaries-as-adjustable-launchpads">4.1.3</a>
+					and Figure <a href="#fig-4">4</a>). During exit interviews, participants reported that they
+					typically engaged first with the default <span class="boxed">Full Summary level 1</span> feature; as
+					Ethan stated, <em>I&rsquo;d first read the Summary&rdquo;</em>, echoed by Rose: <em>Yeah, yeah, read
+						it every time&rdquo;</em>. Mara further reflected on the utility of such an app in a hospital
+					setting, identifying dual roles: an <em>informative</em> and <em>affective</em> function, noting
+					<em>&rdquo;Hospital environment to me was so hostile. Something like fairy stories, to take you out
+						of the immediate circumstances&rdquo;</em>. She also suggested clinical applications, proposing
+					simple language recovery exercises, including multiple-choice Q/A sessions following audio episodes:
+					<em>You can simply quiz people&rdquo;</em>. The app also rekindled interest in reading for some
+					participants, notably Ethan and Tim, with audiobooks &ndash; the most consumed content &ndash;
+					bridging entertainment and information, supporting synchronous reading and listening practice. Eliot
+					described this experience as <em>&ldquo;it&rsquo;s like a weird, weird feeling not having read for
+						so long to actually sort of read. I think the transcripts and the listen word, both going on the
+						screen at once&rdquo;</em>.
+				</p>
+				<p>As previously discussed in section <a href="#sec-in-situ-repair-and-recall">4.2.4</a>, people living
+					with aphasia demonstrate a strong motivation to engage in repair processes, particularly through
+					features such as <span class="boxed">Word LookUp</span> . Sometimes, there is an obvious friction
+					and careful balancing between when and how to invest such effort. However, more linguistically
+					skilled participants invested considerable effort in correcting minor errors, including misspellings
+					and misplacements of topical titles and sentences. During regular charity meet-ups, research team
+					members were frequently approached by participants, notably Tim, Eliot, and Mara, who presented
+					lists of corrections they wished to be implemented. Many inconsistencies identified in features such
+					as <span class="boxed">Follow Up Suggestion</span> , <span class="boxed">Full Summary</span> , and
+					<span class="boxed">Story Map</span> were attributable to AI-generated content errors, which
+					required explanation to participants.
+				</p>
+				<h4>Social Scaffolds - Gateway to Authentic Conversations</h4>
+				<p>Participants used the app less as a stand-alone listening tool and more as a primer for talk. By
+					packaging episodes into explicit, digestible cues (e.g., <span class="boxed">Key Takeaways</span> ),
+					the app supplied ready-to-say fragments that helped people rehearse and reclaim social roles &ndash;
+					speaker, listener, recommender &ndash; within and beyond the group setting, mimicking an already
+					adopted behaviour of using notes to rehearse what to say in conversations. In practice, the app
+					became a shared reference point that different people could use in their own way to "get on the same
+					page", turning listening into something they could point to and talk around together, rather than
+					just a private act of understanding.</p>
+				<p>In the charity&rsquo;s peer-led groups, this played out as post-listening circulation: people
+					exchanged their own anecdotes, and used them to open conversations about books, films, and pop
+					culture:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>Tim</strong></td>
+								<td>Can you please add the rest of the War of Worlds chapter</td>
+							</tr>
+							<tr>
+								<td><strong>Ethan</strong></td>
+								<td>Funny thing you say that, yesterday I watched the movie</td>
+							</tr>
+							<tr>
+								<td><strong>Tim</strong></td>
+								<td>I also want the Hitchhiker&rsquo;s Guide to the Galaxy</td>
+							</tr>
+							<tr>
+								<td><strong>Eliot</strong></td>
+								<td>I downloaded the storybook app</td>
+							</tr>
+							<tr>
+								<td><strong>Ethan</strong></td>
+								<td>I also want to go back into reading</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>The app invited audience participation &ndash; sometimes replacing conventional therapy prompts with
+					topical, lived-in material that felt easier to start from and easier to stay with. Four participants
+					explicitly credited features like <span class="boxed">Key Takeaways</span> for <em>&rdquo;giving me
+						something to say&rdquo; Ethan</em> while others described organically using the app to kick off
+					chats (i.e., Mara) with their family members. This particular aspect was emphasised by Tim, Mara,
+					Rose and Eliot who saw <span class="boxed">Key Takeaways</span> to play this role as an almost
+					subtle and quick way to put together either and argument or start a conversation -
+					<em>&rdquo;interesting feature, I have not seen this anywhere else - Mara&rdquo;</em> or <em>&rdquo;
+						yeah, it is a little feature, I could just look at the percentage vote and then talk to someone
+						about it. Not to that old grumpy Tim&rdquo; - Ethan </em> Together, these patterns show the app
+					enabling the work of representation: it scaffolds the move from media to meaning to social exchange,
+					helping participants turn listening into interaction and interaction into belonging.
+				</p>
+			</section>
+			<section class="numbered">
+				<h2>Discussion</h2>
+				<p>Our study illustrates how accessible audio interventions can responsibly inform quality audio media
+					consumption. These interventions aim to strengthen people&rsquo;s capacity for language mediation
+					including preparedness planning, and careful and meaningful execution of available accessibility
+					features. Many of the breakdowns and supports we trace &ndash; difficulties sustaining long-form
+					listening, the value of meta/macro level support like summaries and previews, and the importance of
+					co-present, reversible aids near the player &ndash; are likely to be relevant for other groups with
+					complex communication needs, such as listeners with dyslexia, developmental language disorders, or
+					cognitive-communication difficulties. We therefore position our guidelines as platform-level
+					hypotheses rather than one-to-one prescriptions: they indicate how audio platforms might be
+					re-shaped, while inviting future comparative deployments that are co-designed and re-validated with
+					other communities.</p>
+				<h3>Tailored Simplicity: Not More Features, But Our Own Features</h3>
+				<p>Our field deployment revealed that users with aphasia can benefit significantly with a small set of
+					well-tailored accessibility features. Participants naturally gravitated toward compact listening
+					repertoires that met their personal needs and cognitive budgets.</p>
+				<p>First, our study calls for consolidating already existing accessibility features and expanding
+					efforts to provide accessible transcripts (e.g., echoing the work of [<a
+						href="#ref-IsThereTranscript">18</a>]). The 2021 push for &ldquo;subtitles for podcasts,&rdquo;
+					amplified through the Spotify Research forum, catalysed community interest and preceded the
+					platform&rsquo;s rollout of automated transcripts in 2023 [<a href="#ref-SpotifyNews">73</a>].
+					However, what is widely available today tends to function as caption-style, read-along text rather
+					than full, editable and downloadable transcripts. Although creators can download and revise
+					auto-generated text [<a href="#ref-SpotifySupport">75</a>], this workflow remains underutilised [<a
+						href="#ref-Dingman2021">22</a>] and only accessible to a few. Our findings indicate that
+					transcripts should go beyond simple word rendering to support comprehension and navigation for
+					people with disabilities, including aphasia (e.g., Sophie&rsquo;s preference for speaker stamps).
+					Apart from a few commendable podcasts and platforms that allow full transcript downloads, most large
+					audio services still treat transcripts merely as an in-app enhancement to listening, rather than as
+					an open, portable artefact. In particular, detailed transcripts should include reliable speaker
+					diarisation [<a href="#ref-tanveer2022unsupervised">78</a>], consistent timestamps, and clear
+					structural markers (e.g., sections, headings) to enable scanning, selective rereading, and
+					accessible search. We therefore recommend platform-level tooling and workflows that make
+					high-fidelity transcripts the <em>default</em>: integrate diarisation, surface confidence scores,
+					support human-in-the-loop correction, and enable export to open, accessible formats.</p>
+				<p>Secondly, our results show that by introducing supports gradually &ndash; through <em>progressive
+						disclosure</em> &ndash; the app allows listeners to discover what works for them without being
+					overwhelmed. Participants encountered features incrementally through context-sensitive prompts
+					maintaining users&rsquo; agency. Early trials produced immediate benefits for legibility of audio
+					content (e.g., clearer lexical boundaries with read-along, visible progress bar) which functioned as
+					competence cues and increased self-efficacy. As confidence accumulated, participants consolidated a
+					small set of preferred controls. Combined with a <em>front-loading</em> pattern our study points to
+					the importance of <em>select and settle</em> behaviour [<a href="#ref-Glancy2020">30</a>]. However,
+					this behaviour is not a panacea for accessibility. While the promise of object-based audio (OBA),
+					which attaches metadata to audio for adaptive playback, offers a encouraging personalised solution
+					[<a href="#ref-Walton2018">83</a>] for users to settle on a set of preferred features, it is still
+					far from a straightforward matter. Adaptation relies on metadata granularity and system
+					interpretability [<a href="#ref-JonesPodcastInfoAccess">36</a>, <a
+						href="#ref-PodcastKeywords">60</a>]: if the content is not annotated at a fine level, adjustment
+					can miss the mark. Even when metadata-driven adaptations improve intelligibility, they do not
+					guarantee comprehension. Our participants encountered moments where cognitive fatigue or spikes in
+					discourse complexity overwhelmed their &rdquo;select and settle&rdquo; configurations. Participants
+					in our study valued having agency to adjust supports on the fly as well &ndash; indicating the
+					importance to carefully balance automatic aids with user empowerment [<a
+						href="#ref-sitbon2019turning">72</a>]. We believe that by coupling intelligent content
+					annotation with interactional scaffolds, and keeping the user in control, accessible audio systems
+					can adapt to real-world complexities (fatigue, attention lapses, shifting comprehension) in ways a
+					purely algorithmic solution cannot. This approach moves accessibility beyond passive personalisation
+					toward a more participatory, <em>listener-led experience</em>, aligning with calls in disability
+					studies to empower users as active agents in their technology use rather than passive recipients of
+					&ldquo;adaptive&rdquo; content.</p>
+				<p>To prioritise access, there is a need to shift focus away from market-driven objectives when
+					developing audio content tools. Much of the current research and innovation in podcast technology
+					&ndash; from topic segmentation [<a href="#ref-topicSegmentation">61</a>] for easier browsing and
+					AI-generated podcast teasers to goal-driven recommendation systems [<a href="#ref-goalpod">46</a>]
+					&ndash; is still rooted in the logic of maximising shareability, listener growth, and follower
+					counts [<a href="#ref-Teasers">84</a>]. This market-centric approach has clear limitations for
+					accessibility, often prioritising metrics like engagement. Our results show that participants placed
+					higher value on accessibility features and accessible curation, preferring community-led listening
+					experiences and authentic conversations over algorithmically optimised content. Socially grounded
+					recommender systems, such as those leveraging trust networks and peer recommendations [<a
+						href="#ref-king2010introduction">37</a>, <a href="#ref-tang2013social">77</a>], align better
+					with our cohort&rsquo;s preferences than systems fixated purely on individual click-throughs.</p>
+				<p>Crucially, an accessibility-first perspective [<a href="#ref-lazar2023framework">44</a>] challenges
+					several assumptions often derived from market-oriented research. For example, a recent study on
+					podcast summarisation quality found that high-rated summaries tend to be dense with nouns,
+					determiners, and adverbs, while comparatively underusing verbs [<a
+						href="#ref-rezapour2022makes">66</a>]. Our results underscore the importance of aphasia-friendly
+					summaries and highlight the risks of uncritically adopting such design requirements. Verbs are
+					central to constructing meaning: while verb recognition and understanding can undermine sentence
+					comprehension and connected speech in people living with aphasia [<a
+						href="#ref-alyahya2018noun">4</a>] it does not mean it should be excluded; on the contrary,
+					eliminating it from summaries could weaken both clarity and listener engagement. Future accessible
+					solutions should prioritise meaningful language use, lived experience, and community value over
+					marketability, helping to bridge the gap between mainstream media practices and the diverse needs of
+					listeners.</p>
+				<h3>Embedding Support near the Audio Media Player</h3>
+				<p>We found that accessibility tools were most effective when they stayed close to the audio media
+					player source, integrated directly into the listening experience. Participants strongly preferred
+					support features that were placed alongside the audio timeline, on the main playback screen (Screen
+					1, Figure <a href="#fig-4">4</a>), rather than hidden behind menus or on secondary pages. For
+					example, a full summary or follow-up suggestions proved far more useful when they were one tap away
+					during playback, instead of sequestered in a separate section. We believe this is especially
+					important because people living with aphasia often have co-occurring difficulties in attention and
+					memory [<a href="#ref-choinski2020working">20</a>, <a href="#ref-martin2012effects">52</a>], as
+					observed during the intake phase (Field Deployment - see Figure <a href="#fig-1">1</a>). Consistent
+					with these principles, our participants noted that just-in-time aids helped them stay on track
+					without breaking immersion. Notably, the marked engagement gap between Screen 1 and Screen 2 cannot
+					be merely dismissed as a primacy effect. Participants deliberately departed from the default
+					<em>Full Summary</em>, repeatedly choosing the <em>simplified summary level</em> <em>in situ</em> on
+					Screen 1 (Figure <a href="#fig-4">4</a>) &ndash; indicating that proximity of support, not just
+					initial exposure, drove sustained use. We believe that there is an opportunity for future work to
+					explore how accessible audio platforms could embed support tools directly into playback interfaces,
+					allowing listeners to navigate and comprehend content without detours or undue cognitive effort [<a
+						href="#ref-zhang2025understood">92</a>].
+				</p>
+				<p>Our findings are presented alongside participants&rsquo; reports of existing use of mainstream audio
+					apps (BBC Sounds, Spotify) as evidenced by Nick and Joel. Our baseline comes from
+					participants&rsquo; own accounts of getting lost in search results, endless carousels, and
+					text-heavy menus, as well as prior work showing how personalisation &ndash; and growth oriented
+					designs &ndash; can overwhelm listeners listeners with communication difficulties [<a
+						href="#ref-Bircanin2025">14</a>]. Keeping key supports near the player - are therefore
+					deliberately framed as platform-level directions that may also help neurotypical listeners. Our
+					findings show how these same design moves play out under aphasia-specific constraints: when detours
+					away from the player carry a much higher risk of losing the thread or when cognitive load from text
+					and navigation can be the difference between staying with the programme and giving up.</p>
+				<h4>Balancing Real-Time Repair and Global Recall</h4>
+				<p>Our study highlights the need for a careful balance between micro-level repairs during listening and
+					macro-level supports for global understanding and recall. Macrostructural aids (like summaries,
+					previews of topics, or character lists) can play a crucial role in framing the narrative and
+					supporting later recall. Our participants expressed the importance of global context provided early:
+					a brief exposition of the setting (spatio-temporal orientation [<a
+						href="#ref-abdel2023semantic">1</a>]) and key characters often &lsquo;set the stage&rsquo;;
+					boosting their confidence. These global cues likely help listeners with aphasia form a mental model
+					of the narrative, mitigating memory shortfalls by providing a scaffold for new details. On the other
+					hand, local interventions were equally vital for sustaining understanding. Without the ability to
+					clarify confusing words or replay tricky passages in real time, the value of an initial summary
+					would quickly dissipate. Indeed, users frequently engaged micro-level supports (e.g., tapping the
+					glossary, enabling on-the-fly captions, or slowing the playback) whenever they encountered
+					comprehension difficulties.</p>
+				<p>Crucially, providing only one type of support in isolation would be insufficient. We observed that a
+					participant might read a summary beforehand, yet still get lost without in-play assistance.
+					Conversely, constantly stopping to check individual word meanings without complete context became
+					laborious and fragmented the story. Putting excessive emphasis on global structure without room for
+					real-time clarification can leave important details misunderstood; yet, too many micro-level
+					interruptions without an overarching narrative can overwhelm or distract. As [<a
+						href="#ref-Bircanin2025">14</a>] note, <em>&ldquo;striking a balance is crucial, as the effort
+						required to enhance understanding could inadvertently impose additional strain&rdquo;</em>. Our
+					findings reinforce this delicate interplay: for people with aphasia, both layers of support must
+					work in concert. Designing with this duality in mind &ndash; immediate repair and longer-term recall
+					&ndash; is essential to making audio content truly accessible and digestible.</p>
+				<p>Moreover, not all forms of &ldquo;slowing down&rdquo; the audio help equally [<a
+						href="#ref-baker2022management">8</a>, <a href="#ref-baker2023modulating">9</a>, <a
+						href="#ref-robson2024impact">68</a>]. Simply reducing the speech rate can distort prosody and
+					unintentionally hinder intelligibility as suggested in our study. Evidence suggests that rhythmic
+					structure could help. Regularised timing (i.e., having them more evenly spaced) can aid
+					intelligibility for people living with aphasia, whereas unguided slowing often fails to deliver
+					benefits [<a href="#ref-robson2024impact">68</a>]. Prosodic clarity and predictable timing can be
+					critical as raw speed in supporting comprehension under load [<a
+						href="#ref-villard2019effects">81</a>]. Looking ahead, future work could look to explore
+					technologies that support &lsquo;smart pausing&rsquo; &ndash; inserting a brief pause before a
+					critical noun, clause, or between phrases, affording more lexical processing time, aiding
+					comprehension. Future work can strive to design audio players that can incorporate intelligent
+					pacing features that regularise timing or auto-pause at natural breakpoints to aid understanding.
+					Such prosodic adjustments, combined with personalised tuning of global (as opposed to local)
+					supports, represent promising directions for making long-form audio more accessible.</p>
+				<p><em>Form Also Matters</em>. Surface design features proved important in our field deployment. For
+					people living with aphasia, font size, line length, line spacing, and text layout were part of the
+					intervention, not decorations. Such observations echo prior findings that accessible formatting
+					(e.g., larger sans-serif fonts, 1.5 line spacing) significantly improves readability and retention
+					for readers with aphasia [<a href="#ref-Grellmann2018">31</a>, <a
+						href="#ref-rose2012guiding">70</a>]. Consistent with these results, our participants wanted
+					greater agency over presentation, requesting bullet-point lists, increased white space, bolded
+					keywords, and in-line glosses for difficult terms. These format adjustments do not introduce new
+					content; rather, they reduce parsing effort and make key information stand out, helping listeners
+					extract meaning at a glance.</p>
+				<h3>Familiarity, Social Impact and Therapeutic Benefits</h3>
+				<p>A key insight from our deployment is that making audio truly accessible requires aligning with the
+					listener&rsquo;s personal context, preferences, and lived experiences. Participants consistently
+					preferred <em>familiar</em> and <em>trusted</em> content, such as favoured genres or known
+					presenters, with our accessibility features deepening their connection to this material. This
+					behaviour reflects a broader point: emotional bonds with familiar audio [<a
+						href="#ref-handbookRadio">19</a>] make accessibility meaningful in everyday life. Co-design with
+					people with aphasia confirmed that familiar voices and personalised content help rebuild confidence
+					and comfort [<a href="#ref-Bircanin2025">14</a>]. We could not tailor episodes to the exact
+					&ldquo;neat and gritty&rdquo; details of each person&rsquo;s life, yet participants still worked
+					hard to locate content that felt pleasurable, familiar, or identity-relevant, and tended to
+					disengage when this was absent. A fully bespoke library, populated with personally chosen
+					programmes, might well intensify this pattern and surface different genres, but it would not remove
+					the underlying mechanism we see here: for PWA, therapeutic gains and accessibility features only
+					become meaningful once listening feels worth doing in the first place. Future work in other settings
+					(e.g., home use on mainstream platforms with richer personal libraries) could test how far this
+					pleasure- and identity-led demand for &ldquo;fit before fix&rdquo; generalises beyond our
+					charity-based deployment.</p>
+				<p>Designing accessible audio requires accounting for socio-cultural context and individual tastes. This
+					highlights the role of community in audio listening. Community radio&rsquo;s cultural and social
+					value is deeply local and participatory [<a href="#ref-Moylan2023community">54</a>]. During the exit
+					interviews, some of our participants expressed interest in what others valued, asking for
+					confirmation and seeking a shared common understanding. Listening to community-based shows fosters
+					an intimate &ldquo;structure of feeling,&rdquo; exemplified by Mann&rsquo;s [<a
+						href="#ref-mann2019sonic">50</a>] concept of &ldquo;synchronous listening&rdquo;: collective
+					real-time engagement. Our findings highlight instances of individuals engaging in repair for the
+					benefit of fellow members within the charity. These findings align with prior research that
+					emphasises correction and co-constructed repair as collaborative strategies that preserve
+					conversational progressivity while addressing linguistic challenges experienced by people with
+					aphasia [<a href="#ref-beeke2020correction">12</a>]. The active engagement by participants in repair
+					show both a commitment to communication accuracy and a sense of empowerment in managing their
+					interactional environment.</p>
+				<p>Audio media&rsquo;s role has evolved from entertainment and information to include education [<a
+						href="#ref-edupodcasts">23</a>, <a href="#ref-edupodcast4">64</a>], counselling [<a
+						href="#ref-podCounselling">16</a>], and even AI-assisted content creation [<a
+						href="#ref-edupodcast2">41</a>]. Yet its therapeutic potential is often overlooked. Our
+					deployment showed that accessible audio technology supports everyday therapy outside clinics.
+					Participants used the app to practice listening in a low-stress way, transforming leisure into
+					rehabilitation. Following favourite shows with supportive features provided enjoyment and rebuilt
+					communication skills and confidence, serving as both informal therapy and safe practice space for
+					communication recovery.</p>
+				<h4>Generative AI and its Potential Impact</h4>
+				<p>Finally, we must consider the role of emerging AI technologies in sustaining these personalised,
+					everyday accessible experiences. The rise of large language models (LLMs) and, more broadly,
+					generative AI offers new capabilities for generating on-demand summaries, definitions, or even
+					visual storyboards for audio content. Our app already leveraged automated speech recognition,
+					abstractive summarisation [<a href="#ref-Li2023automaticsummarisation">45</a>], and image
+					generation.</p>
+				<p>Moving forward, more advanced AI could reframe and reword content in real time to better suit a
+					listener&rsquo;s preferences. For example, an AI could generate a parallel simplified narration,
+					offer supra-structural support to improve spatio-temporal framing of the audio content, or answer
+					ad-hoc questions a listener could asks when confused, as evidenced in our study. An AI system could
+					also support browsing by complementing existing search functions, allowing users to narrow down
+					options without constantly refining search queries [<a href="#ref-kladouchou2025internet">38</a>].
+					By organising information in ways that adapt to personal needs &ndash; such as categorising content
+					to better suit people with language impairments &ndash; AI can make browsing more intuitive and
+					accessible. For instance, AI can analyse webpage structures and highlight relevant sections, offer
+					context-aware suggestions, and enable voice or gesture-based navigation to reduce cognitive and
+					physical load.</p>
+				<p>However, there are caveats. Current models often have accuracy issues and lack awareness of specific
+					disabilities or individual user contexts. Simply deploying off-the-shelf AI, as we did, may not
+					address the nuanced needs of someone with aphasia. In fact, indiscriminate use of AI could even
+					undermine accessibility; omitting a key detail or providing false information that the listener with
+					aphasia would struggle to infer later. We constrained most LLM outputs by generating them offline
+					and manually checking for tone, accuracy, and aphasia-friendly language. However, a systematic,
+					user-centred audit of hallucination harms for people with aphasia remains an important strand of
+					future work. Most models have knowledge boundaries, beyond which they tend to produce confident
+					falsehoods and struggle to gauge their own uncertainty, especially on long-tail, domain-specific
+					topics [<a href="#ref-huang2025survey">35</a>]. Current LLMs show limited understanding of
+					disability-oriented interventions, reflecting a bias towards dominant medical perspectives rather
+					than the lived experiences of people with disabilities [<a
+						href="#ref-whittaker2019disability">87</a>]. This gap highlights the difficulty of relying on
+					these models for nuanced, context-sensitive applications. Instead of merely testing how models
+					perform under constrained scenarios, future efforts should focus on deeply researching and tailoring
+					LLM-generated solutions for specific communities [<a href="#ref-privitera2024ai">63</a>].</p>
+				<p>Therefore, we advocate for <em>born-out</em> accessibility models [<a href="#ref-Antiableist">49</a>]
+					&ndash; a disability-first AI adaptations. That is, customising LLMs and media-focused AIs to
+					understand aphasia-specific challenges (e.g., needing explicit referents for pronouns, avoiding
+					complex idioms, providing extra turn-taking pauses in audio). There is an exciting opportunity to
+					train models on aphasia-friendly language datasets [<a href="#ref-cong2024clinical">21</a>], moving
+					audio accessibility beyond the static support of transcripts, and towards more dynamic, responsive
+					approaches.</p>
+			</section>
+			<section class="numbered">
+				<h2>Limitations</h2>
+				<p>Our cohort was small and purposefully selected within a single charity organisation, which limits
+					generalisation. Severe aphasia (ASR = 4) is under-represented, not by design but because our partner
+					charity rarely works with this group; including them ethically would have required a differently
+					resourced protocol. Within this constraint, we purposively sampled for variation in age, gender,
+					language background, and severity. The deployment window was relatively short, so our findings
+					likely reflect early adoption rather than longer-term stabilisation. Multi-month deployments will be
+					needed to capture habituation, fatigue, relapse, and abandonment over time. Additionally, we focused
+					exclusively on audio interactions, leaving video and hybrid modalities (e.g., captions over video,
+					picture-in-picture), smart-speaker use, and group-listening contexts unexamined. Methodologically,
+					we did not include standardised pre/post comprehension tests; our aim here was to understand how
+					accessible features shaped perceived access and engagement in everyday listening, rather than to
+					measure adoption or learning effects. Future work could combine ecologically valid deployments with
+					brief, aphasia-friendly outcome measures (e.g., tailored comprehension probes, memory or fatigue
+					scales) and small-N repeated-measures designs to trace change over time. Finally, the ASR/LLM
+					pipeline that powered several features (e.g., summarisation, read-along, follow-up suggestions,
+					story maps) degraded on noisy, atypical, or domain-specific inputs, and we did not systematically
+					audit errors or hallucinations; future studies should pair behavioural&ndash;clinical evaluation
+					with formal model and hallucination audits.</p>
+			</section>
+			<section class="numbered">
+				<h2>Conclusion</h2>
+				<p>This in situ deployment demonstrates that enhancing audio accessibility for individuals with aphasia
+					primarily depends on the appropriateness of fit and customisation, rather than the mere breadth of
+					features. Lightweight, convenient supports that could be easily invoked, reversed, and combined
+					facilitated participants&rsquo; initiation of listening, sustained orientation, and completion of
+					recognisable and relevant audio episodes. Conversely, when topical relevance was low, refinements to
+					the interface alone were insufficient to maintain engagement. The benefits extended beyond
+					individual use; improved clarity of information access also enhanced participation in everyday
+					conversations. Several design and research implications emerge from these findings. Assistance
+					mechanisms should remain proximate to the audio source, be introduced progressively, and be
+					configurable to accommodate diverse user profiles rather than relying on a single homogeneous
+					&lsquo;accessible mode&rsquo;. Information related to the audio, such as segment structures,
+					previews, and summaries, should be considered integral design elements. Although automatic speech
+					recognition and LLM pipelines expand the potential scope of support, they necessitate
+					disability-centred curation and continuous auditing to mitigate the risk of confidently presented
+					errors during critical moments. Future research should assess the durability of these interventions
+					through extended deployments, broaden the scope to encompass a wider array of media and modalities,
+					include individuals with more severe profiles, and correlate use data with both clinical assessments
+					and lived experience outcomes.</p>
+			</section>
+			<section>
+				<h2>Acknowledgements</h2>
+				<p>We would like to thank both our participants and the staff at Aphasia Re-Connect. This work was
+					funded by the EPSRC through the CA11y Project <a
+						href="https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/X012395/1">(EP/X012395/1)</a>
+				</p>
+			</section>
+			<section id="footnotes">
+				<h2>Notes</h2>
+				<ol>
+					<li id="fn-1">Such as <a href="https://summarize.ing">https://summarize.ing</a> for YouTube video
+						summaries. <a href="#fnref-1" aria-label="Back to text, footnote 1">Back to text</a></li>
+					<li id="fn-2">The total amount of content was 472 minutes (around 8 hours). <a href="#fnref-2"
+							aria-label="Back to text, footnote 2">Back to text</a></li>
+					<li id="fn-3">https://librivox.org/ <a href="#fnref-3" aria-label="Back to text, footnote 3">Back to
+							text</a></li>
+				</ol>
+			</section>
+			<section id="references">
+				<h2>References</h2>
+				<ol>
+					<li id="ref-abdel2023semantic">Ahmed Abdel-Raheem. 2023. Semantic macro-structures and macro-rules
+						in visual discourse processing. <em>Visual Studies</em> 38, 3-4 (2023), 407&ndash;424.</li>
+					<li id="ref-akhavan2022effect">Niloofar Akhavan, Christina Sen, Carolyn Baker, Noelle Abbott,
+						Michelle Gravier, and Tracy Love. 2022. Effect of lexical-semantic cues during real-time
+						sentence processing in aphasia. <em>Brain Sciences</em> 12, 3 (2022), 312.</li>
+					<li id="ref-aleligay2008readability">Annalle Aleligay, Linda E Worrall, and Tanya A Rose. 2008.
+						Readability of written health information provided to people with aphasia. <em>Aphasiology</em>
+						22, 4 (2008), 383&ndash;407.</li>
+					<li id="ref-alyahya2018noun">Reem SW Alyahya, Ajay D Halai, Paul Conroy, and Matthew A Lambon Ralph.
+						2018. Noun and verb processing in aphasia: Behavioural profiles and neural correlates.
+						<em>NeuroImage: Clinical</em> 18 (2018), 215&ndash;230.
+					</li>
+					<li id="ref-Armstrong2014">M. Armstrong, A. Churnside, M.E.F. Melchior, M. Shotton, and M. Brooks.
+						2014. Object-Based Broadcasting - Curation, Responsiveness and User Experience. In
+						<em>International Broadcasting Convention (IBC) 2014 Conference</em>. Institution of Engineering
+						and Technology, Salford, United Kingdom. <a
+							href="https://doi.org/10.1049/ib.2014.0038">https://doi.org/10.1049/ib.2014.0038</a>
+					</li>
+					<li id="ref-Armstrong2023">Michael Armstrong and Maxine Glancy. 2023. <em>Frameworks for
+							understanding personalisation</em>. Technical Report WHP 404. BBC, UK.</li>
+					<li id="ref-baade2023hearing">Christina Baade. 2023. Hearing age in music streaming well-being,
+						marketing and older listeners. In <em>The Bloomsbury Handbook of Radio</em>. Bloomsbury, London,
+						UK, 44&ndash;61.</li>
+					<li id="ref-baker2022management">Caroline Baker, Abby M Foster, Sarah D&rsquo;Souza, Erin Godecke,
+						Ciara Shiggins, Edwina Lamborn, Lucette Lanyon, Ian Kneebone, and Miranda L Rose. 2022.
+						Management of communication disability in the first 90 days after stroke: a scoping review.
+						<em>Disability and rehabilitation</em> 44, 26 (2022), 8524&ndash;8538.
+					</li>
+					<li id="ref-baker2023modulating">Carolyn Baker and Tracy Love. 2023. Modulating Complex Sentence
+						Processing in Aphasia Through Attention and Semantic Networks. <em>Journal of Speech, Language,
+							and Hearing Research</em> 66, 12 (2023), 5011&ndash;5035.</li>
+					<li id="ref-baker2023effect">Carolyn Baker and Tracy Love. 2023. The effect of time on lexical and
+						syntactic processing in aphasia. <em>Journal of neurolinguistics</em> 67 (2023), 101142.</li>
+					<li id="ref-BBCSOUNDS">BBC. 2025. <em>A summer of sport, politics and BBC Proms brings the UK
+							together across BBC Radio and BBC Sounds</em>. Accessed: 2025-08-09. <a
+							href="https://www.bbc.co.uk/mediacentre/2024/quarter-three-rajar-figures-bbc-radio-and-sounds">https://www.bbc.co.uk/mediacentre/2024/quarter-three-rajar-figures-bbc-radio-and-sounds</a>
+					</li>
+					<li id="ref-beeke2020correction">Suzanne Beeke, Sam Capindale, and Lin Cockayne. 2020. Correction
+						and turn completion as collaborative repair strategies in conversations following
+						Wernicke&rsquo;s aphasia. <em>Clinical Linguistics &amp; Phonetics</em> 34, 10-11 (2020),
+						933&ndash;953.</li>
+					<li id="ref-Berry2023">Richard Berry. 2023. Radio in the Round Reflections on the Future of Sound
+						Media. In <em>The Bloomsbury Handbook of Radio</em>. Bloomsbury, London, UK, 504&ndash;519.</li>
+					<li id="ref-Bircanin2025">Filip Bircanin, Alexandre Nevsky, Himaya Perera, Vaasvi Agarwal, Eunyeol
+						Song, Madeline Cruice, and Timothy Neate. 2025. Sounds Accessible: Envisioning Accessible Audio
+						Media Futures with People with Aphasia. In <em>Proceedings of the 2025 CHI Conference on Human
+							Factors in Computing Systems</em> (CHI &rsquo;25). Association for Computing Machinery, New
+						York, NY, USA, 1&ndash;22. <a
+							href="https://doi.org/10.1145/3706598.3714000">https://doi.org/10.1145/3706598.3714000</a>
+					</li>
+					<li id="ref-Braun2022">Virginia Braun, Victoria Clarke, Nikki Hayfield, Louise Davey, and Elizabeth
+						Jenkinson. 2022. Doing Reflexive Thematic Analysis. In <em>Supporting Research in Counselling
+							and Psychotherapy</em>. Springer International Publishing, New York, NY, USA, 19&#8211;38.
+						<a
+							href="https://doi.org/10.1007/978-3-031-13942-0_2">https://doi.org/10.1007/978-3-031-13942-0_2</a>
+					</li>
+					<li id="ref-podCounselling">D Robert Casares Jr. 2022. Embracing the podcast era: Trends,
+						opportunities, &amp; implications for counselors. <em>Journal of Creativity in Mental
+							Health</em> 17, 1 (2022), 123&ndash;138.</li>
+					<li id="ref-Chaume2019">Frederic Chaume. 2019. Localizing Media Contents: Technological Shifts,
+						Global and Social Differences and Activism in Audiovisual Translation. In <em>The Routledge
+							companion to global television</em>. Routledge, London, UK, 320&ndash;331.</li>
+					<li id="ref-IsThereTranscript">Amelia Chelsey. 2021. Is There a Transcript? Mapping Access in the
+						Multimodal Designs of Popular Podcasts. In <em>Proceedings of the 39th ACM International
+							Conference on Design of Communication</em> (SIGDOC &rsquo;21). Association for Computing
+						Machinery, New York, NY, USA, 46&#8211;53. <a
+							href="https://doi.org/10.1145/3472714.3473622">https://doi.org/10.1145/3472714.3473622</a>
+					</li>
+					<li id="ref-handbookRadio">Hugh Chignell and Kathryn McDonald. 2023. <em>The bloomsbury handbook of
+							radio</em>. Bloomsbury Publishing, London, UK.</li>
+					<li id="ref-choinski2020working">Mateusz Choinski, Elzbieta Szelag, Tomasz Wolak, and Aneta
+						Szymaszek. 2020. Working memory in aphasia: the role of temporal information processing.
+						<em>Frontiers in Human Neuroscience</em> 14 (2020), 589802.
+					</li>
+					<li id="ref-cong2024clinical">Yan Cong, Arianna N LaCroix, and Jiyeon Lee. 2024. Clinical efficacy
+						of pre-trained large language models through the lens of aphasia. <em>Scientific reports</em>
+						14, 1 (2024), 15573.</li>
+					<li id="ref-Dingman2021">Becca Dingman, Garreth W. Tigwell, and Kristen Shinohara. 2021. Designing a
+						Podcast Platform for Deaf and Hard of Hearing Users. In <em>Proceedings of the 23rd
+							International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS
+						&rsquo;21). Association for Computing Machinery, New York, NY, USA, Article 59, 4 pages. <a
+							href="https://doi.org/10.1145/3441852.3476523">https://doi.org/10.1145/3441852.3476523</a>
+					</li>
+					<li id="ref-edupodcasts">Tiffany D. Do, Usama Bin Shafqat, Elsie Ling, and Nikhil Sarda. 2025.
+						PAIGE: Examining Learning Outcomes and Experiences with Personalized AI-Generated Educational
+						Podcasts. In <em>Proceedings of the 2025 CHI Conference on Human Factors in Computing
+							Systems</em> (CHI &rsquo;25). Association for Computing Machinery, New York, NY, USA,
+						Article 896, 12 pages. <a
+							href="https://doi.org/10.1145/3706598.3713460">https://doi.org/10.1145/3706598.3713460</a>
+					</li>
+					<li id="ref-doedens2020measures">Willemijn J Doedens and Lotte Meteyard. 2020. Measures of
+						functional, real-world communication for aphasia: A critical review. <em>Aphasiology</em> 34, 4
+						(2020), 492&ndash;514.</li>
+					<li id="ref-doedens2022functional">WJ Doedens and L Meteyard. 2022. What is functional
+						communication? A theoretical framework for real-world communication applied to aphasia
+						rehabilitation. <em>Neuropsychology Review</em> 32, 4 (2022), 937&ndash;973.</li>
+					<li id="ref-Domingues2020">Patricio Domingues, Ruben Nogueira, Jos&eacute; Carlos Francisco, and
+						Miguel Frade. 2020. Post-mortem digital forensic artifacts of TikTok Android App. In
+						<em>Proceedings of the 15th International Conference on Availability, Reliability and
+							Security</em>. ACM, New York, NY, USA, 1&ndash;8. <a
+							href="https://doi.org/10.1145/3407023.3409203">https://doi.org/10.1145/3407023.3409203</a>
+					</li>
+					<li id="ref-Fleming2020">Victoria Fleming, Sonia Brownsett, Anna Krason, Maria A Maegli, Henry
+						Coley-Fisher, Yean-Hoon Ong, Davide Nardo, Rupert Leach, David Howard, Holly Robson, Elizabeth
+						Warburton, John Ashburner, Cathy J Price, Jenny T Crinion, and Alexander P Leff. 2020. Efficacy
+						of spoken word comprehension therapy in patients with chronic aphasia: a cross-over randomised
+						controlled trial with structural imaging. <em>Journal of Neurology, Neurosurgery and
+							Psychiatry</em> 92, 4 (Nov. 2020), 418&#8211;424. <a
+							href="https://doi.org/10.1136/jnnp-2020-324256">https://doi.org/10.1136/jnnp-2020-324256</a>
+					</li>
+					<li id="ref-Fu2024">Chaoyou Fu, Yuhan Dai, Yongdong Luo, Lei Li, Shuhuai Ren, Renrui Zhang, Zihan
+						Wang, Chenyu Zhou, Yunhang Shen, Mengdan Zhang, Peixian Chen, Yanwei Li, Shaohui Lin, Sirui
+						Zhao, Ke Li, Tong Xu, Xiawu Zheng, Enhong Chen, Rongrong Ji, and Xing Sun. 2024. <em>Video-MME:
+							The First-Ever Comprehensive Evaluation Benchmark of Multi-modal LLMs in Video
+							Analysis</em>. <a
+							href="https://arxiv.org/abs/2405.21075">https://arxiv.org/abs/2405.21075</a></li>
+					<li id="ref-Gaver2012">William Gaver. 2012. What should we expect from research through design? In
+						<em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>. ACM, New
+						York, NY, USA, 937&ndash;946. <a
+							href="https://doi.org/10.1145/2207676.2208538">https://doi.org/10.1145/2207676.2208538</a>
+					</li>
+					<li id="ref-Glancy2020">Maxine Glancy, Lauren Ward, Nick Hanson, Andy Brown, and Michael Armstrong.
+						2020. <em>Object-Based Media: An Overview of the User Experience</em>. British Broadcasting
+						Corporation, UK.</li>
+					<li id="ref-Grellmann2018">Brian Grellmann, Timothy Neate, Abi Roper, Stephanie Wilson, and Jane
+						Marshall. 2018. Investigating Mobile Accessibility Guidance for People with Aphasia. In
+						<em>Proceedings of the 20th International ACM SIGACCESS Conference on Computers and
+							Accessibility</em> (ASSETS &rsquo;18). Association for Computing Machinery, New York, NY,
+						USA, 410&#8211;413. <a
+							href="https://doi.org/10.1145/3234695.3241011">https://doi.org/10.1145/3234695.3241011</a>
+					</li>
+					<li id="ref-Hammad2023">Noor Hammad, Erik Harpstead, and Jessica Hammer. 2023. GameAware Streaming
+						Interfaces. In <em>Companion Proceedings of the Annual Symposium on Computer-Human Interaction
+							in Play</em> (CHI PLAY Companion &rsquo;23). Association for Computing Machinery, New York,
+						NY, USA, 248&#8211;253. <a
+							href="https://doi.org/10.1145/3573382.3616041">https://doi.org/10.1145/3573382.3616041</a>
+					</li>
+					<li id="ref-Hilari2016">Katerina Hilari and Sarah Northcott. 2016. &ldquo;Struggling to stay
+						connected&rdquo;: comparing the social relationships of healthy older people and people with
+						stroke and aphasia. <em>Aphasiology</em> 31, 6 (Aug. 2016), 674&#8211;687. <a
+							href="https://doi.org/10.1080/02687038.2016.1218436">https://doi.org/10.1080/02687038.2016.1218436</a>
+					</li>
+					<li id="ref-Houben_2019">Maarten Houben, Rens Brankaert, Saskia Bakker, Gail Kenning, Inge Bongers,
+						and Berry Eggen. 2019. Foregrounding Everyday Sounds in Dementia. In <em>Proceedings of the 2019
+							on Designing Interactive Systems Conference</em> (DIS &rsquo;19). Association for Computing
+						Machinery, New York, NY, USA, 71&#8211;83. <a
+							href="https://doi.org/10.1145/3322276.3322287">https://doi.org/10.1145/3322276.3322287</a>
+					</li>
+					<li id="ref-huang2025survey">Lei Huang, Weijiang Yu, Weitao Ma, Weihong Zhong, Zhangyin Feng,
+						Haotian Wang, Qianglong Chen, Weihua Peng, Xiaocheng Feng, Bing Qin, and others. 2025. A survey
+						on hallucination in large language models: Principles, taxonomy, challenges, and open questions.
+						<em>ACM Transactions on Information Systems</em> 43, 2 (2025), 1&ndash;55.
+					</li>
+					<li id="ref-JonesPodcastInfoAccess">Rosie Jones, Hamed Zamani, Markus Schedl, Ching-Wei Chen,
+						Sravana Reddy, Ann Clifton, Jussi Karlgren, Helia Hashemi, Aasish Pappu, Zahra Nazari, Longqi
+						Yang, Oguz Semerci, Hugues Bouchard, and Ben Carterette. 2021. Current Challenges and Future
+						Directions in Podcast Information Access. In <em>Proceedings of the 44th International ACM SIGIR
+							Conference on Research and Development in Information Retrieval</em> (SIGIR &rsquo;21).
+						Association for Computing Machinery, New York, NY, USA, 1554&#8211;1565. <a
+							href="https://doi.org/10.1145/3404835.3462805">https://doi.org/10.1145/3404835.3462805</a>
+					</li>
+					<li id="ref-king2010introduction">Irwin King, Michael R. Lyu, and Hao Ma. 2010. Introduction to
+						social recommendation. In <em>Proceedings of the 19th International Conference on World Wide
+							Web</em> (WWW &rsquo;10). Association for Computing Machinery, New York, NY, USA,
+						1355&#8211;1356. <a
+							href="https://doi.org/10.1145/1772690.1772927">https://doi.org/10.1145/1772690.1772927</a>
+					</li>
+					<li id="ref-kladouchou2025internet">Vasiliki Kladouchou, Stephann Makri, Sylwia Frankowska-Takhari,
+						Timothy Neate, Andrew MacFarlane, Stephanie Wilson, and Abi Roper. 2025. "The Internet is Hard.
+						Is Words": Investigating Information Search Difficulties Experienced by People with Aphasia and
+						Strategies for Combatting Them. In <em>Proceedings of the 2025 CHI Conference on Human Factors
+							in Computing Systems</em> (CHI &rsquo;25). Association for Computing Machinery, New York,
+						NY, USA, Article 43, 20 pages. <a
+							href="https://doi.org/10.1145/3706598.3713808">https://doi.org/10.1145/3706598.3713808</a>
+					</li>
+					<li id="ref-knollman2019effects">Kelly Knollman-Porter, Sarah E Wallace, Jessica A Brown, Karen Hux,
+						Brielle L Hoagland, and Darbi R Ruff. 2019. Effects of written, auditory, and combined
+						modalities on comprehension by people with aphasia. <em>American Journal of Speech-Language
+							Pathology</em> 28, 3 (2019), 1206&ndash;1221.</li>
+					<li id="ref-Kobayashi2009">Masatomo Kobayashi, Kentarou Fukuda, Hironobu Takagi, and Chieko Asakawa.
+						2009. Providing synthesized audio description for online videos. In <em>Proceedings of the 11th
+							International ACM SIGACCESS Conference on Computers and Accessibility</em> (Assets
+						&rsquo;09). Association for Computing Machinery, New York, NY, USA, 249&#8211;250. <a
+							href="https://doi.org/10.1145/1639642.1639699">https://doi.org/10.1145/1639642.1639699</a>
+					</li>
+					<li id="ref-edupodcast2">Abhilash Kokala. 2024. Revolutionizing content creation: Leveraging
+						AI-driven podcast generation with NotebookLM and personalized insights. <em>International
+							Research Journal of Modernization in Engineering Technology and Science</em> 6 (Dec. 2024).
+						<a href="https://doi.org/10.56726/irjmets65280">https://doi.org/10.56726/irjmets65280</a>
+					</li>
+					<li id="ref-kries2023acoustic">Jill Kries, Pieter De Clercq, Robin Lemmens, Tom Francart, and Maaike
+						Vandermosten. 2023. Acoustic and phonemic processing are impaired in individuals with aphasia.
+						<em>Scientific Reports</em> 13, 1 (2023), 11208.
+					</li>
+					<li id="ref-Kushalnagar2014">Raja S. Kushalnagar, Gary W. Behm, Joseph S. Stanislow, and Vasu Gupta.
+						2014. Enhancing caption accessibility through simultaneous multimodal information:
+						visual-tactile captions. In <em>Proceedings of the 16th International ACM SIGACCESS Conference
+							on Computers and Accessibility</em> (ASSETS &rsquo;14). Association for Computing Machinery,
+						New York, NY, USA, 185&#8211;192. <a
+							href="https://doi.org/10.1145/2661334.2661381">https://doi.org/10.1145/2661334.2661381</a>
+					</li>
+					<li id="ref-lazar2023framework">Jonathan Lazar. 2023. A Framework for Born-Accessible Development of
+						Software and Digital Content. In <em>Human-Computer Interaction &ndash; INTERACT 2023: 19th IFIP
+							TC13 International Conference, York, UK, August 28 &ndash; September 1, 2023, Proceedings,
+							Part IV</em>. Springer-Verlag, Berlin, Heidelberg, 333&#8211;338. <a
+							href="https://doi.org/10.1007/978-3-031-42293-5_32">https://doi.org/10.1007/978-3-031-42293-5_32</a>
+					</li>
+					<li id="ref-Li2023automaticsummarisation">Daniel Li, Thomas Chen, Alec Zadikian, Albert Tung, and
+						Lydia B Chilton. 2023. Improving Automatic Summarization for Browsing Longform Spoken Dialog. In
+						<em>Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems</em> (CHI
+						&rsquo;23). Association for Computing Machinery, New York, NY, USA, Article 106, 20 pages. <a
+							href="https://doi.org/10.1145/3544548.3581339">https://doi.org/10.1145/3544548.3581339</a>
+					</li>
+					<li id="ref-goalpod">Yu Liang, Aditya Ponnada, Paul Lamere, and Nediyana Daskalova. 2023. Enabling
+						Goal-Focused Exploration of Podcasts in Interactive Recommender Systems. In <em>Proceedings of
+							the 28th International Conference on Intelligent User Interfaces</em>. Association for
+						Computing Machinery, New York, NY, USA, 142&#8211;155. <a
+							href="https://doi.org/10.1145/3581641.3584032">https://doi.org/10.1145/3581641.3584032</a>
+					</li>
+					<li id="ref-lwi2021auditory">Sandy J Lwi, Timothy J Herron, Brian C Curran, Maria V Ivanova, Krista
+						Schendel, Nina F Dronkers, and Juliana V Baldo. 2021. Auditory comprehension deficits in
+						post-stroke aphasia: Neurologic and demographic correlates of outcome and recovery.
+						<em>Frontiers in neurology</em> 12 (2021), 680248.
+					</li>
+					<li id="ref-Mack2021">Kelly Mack, Emma McDonnell, Dhruv Jain, Lucy Lu Wang, Jon E. Froehlich, and
+						Leah Findlater. 2021. What Do We Mean by &ldquo;Accessibility Research&rdquo;? A Literature
+						Survey of Accessibility Papers in CHI and ASSETS from 1994 to 2019. In <em>Proceedings of the
+							2021 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;21). Association
+						for Computing Machinery, New York, NY, USA, Article 371, 18 pages. <a
+							href="https://doi.org/10.1145/3411764.3445412">https://doi.org/10.1145/3411764.3445412</a>
+					</li>
+					<li id="ref-Antiableist">Jennifer Mankoff, Devva Kasnitz, L. Jean Camp, Jonathan Lazar, and Harry
+						Hochheiser. 2024. AI Must Be Anti-Ableist and Accessible. <em>Commun. ACM</em> 67, 12 (Nov.
+						2024), 40&#8211;42. <a
+							href="https://doi.org/10.1145/3662731">https://doi.org/10.1145/3662731</a></li>
+					<li id="ref-mann2019sonic">Larisa Kingston Mann. 2019. Sonic publics| Booming at the margins: Ethnic
+						radio, intimacy, and nonlinear innovation in media. <em>International Journal of
+							Communication</em> 13 (2019), 19.</li>
+					<li id="ref-Martens2015">Hans Martens and Renee Hobbs. 2015. How Media Literacy Supports Civic
+						Engagement in a Digital Age. <em>Atlantic Journal of Communication</em> 23, 2 (March 2015),
+						120&ndash;137. <a
+							href="https://doi.org/10.1080/15456870.2014.961636">https://doi.org/10.1080/15456870.2014.961636</a>
+					</li>
+					<li id="ref-martin2012effects">Nadine Martin, Francine Kohen, Michelene Kalinyak-Fliszar, Anna
+						Soveri, and Matti Laine. 2012. Effects of working memory load on processing of sounds and
+						meanings of words in aphasia. <em>Aphasiology</em> 26, 3-4 (2012), 462&ndash;493.</li>
+					<li id="ref-Morris2017">Reg Morris, Alicia Eccles, Brooke Ryan, and Ian I. Kneebone. 2017.
+						Prevalence of anxiety in people with aphasia after stroke. <em>Aphasiology</em> 31, 12 (March
+						2017), 1410&#8211;1415. <a
+							href="https://doi.org/10.1080/02687038.2017.1304633">https://doi.org/10.1080/02687038.2017.1304633</a>
+					</li>
+					<li id="ref-Moylan2023community">Katie Moylan. 2023. <em>Greater Than the Sum of Its Parts:
+							Community-Building Approaches Across Community Radio</em>. Bloomsbury Publishing Inc. <a
+							href="https://doi.org/10.5040/9781501385278.ch-19">https://doi.org/10.5040/9781501385278.ch-19</a>
+					</li>
+					<li id="ref-Nevsky2023">Alexandre Nevsky, Timothy Neate, Radu-Daniel Vatavu, and Elena Simperl.
+						2023. Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What
+						Should Be Done Next? In <em>ACM International Conference on Interactive Media Experiences</em>
+						(IMX &rsquo;23). Association for Computing Machinery, New York, NY, USA, 1&ndash;21. <a
+							href="https://doi.org/10.1145/3573381.3596159">https://doi.org/10.1145/3573381.3596159</a>
+					</li>
+					<li id="ref-Newcomb1983">Horace M. Newcomb and Paul M. Hirsch. 1983. Television as a Cultural Forum:
+						Implications for Research. <em>Quarterly Review of Film Studies</em> 8, 3 (June 1983),
+						45&ndash;55. <a
+							href="https://doi.org/10.1080/10509208309361170">https://doi.org/10.1080/10509208309361170</a>
+					</li>
+					<li id="ref-OFCOMReport2024">OFCOM. 2024. <em>Audio listening in the UK</em>. OFCOM, London, UK.
+					</li>
+					<li id="ref-Oliveira2011">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Almeida. 2011. An
+						approach to identify requirements for an iTV audio description service. In <em>Proceedings of
+							the 9th European Conference on Interactive TV and Video</em> (EuroITV &rsquo;11).
+						Association for Computing Machinery, New York, NY, USA, 227&#8211;230. <a
+							href="https://doi.org/10.1145/2000119.2000166">https://doi.org/10.1145/2000119.2000166</a>
+					</li>
+					<li id="ref-Orero2020">Pilar Orero, Marta Brescia-Zapata, and Chris Hughes. 2021. Evaluating
+						subtitle readability in media immersive environments. In <em>Proceedings of the 9th
+							International Conference on Software Development and Technologies for Enhancing
+							Accessibility and Fighting Info-Exclusion</em> (DSAI &rsquo;20). Association for Computing
+						Machinery, New York, NY, USA, 51&#8211;54. <a
+							href="https://doi.org/10.1145/3439231.3440602">https://doi.org/10.1145/3439231.3440602</a>
+					</li>
+					<li id="ref-PodcastKeywords">Jimin Park, Chaerin Lee, Eunbin Cho, and Uran Oh. 2024. Enhancing the
+						Podcast Browsing Experience through Topic Segmentation and Visualization with Generative AI. In
+						<em>Proceedings of the 2024 ACM International Conference on Interactive Media Experiences</em>
+						(IMX &rsquo;24). Association for Computing Machinery, New York, NY, USA, 117&#8211;128. <a
+							href="https://doi.org/10.1145/3639701.3656324">https://doi.org/10.1145/3639701.3656324</a>
+					</li>
+					<li id="ref-topicSegmentation">Jimin Park, Chaerin Lee, Eunbin Cho, and Uran Oh. 2024. Enhancing the
+						Podcast Browsing Experience through Topic Segmentation and Visualization with Generative AI. In
+						<em>Proceedings of the 2024 ACM International Conference on Interactive Media Experiences</em>
+						(IMX &rsquo;24). Association for Computing Machinery, New York, NY, USA, 117&#8211;128. <a
+							href="https://doi.org/10.1145/3639701.3656324">https://doi.org/10.1145/3639701.3656324</a>
+					</li>
+					<li id="ref-peaty2025series">Gwyneth Peaty, Kathryn Locke, Kai-Ti Kao, Katie Ellis, and Hersinta.
+						2025. A series of lively impressions: Quality narration and the rise of audio description.
+						<em>Media International Australia</em> 194, 1 (2025), 102&ndash;114.
+					</li>
+					<li id="ref-privitera2024ai">Adam John Privitera, Siew Hiang Sally Ng, Anthony Pak-Hin Kong, and
+						Brendan Stuart Weekes. 2024. AI and aphasia in the digital age: A critical review. <em>Brain
+							Sciences</em> 14, 4 (2024), 383.</li>
+					<li id="ref-edupodcast4">Astri mardila Ramli and Erwin hari Kurniawan. 2018. The Use of Podcast to
+						Improve Students&rsquo; Listening and Speaking Skills for EFL Learners. In <em>Proceedings of
+							the International Conference on English Language Teaching (ICONELT 2017)</em> (iconelt-17).
+						Atlantis Press, New York, USA, 189&ndash;194. <a
+							href="https://doi.org/10.2991/iconelt-17.2018.42">https://doi.org/10.2991/iconelt-17.2018.42</a>
+					</li>
+					<li id="ref-Rander2010">Anni Rander and Peter Olaf Looms. 2010. The accessibility of television news
+						with live subtitling on digital television. In <em>Proceedings of the 8th European Conference on
+							Interactive TV and Video</em> (EuroITV &rsquo;10). Association for Computing Machinery, New
+						York, NY, USA, 155&#8211;160. <a
+							href="https://doi.org/10.1145/1809777.1809809">https://doi.org/10.1145/1809777.1809809</a>
+					</li>
+					<li id="ref-rezapour2022makes">Rezvaneh Rezapour, Sravana Reddy, Rosie Jones, and Ian Soboroff.
+						2022. What Makes a Good Podcast Summary? In <em>Proceedings of the 45th International ACM SIGIR
+							Conference on Research and Development in Information Retrieval</em> (SIGIR &rsquo;22).
+						Association for Computing Machinery, New York, NY, USA, 2039&#8211;2046. <a
+							href="https://doi.org/10.1145/3477495.3531802">https://doi.org/10.1145/3477495.3531802</a>
+					</li>
+					<li id="ref-Rigby2016">Jacob M. Rigby, Duncan P. Brumby, Anna L. Cox, and Sandy J. J. Gould. 2016.
+						Watching movies on netflix. In <em>Proceedings of the 18th International Conference on
+							Human-Computer Interaction with Mobile Devices and Services Adjunct</em>. ACM, New York, NY,
+						USA, 714&ndash;721. <a
+							href="https://doi.org/10.1145/2957265.2961843">https://doi.org/10.1145/2957265.2961843</a>
+					</li>
+					<li id="ref-robson2024impact">Holly Robson, Harriet Thomasson, Emily Upton, Alexander P Leff, and
+						Matthew H Davis. 2024. The impact of speech rhythm and rate on comprehension in aphasia.
+						<em>Cortex</em> 180 (2024), 126&ndash;146.
+					</li>
+					<li id="ref-romero2019accessible">Pablo Romero-Fresco. 2019. <em>Accessible Filmmaking: Integrating
+							translation and accessibility into the filmmaking process</em>. Routledge, London, UK. <a
+							href="https://doi.org/10.4324/9780429053771">https://doi.org/10.4324/9780429053771</a></li>
+					<li id="ref-rose2012guiding">Tanya A Rose, Linda E Worrall, Louise M Hickson, and Tammy C Hoffmann.
+						2012. Guiding principles for printed education materials: Design preferences of people with
+						aphasia. <em>International journal of speech-language pathology</em> 14, 1 (2012), 11&ndash;23.
+					</li>
+					<li id="ref-shyr2024leveraging">Cathy Shyr, Randall W Grout, Nan Kennedy, Yasemin Akdas, Maeve
+						Tischbein, Joshua Milford, Jason Tan, Kaysi Quarles, Terri L Edwards, Laurie L Novak, and
+						others. 2024. Leveraging artificial intelligence to summarize abstracts in lay language for
+						increasing research accessibility and transparency. <em>Journal of the American Medical
+							Informatics Association</em> 31, 10 (2024), 2294&ndash;2303.</li>
+					<li id="ref-sitbon2019turning">Laurianne Sitbon, Ross Brown, and Lauren Fell. 2019. Turning Heads:
+						Designing Engaging Immersive Video Experiences to Support People with Intellectual Disability
+						when Learning Everyday Living Skills. In <em>Proceedings of the 21st International ACM SIGACCESS
+							Conference on Computers and Accessibility</em> (ASSETS &rsquo;19). Association for Computing
+						Machinery, New York, NY, USA, 171&#8211;182. <a
+							href="https://doi.org/10.1145/3308561.3353787">https://doi.org/10.1145/3308561.3353787</a>
+					</li>
+					<li id="ref-SpotifyNews">NewsRoom Spotify. 2023. <em>Everything In Store for Podcast Listeners and
+							Creators This International Podcast Day</em>. Accessed: 2025-08-09. <a
+							href="https://newsroom.spotify.com/2023-09-28/international-podcast-day-transcripts-chapters-show-pages-global/">https://newsroom.spotify.com/2023-09-28/international-podcast-day-transcripts-chapters-show-pages-global/</a>
+					</li>
+					<li id="ref-SpotifyStat">NewsRoom Spotify. 2025. <em>Spotify Reports Second Quarter 2025
+							Earnings</em>. Accessed: 2025-08-09. <a
+							href="https://newsroom.spotify.com/2025-07-29/spotify-reports-second-quarter-2025-earnings/">https://newsroom.spotify.com/2025-07-29/spotify-reports-second-quarter-2025-earnings/</a>
+					</li>
+					<li id="ref-SpotifySupport">Support Spotify. n.d.. <em>Managing episode transcripts on Spotify</em>.
+						Accessed: 2025-08-09. <a
+							href="https://support.spotify.com/us/creators/article/managing-episode-transcripts-on-spotify">https://support.spotify.com/us/creators/article/managing-episode-transcripts-on-spotify</a>
+					</li>
+					<li id="ref-Stappers2017">Pieter Jan Stappers and Elisa Giaccardi. 2017. Research through Design. In
+						<em>The Encyclopedia of Human-Computer Interaction</em>. The Interaction Design Foundation, US,
+						1&ndash;94.
+					</li>
+					<li id="ref-tang2013social">Jiliang Tang, Xia Hu, and Huan Liu. 2013. Social recommendation: a
+						review. <em>Social network analysis and mining</em> 3, 4 (2013), 1113&ndash;1133.</li>
+					<li id="ref-tanveer2022unsupervised">Md Iftekhar Tanveer, Diego Casabuena, Jussi Karlgren, and Rosie
+						Jones. 2022. Unsupervised Speaker Diarization that is Agnostic to Language, Overlap-Aware, and
+						Tuning Free. In <em>Interspeech 2022</em> (Interspeech 2022). ISCA, New York, USA,
+						1481&#8211;1485. <a
+							href="https://doi.org/10.21437/interspeech.2022-10605">https://doi.org/10.21437/interspeech.2022-10605</a>
+					</li>
+					<li id="ref-tremblay2022development">Dominique Tremblay, Annie Turcotte, Nassera Touati, Thomas G
+						Poder, Kelley Kilpatrick, Karine Bilodeau, Mathieu Roy, Patrick O Richard, Sylvie Lessard, and
+						Emilie Giordano. 2022. Development and use of research vignettes to collect qualitative data
+						from healthcare professionals: A scoping review. <em>BMJ open</em> 12, 1 (2022), e057095.</li>
+					<li id="ref-Varley2005">Rosemary A. Varley, Nicolai J. C. Klessinger, Charles A. J. Romanowski, and
+						Michael Siegal. 2005. Agrammatic but Numerate. <em>Proceedings of the National Academy of
+							Sciences</em> 102, 9 (Feb. 2005), 3519&ndash;3524. <a
+							href="https://doi.org/10.1073/pnas.0407470102">https://doi.org/10.1073/pnas.0407470102</a>
+					</li>
+					<li id="ref-villard2019effects">Sarah Villard and Gerald Kidd Jr. 2019. Effects of acquired aphasia
+						on the recognition of speech under energetic and informational masking conditions. <em>Trends in
+							Hearing</em> 23 (2019), 2331216519884480.</li>
+					<li id="ref-Wallace2022">Sarah E. Wallace, Janet Patterson, Mary Purdy, Kelly Knollman-Porter, and
+						Patrick Coppens. 2022. Auditory Comprehension Interventions for People With Aphasia: A Scoping
+						Review. <em>American Journal of Speech-Language Pathology</em> 31, 5S (Oct. 2022),
+						2404&#8211;2420. <a
+							href="https://doi.org/10.1044/2022_ajslp-21-00297">https://doi.org/10.1044/2022_ajslp-21-00297</a>
+					</li>
+					<li id="ref-Walton2018">Tim Walton, Michael Evans, David Kirk, and Frank Melchior. 2018. Exploring
+						object-based content adaptation for mobile audio. <em>Personal and Ubiquitous Computing</em> 22,
+						4 (Feb. 2018), 707&#8211;720. <a
+							href="https://doi.org/10.1007/s00779-018-1125-6">https://doi.org/10.1007/s00779-018-1125-6</a>
+					</li>
+					<li id="ref-Teasers">Sitong Wang, Zheng Ning, Anh Truong, Mira Dontcheva, Dingzeyu Li, and Lydia B
+						Chilton. 2024. PodReels: Human-AI Co-Creation of Video Podcast Teasers. In <em>Proceedings of
+							the 2024 ACM Designing Interactive Systems Conference</em> (DIS &rsquo;24). Association for
+						Computing Machinery, New York, NY, USA, 958&#8211;974. <a
+							href="https://doi.org/10.1145/3643834.3661591">https://doi.org/10.1145/3643834.3661591</a>
+					</li>
+					<li id="ref-Ward2019">Lauren Ward and Ben Shirley. 2019. Personalization in Object-based Audio for
+						Accessibility: A Review of Advancements for Hearing Impaired Listeners. <em>Journal of the Audio
+							Engineering Society</em> 67, 7/8 (Aug. 2019), 584&ndash;597. <a
+							href="https://doi.org/10.17743/jaes.2019.0021">https://doi.org/10.17743/jaes.2019.0021</a>
+					</li>
+					<li id="ref-Ward2018">Lauren Ward, Ben Shirley, and Jon Francombe. 2018. <em>Accessible Object-Based
+							Audio Using Hierarchical Narrative Importance Metadata</em>. Technical Report. BBC. <a
+							href="https://downloads.bbc.co.uk/rd/pubs/whp/whp-pdf-files/WHP395.pdf">https://downloads.bbc.co.uk/rd/pubs/whp/whp-pdf-files/WHP395.pdf</a>
+					</li>
+					<li id="ref-whittaker2019disability">Meredith Whittaker, Meryl Alper, Cynthia L Bennett, Sara
+						Hendren, Liz Kaziunas, Mara Mills, Meredith Ringel Morris, Joy Rankin, Emily Rogers, Marcel
+						Salas, and others. 2019. Disability, bias, and AI. <em>AI Now Institute</em> 8, 11 (2019).</li>
+					<li id="ref-whitworth2015narnia">A Whitworth, S Leit&atilde;o, J Cartwright, J Webster, GJ Hankey, J
+						Zach, D Howard, and V Wolz. 2015. NARNIA: A new twist to an old tale. A pilot RCT to evaluate a
+						multilevel approach to improving discourse in aphasia. <em>Aphasiology</em> 29, 11 (2015),
+						1345&ndash;1382.</li>
+					<li id="ref-Wijnants2021">Maarten Wijnants, Eva Geurts, Hendrik Lievens, Peter Quax, and Wim
+						Lamotte. 2021. Stay Tuned! An Investigation of Content Substitution, the Listener as Curator and
+						Other Innovations in Broadcast Radio. In <em>Proceedings of the 2021 ACM International
+							Conference on Interactive Media Experiences</em> (IMX &rsquo;21). Association for Computing
+						Machinery, New York, NY, USA, 120&#8211;133. <a
+							href="https://doi.org/10.1145/3452918.3458793">https://doi.org/10.1145/3452918.3458793</a>
+					</li>
+					<li id="ref-Wilson2015">Stephanie Wilson, Abi Roper, Jane Marshall, Julia Galliers, Niamh Devane,
+						Tracey Booth, and Celia Woolf. 2015. Codesign for people with aphasia through tangible design
+						languages. <em>CoDesign</em> 11, 1 (Jan. 2015), 21&ndash;34. <a
+							href="https://doi.org/10.1080/15710882.2014.997744">https://doi.org/10.1080/15710882.2014.997744</a>
+					</li>
+					<li id="ref-Wohn2011">D. Yvette Wohn and Eun-Kyung Na. 2011. Tweeting about TV: Sharing Television
+						Viewing Experiences via Social Media Message Streams. <em>First Monday</em> 6, 3 (Feb. 2011). <a
+							href="https://doi.org/10.5210/fm.v16i3.3368">https://doi.org/10.5210/fm.v16i3.3368</a></li>
+					<li id="ref-zhang2025understood">Shizhen Zhang, Shengxin Li, and Quan Li. 2025. <em>Understood:
+							Real-Time Communication Support for Adults with ADHD Using Mixed Reality</em>. arXiv. <a
+							href="https://doi.org/10.48550/ARXIV.2507.18151">https://doi.org/10.48550/ARXIV.2507.18151</a>
+					</li>
+					<li id="ref-Zhao2021">Xinyu Andy Zhao and Crystal Abidin. 2021. TikTok &lsquo;Fox Eye&rsquo; Trend
+						and Everyday Activism: Gen-Z Agency in an Audiovisual Narrative Case Study. In <em>Proceedings
+							of the 22nd Annual Conference of the Association of Internet Researchers.</em> (AoIR
+						&rsquo;21&rsquo;). University of Illinois Libraries, IL, USA. <a
+							href="https://doi.org/10.5210/spir.v2021i0.12267">https://doi.org/10.5210/spir.v2021i0.12267</a>
+					</li>
+					<li id="ref-Zimmerman2007">John Zimmerman, Jodi Forlizzi, and Shelley Evenson. 2007. Research
+						through design as a method for interaction design research in HCI. In <em>Proceedings of the
+							SIGCHI Conference on Human Factors in Computing Systems</em>. ACM, New York, NY, USA,
+						493&ndash;502. <a
+							href="https://doi.org/10.1145/1240624.1240704">https://doi.org/10.1145/1240624.1240704</a>
+					</li>
+				</ol>
+			</section>
+		</article>
+	</main>
+</body>
+
+</html>

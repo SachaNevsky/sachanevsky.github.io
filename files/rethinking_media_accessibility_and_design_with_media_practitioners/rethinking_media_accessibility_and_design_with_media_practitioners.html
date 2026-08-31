@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<title>"You meet the audience at where they&rsquo;re at, not where you want them to be": Rethinking Media
+		Accessibility and Design with Media Practitioners</title>
+	<link rel="stylesheet" href="../papers.css">
+</head>
+
+<body>
+	<a class="skip-link" href="#content">Skip to main content</a>
+	<main id="content">
+		<article>
+			<header>
+				<h1>"You meet the audience at where they&rsquo;re at, not where you want them to be": Rethinking Media
+					Accessibility and Design with Media Practitioners</h1>
+				<section aria-label="Authors">
+					<h2>Authors</h2>
+					<ul>
+						<li>Filip Bircanin, Department of Informatics, King&rsquo;s College London, London, UK. <a
+								href="mailto:filip.bircanin@kcl.ac.uk">filip.bircanin@kcl.ac.uk</a></li>
+						<li>Alexandre Nevsky, Department of Informatics, King&rsquo;s College London, London, UK. <a
+								href="mailto:alexandre.nevsky@kcl.ac.uk">alexandre.nevsky@kcl.ac.uk</a></li>
+						<li>Madeline Cruice, Department of Allied Health, School of Health and Medical Sciences, City St
+							George&rsquo;s, University of London, London, UK. <a
+								href="mailto:m.cruice@citystgeorges.ac.uk">m.cruice@citystgeorges.ac.uk</a></li>
+						<li>Timothy Neate, Department of Informatics, King&rsquo;s College London, London, UK. <a
+								href="mailto:timothy.neate@kcl.ac.uk">timothy.neate@kcl.ac.uk</a></li>
+					</ul>
+				</section>
+				<p>Designing Interactive Systems Conference (DIS &rsquo;26), June 13&ndash;17, 2026, Singapore,
+					Singapore</p>
+				<p>DOI: <a href="https://doi.org/10.1145/3800645.3812914">https://doi.org/10.1145/3800645.3812914</a>
+				</p>
+			</header>
+			<section>
+				<h2>Abstract</h2>
+				<p>Accessibility in screen media is typically framed as services for discrete user groups (e.g. visually
+					impaired users), with HCI work largely focusing on post-production and playback interventions rather
+					than the wider production ecology. We report findings from interviews and workshops with media
+					practitioners spanning pre-production, production, and post-production, surfacing a gap between
+					practitioners&rsquo; orientation toward meeting audiences where they are and the organisational
+					conditions that systematically prevent this. Our thematic analysis shows how access is (a) authored
+					into storytelling and planning when time and creative ownership allow, (b) undermined by fragmented
+					responsibility and remit boundaries across handovers, and (c) constrained by workflow realities and
+					product economics that shape what can be delivered, maintained, and scaled. We also surface
+					frictions between creative intent and end-user comprehension, and between device-level
+					personalisation and source-level authorship. We contribute a design agenda for integrated media
+					accessibility, including principles for making space and time for access, supporting inclusive
+					viewing, and enabling accountable content creation and automation.</p>
+			</section>
+			<section>
+				<h2>CCS Concepts</h2>
+				<p>Human-centered computing: Accessibility theory, concepts and paradigms</p>
+			</section>
+			<section>
+				<h2>Keywords</h2>
+				<ul>
+					<li>Media Accessibility</li>
+					<li>Media and Accessibility</li>
+					<li>Accessibility Media Design</li>
+				</ul>
+			</section>
+			<section class="numbered">
+				<h2>Introduction</h2>
+				<p><em>&ldquo;How people work is one of the best kept secrets in America.&rdquo;</em><br> &mdash; David
+					Wellman</p>
+				<p>In &lsquo;95, Lucy Suchman takes Wellman&rsquo;s provocation to begin her essay as a challenge to
+					design: the way work is actually done is rarely apparent from organisational charts, process models,
+					or the assumptions designers inherit [<a href="#ref-Suchman1995makingWorkVisible">98</a>]. Making
+					work visible by studying the situated judgement, coordination, and politics through which
+					organisations hold together and through which design interventions succeed or fail [<a
+						href="#ref-Suchman1995makingWorkVisible">98</a>] has animated decades of CHI, DIS and CSCW
+					workplace research across domains, including industrial operations [<a
+						href="#ref-ThisIsNotaFish">78</a>], healthcare [<a href="#ref-hospitalorder">97</a>], digital
+					market places [<a href="#ref-DigitalMarketPlaces">57</a>], and service industry [<a
+						href="#ref-orlikowski2019performing">76</a>], to name a few.</p>
+				<figure id="fig-1">
+					<img src="./figures/ecology_diagram_final.png"
+						alt="A two-panel conceptual diagram illustrating the production ecology of media accessibility. Panel (a), labelled &quot;Current Problem,&quot; shows a horizontal timeline divided into four phases: Pre-Production, Production, Post-Production, and Distribution/Broadcast. A teal trapezoid labelled &quot;Creative access window&quot; spans the timeline but narrows from left to right, representing how the opportunity for access authorship diminishes across the lifecycle. An orange shape labelled &quot;Accountability (arrives late)&quot; appears only in the Post-Production and Distribution phases, small at first and growing toward the end. Three vertical purple dashed lines mark handover seams between phases: Seam 1 (Pre&amp;rarr;Production) labelled &quot;mandate missing,&quot; Seam 2 (Production&amp;rarr;Post) labelled &quot;artefacts lost,&quot; and Seam 3 (Post&amp;rarr;Distribution) labelled &quot;layering absent.&quot; Between the two panels, three purple-bordered boxes map each seam to a design direction: &quot;Governable Mandate&quot; addresses Seam 1, &quot;Durable Artefacts&quot; addresses Seam 2, and &quot;Layered Accessibility&quot; addresses Seam 3, with connector lines linking each box to its corresponding seam. Panel (b), labelled &quot;Proposed Ecology,&quot; shows the same four-phase timeline, but now the teal &quot;Creative access window&quot; remains a full-height rectangle sustained across all phases, and the orange &quot;Accountability&quot; bar spans the entire timeline from Pre-Production onward. The three seams are now solid purple lines with checkmarks: &quot;mandate established,&quot; &quot;artefacts persist,&quot; and &quot;layering enabled.&quot; Annotations below each phase summarise the transformation: access is baked in from development, practitioners are empowered upstream, intent travels with artefacts, and audiences meet access work intact. A legend at the bottom defines the teal region as the creative access window (opportunity for access to be authored upstream), the orange region as accountability/governance (when access intent becomes auditable), and dashed purple lines as seams (vulnerable handover points).">
+					<figcaption><strong>Figure 1:</strong> The production ecology of media accessibility. (a) Under
+						current conditions, the creative access window&mdash;the opportunity for access to be authored
+						into production&mdash;narrows progressively across the lifecycle, while accountability
+						mechanisms arrive only at the delivery end. Three handover seams mark where access intent is
+						most vulnerable to loss. (b) When the proposed design directions are enacted, the creative
+						window is sustained and accountability begins upstream. Each seam corresponds to a design
+						direction: Seam 1 (Pre&rarr;Production) is addressed by <em>Governable Mandate</em>; Seam 2
+						(Production&rarr;Post) by <em>Durable Artefacts</em>; Seam 3 (Post&rarr;Distribution) by
+						<em>Layered Accessibility</em>. See Discussion for full elaboration.</figcaption>
+				</figure>
+				<p>Yet &ldquo;<em>how work works</em>&rdquo; is not stable. Contemporary organisations increasingly
+					depend on distributed supply chains, specialist vendors, and short-term contracts, where
+					responsibility is fragmented across handovers while accountability can be diffused across
+					&ldquo;<em>many hands</em>&rdquo; [<a href="#ref-accountabilityManyHands">20</a>]. Similarly, in the
+					media industry production settings are rapidly retooling in response to infrastructural change and
+					automation, including the uptake of generative AI and data-driven pipelines [<a
+						href="#ref-AIinFilm">100</a>]. These shifts make it timely for HCI to re-engage with such
+					ecologies as they are being reconfigured.</p>
+				<p>Screen media production offers a consequential case. In audiovisual accessibility, access is often
+					framed as a bounded set of services; subtitles for d/Deaf and hard-of-hearing audiences, audio
+					description for blind and low-vision audiences delivered downstream once content is
+					&ldquo;locked.&rdquo; Correspondingly, much HCI work has focused on post-production and playback
+					interventions: improving subtitle presentation and placement, developing adaptive or gaze-aware
+					captioning, supporting sign-language presentation in new display formats, and enabling
+					personalisation controls during viewing [<a href="#ref-Crabb2015subtitlePosition">21</a>, <a
+						href="#ref-Kurzhals2020">60</a>, <a href="#ref-Lee2025">62</a>]. This work has produced
+					important advances, but it can also reinforce a retrofit model of access, where &ldquo;accessible
+					media&rdquo; is something appended to an already-finished artefact.</p>
+				<p>What becomes less visible in this model is the production ecology through which accessibility is
+					actually achieved or fails to be achieved. Decisions that shape access are made long before captions
+					are authored. Media accessibility is also shaped by labour conditions and remit boundaries: who can
+					negotiate creative intent with access providers, and who carries responsibility when content crosses
+					organisational seams. Access, in other words, is negotiated infrastructure that travels across
+					pre-production, production, post-production, and platform delivery.</p>
+				<p>Most of the research in media accessibility and design focuses on a set of practices conducted at the
+					end of the technology lifecycle. A notable exception is [<a href="#ref-Cieciura2023">18</a>]&rsquo;s
+					ethnographic work tracing how personalised object-based media (OBM) experiences are produced,
+					showing how new forms of &ldquo;flexible&rdquo; media introduce metadata labour, tooling misfits,
+					and coordination overheads across development and post-production. This study demonstrates the value
+					of following media work across stages and roles when new technical paradigms arrive [<a
+						href="#ref-Cieciura2023">18</a>]. However, how accessibility is organised across everyday screen
+					production, and how interventions beyond standard services might be integrated into production
+					workflows, remains under-explored.</p>
+				<p>In this paper, we make accessibility work visible by studying how media practitioners talk about,
+					negotiate, and enact access across the media lifecycle. As our title signals, our media
+					practitioners already orient toward meeting audiences where they are; what the production ecology
+					repeatedly fails to provide are the conditions for this aspiration to be realised. We report
+					findings from interviews and workshops with 13 media practitioners with an extensive and diverse
+					knowledge spanning pre-production, production, and post-production. We ask: <em>How is media
+						accessibility produced, constrained, and expanded across the screen-media production lifecycle,
+						and what opportunities does this create for HCI to support integrated access in practice?</em>
+					To this end, this study contributes (1) an empirically grounded account of accessibility as a
+					production ecology spanning commissioning, planning, on-set practices, post-production, and platform
+					delivery; and (2) a design agenda for integrated media accessibility, shown in Figure <a
+						href="#fig-1">1</a>. We outline directions for making space and time for access, supporting
+					inclusive viewing, and enabling accountable content creation and automation.</p>
+			</section>
+			<section class="numbered">
+				<h2>Related Work</h2>
+				<h3>Audiovisual Media Accessibility</h3>
+				<p>Audiovisual media combines visual and audio streams that unfold over time, which sets baselines
+					requirements for perceiving both information channels and integrating them as the content progresses
+					[<a href="#ref-Huang2018">48</a>]. From this, accessibility barriers arise when the audio stream is
+					inaccessible, such as for viewers who are d/Deaf of hard of hearing (DHH), or when the visual stream
+					is inaccessible, such as for viewers who are blind or low vision (BLV). The time-sensitive nature of
+					audiovisual media introduces additional processing load [<a href="#ref-Sitbon2019">93</a>], and the
+					heavy reliance on language introduces further comprehension challenges [<a
+						href="#ref-Cartwright2009">14</a>]. To support viewing, therefore, researchers have developed
+					accessibility features that support viewing, often by translating information from one mode to
+					another, most commonly taking the form of subtitles or audio descriptions (AD) [<a
+						href="#ref-Nevsky2023">71</a>]. Subtitles render speech and other meaningful audio information
+					as on-screen text [<a href="#ref-Rander2010">82</a>], while AD translates visual information into a
+					verbalised description of on-screen action [<a href="#ref-Oliveira2011AD">74</a>]. These two
+					accessibility features are shaped by standards for best practice, such as WCAG [<a
+						href="#ref-WCAG">58</a>], and by legal mandates, such as the EU Accessibility Act [<a
+						href="#ref-EUAccessibilityAct">29</a>] or Section 508 [<a href="#ref-FCC1973">31</a>], which set
+					service obligations for providing subtitles and AD.</p>
+				<p>These standard accessibility features were first developed for television viewing [<a
+						href="#ref-Ellcessor2011">27</a>, <a href="#ref-Hanzlicek2008">44</a>], and later extended to
+					web-video [<a href="#ref-Ellcessor2010">26</a>, <a href="#ref-Villena2014webVideo">101</a>], with
+					early research establishing defaults such as reading speed, line length, on-screen placement, and
+					timing for subtitles [<a href="#ref-Rander2010">82</a>]. Subsequent work explored richer semantic
+					layers &mdash; font changes conveying emotion [<a href="#ref-OheneDjan2006">73</a>], animated text
+					representing prosodic features [<a href="#ref-DeLacerdaPataca2023">24</a>, <a
+						href="#ref-Rashid2006">83</a>], and narrative modifications to AD enhancing engagement [<a
+						href="#ref-Walczak2017creativeDescription">105</a>]. Beyond subtitles and AD, sign language
+					interpretation has been studied in flat and immersive displays [<a
+						href="#ref-Vinayagamoorthy2018">102</a>, <a href="#ref-Vinayagamoorthy2019">103</a>], with
+					automated avatar pipelines increasing availability [<a href="#ref-Saunders2020">90</a>]. Haptic and
+					tangible supports can convey spatial relations and emphasis through touch, for example using small
+					robots to represent on-screen elements [<a href="#ref-Guinness2018">39</a>] or adding affective cues
+					to subtitle presentation via a smartwatch [<a href="#ref-DeLacerdaPataca2025">23</a>].</p>
+				<p>As viewing moved onto smartphones and tablets, the constraints of these devices introduced novel
+					barriers, such as reduced readability on small screens [<a href="#ref-GerberMoron2018">35</a>],
+					which required adaptations, such as pause-driven subtitle chunking and layout adjustments [<a
+						href="#ref-Lee2025">62</a>]. Additionally, with this change in device use for viewing, AD could
+					be delivered in a portable setting [<a href="#ref-Walczak2017smartphoneAD">104</a>]. In immersive
+					and 360<sup>&#8728;</sup> viewing contexts, researchers explored how dynamic or speaker-following
+					subtitle positioning could improve experiences for DHH viewers [<a href="#ref-Brown2015">11</a>, <a
+						href="#ref-Crabb2015subtitlePosition">21</a>, <a href="#ref-Rothe2018dynamicSubtitles">88</a>,
+					<a href="#ref-Rothe2018positioningSubtitles">89</a>]. Additionally, guidance cues were explored to
+					help viewers explore their surroundings [<a href="#ref-Hughes2019">49</a>, <a
+						href="#ref-Orero2021">75</a>], alongside broader investigations of social and shared immersive
+					viewing [<a href="#ref-McGill2016">67</a>, <a href="#ref-Mott2020">68</a>]. Eye-tracking has been
+					used to inform subtitle placement and reduce gaze switching [<a href="#ref-Kurzhals2020">60</a>]. AD
+					for immersive formats has incorporated spatial sound to convey scene layout and movement [<a
+						href="#ref-Jiang2023">52</a>]. Recent advances have also made personalisation more accessible
+					during playback, such as with subtitles that can vary complexity and pacing to align with reading
+					needs [<a href="#ref-Gorman2021">36</a>], or AD that can expose controls for description granularity
+					and audio mix so that viewers can match density to scene complexity [<a
+						href="#ref-Natalie2024">69</a>]. Moreover, the development of text-to-video generation
+					machine-learning models [<a href="#ref-Do2025">25</a>, <a href="#ref-Wang2025cinemaster">106</a>],
+					content personalisation is likely to emerge as a standard viewing pattern.</p>
+				<p>Short-form video and live streaming introduce additional time pressure for access services [<a
+						href="#ref-Hammad2023">40</a>]. Much of this media is user generated, which leads to
+					inconsistent subtitling practices on social platforms [<a href="#ref-McDonnell2024">66</a>],
+					including variability in accuracy [<a href="#ref-Li2022">64</a>]. Similar inconsistency occurs in
+					institutional and educational contexts, where studies report low compliance with accessibility
+					practices despite formal obligations [<a href="#ref-Acosta2020">1</a>]. Second-screen viewing
+					changes how people divide attention across devices, which raises questions about when and where to
+					surface accessibility elements [<a href="#ref-Chambers2021">15</a>, <a
+						href="#ref-Rooksby2014">86</a>]. Genre further shapes access needs, with news and
+					learning-oriented content benefiting from slower pacing, signposting, and chaptering to support
+					navigation and comprehension [<a href="#ref-Funnell2019">33</a>, <a href="#ref-Jones2021">53</a>, <a
+						href="#ref-Park2024">77</a>], and BLV audiences reporting distinct preferences for AD style and
+					content that depend on the material [<a href="#ref-Jiang2024">50</a>].</p>
+				<h3>Accessibility in Production</h3>
+				<p>During production, accessibility takes shape through routine creating decisions of production staff
+					in the scripting, editing, and sound design of the media [<a href="#ref-RomeroFresco2019">84</a>].
+					Many of these decisions are translational in nature, localising material to an audience and context
+					within a standardised editorial practice [<a href="#ref-Chaume2019localizing">17</a>], in which
+					switching to a more accessible end product can require additional effort to maintain tone and style
+					[<a href="#ref-RomeroFresco2022">85</a>]. Audiovisual translation theory treats audiovisual media
+					elements (e.g. sound, image, language) as adjustable, guiding choices about how the media is
+					assembled for viewing, as well as for access [<a href="#ref-Chaume2018">16</a>]. [<a
+						href="#ref-Greco2016">37</a>] describes an alternative, participatory view that sees access as
+					cultural participation, placing disabled stakeholders in decisions about how the different
+					audiovisual elements should be assembled [<a href="#ref-Leahy2022">61</a>]. This can be seen in
+					co-created subtitling, in which producers and viewers share authorship [<a
+						href="#ref-PrezGonzlez2012">80</a>], or in collaboration between audio describers and writers or
+					directors, aligning the descriptions with the editorial intent and narrative coherence [<a
+						href="#ref-Perego2014">79</a>]. Accessibility choices can also be made when designing the
+					underlying audiovisual elements, such as embedding access cues in the soundtrack [<a
+						href="#ref-Campbell2024">12</a>, <a href="#ref-Lopez2021">65</a>].</p>
+				<p>Accessibility can also be embedded through the use of flexible media approaches which sees
+					audiovisual media represented as configurable elements with relevant metadata, adapting the content
+					at playback without re-authoring it [<a href="#ref-Armstrong2014">3</a>]. Such adjustable
+					representations can be carrier through authoring and delivery, so that one production can create
+					versions that match viewing needs [<a href="#ref-Armstrong2016">5</a>]. To make this practical,
+					semantic metadata needs to be preserved across the production process, integrating tools into
+					editorial workflows so producers can mark adaptable parts [<a href="#ref-OFCOM2021">47</a>]. This
+					continuity depends on interoperability specifications that define shared data models, ensuring that
+					metadata survives between hand-offs [<a href="#ref-Cieciura2023">18</a>]. Evidence from case studies
+					of flexible media show that such approaches are feasible in real broadcast contexts [<a
+						href="#ref-Evans2017">30</a>], as well as through the development of toolkits to label assets
+					and define rules [<a href="#ref-Armstrong2020">4</a>]. This can be used in narrative personalisation
+					by inserting contextual information at delivery, such as adding contexts from the viewers location
+					to increase engagement [<a href="#ref-Concannon2020">19</a>]. Accessibility can also be improved by
+					allowing viewers to adjust assets and their presentation to meet their needs, such as by associating
+					narrative importance metadata to audio stems, thus allowing DHH viewers to lower decorative audio
+					and improve intelligibility [<a href="#ref-Ward2019">107</a>, <a href="#ref-Ward2018">108</a>]. The
+					same logic can be applied to subtitles, where chunking and pacing are authored as metadata, so that
+					presentation meets the viewers reading needs [<a href="#ref-Gorman2021">36</a>]. More broadly, this
+					accessibility metadata can be treated as a coordinative layer for ensuring access across platforms
+					[<a href="#ref-Kallinikos2011">55</a>], with mappings maintaining consistence accessibility
+					behaviours as the media moves between services [<a href="#ref-Haslhofer2010">45</a>].</p>
+				<p>Production tools and workflows turn these principles into operational practice. Creator-facing
+					subtitle tools, for example, reduce authoring time and improve consistency across user-generated
+					subtitles while keeping editorial control with producers [<a href="#ref-Soe2021">94</a>]. To further
+					support scale without sacrificing quality, semi-automated systems can suggest timings or text that
+					accelerate work under human review for accuracy [<a href="#ref-Yuksel2020">110</a>]. A similar
+					balance appears in AD, where large-language-model assistance can draft descriptions to reduce
+					effort, but workflows retain human oversight to ensure appropriateness [<a
+						href="#ref-Stangl2023">95</a>]. Rather than relying on automation alone, collaboration with BLV
+					describers adds audience accountability into production, aligning detail, terminology, and tone with
+					viewer expectations [<a href="#ref-Jiang2022">51</a>]. As productions grow, novice-expert teaming
+					structures can distribute tasks by skill, allowing for community members to participate while expert
+					review preserves standards [<a href="#ref-Natalie2021">70</a>], or allowing the community to
+					self-moderate in real time, such as community-led authoring of live-stream video [<a
+						href="#ref-Killough2023">56</a>]. These community-centred practices matter because flexibility
+					at playback depends on the choices made during production, thus directly linking end-users with
+					editorial decisions better reflects viewer needs [<a href="#ref-Natalie2024">69</a>]. Seeing the
+					creation of accessibility as socially distributed work helps clarify which artefacts carry
+					information, who edits them, and how responsibility moves across roles [<a
+						href="#ref-Korhonen2021">59</a>]. This also promotes evaluations of outcomes rather than simple
+					presence of features and compliance with regulations that in themselves do not produce a useable
+					experience [<a href="#ref-Ellcessor2010">26</a>], and often overlook diverse needs of individuals
+					and their contexts [<a href="#ref-Lewthwaite2014">63</a>], sidelining problems experienced by
+					minority groups [<a href="#ref-Pfotenhauer2022">81</a>]. Taken together, this body of work has
+					substantially advances media accessibility in terms of services, technologies, and viewer-facing
+					interventions. What remains under-examined, however, is how accessibility is practically produced,
+					negotiated, and sustained across the full media production lifecycle, spanning roles, handovers, and
+					organisational boundaries rather then isolated stages or features.</p>
+			</section>
+			<section class="numbered">
+				<h2>Methodology</h2>
+				<p>This project spanned a year of recruiting and organising interviews and workshops with media
+					practitioners across commissioning, planning, production, post-production, and
+					distribution/delivery. We outline our approach from the positionality of the research team: a group
+					of HCI researchers with a sustained programme of work on accessible audiovisual technologies,
+					oriented around co-design and the development of working prototypes with disabled communities
+					(including people with aphasia). Our prior projects primarily engaged post-production and
+					post-post-production moments (e.g. the authoring, rendering, and delivery of access assets; and how
+					audiences interact with accessible experiences). The motivation for the present paper was to
+					understand what this &ldquo;downstream&rdquo; vantage point systematically misses: how earlier
+					cycles shape what becomes possible later, and how access work is negotiated, constrained, or
+					foreclosed before it ever becomes a &ldquo;feature&rdquo; a prototype can meaningfully address.</p>
+				<p>We were prompted by a recurrent mismatch between (a) what our co-designed prototypes attempted to
+					change in the accessible viewing experience and (b) the organisational and industrial realities that
+					condition whether such changes can be commissioned, resourced, produced, assured and delivered. We
+					positioned access clearly as something that does not begin &lsquo;in post&rsquo;; but making an
+					assumption that is rather materialised by who holds budgets, who sets schedules, who owns
+					deliverables, and who controls distribution. [<a href="#ref-branson2023accessible">9</a>]&rsquo;s
+					account of <em>&ldquo;accessible filmmaking&rdquo;</em> makes this point clear: accessibility is
+					shaped by economic, historical, and social conditions, and the failures that emerge when trying to
+					practice access reveal the complexity of the networks that assemble in the first place. We assumed
+					that media accessibility cannot be reduced to individual goodwill or to isolated stages of
+					broadcasting; rather disabling practices pervade all stages and remain precarious across
+					film&rsquo;s ongoing life, from budgeting through streaming. This orientation helped us articulate
+					why a methods approach centred only on audience interaction (or only post-production craft and
+					design) would be structurally incomplete risking mistaking downstream symptoms for upstream causes.
+				</p>
+				<p>Following this logic, our study design deliberately broadened the unit of analysis to an ecology of
+					access production wanting to understand how <em>accessibility</em> travels across all media cycles:
+					if access is produced through handovers, contracts, schedules, different views, and institutional
+					routines, then it must be studied with the people who enact those routines.</p>
+				<p>Our theoretical stance &ndash; which shaped our thematic analysis [<a href="#ref-Braun2022">10</a>]
+					is grounded in critical disability studies and aligned with the most recent and critical work by
+					scholars like [<a href="#ref-Hamraie2019">43</a>] aligned with their idea to treat accessibility as
+					political, contested, and infrastructural rather than neutral or purely technical. We centre
+					disabled lived experience through the co-design relationships that informed our prototypes and the
+					questions we brought to practitioners. We treat accessibility as a matter of power &mdash; who is
+					assumed to be the default audience, whose labour remains invisible &mdash; and approach
+					practitioners&rsquo; accounts not as neutral descriptions but as situated expressions of remit,
+					risk, and time pressure."</p>
+				<p>Finally, we draw on critical media access perspectives that caution against celebrating accessibility
+					as an unqualified good without examining the frictions and contradictions that underpin it. [<a
+						href="#ref-Alper2021">2</a>] argues for analysing <em>access</em> as contested and fluid process
+					shaped by institutional and infrastructural constraints, and by uneven distributions of social and
+					economic resources. This framing resonates with our conceptual and methodological choice to move
+					beyond prototype evaluation in isolation and conduct interviews and workshops across examining
+					different production cycles.</p>
+				<h3>Recruitment</h3>
+				<figure id="fig-2">
+					<img src="./figures/timeline.png"
+						alt="Horizontal project timeline spanning January 2025 to October 2025, organised into four stages. Stage 1 covers recruitment and initial interviews focused on roles, challenges, accessibility limits, and creative intent. Stage 2 includes Workshop 1 and a prototype demo conducted via Teams and a Miro board. Stage 3 involves household field deployment, Workshop 2, and presenting preliminary results, alongside iterative refinement of prompts, questions, focus, and insights. Stage 4 includes Workshop 3 with access coordinators, additional interviews, and a final project demo.">
+					<figcaption><strong>Figure 2:</strong> Project Timeline</figcaption>
+				</figure>
+				<p>Recruitment began in early 2025 with outreach to two of the UK&rsquo;s national broadcasters and
+					continued until the end of the study in late October 2025. Our initial point of contact was
+					established through a personal connection, who introduced us to a Head of Access Technology. This
+					relationship then shaped a two-month recruitment strategy to identify additional interviewees with
+					relevant experience across production cycles.</p>
+				<p>Because accessibility work is often entangled with organisational risk, reputation, and contractual
+					obligations, recruitment and participation required careful handling. Recognising that industry
+					representatives may face institutional constraints on candid critique, we built anonymity into the
+					study&rsquo;s methodological foundations from the outset &mdash; framing participation as an
+					opportunity to reflect on practices, constraints, and opportunities, with no attribution to
+					identifiable productions, organisations, or individuals.</p>
+				<p>In the first recruitment round, we circulated a letter of intent, a recruitment flyer, and a short
+					project description via internal mailing lists. In parallel, our primary contact supported targeted
+					recruitment by identifying practitioners with long-standing industry experience and by ensuring
+					coverage of complementary roles (e.g. production engineering, access coordination, and accessibility
+					management). This process successfully brought in four additional participants with extensive
+					knowledge of media accessibility across production and post-production. We then used snowball
+					sampling to extend recruitment into pre-production and production, leveraging early
+					participants&rsquo; networks to reach further practitioners with relevant responsibilities.
+					Alongside this, our research team drew on personal contacts to recruit content creators and
+					freelancers with substantial media experience.</p>
+				<p>We aimed to speak with practitioners who either had direct experience working on accessibility or
+					were motivated to reflect on accessibility because they considered it an important and
+					under-addressed aspect of contemporary production. In total, we recruited 13 media practitioners
+					(see Table <a href="#tab-2">2</a>), each with 10+ years of experience spanning pre-production,
+					production, and post-production. Three participants disclosed that they themselves have
+					disabilities; two others shared that they have a close family member or partner with a disability,
+					which also shaped their engagement with the topic.</p>
+				<p>Participants&rsquo; professional backgrounds reflect the uneven and sometimes project-specific nature
+					of accessibility work. Many had worked across numerous productions where accessibility was not
+					treated as a central topic, alongside other projects where access was explicitly commissioned or
+					mandated. Several participants had held access-focused roles (e.g. access coordination) on screen
+					work while also engaging accessibility in adjacent domains such as theatre, including pre-production
+					planning and consultancy. Some participants worked as audio describers for blind audiences, and in a
+					small number of cases this intersected with their own lived experience of disability. Employment
+					arrangements also reflected the fragmented nature of the sector: only five of the 13 participants
+					held permanent contracts with broadcaster organisations, with the remainder working freelance or on
+					fixed-term/project-based arrangements.</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-1-caption" tabindex="0">
+					<table id="tab-1">
+						<caption id="tab-1-caption"><strong>Table 1:</strong> List of participants in the workshops and
+							across interviews</caption>
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>P1</td>
+								<td>Principal AC*</td>
+							</tr>
+							<tr>
+								<td>P2</td>
+								<td>Head of Technology for Accessibility</td>
+							</tr>
+							<tr>
+								<td>P3</td>
+								<td>AC; Audio Describer consultancy; TV and Theatre, 15+y</td>
+							</tr>
+							<tr>
+								<td>P4</td>
+								<td>AC; Race Consultant; Writer; TV and Film, 15+y</td>
+							</tr>
+							<tr>
+								<td>P5</td>
+								<td>AC; TV and Film production, 15+y</td>
+							</tr>
+							<tr>
+								<td>P6</td>
+								<td>AC; Editorial Consultant; film and industry, 10+y</td>
+							</tr>
+							<tr>
+								<td>P7</td>
+								<td>Head of Production Technology</td>
+							</tr>
+							<tr>
+								<td>P8</td>
+								<td>Accessibility Manager; Digital Access</td>
+							</tr>
+							<tr>
+								<td>P9</td>
+								<td>AC; Film and TV, under 10y</td>
+							</tr>
+							<tr>
+								<td>P10</td>
+								<td>AC; Intimacy Coordinator; Film and TV, 10+y</td>
+							</tr>
+							<tr>
+								<td>P11</td>
+								<td>Production and director assistant; independent filmmaker, 5+y</td>
+							</tr>
+							<tr>
+								<td>P12</td>
+								<td>Independent filmmaker, 3+y</td>
+							</tr>
+							<tr>
+								<td>P13</td>
+								<td>Independent filmmaker, 3+y</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-2-caption" tabindex="0">
+					<table id="tab-2">
+						<caption id="tab-2-caption"><strong>Table 2:</strong> List of participants in the workshops and
+							across interviews</caption>
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>P1</td>
+								<td>Principal AC* - permanent</td>
+							</tr>
+							<tr>
+								<td>P2</td>
+								<td>Head of Technology for Accessibility</td>
+							</tr>
+							<tr>
+								<td>P3</td>
+								<td>AC; Audio Describer consultancy; In TV and Theatre for 15+y</td>
+							</tr>
+							<tr>
+								<td>P4</td>
+								<td>AC; Race Consultant; Writer, In TV and Film for 15+y</td>
+							</tr>
+							<tr>
+								<td>P5</td>
+								<td>AC; in TV and Film production for 15+y</td>
+							</tr>
+							<tr>
+								<td>P6</td>
+								<td>AC; Editorial Consultant; 10+y in film and industry</td>
+							</tr>
+							<tr>
+								<td>P7</td>
+								<td>Head of Production Technology</td>
+							</tr>
+							<tr>
+								<td>P8</td>
+								<td>Accessibility Manager; Digital Access</td>
+							</tr>
+							<tr>
+								<td>P9</td>
+								<td>AC; In Film and TV under 10+y</td>
+							</tr>
+							<tr>
+								<td>P10</td>
+								<td>AC; Intimacy Coordinator; In Film and TV for 10+y</td>
+							</tr>
+							<tr>
+								<td>P11</td>
+								<td>Production and director assistant; independent filmmaker; 5+y</td>
+							</tr>
+							<tr>
+								<td>P12</td>
+								<td>Independent filmmaker; 3+y</td>
+							</tr>
+							<tr>
+								<td>P13</td>
+								<td>Independent filmmaker; 3+y</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>* <em>Access Coordination is a newly established role within the industry (and still an evolving one)
+						that sits primarily in pre- and on-set production as a dedicated point of contact for disability
+						or any additional access related needs. In practice, access coordinators (ACs) identify,
+						anticipate, and coordinate reasonable adjustment for cast and crew translating their needs into
+						workable changes while liaising across departments.</em></p>
+				</p>
+				<h4>Project Stages and Methods Used</h4>
+				<p>The project progressed through a sequence of linked stages (see Figure <a href="#fig-2">2</a>) that
+					deliberately moved from network building and shared framing, to hands-on demonstration, to in-situ
+					evidence, and finally to production-facing accounts of feasibility and constraint.</p>
+				<h5>STAGE 1</h5>
+				<p><strong>Recruitment &ndash; 2 months</strong>. We focused on assembling a cross-role participants
+					base through ongoing exchange and snowball sampling, resulting in a final list for the first
+					workshop.</p>
+				<p><strong>Workshop 1; May 2025</strong> established a common reference point by bringing
+					partner&rsquo;s broadcaster work into conversation with our own, particularly through a live
+					demonstration of prototype features <em>co-designed</em> with people with aphasia. The workshop was
+					held via MS Teams, with a Miro Board functioning as both the session framework and prompting tool
+					(see Figure <a href="#fig-3">3</a>). It structured the agenda and project aims, presented four
+					carefully selected vignettes as bespoke accessibility interventions (e.g. simplified subtitles for
+					people with aphasia), embedded a short walk-through video of the prototype, and offered designated
+					spaces for media practitioners to map barriers, opportunities, workflow optimisation needs, and
+					pathways for integrating new technologies. The co-designed prototypes were largely taken prima facie
+					as solutions envisioned by people with aphasia, which shifted the conversation away from critiquing
+					them and toward constructively exploring how they might be integrated into production workflows.</p>
+				<h5>STAGE 2</h5>
+				<p>A plan <strong>two-month</strong> interval followed to enable field deployments, allowing prototypes
+					to be trialled in realistic contexts and producing concrete experiences &ndash; frictions,
+					workarounds, and situated successes &ndash; that could be brought back into collaborative space.</p>
+				<p><strong>Workshop 2; late July 2025</strong> was explicitly organised around these deployments
+					insights. Rather than revisiting concepts in abstract, the session used lived experience to push
+					toward a more pragmatic discussion of integration: what organisational conditions, evidentiary
+					requirements, and coordination would be needed for such solutions to reach people&rsquo;s
+					households.</p>
+				<h5>STAGE 3</h5>
+				<p><strong>Workshop 3; two weeks later</strong> extended the analysis to sector specific infrastructure
+					by engaging Access Coordinators, including newly recruited AC and a lead AC. With a similar workshop
+					skeleton, discussions focused on AC roles and responsibilities, constraints of the job, recurrent
+					challenges across productions, and opportunities for change in the wide media ecosystem.</p>
+				<p>Building on this expanded contact base, we then shifted to individual interviewing to accommodate
+					practitioners&rsquo; schedules and capture role-specific depth.</p>
+				<h5>STAGE 4</h5>
+				<p><strong>Interviews; Aug-Oct 2025</strong> comprised six one-to-one interviews with media
+					practitioners and content creators. These retained core concerns from Workshop 1 but foregrounded
+					individual accounts of accessibility limits, day-to-day problem solving, and the perceived
+					trade-offs such as tensions with time, remit, and artistic vision through which accessibility is
+					negotiated in practice.</p>
+				<p>Across all stages, each encounter informed the next: insights from workshops shaped what we deployed;
+					deployment experiences reshaped the second workshop; Access Coordinator perspectives widened the
+					production lens; and interviews consolidated fine-grained accounts of how accessibility work is
+					accomplished, constrained, and handed over across the production ecology.</p>
+				<figure id="fig-3">
+					<img src="./figures/workshop-agenda.png"
+						alt="Composite figure showing five workshop artefacts from a co-design study on accessible audio media. Panel (a) presents a workshop agenda slide outlining context setting, discussion of user challenges, idea generation, and critique. Panel (b) shows an introductory slide explaining aphasia and its accessibility challenges, with example media content. Panel (c) displays anonymised co-creation vignettes describing bespoke design interventions, with participant images blurred for privacy. Panel (d) shows a prototype video interface demonstrating a bespoke intervention (visual background blur). Panel (e) presents a clustered affinity diagram of barriers, opportunities, and workflow optimisation themes identified during the workshop.">
+					<figcaption><strong>Figure 3:</strong> Workshop Agenda. This agenda fluctuated between stages but
+						its core approach has stayed the same - presented above. a) workshop agenda outline b)
+						introductory slide explaining what key accessibility audiovisual challenges are for people with
+						aphasia c) co-created vignettes describing bespoke accessible intervention d) a video prototype
+						demonstration that shows 5 different audiovisual accessible interventions - background blur e)
+						affinity diagram listing barriers, opportunities and workflow optimisation captured in real-time
+						during the workshop</figcaption>
+				</figure>
+				<h3>Data Analysis</h3>
+				<p>All video recorded sessions were transcribed via a locally-hosted transcription model, and collated
+					into a single qualitative corpus (workshop and interviews). We analysed the corpus using reflective
+					thematic analysis (RTA) [<a href="#ref-Braun2022">10</a>], treating themes as interpretative
+					outcomes of an iterative reflexive engagement with the data rather than <em>discovered</em>
+					categories. Our analysis was additionally shaped by the methodological lens outlines earlier:
+					<em>accessibility as production ecology</em> that is negotiated across roles, handovers, and
+					organisational seams, and as a practice entangled with power, visibility, and normative expectations
+					about <em>good</em> access.</p>
+				<p>We imported transcripts into NVivo and conducted an initial round of open, line-by-line coding to
+					stay close to participants&rsquo; language and situated examples. This first cycle prioritised
+					semantic coding while also capturing latent concerns (implicit hierarchies of expertise, anxieties
+					about &rsquo;breaking rules&rsquo;). We wrote and visualised analytic memos (via Miro Board)
+					alongside coding to document developing interpretations and to note tensions, absences and
+					contradictions. From this first cycle we assembled a codebook in NVivo helping us navigate the
+					dataset treating them as descriptive prompts rather than indicators of prevalence or importance.</p>
+				<p>In the second analytic cycle, we moved from codes to candidate themes by clustering codes that spoke
+					to the same underlying organisational concern and production actions (e.g. how access is
+					&rsquo;baked in&rsquo; vs &rsquo;bolted on&rsquo;; how access labour travels or fails to travel; how
+					standards and proof of quality are negotiated). We iteratively refined themes by returning to raw
+					extracts seeking boundary cases and rewriting themes in the memo. This led to foregrounding who can
+					act on access at particular moments (and why), and how responsibilities become distributed,
+					displaced, or rendered <em>someone else&rsquo;s problem</em> across the production ecology.</p>
+			</section>
+			<section class="numbered">
+				<h2>Findings</h2>
+				<p>We present the findings as an account of access-in-the-making, tracing how practitioners align
+					production decisions with the realities of audience experience. We surface four overarching themes
+					that broadly follow the production cycle&mdash;starting with pre-production, where access is first
+					imagined, negotiated, and scaffolded, and then moving through production and post-production, where
+					these early commitments are tested, translated, and sometimes constrained as work becomes more
+					distributed and time-critical. At the same time, several subthemes necessarily cut across stages:
+					practitioners described no clean handoffs or clear-cut boundaries, but ongoing adjustments across
+					roles, vendors, and delivery contexts. The final theme steps back from any single phase to examine
+					who access is imagined to be for, and what happens when those assumptions are unsettled. Read
+					cumulatively, these themes make a single case: access failure in screen media is not a matter of
+					individual negligence or bad intent, but of a production ecology that repeatedly marginalises access
+					through the interaction of creative convention, remit boundaries, economic constraint, and
+					unexamined assumptions about audience.</p>
+				<h3>Access as Creative Grammar</h3>
+				<p>Across our workshops and interviews, media practitioners did not talk about access only as something
+					that gets added at the end. Instead, they often described accessibility as a creative matter that is
+					shaped by everyday production choices. These choices include how dialogue is written, how scenes are
+					paced, how shots are framed, and what is made possible through planning and production routines.</p>
+				<h4>Access as Convention, not Compromise</h4>
+				<p>Practitioners repeatedly challenged the idea that accessibility necessarily conflicts with creative
+					intent. Two media practitioners expressed a strong sentiment arguing that the the idea of accesses
+					can be shifted in terms of the conventions audiences already accept manipulating the <em>&ldquo;TV
+						Tropes&rdquo; (<strong>P5</strong>)</em>. These conventions can be adjusted so that programmes
+					have room for captions, interpretation, or audio description <em>&ldquo;It&rsquo;s less rules,
+						it&rsquo;s more tropes... we all know and recognise and we expect [them].&rdquo;</em> They
+					further continue expanding the argument to make this design move more explicit. To this end,
+					accessibility is described as requiring &ldquo;space and time&rdquo;, but not necessarily major
+					changes <em>&ldquo;Accessibility does require space and time... I don&rsquo;t think it&rsquo;s a
+						massive adjustment... it&rsquo;s just a slight adjustment and actually you are not damaging the
+						story&ldquo;</em>. <strong>P3</strong> echoes this fear in more practical terms. They argue that
+					this is often not a problem of possibility, but a problem of how access is positioned in the
+					creative process and who is trusted to work with it <em>&ldquo;They assume, well, if I start
+						throwing all this extra text... or customization... then I won&rsquo;t have done what I wanted
+						to do&rdquo;</em>.</p>
+				<h4>How to: Diegetic Access and Embedded Design</h4>
+				<p>On the other hand, while acknowledging the complexity of the matter <strong>P6</strong>,
+					<strong>P5</strong>, and <strong>P3</strong> have insisted that in those cases where <em>access
+						interventions</em> confront the creative intent edits can be <strong>minimal</strong> but a
+					significant breakthrough for disabled groups <em>&ldquo;Those compromises&hellip; are very, very
+						small&rdquo; (<strong>P5</strong>).</em></p>
+				<p>Alongside captions and audio description as separate deliverables, practitioners described
+					accessibility as something that can be built into the fabric of a programme. <strong>P6</strong>
+					points to how access can be shaped early through writing and sound, for example through more
+					descriptive dialogue and recognisable sonic cues that carry meaning without extra explanation:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P6</th>
+								<th scope="col">Embedding audio descriptions sometimes can be done a little bit within
+									the script, just in the sense of using more descriptive dialogue.</th>
+							</tr>
+							<tr>
+								<th scope="col">R1</th>
+								<th scope="col">Yes.</th>
+							</tr>
+							<tr>
+								<th scope="col">P6</th>
+								<th scope="col">It wasn&rsquo;t on a project like Code of Silence, but I&rsquo;ve worked
+									on something where I do know that the DP was sort of very much thinking about
+									captions and sort of how he was framing the shots [...]</th>
+							</tr>
+							<tr>
+								<th scope="col">P6</th>
+								<th scope="col">...horror films they&rsquo;ll have the villain has like a key chain that
+									like makes a noise... you hear that noise and you associate it... and so you
+									don&rsquo;t need... the description doesn&rsquo;t need to be that that
+									person&rsquo;s arrived on screen.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p>Similarly, <strong>P3</strong> argues that access can be treated as part of the creative work, not
+					something that arrives after the fact. They give a concrete example of audio description (AD) being
+					anticipated and supported through writing and timing decisions <em>&ldquo;If that creative audio
+						description is embedded in the script and the audio description itself is given time to do what
+						it needs to do... then that&rsquo;s all there. And those choices can be made.</em></p>
+				<p><strong>P11</strong> described <em>in-scene</em> reinforcement as a practical facilitator, noting
+					that sometimes <em>&ldquo;what she&rsquo;s saying, it&rsquo;s shown on the screen ... when
+						it&rsquo;s happening&rdquo;</em> effectively treating comprehension as something the scene can
+					actively scaffold rather than a service added later.</p>
+				<p>Other media practitioners illustrated moments in the production process where upstream changes are
+					still possible, telling us that what is often assumed to be fixed or already decided in the script
+					and creative goals can, in fact, be renegotiated. In an exchange with <strong>P4</strong>,
+					opportunities to adjust for access are described as living in the writing room and casting process,
+					including very late-stage script revisions:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">R1</th>
+								<th scope="col">It seems that most directors don&rsquo;t think about accessibility as
+									such?</th>
+							</tr>
+							<tr>
+								<th scope="col">P4</th>
+								<th scope="col">Yeah, I also, I also think you need to go back a bit. It&rsquo;s also
+									the writer as well</th>
+							</tr>
+							<tr>
+								<th scope="col">R1</th>
+								<th scope="col">Ok, ok</th>
+							</tr>
+							<tr>
+								<th scope="col">P4</th>
+								<th scope="col">Because it&rsquo;s still early on in the scripting, you could actually
+									probably change the writing... weeks before, sometimes days before they start
+									filming, they&rsquo;re still writing the damn thing. So, there is still process
+									within production that it can be changed. .</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p>Media practitioners argued for an opportunity to reframe <em>access</em> as aesthetic material that
+					is not delivered to audiences, but rather performed as dramaturgy <em>&ldquo;what I do for a theatre
+						companies mostly is actually attempt to embed it into the fabric of the show [...] You meet an
+						audience where they&rsquo;re at, not where you want them to be&rdquo;</em> providing alluring
+					examples:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">R1</th>
+								<th scope="col">Do you have a concrete example?</th>
+							</tr>
+							<tr>
+								<th scope="col">P3</th>
+								<th scope="col">The idea that sound on stage is audio description</th>
+							</tr>
+							<tr>
+								<th scope="col">R1</th>
+								<th scope="col">How that works?</th>
+							</tr>
+							<tr>
+								<th scope="col">P3</th>
+								<th scope="col">If you are placing the chairs down, if you just go BANG as you put it
+									down. That is audio description. You just go harder, you bang it so that everyone
+									can hear it.</th>
+							</tr>
+							<tr>
+								<th scope="col">P3</th>
+								<th scope="col">Or you are putting it there, don&rsquo;t just say there&rsquo;s a chair
+									there, go to the chair, make noise that chairs are here, you can drag it, just make
+									a sound.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p>While practitioners mostly responded from within their own roles and experiences, our prototypes
+					extending beyond audio description and subtitles, prompted them to consider how access might be
+					expanded and embedded earlier, particularly around comprehension: <em>&ldquo;It is all about seeing
+						and hearing, but it&rsquo;s also about comprehension. Take Nolan&rsquo;s movie Inception [...]
+						When he is going into the new world with an actress that is sort of the new world builder. They
+						are changing the landscape but they&rsquo;re actually talking about how they&rsquo;re doing it
+						just because they need to tell the audience this is happening. (<strong>P3</strong>)&rdquo;</em>
+				</p>
+				<p><strong>P12</strong> suggests that when confusion is an intentional narrative device, accessibility
+					can take the form of gentle orientation rather than explanation: a <em>&ldquo;little
+						warning&rdquo;</em> that <em>&ldquo;if you don&rsquo;t understand why things are happening,
+						it&rsquo;s on purpose&rdquo;</em>. At the same time, they caution against overdoing this support
+					<em>&ldquo;don&rsquo;t think that your audience is stupid&rdquo;</em> arguing that any prompt should
+					be <em>&ldquo;helpful enough&rdquo;</em> without flattening the viewing experience. </p>
+				<p><strong>Findings Synthesis</strong>: These findings challenge the assumption that access necessarily
+					begins at the point of delivery. When practitioners have creative ownership and sufficient lead
+					time, access is not an add-on but a composable grammar embedded in how scenes are written, paced,
+					and designed. The following section examines what happens when those conditions do not hold: when
+					practitioners carry the expertise but not the mandate to act on it.</p>
+				<h3>Navigating the Remit Trap</h3>
+				<h4>Quiet Infrastructure and the Disclosure Bottleneck</h4>
+				<p>Across our interviews and workshops, practitioners described access coordination as work that is
+					mostly felt when it is missing. Much of it happens through relationship-building, troubleshooting,
+					and making access needs legible to production without making individuals carry the burden of
+					explanation. <strong>P3</strong>, for example, describes the value of an access coordinator as a
+					mediator who can gather requirements and feed them back to production &ldquo;without any
+					awkwardness&rdquo;. <em>&ldquo;...someone who can... report back to production with that
+						information... just say you need to do this, this and this, for this person, without any
+						awkwardness or feeling like they have to work it out for themselves.&rdquo;</em></p>
+				<p>At the same time, this infrastructure relies on disclosure channels that are often fragile.
+					<strong>P5</strong> explains that productions may hire an access coordinator to provide a point of
+					contact, but this can also produce an assumption that access is already &ldquo;covered&rdquo;.
+					<em>&ldquo;...there can be an expectation that, well, we&rsquo;ve got an access coordinator and so
+						we&rsquo;re covered... and there isn&rsquo;t necessarily thought put into. So now
+						what?&rdquo;</em></p>
+				<p>In the same account, <strong>P5</strong> contrasts how cast are routinely guided around set because
+					their presence is operationally critical, while crew are expected to self-navigate. They link this
+					to stigma around requesting support <em>&ldquo;As standard actors are led around... the same is not
+						true of crew. Crew are almost always left to their own devices. ...I make it clear that people
+						can call me... it can be done verbally as well... but the uptake... is very low across the whole
+						industry.&rdquo;</em></p>
+				<p>Similarly, <strong>P3</strong> notes that reporting and support routes differ across networks and
+					productions, and are not always experienced as welcoming. <em>&ldquo;...every network seems to have
+						a slightly different attitude... [and] their own way of reporting... and it isn&rsquo;t
+						particularly welcoming.&rdquo;</em></p>
+				<p>Most of the performed around on-set accessibility is essential for production, relational and often
+					invisible <em>&ldquo;We&rsquo;re not even in a lot of credits ... people aren&rsquo;t seeing access
+						coordination ... (<strong>P3</strong>).&rdquo;</em>. Most of the work performed in production
+					time is analogous to firefighting <em>&ldquo;You are like a detective... a counsellor and also a
+						negotiator ... you are constantly fighting with the production about access.&rdquo;</em> All
+					media practitioners, especially those with the experience of coordinating access during the
+					production time have to come up with ad hoc access solutions for either crew or cast. These
+					interventions are to a large extent creative and generated on the spot <em>&ldquo;People come to you
+						with all kinds of issues, back pain, noise levels, bright lights, issues that need
+						re-adjustments pre and during production. (<strong>P4</strong>)&rdquo;</em> Such adjustments
+					vary and are situation and person-specific <em>&ldquo;Have you thought about ear defenders, not the
+						big ones, those inner ones ... Ok, let us look at the lighting. Can we get rid of one strip. You
+						simply go and you negotiate with the production team. It is often minor things, and people are
+						not aware we can easily fix that(<strong>P4</strong>)&rdquo;</em></p>
+				<h4>Paperwork Access and Wayfinding</h4>
+				<p>Our findings show that access work on productions often begins with mundane coordination artefacts,
+					especially call sheets (see Figure <a href="#fig-4">4</a>) and on-site navigation.
+					<strong>P5</strong> notes that call sheets on large productions are <em>&ldquo;incredibly
+						complex&rdquo;</em> documents where information is <em>&ldquo;crammed onto a page&rdquo;</em> in
+					<em>&ldquo;the tiniest font size&rdquo;</em>, making them <em>&ldquo;horrible documents to look at
+						and read&rdquo;</em>. In response, they describe producing <em>&ldquo;an easy read call
+						sheet&rdquo;</em> that contains <em>&ldquo;just the most basic information&rdquo;</em>. They
+					also point to unit-base navigation as another practical access site, describing how unit base can be
+					<em>&ldquo;quite difficult to navigate around&rdquo;</em> and proposing simple wayfinding cues such
+					as truck signage paired with coloured shapes so people can locate key spaces <em>&ldquo;but people
+						aren&rsquo;t having to read signs&rdquo;</em>.</p>
+				<figure id="fig-4">
+					<img src="./figures/easy-read-call-sheet-page1.png"
+						alt="An easy-read call sheet laid out as a large-print table with icons. At the top it states &amp;ldquo;This document is highly confidential,&amp;rdquo; followed by &amp;ldquo;Name of Show,&amp;rdquo; &amp;ldquo;Call Sheet 1,&amp;rdquo; &amp;ldquo;Main Unit,&amp;rdquo; and the date &amp;ldquo;Monday 1st September, 2025.&amp;rdquo; Rows pair simple black icons (map pin/map, caravan, clock, film camera, plate and cutlery) with key production details: today&amp;rsquo;s filming location (Queen Elizabeth Hall, Southbank Centre, London SE1 8XX), unit base address (Southbank Centre Food Market, Belvedere Road, London SE1 8XX), shooting hours (8am&amp;ndash;6pm), scenes being filmed (1/22, 2/12, 2/13, 4/6 part 1/3), and meal times (breakfast 7am&amp;ndash;8am; lunch 1pm&amp;ndash;1:30pm)">
+					<figcaption><strong>Figure 4:</strong> Easy Read Call Sheet - This template shows how Access
+						Coordinators turn complicated studio call sheets into an easy read template to be used on the
+						set</figcaption>
+				</figure>
+				<h4>The Compliance Ecology Problem</h4>
+				<p>Access coordination at production time is often described as work that depends on permission and
+					persuasion rather than clear obligation. Practitioners repeatedly return to the fact that access is
+					easiest to do when it is commissioned early and named as part of the job, but much harder to raise
+					when it sits outside a contract or is treated as an optional enhancement.</p>
+				<p><strong>P3</strong> explains that access tends to be brought in late, which makes the role feel like
+					catching problems midstream rather than shaping them upstream: <em>&ldquo;I might be bought in two
+						weeks before production starts filming. So all of that stuff has happened. Casting has probably
+						happened.&rdquo;</em> They add, at present, <em>&ldquo;we&rsquo;ve only got carrots at the
+						moment. We can only show them the benefits. We can&rsquo;t force them&rdquo;</em> and frames
+					this as a gap between what is expected in other workplaces and what is tolerated in screen
+					production.</p>
+				<p>Across the workshop with access coordinators, <strong>P6</strong> makes the same boundary tangible by
+					contrasting two job labels. As an Access Coordinator, they are unlikely to initiate story-level
+					changes. As an Editorial Consultant, they can: <em>&ldquo;If my contractor literally said access
+						coordinator... it&rsquo;s not something I&rsquo;m likely to bring up. Whereas on projects where
+						I&rsquo;m there as an editorial consultant... embedding audio description into dialogue... that
+						would be my remit.&rdquo;</em>. <strong>P1</strong> links this to what broadcasters and
+					organisations actually ask for. They describe a persistent uncertainty about how far the role is
+					allowed to expand and who gets to decide what &ldquo;counts&rdquo; as access work.</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P1</th>
+								<th scope="col">There&rsquo;s definitely a disconnect... I do always wonder whether
+									that&rsquo;s where the role is potentially going to expand.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p><strong>P5</strong> captures how this remit uncertainty can also show up as a false sense of
+					completion. They note that productions may assume access is &ldquo;handled&rdquo; once a role
+					exists, even if the work is under-resourced or late: <em>&ldquo;We&rsquo;ve got an access
+						coordinator and so we&rsquo;re covered.&rdquo;</em> In the workshop with post-production media
+					practitioners, <strong>P1</strong> offers a parallel example of how priorities become legible to
+					organisations through sponsorship and <em>&ldquo;what&rsquo;s the big topic at the
+						moment...sustainability has been at the forefront for a while now and lot of sponsorship have
+						been focused around sustainability&rdquo;</em>, suggesting that what becomes enforceable is
+					often what becomes strategically valuable and visible. <strong>P2</strong> offers a similar example,
+					as they the historically first AD live sport event with the funding coming from an external sponsor
+					<em>&ldquo;Live audio description for sport I think is where we are going to see a lot more of that,
+						essentially replacing the commentary with effectively a commentary for the blind and partially
+						sighted. This was sponsored by a third party commercial sponsor and they covered a large chunk
+						of it. But you&rsquo;re kind of then beholden to them, always wanting the sponsor.&rdquo;</em>
+				</p>
+				<h4>Agency Without Mandate (Beyond the Tick-Box)</h4>
+				<p>Across our interviews and workshops with Access Coordinators (ACs), practitioners repeatedly framed
+					accessibility as a space for practical innovation. They offered numerous examples of small, workable
+					adjustments and described how their situated presence can quietly raise baseline practice and
+					confidence across departments. Yet this expertise rarely translates into upstream influence over
+					what ultimately appears on screen, because ACs often do not feel invited&mdash;or entitled&mdash;to
+					comment beyond what is formally commissioned. This remit uncertainty is persistent: participants
+					described that story- and content-level interventions can feel inappropriate to propose when
+					one&rsquo;s contract is narrowly scoped to access coordination, even when the same practitioner
+					might be authorised to raise them under a different job label.</p>
+				<p>As a result, access coordination can be positioned as a form of assurance rather than creative or
+					editorial collaboration, producing a sense of tokenistic inclusion: <em>&ldquo;The production will
+						hire freelancers, they&rsquo;ll look at taking freelancers and taking us on board. But sometimes
+						it feels like they are using us for a bit of like &rsquo;ticky box&rsquo;.&rdquo;
+						(<strong>P9</strong>)</em> This is compounded by the fact that access coordination remains an
+					emergent role with uneven leverage. Many ACs hold substantial cross-project knowledge because they
+					routinely occupy adjacent accessibility roles (e.g. AC on one production, audio describer on
+					another), yet still describe limited agency to propose protocols, policies, or systematic change.
+				</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">R</th>
+								<th scope="col">Does this mean you can create protocols, policies, or suggest ideas that
+									would help production companies?</th>
+							</tr>
+							<tr>
+								<th scope="col">P10</th>
+								<th scope="col">We wish, we wish, we wish.</th>
+							</tr>
+							<tr>
+								<th scope="col">P9</th>
+								<th scope="col">Yeah.</th>
+							</tr>
+							<tr>
+								<th scope="col">P6</th>
+								<th scope="col">They can sometimes take our advice and choose to. But that&rsquo;s not
+									us making any change. That&rsquo;s them choosing to make change.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p>Several ACs nevertheless emphasised that the role has value through presence alone as a means of
+					normalising access conversations and upskilling crews: <em>&ldquo;That is why this role was created
+						so that we could upskill the everybody.&rdquo; (<strong>P9</strong>)</em> However, practitioners
+					also articulated a sharp disconnect between on-set accessibility problem-solving and what audiences
+					finally receive at home, describing a gap produced by outsourcing, late-stage handovers, and
+					fragmented responsibility across the production ecology.</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">R</th>
+								<th scope="col">Do you think your role as an AC can affect the content that is
+									ultimately produced and what audiences receive at the end of the cycle?</th>
+							</tr>
+							<tr>
+								<th scope="col">P1</th>
+								<th scope="col">That&rsquo;s a really good question. There&rsquo;s a massive gap between
+									what we do on a set and then what the audience gets to see at home.</th>
+							</tr>
+							<tr>
+								<th scope="col">R</th>
+								<th scope="col">Yeah. Ok. Hmm.</th>
+							</tr>
+							<tr>
+								<th scope="col">P1</th>
+								<th scope="col">Subtitling. More often than not this is outsourced and the company
+									won&rsquo;t know who is doing it until a week before it&rsquo;s airing or after it
+									is aired. But take (large movie project) into account. This is a great example of
+									where our role has definitely kind of blend into what it&rsquo;s going to look like
+									a final product.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p><strong>Findings Synthesis:</strong> Taken together, these dynamics reveal access coordination as
+					quietly essential infrastructure, relational, improvisational, and structurally undervalued.
+					Practitioners hold cross-production knowledge and situated judgment that could meaningfully shape
+					access outcomes; yet their remits consistently constrain the scope of that intervention. A role
+					exists, but authority, documentation, and upstream influence often do not travel with it.</p>
+				<h3>Product Economics and Accountable Automation: Post-Production Realities</h3>
+				<p>Practitioners frequently framed accessibility through the language of cost, resourcing, and
+					trade-offs. Rather than treating access as a purely ethical commitment, they described how decisions
+					are shaped by where budgets sit, when work enters the pipeline, and how much rework is created when
+					accessibility is left until the end.</p>
+				<h4>Accessibility as Cost and Timing</h4>
+				<p><strong>P5</strong> argues that accessibility becomes expensive when it is not planned early. He
+					frames cost as a consequence of timing and workflow, rather than an inherent property of disability:
+					<em>&ldquo;Disability doesn&rsquo;t have to be that expensive... it&rsquo;s expensive at the moment
+						because people aren&rsquo;t factoring in... thinking about it earlier does make it... cheaper...
+						faster.&rdquo;</em>. They then give a concrete example of why late-stage access work is costly.
+					Captioning, signing, and audio description are often produced by different teams, sometimes after
+					the programme moves platform or is rebroadcast. This is as a &ldquo;backward way&rdquo; of working
+					because accessibility becomes the last thing that happens (<strong>P5</strong>).</p>
+				<p><strong>P7</strong> and <strong>P2</strong> similarly describe cost as tied to expectations of
+					quality and where transformations are applied. <strong>P2</strong> suggests audiences may accept
+					lower-quality processing when it is user-controlled on a device, while broadcaster-led upstream
+					versions must meet higher standards and therefore higher costs:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P2</th>
+								<th scope="col">&ldquo;If people are choosing to apply something under their own
+									control, using their own device, they would accept lower quality... Whereas if we do
+									it... upstream and present it properly, it&rsquo;s going to need to be done properly
+									and polished and be expensive.&rdquo;</th>
+							</tr>
+							<tr>
+								<th scope="col">P2</th>
+								<th scope="col">&ldquo;...we can achieve quite a lot... inexpensively using the
+									capability of the devices... and if you try and polish it too much... it will cost
+									it out of the market.&rdquo;</th>
+							</tr>
+							<tr>
+								<th scope="col">P7</th>
+								<th scope="col">&ldquo;...there are really good software solutions out there that
+									suppress background noise... the capabilities are there and as P2 says people are
+									more lenient about quality&rdquo;</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p><strong>P3</strong> also links progress to financial and organisational momentum. He describes
+					accessibility improvements as dependent on political will and financial push aligning, and
+					vulnerable to broader market shifts: <em>&ldquo;...there&rsquo;s a political will behind this,
+						there&rsquo;s a sort of financial push behind this and those things need to line up... If
+						companies stop making product... that&rsquo;s going to push us back.&rdquo;</em></p>
+				<h4>Pipeline Seamwork</h4>
+				<p>Participants repeatedly describe access work as distributed across teams, vendors, and timelines,
+					which makes it vulnerable at the seams. These seams show up as late-arriving materials, and
+					handovers where nobody &ldquo;owns&rdquo; continuity of access from set to final distribution.</p>
+				<p>In the access coordinators workshop, <strong>P1</strong> describes the access services team as
+					arriving last to the materials they need: <em>&ldquo;They are the last possible people to get the
+						final version of the script... if they get it at all.&rdquo;</em> They connect this to a wider
+					mismatch between what happens during production and what survives into release:
+					<em>&ldquo;There&rsquo;s definitely... a disconnect between what&rsquo;s achieved on sets versus
+						what then is the final product.&rdquo;</em>. <strong>P5</strong> similarly describes how
+					captions, signing, and audio description are often produced away from the original production team,
+					sometimes only after a programme changes context or platform: <em>&ldquo;A lot of the captioning
+						signing etcetera... is not done by the same people who made the programme... sometimes not even
+						done by the broadcaster... it&rsquo;s the last thing that happens which does make it more
+						expensive.&rdquo;</em> <strong>P3</strong> gives a concrete example of what gets lost when
+					distribution shifts: <em>&ldquo;A show might have audio description and captions and all that sort
+						of stuff when it comes out on our channel. And then another third party picks it up. And then
+						this third party doesn&rsquo;t take that accessibility across.&rdquo;</em>.</p>
+				<p>Workshop discussions with post-production and technology specialists add a data-layer version of the
+					same seam. <strong>P2</strong> argues that production workflows discard the structure needed for
+					later automation and adaptation: <em>&ldquo;We throw away too much metadata in the production
+						process. It&rsquo;s very lossy.&rdquo;</em> They push for scripts and assets to be delivered as
+					data rather than scanned documents, because then <em>&ldquo;we can then start to do stuff like that
+						&rsquo;automagically&rsquo; ... translate... produce condensed forms.&rdquo;</em> In this
+					account, seamwork is not only organisational but also informational: access interventions become
+					harder when the underlying materials are degraded by the pipeline.</p>
+				<h4>Thresholds, Metrics, and Equivalence</h4>
+				<p>What is a <em>&ldquo;good&rdquo;</em> intervention is justified through audience metrics and proxy
+					population estimates. <strong>P8</strong> and <strong>P2</strong> describe how a major broadcast
+					organisation estimates by combining platform telemetry with charity statistics: <em>&ldquo;We do
+						have viewing numbers... We can tell who&rsquo;s had subtitles turned on, who&rsquo;s watched the
+						sign language or the audio description version (<strong>P8</strong>)&rdquo;</em>.
+					<strong>P2</strong> adds <em>&ldquo;We also tend to use stats from the big charities, so RNIB,
+						RNID... blend those numbers in... and you can start to extrapolate down.&rdquo;</em></p>
+				<p>Practitioners discussed how automation is repeatedly evaluated against prior human work and formal
+					thresholds. <strong>P2</strong> is explicit that automation only matters if it produces the same
+					output standard as existing workflows: <em>The key thing is, did it do the same job that the humans
+						were doing before? What&rsquo;s the accuracy... and we can measure.&rdquo;</em>. They further
+					anchor this in regulator-facing performance measures: <em>&ldquo;Ofcom... measure us against a
+						measurement similar to that, and we need to be able to achieve a minimum of 98%... so that gives
+						us two errors in every 100 words.&rdquo;</em> naming the specific measurement model used to
+					score the subtitle accuracy (ie., NER).</p>
+				<h4>Accountable Automation: Reliability, Prep Work, and Operational Savings</h4>
+				<p>In the second workshop practitioners framed automation as valuable when it reduces operational labour
+					rather than shifting it. <strong>P7</strong> and <strong>P2</strong> stressed that the operational
+					saving depends on running systems unattended: <em>&ldquo;For us the key is to have something that we
+						can prep in advance and then run unattended. Otherwise there&rsquo;s no operational saving... If
+						you have to pay somebody to watch it, you might as well just pay that person to do
+						it.&rdquo;</em></p>
+				<p>At the same time, <strong>P7</strong> describes the hidden preparation that makes
+					&ldquo;reliable&rdquo; automation possible in live contexts. Because news contains many named
+					entities, a team pre-loads terms from the running order to increase accuracy: <em>The day&rsquo;s
+						news is variable and contains many named entities... [we] add those... to squeeze a few more
+						percentage points of accuracy.&rdquo;</em> <strong>P2</strong> then warn that intervention can
+					become counterproductive if it grows into a second job: <em>If people spend so long doing the
+						prep... they might as well have spent that time doing the job.&rdquo;</em></p>
+				<p>While <strong>P12</strong> welcomed device-side effects such as highlighting and slowing down, they
+					tied their legitimacy to authorship and intent, insisting that changes happen <em>&ldquo;only with
+						the supervision of the director&rdquo;</em> and warning that what seems like
+					<em>&ldquo;background noise&rdquo;</em> can be narratively loaded and <em>&ldquo;there for a
+						reason&rdquo;</em>. When prompted with an AI platform that would apply such effects
+					automatically, <strong>P12</strong> rejected it outright <em>&ldquo;Yeah, that is awful&rdquo;</em>
+					and <em>&ldquo;No, don&rsquo;t do that&rdquo;</em> and instead argued for human negotiation and
+					role-based guidance, proposing an accessibility consultant analogous to an intimacy coordinator or
+					sustainability consultant.</p>
+				<p><strong>P13</strong> pushes for accessibility as opt-in <em>&ldquo;add-ons&rdquo;</em> rather than
+					automatic transformation, stressing that <em>&ldquo;it&rsquo;s very important to give people freedom
+						to choose what they want to do, not have it forced&rdquo;</em>. <strong>P13</strong> further
+					suggests lightweight cues that let viewers decide when to activate support (e.g., <em>&ldquo;warning
+						signs&rdquo;</em> for a <em>&ldquo;difficult Scottish accent&rdquo;</em>), and proposes a
+					minimal overlay borrowed from autism-friendly screenings: <em>&ldquo;a red dot traveling on the
+						screen to point your attention towards the right thing.&rdquo;</em> Further <strong>P13</strong>
+					argues adaptations should preserve authored meaning by <em>&ldquo;aiming to create the same
+						experience with different tools&rdquo;</em> and <em>&ldquo;not trying to create a different
+						experience&rdquo;</em>, but only if they <em>&ldquo;don&rsquo;t require creators to spend like
+						extra money&rdquo;</em>.</p>
+				<h4>Technical Barriers and Opportunities: Devices and Platforms</h4>
+				<p>A large portion of the work discussed in the post-productions focused on where accessibility
+					functionality could realistically live responding our research team&rsquo;s demonstration of novel
+					accessible audiovisual interventions for people with complex communication needs.</p>
+				<p>In our first workshop media practitioners linked technical opportunity to knowledge management.
+					<strong>P2</strong> describes how production knowledge is often word-of-mouth and can leave the
+					industry when people retire. He frames the need for a directory and documented case studies of
+					accessible production solutions: <em>&ldquo;There&rsquo;s not a very easy way of propagating
+						stuff... production is... ephemeral... when people retire, some knowledge can just go out of our
+						industry.&rdquo;</em></p>
+				<p>Practitioners identified the set-top box as a plausible site for device-level personalisation
+					<strong>P7</strong>, while noting that platform fragmentation &mdash; different code bases across
+					Amazon Fire, Apple TV, and others &mdash; constrains feature parity <strong>P2</strong>. They also
+					reframed personalisation as an interaction design problem, pointing to tangible controls already
+					normalised in post-production (e.g. jog shuttle dials) as models for viewer-facing adjustments that
+					prioritise immediacy over menu navigation (see Figure <a href="#fig-5">5</a>).</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P7</th>
+								<th scope="col">In post-production we use something called a jog shuttle dial to quickly
+									change direction and speed. Easy to handle, a more tangible, physical thing. I am
+									not saying this is a solution, but just an example, of a control with macro buttons
+									to do functions instantly</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<figure id="fig-5">
+					<img src="./figures/jog-dial.png"
+						alt="Screenshot of a Logitech product webpage showing a dial/jog shuttle-style creative controller (&amp;ldquo;dialpad&amp;rdquo;) in graphite. The page includes multiple product images of the device with a large circular dial and programmable buttons (some labelled with app shortcuts such as Pr and Ae), a promotional photo of a person using it at a computer, and purchasing interface elements such as an &amp;ldquo;Add to cart&amp;rdquo; button, description, and expandable sections for specs/compatibility. A blurred vertical strip appears along the right edge of the screenshot">
+					<figcaption><strong>Figure 5:</strong> A screenshot of dial/jog creative controller shared during
+						the Workshop 2 to explain potential for innovative end-user tactile interface</figcaption>
+				</figure>
+				<p><strong>Findings Synthesis:</strong> Across these findings, post-production emerges not as the phase
+					where access is finally delivered, but as the phase where the costs of earlier fragmentation
+					accumulate. Tight thresholds govern what counts as quality; lossy pipelines discard the metadata
+					that makes later adaptation possible; automation promises efficiency but redistributes rather than
+					eliminates labour etc. These constraints are not primarily technical, they are organisational and
+					economic, shaped by where budget sits, and what vendors are contractually held to. The next section
+					steps back from any single production stage to ask a more foundational question running beneath all
+					of these practical pressures: who is access imagined to be <em>for</em>, and what happens when those
+					assumptions are challenged.</p>
+				<h3>Expanding the Access Horizon: Representation Politics</h3>
+				<p>Across the dataset, practitioners repeatedly questioned the idea that accessibility is only a set of
+					services for discrete groups. Instead, they described access as something that travels across
+					households, across disabilities, and across viewing situations. This is an important lens shift
+					affecting what counts as a relevant audience, and what kinds of access interventions are worth
+					designing for.</p>
+				<h4>Situated Standards of &ldquo;Accuracy&rdquo; (and Who They Serve)</h4>
+				<p>Discussions about &ldquo;quality&rdquo; repeatedly returned to how accessibility is <em>made
+						legible</em> through standards, and how those standards encode assumptions about audiences. In
+					Workshop 2, <strong>P5</strong> described subtitle accuracy as one of the few accessibility domains
+					where a relatively stable compliance regime exists within the broadcaster&rsquo;s ecosystem
+					&mdash;including agreed expectations about verbatimness&mdash;yet emphasised that these norms are
+					neither universal nor timeless. Rather, they reflect historically contingent research, lobbying, and
+					national conventions: for example, the national preference for verbatim subtitles was linked to
+					prior audience research, while other countries have historically prioritised reading speed or
+					textual correctness.</p>
+				<p>Crucially, the same conversation highlighted the limits of transferring an &ldquo;accuracy&rdquo;
+					frame beyond subtitling. Compared with subtitle metrics (and regulatory benchmarks), media
+					practitioners pointed to the absence of any equivalent mechanism for judging the
+					&ldquo;accuracy&rdquo; or usefulness of audio description, foregrounding how evaluation becomes more
+					contested once we move from transcription like services to interpretive, experiential supports.
+					These issues were brought in the light our team&rsquo;s novel audiovisual accessibility work (e.g.
+					simplification, slowing down, spotlighting, audio-mix control) intended to support comprehension
+					across heterogeneous needs. To meet the audiences where they are at cannot rely on a single
+					inherited metric.</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P5</th>
+								<th scope="col">There is consensus in our country. France tends to go for textual
+									accuracy. The Netherlands got very stuck on reading speed. Our country media
+									regulator &hellip; advises us to achieve [a baseline model] and that&rsquo;s how we
+									measure it. If you compare that with audio description, there is no mechanism for
+									marking the accuracy it&rsquo;s all subjective.</th>
+							</tr>
+							<tr>
+								<th scope="col">P1</th>
+								<th scope="col">Yeah, that&rsquo;s kind of what I&rsquo;m thinking about &hellip; you
+									want it to be adjustable per person, but also useful to a wide range of people
+									&hellip; not even just for people with aphasia, but &hellip; a much wider audience.
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p>From a creators perspective, <strong>P11</strong> pointed out that for people with aphasia, access is
+					not solved by simply translating modalities arguing that <em>&ldquo;subtitles &hellip; audio
+						descriptions &hellip; sign language &hellip;don&rsquo;t really work&rdquo;</em> when you problem
+					is language in general.</p>
+				<h4>The Missing Access Layer</h4>
+				<p>A recurring barrier in our findings is that accessibility is not consistently present in the
+					materials and routines that guide creative work. <strong>P1</strong> explains how certain studio
+					formats already assume particular abilities, which then reduces momentum to design for access
+					earlier:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P1</th>
+								<th scope="col">So naturally the content is not accessible to everyone within the
+									studio, so therefore there&rsquo;s not like that push to to make it more accessible
+									to to an audience... because it&rsquo;s just not kind of what it&rsquo;s catered
+									for.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p>Reflecting on their post-production challenges <strong>P2</strong> points to
+					<em>&ldquo;lossy&rdquo;</em> workflows where practitioners describe how a wide range of pre and
+					production data exists, but is rarely retained in reusable forms because there is little perceived
+					value or mandate to keep it:</p>
+				<div class="table-wrap" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">P2</th>
+								<th scope="col">What I&rsquo;m trying to push for is for scripts to be delivered in data
+									form... If we can get them delivered in data form rather than there&rsquo;s a scan
+									of a photocopy or a random word doc, we can then start to do stuff like that
+									automatically... we throw away too much metadata in the production process.
+									It&rsquo;s very lossy... it&rsquo;s difficult to preserve that information because
+									there&rsquo;s no onus on us to do that.</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<h4>Access as Shared Viewing: Diverse Households and Co-Viewing</h4>
+				<p>While practitioners spoke about accessibility across all production cycles, they consistently
+					oriented accessibility around the viewer, their profile and shared viewing habits, as the thread
+					that must hold if access is to stretch across the whole media cycle. Practitioners explicitly framed
+					accessibility as a household and social phenomenon, not an individual accommodation.
+					<strong>P8</strong> points to &ldquo;inclusive households&rdquo; as a driver for design, where
+					access settings and supports become part of everyday shared viewing rather than a specialist feature
+					used by a small group. <em>&ldquo;...a big area... [is] inclusive households... you could have deaf
+						or partially hearing parents... and children, together ... It&rsquo;s kind of like inclusive
+						households.&rdquo;</em></p>
+				<p>This was further extended in why co-viewing as a habit, behaviour and belief is important and fairly
+					neglected from the production side, and in general the broadcasters themselves. Again, as previously
+					mentioned above <strong>P2</strong> describes live audio description for sport as useful not only
+					for blind audiences, but for helping groups follow the action together in noisy, socially dynamic
+					settings: <em>&ldquo;...audio description in sport is so useful... you&rsquo;re holding your beer...
+						you&rsquo;re looking away... and it keeps you... in the game.&rdquo;</em></p>
+				<p>Across interviews, <strong>P3</strong> makes a similar point by describing embedded description as
+					something that can support multiple impairments at once. They frame this as serving a wider audience
+					than the category implied by traditional AD provision: <em>&ldquo;...it helps across disabilities...
+						you&rsquo;re actually thinking about your audience a lot more... it always makes the end product
+						better because you&rsquo;ve served a wider audience, not just the visually impaired.&rdquo;</em>
+				</p>
+				<h4>Beyond Ramps and Optics: Expanding What Counts as Access</h4>
+				<p>Practitioners also described a broadening of what the industry recognises as accessibility.
+					<strong>P2</strong> characterises a growing awareness that access is not only about physical
+					barriers, and that production teams are beginning to understand access needs beyond the most visible
+					markers: <em>&ldquo;...there is a better understanding of what it means to be accessible beyond just
+						is there a wheelchair ramp.&rdquo;</em></p>
+				<p>Three practitioners agree that there is missing link with the lived experience of disabilities.
+					Directors who plan for a wider audience in pre-production are those with personal disability
+					experience or stronger social awareness <em>&ldquo;...the directors I&rsquo;ve worked with... who
+						have really thought about a more diverse audience are either people who have a lived experience
+						of disability... or people who are just... more socially conscious.
+						(<strong>P5</strong>)&rdquo;</em></p>
+				<p>This widening horizon also includes tensions about visibility and representation. <strong>P5</strong>
+					describes moments where they would encourage more visible disability on screen, for example through
+					extras or everyday markers of access, because disability is often missing from mainstream depictions
+					unless it is explicitly part of a programme&rsquo;s ethos. <em>&ldquo;...it&rsquo;d be great if some
+						[extras] had visible disabilities... or... a sunflower lanyard... we get an idea that there is a
+						more diverse world happening.&rdquo;</em></p>
+				<p>This, in fact, comes through strongly in an interview with <strong>P4</strong> in which they name the
+					ambiguity of &ldquo;disabled washing&rdquo; as a strategic concern. They pose it as an open question
+					rather than a settled critique, asking whether increased disability presence in media is meaningful
+					change or a symbolic strategy <em>&ldquo;...it&rsquo;s always like... green washing is a bad
+						thing... is it a good thing a bad thing... I don&rsquo;t know. It&rsquo;s still up for
+						grabs.&rdquo;</em> P4 contrasted this with other national industries, noting that Korean drama
+					routinely includes disabled side characters in ways that remain exceptional in UK production.</p>
+				<p><strong>Findings Synthesis</strong>: Considered together, these findings unsettle the categorical
+					boundaries through which access is conventionally understood. Standard service provision like
+					subtitles for the deaf and audio description for the blind fails to capture the access needs of
+					inclusive households, socially dynamic co-viewing contexts, and audiences for whom language itself
+					is the barrier. Equally, the accuracy regimes that govern quality reflect particular national
+					histories and lobbying configurations rather than universal viewer experience. What practitioners
+					articulate across this section is not a demand for more features, but for a different imaginary.</p>
+			</section>
+			<section class="numbered">
+				<h2>Discussion</h2>
+				<p>Our findings position accessibility not as a discrete &ldquo;feature&rdquo; appended at delivery, but
+					as a continual negotiation across a production ecosystem shaped by handovers, remits, budgets, and
+					who is (and is not) in the room. This resonates with media-accessibility scholarship critiquing
+					dominant industrial models where translation and access services are treated as downstream work with
+					limited dialogue between makers and access practitioners [<a href="#ref-RomeroFresco2019">84</a>].
+					It also echoes arguments that accessibility should not remain an &ldquo;afterthought&rdquo; to a
+					supposedly complete &ldquo;original,&rdquo; but be treated as a constitutive part of the cinematic
+					object and its authorship [<a href="#ref-branson2023accessible">9</a>]. What our findings make
+					visible is not only accessibility being handled late in the workflow, but the organisational
+					conditions that repeatedly push it to the end: fragmented responsibility, shifting ownership of
+					assets, and the absence of artefacts that carry access intent across handovers. Practitioners we
+					talked to know what good access looks like, they articulate it as meeting audiences where they are,
+					not where the industry wants them to be but the ecology they inhabit turns this aspiration into an
+					individual achievement rather than a systemic property.</p>
+				<p>This tension has been demonstrated in inclusive theatre, where directors collaboratively iterate with
+					access teams through rehearsal attentive practices [<a href="#ref-fryer2021integrated">32</a>].
+					Practitioners in our study pointed to analogous possibilities in screen work, but also a key
+					constraint: in broadcast contexts, access-related decisions are already &ldquo;locked in&rdquo; by
+					the time access expertise enters. This turns inclusion into <em>inclusionism</em> [<a
+						href="#ref-branson2023accessible">9</a>], a pragmatic problem-solving rather than upstream
+					shaping of scripts, pacing, and information infrastructure.</p>
+				<h4>Positioning: Three Registers of Intervention</h4>
+				<p>Existing frameworks address adjacent but distinct problems, each operating at a different register.
+					<em>Universal Design</em> operates at the <strong>normative register</strong>: minimum standards
+					mandated through regulators such as Ofcom provide a necessary floor [<a
+						href="#ref-carmichael2006digital">13</a>, <a href="#ref-rose2002teaching">87</a>]. However,
+					UD&rsquo;s trajectory has been critiqued for progressively abstracting away from disabled
+					users&rsquo; specific needs in favour of a &ldquo;design for everyone&rdquo; rationale that
+					depoliticises access [<a href="#ref-hamraie2016universal">41</a>, <a
+						href="#ref-hamraie2017building">42</a>]. Private broadcasters assembling productions across
+					short-term contracts cannot be moved beyond the regulatory floor by a universal design principle
+					alone. Romero-Fresco&rsquo;s <em>accessible filmmaking</em> [<a href="#ref-RomeroFresco2019">84</a>]
+					operates at the <strong>creative register</strong>, proposing the director of accessibility and
+					translation (DAT) as an upstream role. This seems like a genuine advance centred on directorial
+					agency most available in auteur and documentary contexts where a single creative vision can be
+					enforced. Engineering approaches such as [<a href="#ref-badii2009accessibility">6</a>]&rsquo;s
+					&ldquo;accessibility-by-design&rdquo; framework operate at the <strong>technical register</strong>,
+					proposing automated adaptation profiles at the delivery layer while observing that
+					&ldquo;accessibility considerations are taken into account at the very last stage.&rdquo;</p>
+				<p>Our HCI contribution operates at a fourth register: the organisational governance register. The
+					question is not what access should look like at any given stage, but what analytical orientations,
+					design artefacts, and accountability structures are required to make upstream access agendas
+					<em>durably achievable</em> across a fragmented broadcast industry in which creative decisions are
+					distributed across dozens of short-term contractors who may never share a room. We structure this
+					contribution in two tiers. First, we offer an empirically grounded analytical orientations that
+					redirect HCI attention toward dimensions of media accessibility that existing frameworks
+					underspecify. Second, we derive from these a <em>design agenda</em> comprising three directions
+					organised around the production lifecycle&rsquo;s vulnerable seams (see Figure 1), functioning as
+					intermediate-level design knowledge [<a href="#ref-dalsgaard2014between">22</a>, <a
+						href="#ref-hook2012strong">46</a>] concrete enough to generate specific research programmes.</p>
+				<h3>Two Reframings</h3>
+				<p>We offer two sensitising reframings [<a href="#ref-blumer2017wrong">7</a>], analytical lenses that
+					help design researchers <em>notice</em> dimensions of media accessibility that existing frameworks
+					underspecify.</p>
+				<h4>Access as authored, not appended</h4>
+				<p>The dominant model of media accessibility treats the cinematic object as complete and access as a
+					downstream translation: subtitles render speech as text, audio description verbalises visual
+					information, and both arrive after the &ldquo;original&rdquo; is locked. Our findings challenge this
+					model on two fronts.</p>
+				<p><em>First, access can be embedded in the formal grammar of production.</em> This aligns with
+					Bordwell&rsquo;s historical poetics of cinema [<a href="#ref-bordwell2012poetics">8</a>]: if
+					stylistic norms are historical rather than fixed, then accessibility does not require violating the
+					grammar of media. It requires redesigning it. P3 offered a precise illustration: in horror films, a
+					villain&rsquo;s distinctive keychain sound serves as audio description embedded in the sound design
+					itself&mdash;<em>&ldquo;you hear that noise and you associate it&hellip; the description
+						doesn&rsquo;t need to be that that person&rsquo;s arrived on screen.&rdquo;</em> P5&rsquo;s
+					observation that accessibility can work <em>with</em> &ldquo;TV Tropes&rdquo; is not merely a
+					pragmatic tip; it is an ontological claim that the formal grammar of screen media&mdash;shot
+					duration, dialogue pacing, information density&mdash;is a learned repertoire that can be redesigned.
+					We read this through [<a href="#ref-Hamraie2019">43</a>]&rsquo;s framing of access as
+					<em>world-building</em> and [<a href="#ref-siebers2010disability">92</a>]&rsquo;s disability
+					aesthetics: when access modalities are treated as artistic materials, the boundary between
+					&ldquo;the work&rdquo; and &ldquo;the access to the work&rdquo; dissolves.</p>
+				<p><em>Second, quality itself is contested, not stable.</em> Our findings surface how <em>quality</em>
+					in media accessibility is institutionalised through standards, audits, and evidence practices that
+					encode political assumptions about whose experience counts as the baseline [<a
+						href="#ref-Ellcessor2016">28</a>, <a href="#ref-OFCOM2020">72</a>]. The asymmetry is concrete:
+					P5 described how subtitle accuracy is measured against a 98% NER threshold enforced by Ofcom, while
+					audio description has no equivalent mechanism: <em>&ldquo;there is no mechanism for marking the
+						accuracy, it&rsquo;s all subjective.&rdquo;</em> This is not merely a measurement gap; it is a
+					governance gap. The existence of a metric for subtitling and the absence of one for audio
+					description means that one modality can be contractually enforced while the other depends on
+					professional judgement operating without institutional backing. This reframing directs attention
+					away from &ldquo;how do we measure accessibility quality&rdquo; and toward &ldquo;who gets to define
+					quality&rdquo;&mdash;treating quality as a political object, not a technical property.</p>
+				<h4>Access as socially situated, not individually accommodated</h4>
+				<p>A second reframing concerns the unit of analysis. Standard accessibility provision assumes a discrete
+					user with a discrete impairment: subtitles for the deaf, audio description for the blind. Our
+					findings unsettle this framing. Practitioners consistently described access as a household and
+					social phenomenon. P8 pointed to &ldquo;inclusive households&rdquo; as a design driver
+					<em>&ldquo;you could have deaf or partially hearing parents&hellip; and children,
+						together.&rdquo;</em> P2 described live audio description for sport as useful not only for blind
+					audiences but for keeping mixed groups engaged in noisy, socially dynamic settings
+					<em>&ldquo;you&rsquo;re holding your beer&hellip; you&rsquo;re looking away&hellip; and it keeps
+						you&hellip; in the game.&rdquo;</em></p>
+				<p>This echoes longstanding HCI arguments that the unit of design should be the group or situation
+					rather than the individual user [<a href="#ref-Grudin1994">38</a>], and resonates with Kafer&rsquo;s
+					[<a href="#ref-kafer2013feminist">54</a>] political/relational model of disability. The practical
+					consequence is that access systems designed for a singular &lsquo;disabled user&rsquo; will
+					systematically mis-serve the co-viewing, mixed-ability contexts our practitioners described.</p>
+				<p>Our study speaks to practitioners, not viewers. The social situatedness reframing emerges from how
+					practitioners imagine and describe their audiences, not from direct evidence of how disabled viewers
+					experience co-viewing. This shapes the scope of our design agenda: we can identify what production
+					conditions would need to change, but not yet confirm that such changes would serve disabled
+					audiences as intended. Future design work must close this loop.</p>
+				<h3>A Design Agenda: Three Seams, Three Interventions</h3>
+				<p>The reframings above identify <em>what</em> HCI should notice while moving forward we want to specify
+					<em>where</em> to intervene. Our findings reveal three vulnerable seams in the production lifecycle
+					where access intent is most likely to be lost (see Figure 1), yet this is not conclusive. Each seam
+					corresponds to a design direction, and each direction is grounded in both reframings. Table <a
+						href="#tab-3">3</a> summarises the mapping.</p>
+				<div class="table-wrap" role="region" aria-labelledby="tab-3-caption" tabindex="0">
+					<table id="tab-3">
+						<caption id="tab-3-caption"><strong>Table 3:</strong> Mapping seams to design directions
+						</caption>
+						<thead>
+							<tr>
+								<th scope="col">Seam</th>
+								<th scope="col">What Breaks</th>
+								<th scope="col">Design Direction</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Pre &rarr; Production</td>
+								<td>Creative intent not carried; access expertise siloed by remit</td>
+								<td><em>Governable Mandate</em>: accountability pathways that authorise upstream
+									intervention</td>
+							</tr>
+							<tr>
+								<td>Production &rarr; Post</td>
+								<td>Metadata discarded; quality contested without metrics</td>
+								<td><em>Durable Artefacts</em>: structured manifests that carry access intent across
+									handovers</td>
+							</tr>
+							<tr>
+								<td>Post &rarr; Distribution</td>
+								<td>Assets stripped at platform boundaries; personalisation divorced from authorship
+								</td>
+								<td><em>Layered Accessibility</em>: principled division of what must be authored vs.
+									adapted</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Seam 1: Governable Mandate</h4>
+				<p>The first seam sits between pre-production and production, where creative intent is most vulnerable
+					to being overridden by remit boundaries. Our findings show access coordinators holding substantial
+					cross-project knowledge yet lacking authority to convert it into protocols or procurement
+					requirements. P6 captured this precisely: as an &lsquo;Access Coordinator&rsquo; they are unlikely
+					to raise story-level concerns, but as an &lsquo;Editorial Consultant&rsquo; on the same production,
+					embedding audio description into dialogue falls within their remit. The difference is not
+					necessarily their expertise, it is mandate.</p>
+				<p>The &lsquo;access as authored&rsquo; reframing explains <em>why</em> mandate matters: if
+					accessibility can be achieved by redesigning the formal conventions of screen media (P5&rsquo;s
+					tropes argument), then the access coordinator&rsquo;s remit could extend to commenting on shot
+					framing, dialogue pacing, and information architecture. If that remit does not exist,
+					convention-level change is impossible regardless of individual willingness. The &lsquo;contested
+					quality&rsquo; dimension adds that governance is also needed around evidence practices: as
+					AI-assisted production expands, the risk is that automation renders contested judgements neutral
+					while shifting accountability away from human decision-makers [<a href="#ref-AIinFilm">100</a>].</p>
+				<p><em>Research direction.</em> HCI can contribute boundary objects [<a
+						href="#ref-star1989institutional">96</a>] that let access practitioners formally register
+					concerns in ways legible to producers and editors: structured access-concern registers linked to
+					scene breakdowns, procurement-facing templates translating access concerns into requirements vendors
+					can be held to, and auditability pathways specifying who can sign off on access decisions.
+					Crucially, these should not assume access workers can simply &ldquo;speak up&rdquo; into existing
+					hierarchies. They must reflect the realities participants described: remit boundaries, risk
+					aversion, and the social cost of commenting beyond one&rsquo;s place. Empirically, we need
+					longitudinal methods that trace how access decisions persist or dissipate through handovers and
+					contracts [<a href="#ref-schmidt1992taking">91</a>].</p>
+				<h4>Seam 2: Durable Artefacts</h4>
+				<p>The second seam sits between production and post-production, where metadata is discarded and quality
+					becomes contested without shared metrics. P2 captured this directly: <em>&ldquo;We throw away too
+						much metadata in the production process. It&rsquo;s very lossy.&rdquo;</em> When local knowledge
+					and lived experience are absent from the artefacts that travel, downstream teams must re-derive
+					access intent under deadline pressure, making ableist defaults more likely to slip through.</p>
+				<p>The &lsquo;access as authored&rsquo; reframing adds a dimension beyond metadata logistics. When a
+					sound designer embeds a character cue that doubles as description (P3&rsquo;s keychain example), or
+					when pacing is adjusted to create space for captions without damaging the story (P5), these are
+					deliberate creative-access decisions. Downstream teams need to know they were intentional;
+					otherwise, a remix might strip them out, or a subtitle vendor might duplicate what the sound design
+					already achieves. The durable artefact thus becomes not only a container for access data, but a
+					<em>legibility layer</em> that makes creative-access decisions visible to people who were not in the
+					room when they were made.</p>
+				<p>Our findings caution against <em>standards will solve it</em> narratives. Even where formats exist
+					(e.g. TTML, EBU-TT), adoption is constrained by procurement realities and vendor misalignment [<a
+						href="#ref-tai2016">99</a>]. The gap between a format existing and its consistent adoption
+					across a fragmented vendor ecosystem, where a production assembled from six contractors may involve
+					four incompatible subtitle authoring tools, is itself a design research problem.</p>
+				<p><em>Research direction.</em> HCI is well-positioned to study how metadata travels (or fails to
+					travel) through real workflows, rather than evaluating standards in isolation. Structured access
+					manifests that encode speaker identities, access-critical scene flags, modality dependencies, and
+					creative-access intent could travel with media content across platform boundaries. Editing
+					interfaces could preview how access interventions render in frame and flag scenes where critical
+					narrative information is carried in only one modality, enabling upstream teams to anticipate
+					downstream access needs before the edit locks.</p>
+				<h4>Seam 3: Layered Accessibility</h4>
+				<p>The third seam sits between post-production and distribution, where assets are stripped at platform
+					boundaries and personalisation becomes divorced from authorship. P3 described this failure directly:
+					a show with full audio description and captions on one broadcaster was acquired by a streaming
+					platform, which did not carry the accessibility across. Every access artefact was discarded at the
+					point of distribution.</p>
+				<p>The recurring tension our participants articulated is between what can be authored upstream and what
+					can be adapted at playback. Practitioners framed upstream integration as desirable but difficult
+					under real production conditions, while device-side personalisation was seen as a pragmatic route to
+					scale [<a href="#ref-Armstrong2014">3</a>, <a href="#ref-Natalie2024">69</a>]. Rather than a binary
+					choice, layered access is a design space for deciding what must be authored to preserve intent and
+					equity, and what can be safely delegated to client-side control [<a
+						href="#ref-Cieciura2023">18</a>].</p>
+				<p>The &lsquo;access as authored&rsquo; reframing clarifies what belongs on the authoring side: if
+					conventions can be redesigned to embed access (P3&rsquo;s diegetic sound cues), then source-level
+					authorship is about adjusting the formal grammar of production itself&mdash;pacing, framing,
+					information density, sound design. What can then be delegated to playback is the <em>degree</em> of
+					personalisation around that already-accessible grammar: audio mix balance, caption prominence,
+					description density, playback speed. The &lsquo;social situatedness&rsquo; reframing adds that these
+					controls should be designed for households and groups, not isolated individuals [<a
+						href="#ref-Grudin1994">38</a>, <a href="#ref-Yuill2012">109</a>]. P2&rsquo;s sports AD example
+					demonstrates that mass-scale accessibility need not mean a single universal experience; it can be
+					designed as situated configurations for particular contexts [<a href="#ref-Pfotenhauer2022">81</a>].
+				</p>
+				<p><em>Research direction.</em> One concrete instantiation is device-level middleware, a set-top box or
+					smart TV layer enforcing consistent access behaviours across streaming applications [<a
+						href="#ref-Geerts2014">34</a>]. Viewers in mixed-ability households would adjust audio mix,
+					caption prominence, and description density through physical dials, borrowing from the jog shuttle
+					controllers practitioners already normalise in post-production (ie., P7), without navigating nested
+					platform-specific menus. Co-viewing scenarios would support collaborative access controls where
+					settings are negotiated socially, so that a deaf parent and hearing child watching together do not
+					need to repeatedly reconfigure their shared screen. Such designs remain hypotheses requiring
+					validation with disabled audiences; our practitioner data can identify what production conditions
+					would need to change, but not yet confirm that such changes would be experienced as beneficial.</p>
+			</section>
+			<section class="numbered">
+				<h2>Conclusion</h2>
+				<p>This paper reframes media accessibility as a production ecology rather than a downstream service.
+					Drawing on interviews and workshops with 13 media practitioners, we show how access is repeatedly
+					shaped by fragmented remits, precarious labour, and lossy handovers. We contribute at two levels:
+					two reframings that reorient how HCI approaches media accessibility: access as authored (not
+					appended) and access as socially situated (not individually accommodated); and a design agenda
+					organised around the production lifecycle&rsquo;s three vulnerable seams, comprising governable
+					mandate, durable artefacts, and layered accessibility.</p>
+				<p>Our sample is drawn from a single national broadcasting context, and crucially, speaks to
+					practitioners rather than disabled viewers. The design agenda identifies what production conditions
+					would need to change, but cannot yet confirm that such changes would be experienced as beneficial by
+					the audiences they are intended to serve. Future work must close this loop: tracing how access
+					intent authored upstream is received by disabled audiences, and examining how emerging AI-assisted
+					workflows&mdash;automated captioning, LLM-drafted audio description, algorithmic quality
+					control&mdash;introduce new layers of accountability and contestation into the ecology we describe.
+					The production-ecology framing is not limited to broadcast: games, podcasting, interactive
+					documentary, and immersive media face analogous challenges, and the orientations offered here
+					provide transferable starting points. Meeting audiences where they are, the aspiration our
+					participants articulated, demands more than individual good will; it requires redesigning the
+					organisational ecology through which media is made.</p>
+			</section>
+			<section>
+				<h2>Acknowledgements</h2>
+				<p>We would like to thank our participants for generously giving their time to take part in interviews
+					and focus groups. We hope that their commitment, expertise, and vision will inspire other media
+					accessibility practitioners, designers, and researchers to better align industry and academic goals
+					in pursuit of more accessible media futures. This project was funded by the EPSRC through the CA11y
+					Project, grant reference EP/X012395/1</p>
+			</section>
+			<section id="references">
+				<h2>References</h2>
+				<ol>
+					<li id="ref-Acosta2020">Tania Acosta, Patricia Acosta-Vargas, Jose Zambrano-Miranda, and Sergio
+						Lujan-Mora. 2020. Web Accessibility Evaluation of Videos Published on YouTube by Worldwide
+						Top-Ranking Universities. <em>IEEE Access</em> 8 (2020), 110994&ndash;111011. <a
+							href="https://doi.org/10.1109/access.2020.3002175">https://doi.org/10.1109/access.2020.3002175</a>
+					</li>
+					<li id="ref-Alper2021">Meryl Alper. 2021. Critical media access studies: Deconstructing power,
+						visibility, and marginality in mediated space. <em>International Journal of Communication</em>
+						15 (2021), 22.</li>
+					<li id="ref-Armstrong2014">M. Armstrong, A. Churnside, M.E.F. Melchior, M. Shotton, and M. Brooks.
+						2014. Object-Based Broadcasting - Curation, Responsiveness and User Experience. In
+						<em>International Broadcasting Convention (IBC) 2014 Conference</em>. Institution of Engineering
+						and Technology, Salford, United Kingdom. <a
+							href="https://doi.org/10.1049/ib.2014.0038">https://doi.org/10.1049/ib.2014.0038</a></li>
+					<li id="ref-Armstrong2020">Mike Armstrong, Sally Bowman, Matthew Brooks, Andy Brown, Juliette
+						Carter, Andy Jones, Max Leonard, and Thomas Preece. 2020. Taking Object-Based Media from the
+						Research Environment Into Mainstream Production. <em>SMPTE Motion Imaging Journal</em> 129, 5
+						(June 2020), 30&ndash;38. <a
+							href="https://doi.org/10.5594/jmi.2020.2990255">https://doi.org/10.5594/jmi.2020.2990255</a>
+					</li>
+					<li id="ref-Armstrong2016">Mike Armstrong, Andy Brown, Michael Crabb, Chris J. Hughes, Rhianne
+						Jones, and James Sandford. 2016. Understanding the Diverse Needs of Subtitle Users in a Rapidly
+						Evolving Media Landscape. <em>SMPTE Motion Imaging Journal</em> 125, 9 (2016), 33&ndash;41. <a
+							href="https://doi.org/10.5594/JMI.2016.2614919">https://doi.org/10.5594/JMI.2016.2614919</a>
+					</li>
+					<li id="ref-badii2009accessibility">Atta Badii, David Fuschi, Ali Khan, and Adedayo Adetoye. 2009.
+						Accessibility-by-design: a framework for delivery-context-aware personalised media content
+						re-purposing. In <em>Symposium of the Austrian HCI and Usability Engineering Group</em>.
+						Springer, 209&ndash;226.</li>
+					<li id="ref-blumer2017wrong">Herbert Blumer. 2017. What is wrong with social theory? In
+						<em>Sociological methods</em>. Routledge, 84&ndash;96.</li>
+					<li id="ref-bordwell2012poetics">David Bordwell. 2012. Poetics of cinema. In <em>Poetics of
+							Cinema</em>. Routledge, 23&ndash;68.</li>
+					<li id="ref-branson2023accessible">Joshua Branson. 2023. <em>Accessible filmmaking in practice:
+							Critical and ethnographic perspectives on inclusionism, errancy and excess</em>. Ph.D.
+						Dissertation. University of Roehampton.</li>
+					<li id="ref-Braun2022">Virginia Braun, Victoria Clarke, Nikki Hayfield, Louise Davey, and Elizabeth
+						Jenkinson. 2022. Doing Reflexive Thematic Analysis. In <em>Supporting Research in Counselling
+							and Psychotherapy</em>. Springer International Publishing, Cham, Switzerland, 19&ndash;38.
+						<a
+							href="https://doi.org/10.1007/978-3-031-13942-0_2">https://doi.org/10.1007/978-3-031-13942-0_2</a>
+					</li>
+					<li id="ref-Brown2015">Andy Brown, Rhia Jones, Mike Crabb, James Sandford, Matthew Brooks, Mike
+						Armstrong, and Caroline Jay. 2015. Dynamic Subtitles: The User Experience. In <em>Proceedings of
+							the ACM International Conference on Interactive Experiences for TV and Online Video</em>
+						(TVX &rsquo;15). Association for Computing Machinery, New York, NY, USA, 103&ndash;112. <a
+							href="https://doi.org/10.1145/2745197.2745204">https://doi.org/10.1145/2745197.2745204</a>
+					</li>
+					<li id="ref-Campbell2024">Madeleine Campbell. 2024. Translating &lsquo;our&rsquo; world through
+						sound. In <em>The Experience of Translation</em>. Routledge, London, UK, 57&ndash;76. <a
+							href="https://doi.org/10.4324/9781003462538-5">https://doi.org/10.4324/9781003462538-5</a>
+					</li>
+					<li id="ref-carmichael2006digital">Alex Carmichael, Mark Rice, David Sloan, and Peter Gregor. 2006.
+						Digital switchover or digital divide: a prognosis for usable and accessible interactive digital
+						television in the UK. <em>Universal Access in the Information Society</em> 4, 4 (2006),
+						400&ndash;416.</li>
+					<li id="ref-Cartwright2009">Jade Cartwright and Kym A. E. Elliott. 2009. Promoting strategic
+						television viewing in the context of progressive language impairment. <em>Aphasiology</em> 23, 2
+						(2009), 266&ndash;285. <a
+							href="https://doi.org/10.1080/02687030801942932">https://doi.org/10.1080/02687030801942932</a>
+					</li>
+					<li id="ref-Chambers2021">Deborah Chambers. 2021. Emerging temporalities in the multiscreen home.
+						<em>Media, Culture and Society</em> 43, 7 (2021), 1180&ndash;1196. <a
+							href="https://doi.org/10.1177/0163443719867851">https://doi.org/10.1177/0163443719867851</a>
+					</li>
+					<li id="ref-Chaume2018">Frederic Chaume. 2018. Is audiovisual translation putting the concept of
+						translation up against the ropes? <em>The Journal of Specialised Translation</em> 30 (July
+						2018), 84&ndash;104. <a
+							href="https://jostrans.soap2.ch/issue30/art_chaume.php">https://jostrans.soap2.ch/issue30/art_chaume.php</a>
+					</li>
+					<li id="ref-Chaume2019localizing">Frederic Chaume. 2019. Localizing media contents: Technological
+						shifts, global and social differences and activism in audiovisual translation. In <em>The
+							Routledge Companion to Global Television</em>. Routledge, New York, NY, USA, 320&ndash;331.
+						<a
+							href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781315192468-32/localizing-media-contents-frederic-chaume">https://www.taylorfrancis.com/chapters/edit/10.4324/9781315192468-32/localizing-media-contents-frederic-chaume</a>
+					</li>
+					<li id="ref-Cieciura2023">Craig Cieciura, Maxine Glancy, and Philip J.B. Jackson. 2023. Producing
+						Personalised Object-Based Audio-Visual Experiences: an Ethnographic Study. In <em>Proceedings of
+							the 2023 ACM International Conference on Interactive Media Experiences</em> (IMX &rsquo;23).
+						Association for Computing Machinery, New York, NY, USA, 71&ndash;82. <a
+							href="https://doi.org/10.1145/3573381.3596156">https://doi.org/10.1145/3573381.3596156</a>
+					</li>
+					<li id="ref-Concannon2020">Shauna Concannon, Natasha Rajan, Parthiv Shah, Davy Smith, Marian Ursu,
+						and Jonathan Hook. 2020. Brooke Leave Home: Designing a Personalized Film to Support Public
+						Engagement with Open Data. In <em>Proceedings of the 2020 CHI Conference on Human Factors in
+							Computing Systems</em> (CHI &rsquo;20). Association for Computing Machinery, New York, NY,
+						USA, 1&ndash;14. <a
+							href="https://doi.org/10.1145/3313831.3376462">https://doi.org/10.1145/3313831.3376462</a>
+					</li>
+					<li id="ref-accountabilityManyHands">A. Feder Cooper, Emanuel Moss, Benjamin Laufer, and Helen
+						Nissenbaum. 2022. Accountability in an Algorithmic Society: Relationality, Responsibility, and
+						Robustness in Machine Learning. In <em>Proceedings of the 2022 ACM Conference on Fairness,
+							Accountability, and Transparency</em> (FAccT &rsquo;22). Association for Computing
+						Machinery, New York, NY, USA, 864&#8211;876. <a
+							href="https://doi.org/10.1145/3531146.3533150">https://doi.org/10.1145/3531146.3533150</a>
+					</li>
+					<li id="ref-Crabb2015subtitlePosition">Michael Crabb, Rhianne Jones, Mike Armstrong, and Chris J.
+						Hughes. 2015. Online News Videos: The UX of Subtitle Position. In <em>Proceedings of the 17th
+							International ACM SIGACCESS Conference on Computers and Accessibility</em> (ASSETS
+						&rsquo;15). Association for Computing Machinery, New York, NY, USA, 215&ndash;222. <a
+							href="https://doi.org/10.1145/2700648.2809866">https://doi.org/10.1145/2700648.2809866</a>
+					</li>
+					<li id="ref-dalsgaard2014between">Peter Dalsgaard and Christian Dindler. 2014. Between theory and
+						practice: bridging concepts in HCI research. In <em>Proceedings of the SIGCHI conference on
+							Human Factors in Computing Systems</em>. 1635&ndash;1644.</li>
+					<li id="ref-DeLacerdaPataca2025">Calua de Lacerda Pataca, Saad Hassan, Lloyd May, Michelle M Olson,
+						Toni D&rsquo;aurio, Roshan L Peiris, and Matt Huenerfauth. 2025. Tactile Emotions: Multimodal
+						Affective Captioning with Haptics Improves Narrative Engagement for d/Deaf and Hard-of-Hearing
+						Viewers. In <em>Proceedings of the 2025 CHI Conference on Human Factors in Computing
+							Systems</em> (CHI &rsquo;25). Association for Computing Machinery, New York, NY, USA,
+						Article 68, 17 pages. <a
+							href="https://doi.org/10.1145/3706598.3713304">https://doi.org/10.1145/3706598.3713304</a>
+					</li>
+					<li id="ref-DeLacerdaPataca2023">Calua de Lacerda Pataca, Matthew Watkins, Roshan Peiris, Sooyeon
+						Lee, and Matt Huenerfauth. 2023. Visualization of Speech Prosody and Emotion in Captions:
+						Accessibility for Deaf and Hard-of-Hearing Users. In <em>Proceedings of the 2023 CHI Conference
+							on Human Factors in Computing Systems</em> (CHI &rsquo;23). Association for Computing
+						Machinery, New York, NY, USA, Article 831, 15 pages. <a
+							href="https://doi.org/10.1145/3544548.3581511">https://doi.org/10.1145/3544548.3581511</a>
+					</li>
+					<li id="ref-Do2025">Tiffany D. Do, Usama Bin Shafqat, Elsie Ling, and Nikhil Sarda. 2025. PAIGE:
+						Examining Learning Outcomes and Experiences with Personalized AI-Generated Educational Podcasts.
+						In <em>Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</em> (CHI
+						&rsquo;25). Association for Computing Machinery, New York, NY, USA, Article 896, 12 pages. <a
+							href="https://doi.org/10.1145/3706598.3713460">https://doi.org/10.1145/3706598.3713460</a>
+					</li>
+					<li id="ref-Ellcessor2010">Elizabeth Ellcessor. 2010. Bridging Disability Divides. <em>Information,
+							Communication and Society</em> 13, 3 (April 2010), 289&ndash;308. <a
+							href="https://doi.org/10.1080/13691180903456546">https://doi.org/10.1080/13691180903456546</a>
+					</li>
+					<li id="ref-Ellcessor2011">Elizabeth Ellcessor. 2011. Captions On, Off, on TV, Online: Accessibility
+						and Search Engine Optimization in Online Closed Captioning. <em>Television and New Media</em>
+						13, 4 (Dec. 2011), 329&ndash;352. <a
+							href="https://doi.org/10.1177/1527476411425251">https://doi.org/10.1177/1527476411425251</a>
+					</li>
+					<li id="ref-Ellcessor2016">Elizabeth Ellcessor. 2016. <em>Restricted Access: Media, Disability, and
+							the Politics of Participation</em>. NYU Press. <a
+							href="http://www.jstor.org/stable/j.ctt18040rg">http://www.jstor.org/stable/j.ctt18040rg</a>
+					</li>
+					<li id="ref-EUAccessibilityAct">European Union. 2019. Directive (EU) 2019/882 of the European
+						Parliament and of the Council of 17 April 2019 on the accessibility requirements for products
+						and services. <em>Official Journal of the European Union</em> 151, 70 (2019), 70&ndash;115.</li>
+					<li id="ref-Evans2017">Michael Evans, Tristan Ferne, Zillah Watson, Frank Melchior, Matthew Brooks,
+						Phil Stenton, Ian Forrester, and Chris Baume. 2017. <em>Creating object-based experiences in the
+							real world</em>. British Broadcasting Corporation, UK. <a
+							href="https://www.theiet.org/media/9531/the-best-of-iet-and-ibc-2016.pdf#page=29">https://www.theiet.org/media/9531/the-best-of-iet-and-ibc-2016.pdf#page=29</a>
+					</li>
+					<li id="ref-FCC1973">FCC. 1973. <em>Section 508 of the Rehabilitation Act - 29 U.S.C. 798</em>. FCC.
+					</li>
+					<li id="ref-fryer2021integrated">Louise Fryer and Amelia Cavallo. 2021. <em>Integrated access in
+							live performance</em>. Routledge.</li>
+					<li id="ref-Funnell2019">Liam Funnell, Isabel Garriock, Ben Shirley, and Tracey Williamson. 2019.
+						Dementia-friendly design of television news broadcasts. <em>Journal of Enabling
+							Technologies</em> 13, 3 (Sept. 2019), 137&ndash;149. <a
+							href="https://doi.org/10.1108/jet-02-2018-0009">https://doi.org/10.1108/jet-02-2018-0009</a>
+					</li>
+					<li id="ref-Geerts2014">David Geerts, Rinze Leenheer, Dirk De Grooff, Joost Negenman, and Susanne
+						Heijstraten. 2014. In front of and behind the second screen: viewer and producer perspectives on
+						a companion app. In <em>Proceedings of the ACM International Conference on Interactive
+							Experiences for TV and Online Video</em> (TVX &rsquo;14). Association for Computing
+						Machinery, New York, NY, USA, 95&#8211;102. <a
+							href="https://doi.org/10.1145/2602299.2602312">https://doi.org/10.1145/2602299.2602312</a>
+					</li>
+					<li id="ref-GerberMoron2018">Olivia Gerber-Moron, Agnieszka Szarkowska, and Bencie Woll. 2018. The
+						impact of text segmentation on subtitle reading. <em>Journal of Eye Movement Research</em> 11, 4
+						(June 2018), 1&ndash;18. <a
+							href="https://doi.org/10.16910/11.4.2">https://doi.org/10.16910/11.4.2</a></li>
+					<li id="ref-Gorman2021">Benjamin M. Gorman, Michael Crabb, and Michael Armstrong. 2021. Adaptive
+						Subtitles: Preferences and Trade-Offs in Real-Time Media Adaption. In <em>Proceedings of the
+							2021 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;21). Association
+						for Computing Machinery, New York, NY, USA, Article 733, 11 pages. <a
+							href="https://doi.org/10.1145/3411764.3445509">https://doi.org/10.1145/3411764.3445509</a>
+					</li>
+					<li id="ref-Greco2016">Gian Maria Greco. 2016. On Accessibility as a Human Right, with an
+						Application to Media Accessibility. In <em>Researching Audio Description</em>. Palgrave
+						Macmillan UK, London, UK, 11&ndash;33. <a
+							href="https://doi.org/10.1057/978-1-137-56917-2_2">https://doi.org/10.1057/978-1-137-56917-2_2</a>
+					</li>
+					<li id="ref-Grudin1994">Jonathan Grudin. 1994. Groupware and social dynamics: eight challenges for
+						developers. <em>Commun. ACM</em> 37, 1 (Jan. 1994), 92&ndash;105. <a
+							href="https://doi.org/10.1145/175222.175230">https://doi.org/10.1145/175222.175230</a></li>
+					<li id="ref-Guinness2018">Darren Guinness, Annika Muehlbradt, Daniel Szafir, and Shaun K. Kane.
+						2018. The Haptic Video Player: Using Mobile Robots to Create Tangible Video Annotations. In
+						<em>Proceedings of the 2018 ACM International Conference on Interactive Surfaces and Spaces</em>
+						(ISS &rsquo;18). Association for Computing Machinery, New York, NY, USA, 203&ndash;211. <a
+							href="https://doi.org/10.1145/3279778.3279805">https://doi.org/10.1145/3279778.3279805</a>
+					</li>
+					<li id="ref-Hammad2023">Noor Hammad, Erik Harpstead, and Jessica Hammer. 2023. GameAware Streaming
+						Interfaces. In <em>Companion Proceedings of the Annual Symposium on Computer-Human Interaction
+							in Play</em> (CHI PLAY Companion &rsquo;23). Association for Computing Machinery, New York,
+						NY, USA, 248&ndash;253. <a
+							href="https://doi.org/10.1145/3573382.3616041">https://doi.org/10.1145/3573382.3616041</a>
+					</li>
+					<li id="ref-hamraie2016universal">Aimi Hamraie. 2016. Universal design and the problem of
+						&ldquo;post-disability&rdquo; ideology. <em>Design and Culture</em> 8, 3 (2016), 285&ndash;309.
+					</li>
+					<li id="ref-hamraie2017building">Aimi Hamraie. 2017. <em>Building access: Universal design and the
+							politics of disability</em>. U of Minnesota Press.</li>
+					<li id="ref-Hamraie2019">Aimi Hamraie and Kelly Fritsch. 2019. Crip Technoscience Manifesto.
+						<em>Catalyst: Feminism, Theory, Technoscience</em> 5, 1 (April 2019), 1&ndash;33. <a
+							href="https://doi.org/10.28968/cftt.v5i1.29607">https://doi.org/10.28968/cftt.v5i1.29607</a>
+					</li>
+					<li id="ref-Hanzlicek2008">Zdenek Hanzlicek, Jindrich Matousek, and Daniel Tihelka. 2008. Towards
+						Automatic Audio Track Generation for Czech TV Broadcasting: Initial Experiments with
+						Subtitles-to-Speech Synthesis. In <em>2008 9th International Conference on Signal
+							Processing</em>. IEEE, New York, NY, USA, 2721&ndash;2724. <a
+							href="https://doi.org/10.1109/icosp.2008.4697710">https://doi.org/10.1109/icosp.2008.4697710</a>
+					</li>
+					<li id="ref-Haslhofer2010">Bernhard Haslhofer and Wolfgang Klas. 2010. A survey of techniques for
+						achieving metadata interoperability. <em>ACM Comput. Surv.</em> 42, 2 (March 2010), Article 7,
+						37 pages. <a
+							href="https://doi.org/10.1145/1667062.1667064">https://doi.org/10.1145/1667062.1667064</a>
+					</li>
+					<li id="ref-hook2012strong">Kristina H&ouml;&ouml;k and Jonas L&ouml;wgren. 2012. Strong concepts:
+						Intermediate-level knowledge in interaction design research. <em>ACM Transactions on
+							Computer-Human Interaction (TOCHI)</em> 19, 3 (2012), 1&ndash;18.</li>
+					<li id="ref-OFCOM2021">Elfed Howells and David Jackson. 2021. <em>Object-Based Media Report</em>. <a
+							href="https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/technology-research/2021/object-based-media-report.pdf?v=322207">https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/technology-research/2021/object-based-media-report.pdf?v=322207</a>
+					</li>
+					<li id="ref-Huang2018">De-An Huang, Vignesh Ramanathan, Dhruv Mahajan, Lorenzo Torresani, Manohar
+						Paluri, Li Fei-Fei, and Juan Carlos Niebles. 2018. What Makes a Video a Video: Analyzing
+						Temporal Information in Video Understanding Models and Datasets. In <em>2018 IEEE/CVF Conference
+							on Computer Vision and Pattern Recognition</em>. IEEE, New York, NY, USA, 7366&ndash;7375.
+						<a href="https://doi.org/10.1109/cvpr.2018.00769">https://doi.org/10.1109/cvpr.2018.00769</a>
+					</li>
+					<li id="ref-Hughes2019">Chris Hughes, Mario Montagud Climent, and Peter tho Pesch. 2019. Disruptive
+						Approaches for Subtitling in Immersive Environments. In <em>Proceedings of the 2019 ACM
+							International Conference on Interactive Experiences for TV and Online Video</em> (TVX
+						&rsquo;19). Association for Computing Machinery, New York, NY, USA, 216&ndash;229. <a
+							href="https://doi.org/10.1145/3317697.3325123">https://doi.org/10.1145/3317697.3325123</a>
+					</li>
+					<li id="ref-Jiang2024">Lucy Jiang, Crescentia Jung, Mahika Phutane, Abigale Stangl, and Shiri
+						Azenkot. 2024. "It&rsquo;s Kind of Context Dependent": Understanding Blind and Low Vision
+						People&rsquo;s Video Accessibility Preferences Across Viewing Scenarios. In <em>Proceedings of
+							the 2024 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;24).
+						Association for Computing Machinery, New York, NY, USA, Article 897, 20 pages. <a
+							href="https://doi.org/10.1145/3613904.3642238">https://doi.org/10.1145/3613904.3642238</a>
+					</li>
+					<li id="ref-Jiang2022">Lucy Jiang and Richard Ladner. 2022. Co-Designing Systems to Support Blind
+						and Low Vision Audio Description Writers. In <em>Proceedings of the 24th International ACM
+							SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;22). Association for
+						Computing Machinery, New York, NY, USA, Article 74, 3 pages. <a
+							href="https://doi.org/10.1145/3517428.3550394">https://doi.org/10.1145/3517428.3550394</a>
+					</li>
+					<li id="ref-Jiang2023">Lucy Jiang, Mahika Phutane, and Shiri Azenkot. 2023. Beyond Audio
+						Description: Exploring 360 Video Accessibility with Blind and Low Vision Users Through
+						Collaborative Creation. In <em>Proceedings of the 25th International ACM SIGACCESS Conference on
+							Computers and Accessibility</em> (ASSETS &rsquo;23). Association for Computing Machinery,
+						New York, NY, USA, Article 50, 17 pages. <a
+							href="https://doi.org/10.1145/3597638.3608381">https://doi.org/10.1145/3597638.3608381</a>
+					</li>
+					<li id="ref-Jones2021">Rosie Jones, Hamed Zamani, Markus Schedl, Ching-Wei Chen, Sravana Reddy, Ann
+						Clifton, Jussi Karlgren, Helia Hashemi, Aasish Pappu, Zahra Nazari, Longqi Yang, Oguz Semerci,
+						Hugues Bouchard, and Ben Carterette. 2021. Current Challenges and Future Directions in Podcast
+						Information Access. In <em>Proceedings of the 44th International ACM SIGIR Conference on
+							Research and Development in Information Retrieval</em> (SIGIR &rsquo;21). Association for
+						Computing Machinery, New York, NY, USA, 1554&ndash;1565. <a
+							href="https://doi.org/10.1145/3404835.3462805">https://doi.org/10.1145/3404835.3462805</a>
+					</li>
+					<li id="ref-kafer2013feminist">Alison Kafer. 2013. <em>Feminist, queer, crip</em>. Indiana
+						University Press.</li>
+					<li id="ref-Kallinikos2011">Jannis Kallinikos and Jos&eacute;-Carlos Mari&aacute;tegui. 2011. Video
+						as Digital Object: Production and Distribution of Video Content in the Internet Media Ecosystem.
+						<em>The Information Society</em> 27, 5 (Oct. 2011), 281&ndash;294. <a
+							href="https://doi.org/10.1080/01972243.2011.607025">https://doi.org/10.1080/01972243.2011.607025</a>
+					</li>
+					<li id="ref-Killough2023">Daniel Killough and Amy Pavel. 2023. Exploring Community-Driven
+						Descriptions for Making Livestreams Accessible. In <em>Proceedings of the 25th International ACM
+							SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;23). Association for
+						Computing Machinery, New York, NY, USA, Article 42, 13 pages. <a
+							href="https://doi.org/10.1145/3597638.3608425">https://doi.org/10.1145/3597638.3608425</a>
+					</li>
+					<li id="ref-DigitalMarketPlaces">Stefan Kirchner and Elke Sch&uuml;&szlig;ler. 2019. The
+						organization of digital marketplaces: Unmasking the role of internet platforms in the sharing
+						economy. <em>Organization outside organization</em> (2019), 131&ndash;154.</li>
+					<li id="ref-WCAG">Andrew Kirkpatrick, Joshue O Connor, Alastair Campbell, and Michael Cooper. 2021.
+						<em>Web Content Accessibility Guidelines (WCAG) 2.1</em>. WWW Consortium (W3C). <a
+							href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></li>
+					<li id="ref-Korhonen2021">Annamari Korhonen and Maija Hirvonen. 2021. Joint creative process in
+						translation: Socially distributed cognition in two production contexts. <em>Cognitive Linguistic
+							Studies</em> 8, 2 (Nov. 2021), 251&ndash;276. <a
+							href="https://doi.org/10.1075/cogls.00078.kor">https://doi.org/10.1075/cogls.00078.kor</a>
+					</li>
+					<li id="ref-Kurzhals2020">Kuno Kurzhals, Fabian Gobel, Katrin Angerbauer, Michael Sedlmair, and
+						Martin Raubal. 2020. A View on the Viewer: Gaze-Adaptive Captions for Videos. In <em>Proceedings
+							of the 2020 CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;20).
+						Association for Computing Machinery, New York, NY, USA, 1&ndash;12. <a
+							href="https://doi.org/10.1145/3313831.3376266">https://doi.org/10.1145/3313831.3376266</a>
+					</li>
+					<li id="ref-Leahy2022">Ann Leahy and Delia Ferri. 2022. Barriers and Facilitators to Cultural
+						Participation by People with Disabilities: A Narrative Literature Review. <em>Scandinavian
+							Journal of Disability Research</em> 24, 1 (2022), 68&ndash;81. <a
+							href="https://doi.org/10.16993/sjdr.863">https://doi.org/10.16993/sjdr.863</a></li>
+					<li id="ref-Lee2025">Dawon Lee, Jongwoo Choi, and Junyong Noh. 2025. OptiSub: Optimizing Video
+						Subtitle Presentation for Varied Display and Font Sizes via Speech Pause-Driven Chunking. In
+						<em>Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</em> (CHI
+						&rsquo;25). Association for Computing Machinery, New York, NY, USA, Article 799, 12 pages. <a
+							href="https://doi.org/10.1145/3706598.3714199">https://doi.org/10.1145/3706598.3714199</a>
+					</li>
+					<li id="ref-Lewthwaite2014">Sarah Lewthwaite. 2014. Web accessibility standards and disability:
+						developing critical perspectives on accessibility. <em>Disability and Rehabilitation</em> 36, 16
+						(July 2014), 1375&ndash;1383. <a
+							href="https://doi.org/10.3109/09638288.2014.938178">https://doi.org/10.3109/09638288.2014.938178</a>
+					</li>
+					<li id="ref-Li2022">Franklin Mingzhe Li, Cheng Lu, Zhicong Lu, Patrick Carrington, and Khai N.
+						Truong. 2022. An Exploration of Captioning Practices and Challenges of Individual Content
+						Creators on YouTube for People with Hearing Impairments. <em>Proc. ACM Hum.-Comput.
+							Interact.</em> 6, CSCW1 (April 2022), Article 75, 26 pages. <a
+							href="https://doi.org/10.1145/3512922">https://doi.org/10.1145/3512922</a></li>
+					<li id="ref-Lopez2021">Mariana Lopez, Gavin Kearney, and Krisztian Hofstadter. 2021. Enhancing Audio
+						Description: Inclusive Cinematic Experiences Through Sound Design. <em>Journal of Audiovisual
+							Translation</em> 4, 1 (Oct. 2021), 157&ndash;182. <a
+							href="https://doi.org/10.47476/jat.v4i1.2021.154">https://doi.org/10.47476/jat.v4i1.2021.154</a>
+					</li>
+					<li id="ref-McDonnell2024">Emma J McDonnell, Tessa Eagle, Pitch Sinlapanuntakul, Soo Hyun Moon,
+						Kathryn E. Ringland, Jon E. Froehlich, and Leah Findlater. 2024. "Caption It in an Accessible
+						Way That Is Also Enjoyable": Characterizing User-Driven Captioning Practices on TikTok. In
+						<em>Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems</em> (CHI
+						&rsquo;24). Association for Computing Machinery, New York, NY, USA, Article 492, 16 pages. <a
+							href="https://doi.org/10.1145/3613904.3642177">https://doi.org/10.1145/3613904.3642177</a>
+					</li>
+					<li id="ref-McGill2016">Mark McGill, John H. Williamson, and Stephen Brewster. 2016. Examining The
+						Role of Smart TVs and VR HMDs in Synchronous At-a-Distance Media Consumption. <em>ACM
+							Transactions on Computer-Human Interaction</em> 23, 5 (Nov. 2016), 1&ndash;57. <a
+							href="https://doi.org/10.1145/2983530">https://doi.org/10.1145/2983530</a></li>
+					<li id="ref-Mott2020">Martez Mott, John Tang, Shaun Kane, Edward Cutrell, and Meredith Ringel
+						Morris. 2020. &ldquo;I just went into it assuming that I wouldn&rsquo;t be able to have the full
+						experience&rdquo;: Understanding the Accessibility of Virtual Reality for People with Limited
+						Mobility. In <em>The 22nd International ACM SIGACCESS Conference on Computers and
+							Accessibility</em>. ACM, New York, NY, USA, 1&ndash;13. <a
+							href="https://doi.org/10.1145/3373625.3416998">https://doi.org/10.1145/3373625.3416998</a>
+					</li>
+					<li id="ref-Natalie2024">Rosiana Natalie, Ruei-Che Chang, Smitha Sheshadri, Anhong Guo, and Kotaro
+						Hara. 2024. Audio Description Customization. In <em>Proceedings of the 26th International ACM
+							SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;24). Association for
+						Computing Machinery, New York, NY, USA, Article 39, 19 pages. <a
+							href="https://doi.org/10.1145/3663548.3675617">https://doi.org/10.1145/3663548.3675617</a>
+					</li>
+					<li id="ref-Natalie2021">Rosiana Natalie, Jolene Loh, Huei Suen Tan, Joshua Tseng, Ian Luke Yi-Ren
+						Chan, Ebrima H Jarjue, Hernisa Kacorri, and Kotaro Hara. 2021. The Efficacy of Collaborative
+						Authoring of Video Scene Descriptions. In <em>Proceedings of the 23rd International ACM
+							SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;21). Association for
+						Computing Machinery, New York, NY, USA, Article 17, 15 pages. <a
+							href="https://doi.org/10.1145/3441852.3471201">https://doi.org/10.1145/3441852.3471201</a>
+					</li>
+					<li id="ref-Nevsky2023">Alexandre Nevsky, Timothy Neate, Radu-Daniel Vatavu, and Elena Simperl.
+						2023. Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What
+						Should Be Done Next? In <em>ACM International Conference on Interactive Media Experiences</em>
+						(IMX &rsquo;23). Association for Computing Machinery, New York, NY, USA, 1&ndash;21. <a
+							href="https://doi.org/10.1145/3573381.3596159">https://doi.org/10.1145/3573381.3596159</a>
+					</li>
+					<li id="ref-OFCOM2020">OFCOM. 2020. <em>Internet users&rsquo; experience of potential online harms:
+							summary of survey research</em>. <a
+							href="https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/online-research/online-harms/2020/concerns-and-experiences-online-harms-2020-chart-pack-accessible.pdf?v=324903">https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/online-research/online-harms/2020/concerns-and-experiences-online-harms-2020-chart-pack-accessible.pdf?v=324903</a>
+					</li>
+					<li id="ref-OheneDjan2006">J. Ohene-Djan and R. Shipsey. 2006. E- Subtitles: Emotional Subtitles as
+						a Technology to Assist the Deaf and Hearing-Impaired when Learning from Television and Film. In
+						<em>Sixth IEEE International Conference on Advanced Learning Technologies (ICALT
+							&rsquo;06)</em>. IEEE, New York, NY, USA, 464&ndash;466. <a
+							href="https://doi.org/10.1109/icalt.2006.1652472">https://doi.org/10.1109/icalt.2006.1652472</a>
+					</li>
+					<li id="ref-Oliveira2011AD">Rita Oliveira, Jorge Ferraz de Abreu, and Ana Margarida Pisco Almeida.
+						2011. An iTV Audio Description Service: Suggesting Requirements and Features for Visually
+						Impaired Users. In <em>ENTERprise Information Systems</em>. Springer Berlin Heidelberg, Berlin,
+						Heidelberg, 59&ndash;68. <a
+							href="https://doi.org/10.1007/978-3-642-24352-3_7">https://doi.org/10.1007/978-3-642-24352-3_7</a>
+					</li>
+					<li id="ref-Orero2021">Pilar Orero, Marta Brescia-Zapata, and Chris Hughes. 2021. Evaluating
+						Subtitle Readability in Media Immersive Environments. In <em>9th International Conference on
+							Software Development and Technologies for Enhancing Accessibility and Fighting
+							Info-Exclusion</em> (DSAI 2020). Association for Computing Machinery, New York, NY, USA,
+						51&ndash;54. <a
+							href="https://doi.org/10.1145/3439231.3440602">https://doi.org/10.1145/3439231.3440602</a>
+					</li>
+					<li id="ref-orlikowski2019performing">Wanda J Orlikowski and Susan V Scott. 2019. Performing
+						apparatus: Infrastructures of valuation in hospitality. In <em>Thinking infrastructures</em>.
+						Emerald Publishing Limited, UK, 169&ndash;179.</li>
+					<li id="ref-Park2024">Jimin Park, Chaerin Lee, Eunbin Cho, and Uran Oh. 2024. Enhancing the Podcast
+						Browsing Experience through Topic Segmentation and Visualization with Generative AI. In
+						<em>Proceedings of the 2024 ACM International Conference on Interactive Media Experiences</em>
+						(IMX &rsquo;24). Association for Computing Machinery, New York, NY, USA, 117&ndash;128. <a
+							href="https://doi.org/10.1145/3639701.3656324">https://doi.org/10.1145/3639701.3656324</a>
+					</li>
+					<li id="ref-ThisIsNotaFish">Elena Parmiggiani. 2017. This is not a fish: on the scale and politics
+						of infrastructure design studies. <em>Computer Supported Cooperative Work (CSCW)</em> 26, 1
+						(2017), 205&ndash;243.</li>
+					<li id="ref-Perego2014">Elisa Perego. 2014. Film language and tool. In <em>Audio Description: New
+							perspectives illustrated</em>. John Benjamins Publishing Company, Amsterdam, Netherlands,
+						81&ndash;102.</li>
+					<li id="ref-PrezGonzlez2012">Luis P&eacute;rez-Gonz&aacute;lez. 2012. Co-creational subtitling in
+						the digital media: Transformative and authorial practices. <em>International Journal of Cultural
+							Studies</em> 16, 1 (Sept. 2012), 3&ndash;21. <a
+							href="https://doi.org/10.1177/1367877912459145">https://doi.org/10.1177/1367877912459145</a>
+					</li>
+					<li id="ref-Pfotenhauer2022">Sebastian Pfotenhauer, Brice Laurent, Kyriaki Papageorgiou, and Jack
+						Stilgoe. 2022. The politics of scaling. <em>Social Studies of Science</em> 52, 1 (Feb. 2022),
+						3&ndash;34. <a
+							href="https://doi.org/10.1177/03063127211048945">https://doi.org/10.1177/03063127211048945</a>
+					</li>
+					<li id="ref-Rander2010">Anni Rander and Peter Olaf Looms. 2010. The accessibility of television news
+						with live subtitling on digital television. In <em>Proceedings of the 8th European Conference on
+							Interactive TV and Video</em> (EuroITV &rsquo;10). Association for Computing Machinery, New
+						York, NY, USA, 155&ndash;160. <a
+							href="https://doi.org/10.1145/1809777.1809809">https://doi.org/10.1145/1809777.1809809</a>
+					</li>
+					<li id="ref-Rashid2006">Raisa Rashid, Jonathan Aitken, and Deborah I. Fels. 2006. Expressing
+						Emotions Using Animated Text Captions. In <em>Lecture Notes in Computer Science</em>. Springer
+						Berlin Heidelberg, Berlin, Heidelberg, 24&ndash;31. <a
+							href="https://doi.org/10.1007/11788713_5">https://doi.org/10.1007/11788713_5</a></li>
+					<li id="ref-RomeroFresco2019">Pablo Romero-Fresco. 2019. <em>Accessible Filmmaking: Integrating
+							translation and accessibility into the filmmaking process</em>. Routledge, London, UK. <a
+							href="https://doi.org/10.4324/9780429053771">https://doi.org/10.4324/9780429053771</a></li>
+					<li id="ref-RomeroFresco2022">Pablo Romero-Fresco and Frederic Chaume. 2022. Creativity in
+						Audiovisual Translation and Media Accessibility. <em>The Journal of Specialised Translation</em>
+						38, 1 (Jan. 2022), 75&ndash;101. <a
+							href="https://doi.org/10.26034/cm.jostrans.2022.084">https://doi.org/10.26034/cm.jostrans.2022.084</a>
+					</li>
+					<li id="ref-Rooksby2014">John Rooksby, Mattias Rost, Alistair Morrison, Marek Bell, Matthew
+						Chalmers, and Timothy Smith. 2014. <em>Practices of parallel media: Using mobile devices when
+							watching television</em>. Association for Computing Machinery, New York, NY, USA.</li>
+					<li id="ref-rose2002teaching">David H Rose and Anne Meyer. 2002. <em>Teaching every student in the
+							digital age: Universal design for learning</em>. ERIC.</li>
+					<li id="ref-Rothe2018dynamicSubtitles">Sylvia Rothe, Kim Tran, and Heinrich Hussmann. 2018. Dynamic
+						Subtitles in Cinematic Virtual Reality. In <em>Proceedings of the 2018 ACM International
+							Conference on Interactive Experiences for TV and Online Video</em> (TVX &rsquo;18).
+						Association for Computing Machinery, New York, NY, USA, 209&ndash;214. <a
+							href="https://doi.org/10.1145/3210825.3213556">https://doi.org/10.1145/3210825.3213556</a>
+					</li>
+					<li id="ref-Rothe2018positioningSubtitles">Sylvia Rothe, Kim Tran, and Heinrich Hussmann. 2018.
+						Positioning of Subtitles in Cinematic Virtual Reality. In <em>ICAT-EGVE 2018 - International
+							Conference on Artificial Reality and Telexistence and Eurographics Symposium on Virtual
+							Environments</em>. The Eurographics Association, Germany, 1&ndash;8. <a
+							href="https://doi.org/10.2312/egve.20181307">https://doi.org/10.2312/egve.20181307</a></li>
+					<li id="ref-Saunders2020">Ben Saunders, Necati Cihan Camgoz, and Richard Bowden. 2020. Progressive
+						Transformers for End-to-End Sign Language Production. In <em>Computer Vision - ECCV 2020</em>.
+						Springer International Publishing, Cham, Switzerland, 687&ndash;705. <a
+							href="https://doi.org/10.1007/978-3-030-58621-8_40">https://doi.org/10.1007/978-3-030-58621-8_40</a>
+					</li>
+					<li id="ref-schmidt1992taking">Kjeld Schmidt and Liam Bannon. 1992. Taking CSCW seriously:
+						Supporting articulation work. <em>Computer supported cooperative work (CSCW)</em> 1, 1 (1992),
+						7&ndash;40.</li>
+					<li id="ref-siebers2010disability">Tobin Siebers. 2010. <em>Disability aesthetics</em>. University
+						of Michigan Press Ann Arbor.</li>
+					<li id="ref-Sitbon2019">Laurianne Sitbon, Ross Brown, and Lauren Fell. 2019. Turning Heads:
+						Designing Engaging Immersive Video Experiences to Support People with Intellectual Disability
+						when Learning Everyday Living Skills. In <em>The 21st International ACM SIGACCESS Conference on
+							Computers and Accessibility</em>. ACM, New York, NY, USA, 171&ndash;182. <a
+							href="https://doi.org/10.1145/3308561.3353787">https://doi.org/10.1145/3308561.3353787</a>
+					</li>
+					<li id="ref-Soe2021">Than Htut Soe, Frode Guribye, and Marija Slavkovik. 2021. Evaluating AI
+						assisted subtitling. In <em>Proceedings of the 2021 ACM International Conference on Interactive
+							Media Experiences</em> (IMX &rsquo;21). Association for Computing Machinery, New York, NY,
+						USA, 96&ndash;107. <a
+							href="https://doi.org/10.1145/3452918.3458792">https://doi.org/10.1145/3452918.3458792</a>
+					</li>
+					<li id="ref-Stangl2023">Abigale Stangl, Shasta Ihorn, Yue-Ting Siu, Aditya Bodi, Mar Castanon,
+						Lothar D Narins, and Ilmi Yoon. 2023. The Potential of a Visual Dialogue Agent In a Tandem
+						Automated Audio Description System for Videos. In <em>Proceedings of the 25th International ACM
+							SIGACCESS Conference on Computers and Accessibility</em> (ASSETS &rsquo;23). Association for
+						Computing Machinery, New York, NY, USA, Article 32, 17 pages. <a
+							href="https://doi.org/10.1145/3597638.3608402">https://doi.org/10.1145/3597638.3608402</a>
+					</li>
+					<li id="ref-star1989institutional">Susan Leigh Star and James R Griesemer. 1989. Institutional
+						ecology,translations&rsquo; and boundary objects: Amateurs and professionals in Berkeley&rsquo;s
+						Museum of Vertebrate Zoology, 1907-39. <em>Social studies of science</em> 19, 3 (1989),
+						387&ndash;420.</li>
+					<li id="ref-hospitalorder">Allan Stisen, Nervo Verdezoto, Henrik Blunck, Mikkel Baun
+						Kj&aelig;rgaard, and Kaj Gr&oslash;nb&aelig;k. 2016. Accounting for the Invisible Work of
+						Hospital Orderlies: Designing for Local and Global Coordination. In <em>Proceedings of the 19th
+							ACM Conference on Computer-Supported Cooperative Work &amp; Social Computing</em> (CSCW
+						&rsquo;16). Association for Computing Machinery, New York, NY, USA, 980&#8211;992. <a
+							href="https://doi.org/10.1145/2818048.2820006">https://doi.org/10.1145/2818048.2820006</a>
+					</li>
+					<li id="ref-Suchman1995makingWorkVisible">Lucy Suchman. 1995. Making work visible. <em>Commun.
+							ACM</em> 38, 9 (Sept. 1995), 56&#8211;64. <a
+							href="https://doi.org/10.1145/223248.223263">https://doi.org/10.1145/223248.223263</a></li>
+					<li id="ref-tai2016">Andreas Tai. 2016. XML in the air - How TTML can change the workflows for
+						broadcast subtitles. In <em>In Proceedings of Balisage: The Markup Conference 2016</em>.</li>
+					<li id="ref-AIinFilm">Shah Muhammad Imtiyaj Uddin, Rashedul Islam Sumon, Md Ariful Islam Mozumder,
+						Md Kamran Hussin Chowdhury, Tagne Poupi Theodore Armand, and Hee Cheol Kim. 2025. Innovations
+						and Challenges of AI in Film: A Methodological Framework for Future Exploration. <em>ACM Trans.
+							Multimedia Comput. Commun. Appl.</em> 21, 7 (July 2025), Article 199, 55 pages. <a
+							href="https://doi.org/10.1145/3736724">https://doi.org/10.1145/3736724</a></li>
+					<li id="ref-Villena2014webVideo">Johana Maria Rosas Villena, Bruno Costa Ramos, Renata Pontin M.
+						Fortes, and Rudinei Goularte. 2014. Web Videos - Concerns About Accessibility based on User
+						Centered Design. <em>Procedia Computer Science</em> 27 (2014), 481&ndash;490. <a
+							href="https://doi.org/10.1016/j.procs.2014.02.052">https://doi.org/10.1016/j.procs.2014.02.052</a>
+					</li>
+					<li id="ref-Vinayagamoorthy2018">Vinoba Vinayagamoorthy, Maxine Glancy, Paul Debenham, Alastair
+						Bruce, Christoph Ziegler, and Richard Schaffer. 2018. Personalising the TV Experience with
+						Augmented Reality Technology: Synchronised Sign Language Interpretation. In <em>Proceedings of
+							the 2018 ACM International Conference on Interactive Experiences for TV and Online
+							Video</em> (TVX &rsquo;18). Association for Computing Machinery, New York, NY, USA,
+						179&ndash;184. <a
+							href="https://doi.org/10.1145/3210825.3213562">https://doi.org/10.1145/3210825.3213562</a>
+					</li>
+					<li id="ref-Vinayagamoorthy2019">Vinoba Vinayagamoorthy, Maxine Glancy, Christoph Ziegler, and
+						Richard Schaffer. 2019. Personalising the TV Experience Using Augmented Reality: An Exploratory
+						Study on Delivering Synchronised Sign Language Interpretation. In <em>Proceedings of the 2019
+							CHI Conference on Human Factors in Computing Systems</em> (CHI &rsquo;19). Association for
+						Computing Machinery, New York, NY, USA, 1&ndash;12. <a
+							href="https://doi.org/10.1145/3290605.3300762">https://doi.org/10.1145/3290605.3300762</a>
+					</li>
+					<li id="ref-Walczak2017smartphoneAD">Agnieszka Walczak. 2017. Audio Description on Smartphones:
+						Making Cinema Accessible for Visually Impaired Audiences. <em>Universal Access in the
+							Information Society</em> 17, 4 (Aug. 2017), 833&ndash;840. <a
+							href="https://doi.org/10.1007/s10209-017-0568-2">https://doi.org/10.1007/s10209-017-0568-2</a>
+					</li>
+					<li id="ref-Walczak2017creativeDescription">Agnieszka Walczak and Louise Fryer. 2017. Creative
+						description: The impact of audio description style on presence in visually impaired audiences.
+						<em>British Journal of Visual Impairment</em> 35, 1 (2017), 6&ndash;17. <a
+							href="https://doi.org/10.1177/0264619616661603">https://doi.org/10.1177/0264619616661603</a>
+					</li>
+					<li id="ref-Wang2025cinemaster">Qinghe Wang, Yawen Luo, Xiaoyu Shi, Xu Jia, Huchuan Lu, Tianfan Xue,
+						Xintao Wang, Pengfei Wan, Di Zhang, and Kun Gai. 2025. CineMaster: A 3D-Aware and Controllable
+						Framework for Cinematic Text-to-Video Generation. In <em>Proceedings of the Special Interest
+							Group on Computer Graphics and Interactive Techniques Conference Conference Papers</em>
+						(SIGGRAPH Conference Papers &rsquo;25). Association for Computing Machinery, New York, NY, USA,
+						Article 60, 10 pages. <a
+							href="https://doi.org/10.1145/3721238.3730755">https://doi.org/10.1145/3721238.3730755</a>
+					</li>
+					<li id="ref-Ward2019">Lauren Ward and Ben Shirley. 2019. Personalization in Object-based Audio for
+						Accessibility: A Review of Advancements for Hearing Impaired Listeners. <em>Journal of the Audio
+							Engineering Society</em> 67, 7/8 (Aug. 2019), 584&ndash;597. <a
+							href="https://doi.org/10.17743/jaes.2019.0021">https://doi.org/10.17743/jaes.2019.0021</a>
+					</li>
+					<li id="ref-Ward2018">Lauren Ward, Ben Shirley, and Jon Francombe. 2018. <em>Accessible Object-Based
+							Audio Using Hierarchical Narrative Importance Metadata</em>. Technical Report. BBC. <a
+							href="https://downloads.bbc.co.uk/rd/pubs/whp/whp-pdf-files/WHP395.pdf">https://downloads.bbc.co.uk/rd/pubs/whp/whp-pdf-files/WHP395.pdf</a>
+					</li>
+					<li id="ref-Yuill2012">Nicola Yuill and Yvonne Rogers. 2012. Mechanisms for collaboration: A design
+						and evaluation framework for multi-user interfaces. <em>ACM Trans. Comput.-Hum. Interact.</em>
+						19, 1 (May 2012), Article 1, 25 pages. <a
+							href="https://doi.org/10.1145/2147783.2147784">https://doi.org/10.1145/2147783.2147784</a>
+					</li>
+					<li id="ref-Yuksel2020">Beste F. Yuksel, Pooyan Fazli, Umang Mathur, Vaishali Bisht, Soo Jung Kim,
+						Joshua Junhee Lee, Seung Jung Jin, Yue-Ting Siu, Joshua A. Miele, and Ilmi Yoon. 2020.
+						Human-in-the-Loop Machine Learning to Increase Video Accessibility for Visually Impaired and
+						Blind Users. In <em>Proceedings of the 2020 ACM Designing Interactive Systems Conference</em>
+						(DIS &rsquo;20). Association for Computing Machinery, New York, NY, USA, 47&ndash;60. <a
+							href="https://doi.org/10.1145/3357236.3395433">https://doi.org/10.1145/3357236.3395433</a>
+					</li>
+				</ol>
+			</section>
+		</article>
+	</main>
+</body>
+
+</html>
