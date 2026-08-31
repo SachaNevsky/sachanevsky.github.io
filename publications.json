@@ -1,0 +1,238 @@
+{
+    "author": "Alexandre Nevsky",
+    "publications": [
+        {
+            "slug": "designing_tibbl",
+            "bibkey": "Nevsky2026",
+            "kind": "C",
+            "title": "Designing TIBBL: A Tangible Inclusive Block-Based Language for Widening Access to Programming",
+            "authors": [
+                "Alexandre Nevsky",
+                "Xinyun He",
+                "Samantha Callaghan",
+                "Elliott Hall",
+                "Zihao Lu",
+                "Tiffany Ong",
+                "Timothy Neate",
+                "Alex Hadwen-Bennett"
+            ],
+            "venue": "ACM SIGACCESS Conference on Computers and Accessibility (ASSETS)",
+            "year": 2026,
+            "url": "https://doi.org/10.1145/3797867.3829009",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "rethinking_media_accessibility_and_design_with_media_practitioners",
+            "bibkey": "Bircanin2026b",
+            "kind": "C",
+            "title": "\"You meet the audience at where they're at, not where you want them to be\": Rethinking Media Accessibility and Design with Media Practitioners",
+            "authors": [
+                "Filip Bircanin",
+                "Alexandre Nevsky",
+                "Madeline Cruice",
+                "Timothy Neate"
+            ],
+            "venue": "ACM Designing Interactive Systems Conference (DIS)",
+            "year": 2026,
+            "url": "https://doi.org/10.1145/3800645.3812914",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "mapping_movies",
+            "bibkey": "Bali2026",
+            "kind": "P",
+            "title": "Mapping Movies: A Mind-Map Approach to Aphasia-Friendly Video",
+            "authors": [
+                "Shayan Bali",
+                "Alexandre Nevsky",
+                "Filip Bircanin",
+                "Timothy Neate"
+            ],
+            "venue": "ACM Conference on Human Factors in Computing Systems (CHI)",
+            "year": 2026,
+            "url": "https://doi.org/10.1145/3772363.3798702",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "a_sound_understanding",
+            "bibkey": "Bircanin2026",
+            "kind": "C",
+            "title": "A Sound Understanding: An In-Situ Deployment of an Accessible Audio-Media Player with People Living with Aphasia",
+            "authors": [
+                "Filip Bircanin",
+                "Alexandre Nevsky",
+                "Madeline Cruice",
+                "Ognjen Markovic",
+                "Timothy Neate"
+            ],
+            "venue": "ACM Conference on Human Factors in Computing Systems (CHI)",
+            "year": 2026,
+            "url": "https://doi.org/10.1145/3772318.3791419",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "accessibility_in_austerity",
+            "bibkey": "Neate2025",
+            "kind": "W",
+            "title": "Accessibility in Austerity: Formulating Strategies for Accessibility Research in Constrained Times",
+            "authors": [
+                "Timothy Neate",
+                "Beatrice Vincenzi",
+                "Bel\u00e9n Barros Pena",
+                "Alexandre Nevsky",
+                "Sarah Lewthwaite",
+                "Shital Desai",
+                "Fernando Loizides",
+                "Humphrey Curtis",
+                "Filip Bircanin"
+            ],
+            "venue": "International BCS Human-Computer Interaction Conference (BCS HCI)",
+            "year": 2025,
+            "url": "https://doi.org/10.14236/ewic/BCSHCI2025.4",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "to_each_their_own",
+            "bibkey": "Nevsky2025",
+            "kind": "C",
+            "title": "To Each Their Own: Exploring Highly Personalised Audiovisual Media Accessibility Interventions with People Living with Aphasia",
+            "authors": [
+                "Alexandre Nevsky",
+                "Filip Bircanin",
+                "Elena Simperl",
+                "Madeline Cruice",
+                "Timothy Neate"
+            ],
+            "venue": "ACM Designing Interactive Systems Conference (DIS)",
+            "year": 2025,
+            "url": "https://doi.org/10.1145/3715336.3735771",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "sounds_accessible",
+            "bibkey": "Bircanin2025",
+            "kind": "C",
+            "title": "Sounds Accessible: Envisioning Accessible Audio Media Futures with People with Aphasia",
+            "authors": [
+                "Filip Bircanin",
+                "Alexandre Nevsky",
+                "Himaya Perera",
+                "Vaasvi Agarwal",
+                "Eunyeol Song",
+                "Madeline Cruice",
+                "Timothy Neate"
+            ],
+            "venue": "ACM Conference on Human Factors in Computing Systems (CHI)",
+            "year": 2025,
+            "url": "https://doi.org/10.1145/3706598.3714000",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "envisioning_media_accessibility_interventions_with_people_with_aphasia",
+            "bibkey": "Nevsky2024b",
+            "kind": "C",
+            "title": "\"I Wish You Could Make the Camera Stand Still\": Envisioning Media Accessibility Interventions with People with Aphasia",
+            "authors": [
+                "Alexandre Nevsky",
+                "Filip Bircanin",
+                "Madeline Cruice",
+                "Stephanie Wilson",
+                "Elena Simperl",
+                "Timothy Neate"
+            ],
+            "venue": "ACM SIGACCESS Conference on Computers and Accessibility (ASSETS)",
+            "year": 2024,
+            "url": "https://doi.org/10.1145/3663548.3675598",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "lights_camera_access",
+            "bibkey": "Nevsky2024",
+            "kind": "C",
+            "title": "Lights, Camera, Access: A Closeup on Audiovisual Media Accessibility and Aphasia",
+            "authors": [
+                "Alexandre Nevsky",
+                "Timothy Neate",
+                "Elena Simperl",
+                "Madeline Cruice"
+            ],
+            "venue": "ACM Conference on Human Factors in Computing Systems (CHI)",
+            "year": 2024,
+            "url": "https://doi.org/10.1145/3613904.3641893",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "accessibility_research_in_digital_audiovisual_media",
+            "bibkey": "Nevsky2023",
+            "kind": "C",
+            "title": "Accessibility Research in Digital Audiovisual Media: What Has Been Achieved and What Should Be Done Next?",
+            "authors": [
+                "Alexandre Nevsky",
+                "Timothy Neate",
+                "Elena Simperl",
+                "Radu-Daniel Vatavu"
+            ],
+            "venue": "ACM International Conference on Interactive Media Experiences (IMX)",
+            "year": 2023,
+            "url": "https://doi.org/10.1145/3573381.3596159",
+            "award": "honourable",
+            "links": [
+                "pdf",
+                "html"
+            ]
+        },
+        {
+            "slug": "object_based_access",
+            "bibkey": "Nevsky2023b",
+            "kind": "P",
+            "title": "Object-Based Access: Enhancing Accessibility with Data-Driven Media",
+            "authors": [
+                "Alexandre Nevsky"
+            ],
+            "venue": "ACM International Conference on Interactive Media Experiences (IMX)",
+            "year": 2023,
+            "url": "https://doi.org/10.1145/3573381.3596500",
+            "award": null,
+            "links": [
+                "pdf",
+                "html"
+            ]
+        }
+    ]
+}
