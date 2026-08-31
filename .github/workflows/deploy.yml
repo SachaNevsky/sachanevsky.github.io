@@ -25,9 +25,6 @@ jobs:
       - name: Generate publications.html
         run: python3 build_publications.py
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v5
         with:
