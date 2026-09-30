@@ -60,11 +60,11 @@ html {
 }
 
 body {
-    margin-top: 80px;
-    /* because of navbar */
+    margin-top: 80px; /* because of navbar */
     font-family: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", sans-serif;
     background-color: var(--bg);
     color: var(--fg);
+    margin-bottom: 50px; /* footer spacing */
 }
 
 hr {
